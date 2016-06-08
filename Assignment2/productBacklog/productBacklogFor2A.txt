@@ -1,0 +1,12 @@
+As a user, I can store files and directories in a file system. 8 hours.
+As a user, I can navigate to the directory I want. 2 hours.
+As a user, I can find my file location. 1 hour.
+As a user, I can enter commands into the shell. 2 hours.
+As a user, I can exit the shell whenever I want. 1 hour.
+As a user, I can create new directories. 2 hours.
+As a user, I can see the contents in a directory. 1 hour.
+As a user, I can view the history of as many commands that were entered. 2 hours.
+As a user, I can view the documentation for a command. 1 hour.
+As a user, I can read and write to files. 3 hours.
+As a user, I can save a directory. 2 hours.
+As a user, I can get the most recently saved directory. 2 hours.
