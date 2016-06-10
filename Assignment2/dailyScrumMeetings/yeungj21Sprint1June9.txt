@@ -1,12 +1,13 @@
 What did I do last time?
--contributed to the product backlog
--planned with the team on which pairs' crc cards to use
+	-contributed to the product backlog
+	-planned with the team on which pairs' crc cards to use
+	-planned with the team on the overall design and direction of the assignment
 
 What do I plan to do now?
--work on my tasks for Sprint 1
-	-write the code for the basic structure of the file class
-	-write the code for the basic structure of the text file class
-	-write the code for the basic structure of the directory class
+	-work on my tasks for Sprint 1
+		-write the code for the basic structure of the file class
+		-write the code for the basic structure of the text file class
+		-write the code for the basic structure of the directory class
 
 Am I blocked on anything?
 -None
