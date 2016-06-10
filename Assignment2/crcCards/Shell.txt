@@ -1,0 +1,12 @@
+Class name: Shell
+Parent class: N/A
+Subclasses: N/A
+
+Responsibilities:
+Reads input
+Displays output
+Gives the input to the interpreter
+Quits the program
+
+Collaborators:
+Interpreter

@@ -1,0 +1,9 @@
+Class name: Echo
+Parent class: Command
+Subclasses: N/A
+
+Responsibilities:
+Writes to a file
+Creates a file
+
+Collaborators: N/A

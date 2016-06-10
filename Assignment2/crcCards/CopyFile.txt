@@ -1,0 +1,8 @@
+Class name: CopyFile
+Parent class: Command
+Subclasses: N/A
+
+Responsibilities:
+Copies data from file and creates another file with the same data
+
+Collaborators: N/A

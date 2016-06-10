@@ -1,0 +1,9 @@
+Class name: MoveFile
+Parent class: Copy
+Subclasses: N/A
+
+Responsibilities:
+Deletes files
+Rename files
+
+Collaborators: N/A

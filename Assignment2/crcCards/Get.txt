@@ -1,0 +1,8 @@
+Class name: Get
+Parent class: Command
+Subclasses: N/A
+
+Responsibilities:
+Retrieves files at a URL and adds them to the current directory
+
+Collaborators: N/A

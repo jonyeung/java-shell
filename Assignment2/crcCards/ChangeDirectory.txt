@@ -1,0 +1,8 @@
+Class name: ChangeDirectory
+Parent class: Command
+Subclasses: N/A
+
+Responsibilities:
+Change current directory
+
+Collaborators: N/A

@@ -1,0 +1,9 @@
+Class name: CommandException
+Parent class: N/A
+Subclasses: N/A
+
+Responsibilities:
+Throws an exception if given bad command, file path,
+	 or wrong number of arguments
+
+Collaborators: N/A

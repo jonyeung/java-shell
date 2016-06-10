@@ -1,0 +1,9 @@
+Class name: Directory
+Parent class: File
+Subclasses: N/A
+
+Responsibilities:
+Contains other files and directories
+
+Collaborators: 
+N/A

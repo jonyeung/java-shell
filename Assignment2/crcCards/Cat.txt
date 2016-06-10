@@ -1,0 +1,8 @@
+Class name: Cat
+Parent class: Command
+Subclasses: N/A
+
+Responsibilities:
+Prints the data in the file
+
+Collaborators: N/A

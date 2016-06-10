@@ -1,0 +1,10 @@
+Class name: TextFile
+Parent class: File
+Subclasses: N/A
+
+Responsibilities:
+Holds text
+Reads text in file
+Writes text in file
+
+Collaborators: N/A

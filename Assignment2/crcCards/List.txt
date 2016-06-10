@@ -1,0 +1,8 @@
+Class name: List
+Parent class: Command
+Subclasses: N/A
+
+Responsibilities:
+Prints the names of all files and directories in the current directory
+
+Collaborators: N/A

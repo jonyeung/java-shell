@@ -1,0 +1,11 @@
+Class name: Interpreter
+Parent class: N/A
+Subclasses: N/A
+
+Responsibilities: 
+Checks if command is valid
+Interprets the command and decides which class will handle it
+Interprets the file path given in the command 
+
+Collaborators:
+Command

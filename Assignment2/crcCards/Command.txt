@@ -1,0 +1,9 @@
+Class Name: Command
+Parent Class: N/A
+SubClasses: MakeDirectory, ChangeDirectory, List, PrintWorkingDirectory,
+		 MoveFiles, CopyFiles, Cat, Get, Echo
+
+Responsibilities
+Checks correct number of parameters are given
+
+Collaborators: Directory, Files, CommandException
