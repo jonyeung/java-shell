@@ -1,0 +1,11 @@
+What did I do last time?
+-contributed to the product backlog
+-planned with the team on which pair's crc cards to use
+
+What do I plan to do now?
+-work on my tasks for Sprint 1
+	-write the code for the basic structure of the file class
+	-write the code for the basic structure of the directory class
+
+Am I blocked on anything?
+-None
