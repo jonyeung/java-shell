@@ -1,0 +1,12 @@
+What did I do last time?
+	- contributed to product backlog
+	- gathered CRC cards and discussed with group as to which cards to keep and which ones to remove
+	- brainstormed design ideas with team for the file system, file and directory class, JShell, and interpreter
+
+What do I plan to do now?
+	- start working on JShell
+	- write code to allow users to enter commands
+	- parse user input for proper keywords
+
+Am I blocked on anything?
+	- None
