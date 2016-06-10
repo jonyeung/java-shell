@@ -1,0 +1,35 @@
+// Sprint 1 Backlog
+June 08 to June 13
+
+User Stories from Product Backlog that we will address in this sprint:
+a) As a user, I can store files and directories in a file system
+b) As a user, I can navigate to the directory I want
+c) As a user,  I can create new directories
+d) As a user, I can enter commands into the shell
+e) As a user, I can view the history of as many commands that were entered
+f) As a user, I can exit the shell whenever i want
+
+Specific tasks to be accomplished:
+a-1. (File) Write the code for the basic structure of the File class
+b-1. (File) Begin working on the tree structure of the file system
+c-1. (Directory) Write the code for the basic structure of the Directory class
+d-1. (JShell) Write the code to allow users to enter commands
+d-2. (JShell) Have the shell continually prompt the user for input
+d-3. (JShell) Parse the user input for proper keywords
+e-1. (Interpreter) Make sure command is valid
+e-2. (Interpreter) Separates filepath given for use in the file system
+e-3. (History) Remembers the commands typed.
+f-1. (JShell) Terminate the program
+
+These tasks are assigned as follows:
+User: Jonathan Yeung
+Tasks: a-1, c-1
+
+User: Gurpreet Gill
+Tasks: d-1, d-2, d-3, f-1
+
+User: Boni Zhang
+Tasks: b-1
+
+User: Jason Chan
+Tasks: e-1, e-2, e-3
