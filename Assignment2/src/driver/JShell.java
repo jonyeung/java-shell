@@ -1,8 +1,8 @@
 // **********************************************************
 // Assignment2:
-// Student1:
-// UTORID user_name:
-// UT Student #:
+// Student1:Jonathan Yeung
+// UTORID user_name:yeungj21
+// UT Student #:1002090532
 // Author:
 //
 // Student2:
