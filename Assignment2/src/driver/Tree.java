@@ -1,7 +1,7 @@
 import java.util.List;
 
 /**
- * Represents a Tree of Object of type String. Starts as a single root
+ * Represents a Tree of Object String. Starts as a single root
  * which points to a List<Node<String>> of children.
  */
 public class Tree<String>{
@@ -9,7 +9,7 @@ public class Tree<String>{
   private Node<String> root;
 
   /**
-   * Default constructor
+   * Default Tree constructor
    */
   public Tree(){
 
@@ -58,7 +58,7 @@ public class Tree<String>{
   /**
    * Traverse tree pre-order.
    * @param startNode The starting node to begin traversal
-   * @param list The starting list of nodes
+   * @param list The list of nodes
    */
   private void traverse(Node<String> startNode, List<Node<String>> list){
 
@@ -69,7 +69,6 @@ public class Tree<String>{
   }
 }
 
-// Node of the tree class
 /**
  * Represents a node of Tree<String> class.
  */
@@ -79,9 +78,10 @@ public class Node<String>{
   public List<Node<String>> children;
 
   /**
-   * Default constructor
+   * Default Node constructor
    */
   public Node(){
+
     this.super();
   }
 
@@ -166,7 +166,7 @@ public class Node<String>{
    * Get the data stored in the Node, specifically the directory path string.
    * @return nodeStorage The string represenation of the directory/file path
    */
-  public String getDirPathString(){
+  public String getNodeStorage(){
 
     return this.nodeStorage;
   }
@@ -175,7 +175,7 @@ public class Node<String>{
    * Set the data stored in the Node, the directory path string.
    * @param path The string repr. of the directory/file path to set
    */
-  public void setDirPathString(String path){
+  public void setNodeStorage(String path){
 
     this.nodeStorage = path;
   }
@@ -185,14 +185,15 @@ public class Node<String>{
    * @return build The modified string repr. of Node
    */
   public String toString() {
+
     StringBuilder build = new StringBuilder();
-    build.append("{").append(getData().toString()).append(",[");
+    build.append("{").append(this.getNodeStorage().toString()).append(",[");
     int i = 0;
-    for (Node<T> e : getChildren()) {
+    for (Node<String> node : this.getChildren()) {
         if (i > 0) {
           build.append(",");
         }
-        build.append(e.getData().toString());
+        build.append(node.getNodeStorage().toString());
         i++;
     }
     build.append("]").append("}");
