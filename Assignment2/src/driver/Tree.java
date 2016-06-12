@@ -4,7 +4,7 @@ import java.util.List;
  * Represents a Tree of Object of type String. Starts as a single root
  * which points to a List<Node<String>> of children.
  */
-public class Tree<String> extends Node<String>{
+public class Tree<String>{
 
   private Node<String> root;
 
