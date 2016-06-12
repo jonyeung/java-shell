@@ -5,9 +5,9 @@
 // UT Student #:1002090532
 // Author:
 //
-// Student2:
-// UTORID user_name:
-// UT Student #:
+// Student2: Boni Xie Zhang
+// UTORID user_name: xiezhang
+// UT Student #: 1001391727
 // Author:
 //
 // Student3:
@@ -33,7 +33,7 @@ public class JShell {
 
   public static void main(String[] args) {
     // TODO Auto-generated method stub
-
+    
   }
 
 }
