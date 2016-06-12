@@ -10,9 +10,9 @@
 // UT Student #: 1001391727
 // Author:
 //
-// Student3:
-// UTORID user_name:
-// UT Student #:
+// Student3: Jason Chan
+// UTORID user_name: chanja49
+// UT Student #: 1002550367
 // Author:
 //
 // Student4:
