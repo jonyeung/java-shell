@@ -8,13 +8,13 @@ public class Interpreter {
       "popd", "history", "cat", "echo", "man"};
 
   /**
-   * Gets input and returns an array without spaces included.
+   * Gets input and separates the input into an array using the separator
    * 
    * @param input The input that was given from the user
    * @param separator Split the input by the separator
    * @return String[] An array of strings that are the words
    */
-  public String[] inputToArray(String input, String separator) {
+  public static String[] inputToArray(String input, String separator) {
 
     // split the input up by space.
     String words[] = input.split(separator);
@@ -41,7 +41,7 @@ public class Interpreter {
    * @param command A command that was input from the user in JShell
    * @return String[] An array of strings that are the commands words
    */
-  public String[] commandToArray(String command) {
+  public static String[] commandToArray(String command) {
     return inputToArray(command, " ");
   }
 
@@ -52,7 +52,7 @@ public class Interpreter {
    * @param filepath A file path to a file or directory in the file system
    * @return String[] An array of strings that are individual directory or files
    */
-  public String[] filepathToArray(String filepath) {
+  public static String[] filepathToArray(String filepath) {
     return inputToArray(filepath, "/");
   }
 
