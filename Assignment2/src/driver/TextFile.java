@@ -5,18 +5,47 @@ public class TextFile extends File {
   private String fileContents;
 
 
-  // basic constructor
+  /**
+   * TextFile constructor with no parent and no contents.
+   * 
+   * @param name The name of the TextFile.
+   */
   public TextFile(String name) {
     super(name);
   }
 
-  // constructor with no parent
+  /**
+   * TextFile constructor with no parent and non-empty contents.
+   * 
+   * @param name The name of the TextFile.
+   * 
+   * @param text The content of the TextFile.
+   */
   public TextFile(String name, String text) {
     super(name);
     fileContents = text;
   }
 
-  // constructor with a parent file
+  /**
+   * TextFile constructor with a parent and no contents.
+   * 
+   * @param name The name of the TextFile.
+   * 
+   * @param parentFile The parent of the TextFile.
+   */
+  public TextFile(String name, File parentFile) {
+    super(name, parentFile);
+  }
+
+  /**
+   * TextFile constructor with a parent and non-empty contents.
+   * 
+   * @param name The name of the TextFile.
+   * 
+   * @param text The content of the TextFile.
+   * 
+   * @param parentFile The parent of the TextFile.
+   */
   public TextFile(String name, String text, File parentFile) {
     super(name, parentFile);
     fileContents = text;

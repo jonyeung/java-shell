@@ -5,7 +5,7 @@ public class File {
   private String fileName;
   private File parent;
 
-  /*
+  /**
    * File constructor with no parent
    * 
    * @param name The name of the file.
@@ -14,7 +14,7 @@ public class File {
     this.fileName = name;
   }
 
-  /*
+  /**
    * File constructor with a parent file
    * 
    * @param name The name of the file.
@@ -25,14 +25,14 @@ public class File {
     this.parent = parentFile;
   }
 
-  /*
+  /**
    * Getter for parent file.
    */
   public File getParent() {
     return parent;
   }
 
-  /*
+  /**
    * Setter for parent file.
    * 
    * @param parent The parent of the file.
@@ -41,7 +41,7 @@ public class File {
     this.parent = parent;
   }
 
-  /*
+  /**
    * Getter for name of the file.
    */
   public String getName() {

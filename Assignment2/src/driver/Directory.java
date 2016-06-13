@@ -7,15 +7,20 @@ public class Directory extends File {
 
   private Set<File> storedFiles;
 
-  /*
+  /**
    * Directory constructor with no parent
+   * 
+   * @param name The name of the directory.
    */
   public Directory(String name) {
     super(name);
   }
 
-  /*
+  /**
    * Directory constructor with a parent file
+   * 
+   * @param name The name of the directory.
+   * @param parentFile The parent of this directory.
    */
   public Directory(String name, File parentFile) {
     super(name, parentFile);
