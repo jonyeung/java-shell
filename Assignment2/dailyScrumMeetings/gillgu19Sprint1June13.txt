@@ -1,0 +1,11 @@
+What did I do last time?
+	- wrote code to continually prompt users to enter commands
+	- wrote exit command
+	- discussed ideas with group on how to parse user input
+
+What do I plan to do now?
+	- plan tasks for Sprint backlog 2
+	- discuss with group members on how to effectively implement exceptions
+
+Am I blocked on anything?
+	- Need input from Jason on how to handle exceptions relating to user input (ie Do we throw two exceptions for user input: 1 for invalid command name and 1 for invalid command argument, or do we just throw 1 to generalize invalid input?)
