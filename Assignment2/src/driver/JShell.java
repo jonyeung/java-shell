@@ -15,9 +15,9 @@
 // UT Student #: 1002550367
 // Author:
 //
-// Student4:
-// UTORID user_name:
-// UT Student #:
+// Student4: Gurpreet Gill
+// UTORID user_name: gillgu19
+// UT Student #: 1002211313
 // Author:
 //
 //
@@ -29,6 +29,10 @@
 // *********************************************************
 package driver;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.IOException;
+
 import driver.Directory;
 import driver.File;
 import driver.Interpreter;
@@ -37,8 +41,38 @@ import driver.Tree;
 
 public class JShell {
 
-  public static void main(String[] args) {
-    // TODO Auto-generated method stub
-    System.out.println("Main");
+  public static void main(String[] args) throws IOException {
+    // User input and default start of line
+    String userInput;
+    String startOfLine = "/#: ";
+
+    // Interpreter
+    // TODO Requires discussion with group to determine how to
+    // utilize the interpreter
+
+    // Create a new buffered reader to fetch input from console
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+    // Continually prompt user for input
+    while (true) {
+      // Print the start of each line before input
+      System.out.print(startOfLine);
+      // Retrieve input from user
+      userInput = br.readLine();
+
+      // Terminate program if user types "exit"
+      if (userInput.equals("exit")) {
+        // Terminate loop
+        break;
+      } else {
+        // Check for valid input
+        // If user inputs invalid command name, raise commandNameException
+        // If user inputs invalid argument for the command name, raise
+        // commandArgException
+        // Otherwise, execute the command, as wanted QED []
+      }
+
+    }
+
   }
 }
