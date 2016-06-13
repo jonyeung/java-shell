@@ -34,7 +34,6 @@ public class Interpreter {
     return Arrays.copyOfRange(inputWords, 0, numInputs);
   }
 
-
   /**
    * Gets the command and returns an array without spaces included.
    * 
@@ -45,7 +44,6 @@ public class Interpreter {
     return inputToArray(command, " ");
   }
 
-
   /**
    * Gets a file path and splits it according to '/' character
    * 
@@ -55,7 +53,6 @@ public class Interpreter {
   public static String[] filepathToArray(String filepath) {
     return inputToArray(filepath, "/");
   }
-
 
   /**
    * Gets a file path in an array and checks it is valid. A file path is valid
@@ -68,7 +65,6 @@ public class Interpreter {
     // not complete
     return true;
   }
-
 
   /**
    * Gets the input from the JShell and checks whether it is valid or not.
@@ -101,5 +97,4 @@ public class Interpreter {
 
     return result;
   }
-
 }

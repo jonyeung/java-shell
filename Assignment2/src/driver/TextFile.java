@@ -1,3 +1,5 @@
+package driver;
+
 public class TextFile extends File {
 
   String fileName;
@@ -23,5 +25,4 @@ public class TextFile extends File {
   public void write(String newText) {
     fileContents = newText;
   }
-
 }
