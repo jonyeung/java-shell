@@ -1,19 +1,49 @@
-package driver;
-
 public class File {
 
-  String fileName;
-  File parent;
+  private String fileName;
+  private File parent;
 
-  // constructor with no parent
-  // TODO add JavaDoc for File Class Constructor
+  /*
+   * File constructor with no parent
+   * 
+   * @param name The name of the file.
+   */
   public File(String name) {
-    fileName = name;
+    this.fileName = name;
   }
 
-  // constructor with a parent file
-  //TODO add JavaDoc for File Class Constructor
+  /*
+   * File constructor with a parent file
+   * 
+   * @param name The name of the file.
+   * 
+   * @param parentFile The parent of this file.
+   */
   public File(String name, File parentFile) {
-    parent = parentFile;
+    this.parent = parentFile;
   }
+
+  /*
+   * Getter for parent file.
+   */
+  public File getParent() {
+    return parent;
+  }
+
+  /*
+   * Setter for parent file.
+   * 
+   * @param parent The parent of the file.
+   */
+  public void setParent(File parent) {
+    this.parent = parent;
+  }
+
+  /*
+   * Getter for name of the file.
+   */
+  public String getName() {
+    return fileName;
+  }
+
 }

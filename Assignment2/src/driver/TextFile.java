@@ -2,8 +2,13 @@ package driver;
 
 public class TextFile extends File {
 
-  String fileName;
-  String fileContents;
+  private String fileContents;
+
+
+  // basic constructor
+  public TextFile(String name) {
+    super(name);
+  }
 
   // constructor with no parent
   public TextFile(String name, String text) {
@@ -24,5 +29,14 @@ public class TextFile extends File {
    */
   public void write(String newText) {
     fileContents = newText;
+  }
+
+  /**
+   * Append a new line to the text file
+   * 
+   * @param newLine The new line that is to be appended to the file.
+   */
+  public void append(String newLine) {
+    fileContents = fileContents + newLine;
   }
 }
