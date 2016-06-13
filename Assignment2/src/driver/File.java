@@ -1,17 +1,17 @@
-
 public class File {
 
   String fileName;
-  
+  File parent;
+
+  // constructor with no parent
   public File(String name) {
     fileName = name;
   }
-  /**
-   * @param args
-   */
-  public static void main(String[] args) {
-    // TODO Auto-generated method stub
 
+  // constructor with a parent file
+  public File(String name, File parentFile) {
+    parent = parentFile;
   }
+
 
 }
