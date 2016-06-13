@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Interpreter {
 
-  private String commands[] = {"exit", "mkdir", "cd", "ls", "pwd", "pushd",
+  private static String commands[] = {"exit", "mkdir", "cd", "ls", "pwd", "pushd",
       "popd", "history", "cat", "echo", "man"};
 
   /**
@@ -76,7 +76,7 @@ public class Interpreter {
    * @param input The string entered by the user
    * @return boolean If input is a valid command
    */
-  public boolean validInput(String input) {
+  public static boolean validInput(String input) {
     // separate the input into an array using the whitespace in between each
     // word
     String inputWords[] = commandToArray(input);
