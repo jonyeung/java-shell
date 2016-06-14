@@ -2,15 +2,15 @@
 June 14 to June 19
 
 User Stories from Product Backlog that we will address in this sprint:
-As a user, I can navigate to the directory I want
-As a user, I can create new directories
-As a user, I can view the history of as many commands that were entered
-As a user, I can find my file location
-As a user, I can see the contents in a directory
-As a user, I can view the documentation for a command
-As a user, I can read and write to files
-As a user, I can save a directory
-As a user, I can get the most recently saved directory
+a) As a user, I can navigate to the directory I want
+b) As a user, I can create new directories
+c) As a user, I can view the history of as many commands that were entered
+d) As a user, I can find my file location
+e) As a user, I can see the contents in a directory
+f) As a user, I can view the documentation for a command
+g) As a user, I can read and write to files
+h) As a user, I can save a directory
+i) As a user, I can get the most recently saved directory
 
 Specific tasks to be accomplished:
 a-1 (ChangeDirectory) Traverse the file system tree to change the current directory
