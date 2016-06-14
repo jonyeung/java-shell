@@ -1,0 +1,13 @@
+What did I do last time?
+	-Created history command class and most of the methods 
+	 (Still needs testing)
+	-Created Interpreter class and methods. 
+		-able to split the file path into a string array
+		-able to split the user input into a string array
+
+What do I plan to do now?
+	-Work on valid command method
+	-Discuss sprint2 goals and work on my part of sprint2
+
+Am I blocked on anything
+	-No
