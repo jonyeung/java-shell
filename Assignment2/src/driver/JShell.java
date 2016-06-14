@@ -71,9 +71,7 @@ public class JShell {
         // If user inputs invalid argument for the command name, raise
         // commandArgException
         // Otherwise, execute the command, as wanted QED []
-      }
-
+      }      
     }
-
   }
 }

@@ -31,7 +31,6 @@ public class Directory extends File {
    * 
    * @param file The file to be stored in the directory.
    */
-
   public void storeFile(File file) {
     // add the file to the set of stored files
     storedFiles.add(file);
