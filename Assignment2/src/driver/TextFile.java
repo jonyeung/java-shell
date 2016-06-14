@@ -68,4 +68,11 @@ public class TextFile extends File {
   public void append(String newLine) {
     fileContents = fileContents + newLine;
   }
+
+  /**
+   * Getter for fileContents
+   */
+  public String getFileContents() {
+    return fileContents;
+  }
 }
