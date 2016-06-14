@@ -1,26 +1,28 @@
 package driver;
+
 import java.util.ArrayList;
 import java.util.List;
 import driver.Node;
 
 /**
- * Represents a Tree of Object String. Starts as a single root
- * which points to a List<Node<String>> of children.
+ * Represents a Tree of Object String. Starts as a single root which points to a
+ * List<Node<String>> of children.
  */
-public class Tree{
+public class Tree {
 
   private Node root;
 
   /**
    * Default Tree constructor
    */
-  public Tree(){
+  public Tree() {
 
     super();
   }
 
   /**
    * Get root of tree
+   * 
    * @return root
    */
   public Node getRoot() {
@@ -30,6 +32,7 @@ public class Tree{
 
   /**
    * Set the root of tree
+   * 
    * @return root
    */
   public void setRoot(Node root) {
@@ -39,6 +42,7 @@ public class Tree{
 
   /**
    * Return List representation of Tree
+   * 
    * @return treeList
    */
   public List<Node> treeToList() {
@@ -50,9 +54,10 @@ public class Tree{
 
   /**
    * Return String representation of Tree
+   * 
    * @return treeString
    */
-  public String toString(){
+  public String toString() {
 
     String treeString = this.treeToList().toString();
     return treeString;
@@ -60,13 +65,14 @@ public class Tree{
 
   /**
    * Traverse tree pre-order.
+   * 
    * @param startNode The starting node to begin traversal
    * @param list The list of nodes
    */
-  private void traverse(Node startNode, List<Node> list){
+  private void traverse(Node startNode, List<Node> list) {
 
     list.add(startNode);
-    for (Node singleNode : startNode.getChildren()){
+    for (Node singleNode : startNode.getChildren()) {
       this.traverse(startNode, list);
     }
   }

@@ -4,8 +4,8 @@ import java.util.Arrays;
 
 public class Interpreter {
 
-  private static String commands[] = {"exit", "mkdir", "cd", "ls", "pwd", "pushd",
-      "popd", "history", "cat", "echo", "man"};
+  private static String commands[] = {"exit", "mkdir", "cd", "ls", "pwd",
+      "pushd", "popd", "history", "cat", "echo", "man"};
 
   /**
    * Gets input and separates the input into an array using the separator
