@@ -1,0 +1,45 @@
+// Sprint 2 Backlog
+June 14 to June 19
+
+User Stories from Product Backlog that we will address in this sprint:
+As a user, I can navigate to the directory I want
+As a user, I can create new directories
+As a user, I can view the history of as many commands that were entered
+As a user, I can find my file location
+As a user, I can see the contents in a directory
+As a user, I can view the documentation for a command
+As a user, I can read and write to files
+As a user, I can save a directory
+As a user, I can get the most recently saved directory
+
+Specific tasks to be accomplished:
+a-1 (ChangeDirectory) Traverse the file system tree to change the current directory
+b-1 (Mkdir) Start writing the code for the mkdir class
+c-1 (History) Edit this class so it uses a Stack class instead of the TextFile class
+c-2 (JShell) Incorporate History to JShell to add each command entered into the console
+d-1 (JShell) Incorporate Pwd command to print current file path
+d-2 (PrintWorkingDirectory) Print current file path
+e-1 (JShell) Incorporate List command 
+e-2 (List) Print contents of the file given
+f-1 (Man) Create manual pages for each command
+f-2 (JShell) Incorporate the man command to the JShell
+g-1 (Echo) Print inputted text to the screen
+g-2 (Echo) Create files
+g-3 (Echo) Overwrites and appends to the file 
+g-4 (Cat) Read and print multiple files to the screen
+h-1 (Pushd) Use a stack to add directories to it
+i-1 (Popd) Be able to pop from the stack of directories 
+i-2 (Popd) Be able to cd into the directory that was popped.
+
+These tasks are assigned as follows:
+User: Jonathan Yeung
+Tasks: d-2, e-2, g-1, g-2, g-3
+
+User: Gurpreet Gill
+Tasks: c-2, d-1, e-1, f-1, f-2
+
+User: Boni Zhang
+Tasks: a-1, b-1, c2, g-4
+
+User: Jason Chan
+Tasks: c-1, h-1, i-1, i-2
