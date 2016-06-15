@@ -1,5 +1,6 @@
 package driver;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public class Directory extends File {
@@ -13,6 +14,7 @@ public class Directory extends File {
    */
   public Directory(String name) {
     super(name);
+    storedFiles = new HashSet<File>();
   }
 
   /**
@@ -33,6 +35,8 @@ public class Directory extends File {
   public void storeFile(File file) {
     // add the file to the set of stored files
     storedFiles.add(file);
+    // set the file's parent to be the directory it is being stored in
+    file.setParent(this);
   }
 
   /**

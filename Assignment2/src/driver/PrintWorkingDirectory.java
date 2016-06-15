@@ -10,15 +10,16 @@ public class PrintWorkingDirectory {
    */
   public static void printWD(File file) {
     // put the pathway string together starting with the current file
-    String pathway = file.getName();
+    String pathway = "/" + file.getName();
     // add to the pathway all the parents of the current file
     File curr = file;
     while (curr.getParent() != null) {
       curr = curr.getParent();
-      pathway = "/" + curr.getName() + "/" + pathway;
+      pathway = "/" + curr.getName() + pathway;
     }
     // print out the path
     System.out.println(pathway);
 
   }
+
 }
