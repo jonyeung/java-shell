@@ -1,0 +1,8 @@
+Class name: Man
+Parent class: Command
+Subclasses: N/A
+
+Responsibilities:
+Prints the description of the command with a usage example.
+
+Collaborators: N/A
