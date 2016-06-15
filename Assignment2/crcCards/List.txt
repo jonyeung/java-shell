@@ -3,6 +3,6 @@ Parent class: Command
 Subclasses: N/A
 
 Responsibilities:
-Prints the names of all files and directories in the current directory
+Prints the names of all files and directories in the directory given
 
 Collaborators: N/A

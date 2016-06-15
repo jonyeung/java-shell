@@ -7,4 +7,4 @@ Saves the current directory onto a stack
 Removes the most recent directory on the stack and changed the current
 	directory to it.
 
-Collaborators: N/A
+Collaborators: ChangeDirectory, PrintWorkingDirectory
