@@ -63,6 +63,7 @@ public class JShell {
       System.out.print(startOfLine);
       // Retrieve input from user
       userInput = br.readLine();
+      History.addToHistory(userInput);
 
       // Terminate program if user types "exit"
       if (userInput.equals("exit")) {
@@ -92,7 +93,7 @@ public class JShell {
       // inputArray[0] is the command name
       String commandName = inputArray[0];
       // # of arguments in the input
-      String[] commandArgs = new String[inputArray.length - 1];
+      String[] commandArgs = null;
 
       // TEMPORARY
       System.out.println("Command name: " + commandName);
@@ -101,6 +102,7 @@ public class JShell {
 
       // Copy the arguments from inputArray to inputArguments, if there are any
       if (inputArray.length > 1) {
+        commandArgs = new String[inputArray.length - 1];
         // Loop through the length of the inputArray
         for (int i = 0; i < inputArray.length - 1; i++) {
           // Copy arguments from inputArray to inputArguments
@@ -140,7 +142,11 @@ public class JShell {
     } else if (commandName.equals("popd")) {
       // popd()
     } else if (commandName.equals("history")) {
-      // history(inputArguments)
+      if (commandArgs == null) {
+        History.printAllHistory();
+      } else {
+        History.printHistory(Integer.parseInt(commandArgs[1]));
+      }
     } else if (commandName.equals("cat")) {
       // cat(inputArguments)
     } else if (commandName.equals("echo")) {
