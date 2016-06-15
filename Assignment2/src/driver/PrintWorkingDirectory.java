@@ -2,7 +2,7 @@ package driver;
 
 public class PrintWorkingDirectory {
 
-  
+
   /**
    * Print the pathway of the current working directory
    * 
@@ -16,8 +16,8 @@ public class PrintWorkingDirectory {
     while (curr.getParent() != null) {
       curr = curr.getParent();
       pathway = "/" + curr.getName() + "/" + pathway;
-    System.out.println(pathway);
+      System.out.println(pathway);
     }
-    
+
   }
 }
