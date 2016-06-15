@@ -15,20 +15,20 @@ public class Man {
       + "surrounded by double quotations, to OUTFILE if it exists."
       + "\n\tIf OUTFILE does not exist, "
       + "then a new file called OUTFILE is created with contents STRING\n";
-  private static String manMessage = "man CMD\n" 
-      + "\tPrints the documentation for the command CMD."
-      + "\n\tSpecial notes:\n"
-      + "\t- [someargument] indicates an optional argument.\n"
-      + "\t- '...' indicates a list of arguments.";
+  private static String manMessage =
+      "man CMD\n" + "\tPrints the documentation for the command CMD."
+          + "\n\tSpecial notes:\n"
+          + "\t- [someargument] indicates an optional argument.\n"
+          + "\t- '...' indicates a list of arguments.";
   private static String historyMessage = "history [number]\n"
       + "\tPrints out recent commands (both valid and invalid) with one command"
       + " on each line.\n"
       + "\tThe first column is numbered such that the highest number is the "
       + "most recent command.\n"
       + "\tThe second column contains the actual command that was entered.";
-  private static String popdMessage = "popd\n"
-      + "\tRemove the top entry from the directory"
-      + "stack, and makes it the current working directory.";
+  private static String popdMessage =
+      "popd\n" + "\tRemove the top entry from the directory"
+          + "stack, and makes it the current working directory.";
   private static String pushdMessage = "pushd DIR\n"
       + "\tSaves the current working directory by pushing it onto a directory "
       + "stack and then changes the new current working diretory to DIR.";
@@ -43,15 +43,13 @@ public class Man {
       + " colon, then the contents of the directory.";
   private static String cdMessage = "cd DIR\n"
       + "\tChange directory to DIR, which may be relative to the current"
-      + " directory or may be a full path.\n"
-      + "\tSpecial keywords:\n"
+      + " directory or may be a full path.\n" + "\tSpecial keywords:\n"
       + "\t- '..' means a parent directory\n"
       + "\t- '.' means the current directory\n";
   private static String mkdirMessage = "mkdir DIR ...\n"
       + "\tCreates directories, each of which may be relative to the current"
       + " directory or may be a full path.";
-  private static String exitMessage = "exit\n"
-      + "\tQuits the program.";
+  private static String exitMessage = "exit\n" + "\tQuits the program.";
 
   public static void printMan(String commandName) {
     // Check each command name and print the appropriate message
@@ -86,7 +84,7 @@ public class Man {
       // man
       System.out.println(manMessage);
     } else if (commandName.equals("exit")) {
-      //exit
+      // exit
       System.out.println(exitMessage);
     }
   }
