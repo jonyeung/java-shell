@@ -47,7 +47,7 @@ public class Node {
    * 
    * @return children The children of Node<String> to set
    */
-  public int getNumberOfChildren(List<Node> children) {
+  public int getNumberOfChildren() {
 
     int numberOfChildren = 0;
 
@@ -82,7 +82,7 @@ public class Node {
   public void addChildAt(int index, Node child)
       throws IndexOutOfBoundsException {
 
-    if (index == this.getNumberOfChildren(children)) {
+    if (index == this.getNumberOfChildren()) {
       this.addChild(child);
     }
 

@@ -76,4 +76,14 @@ public class Tree {
       this.traverse(startNode, list);
     }
   }
+
+  public static void main(String[] args) {
+
+    Tree tree = new Tree();
+    Node nodeAB = new Node();
+    Node nodeA = new Node();
+    nodeA.addChild(nodeAB);
+    tree.setRoot(nodeA);
+    tree.getRoot().toString();
+  }
 }
