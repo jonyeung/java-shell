@@ -1,0 +1,13 @@
+What did I do last time?
+	- Discussed ideas with group on how to handle user input exceptions
+	- Worked with group to formulate the product backlog, and committed it
+	- Brainstormed design ideas with group, recommended utilizing a Stack for the History class as a Stack would be utilized for other commands too (Pushd, Popd)
+
+What do I plan to do now?
+	- Start writing the Man class (Incorporate at least half of the commands)
+	- Work on effectively implementing each command to the JShell as they are completed
+	- Meet up with team members tomorrow to discuss what we've done so far and what we have yet to do
+	- Start working on incorporating the list command to the JShell
+
+Am I blocked on anything?
+	- Not as of yet
