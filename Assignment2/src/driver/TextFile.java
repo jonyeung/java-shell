@@ -71,6 +71,8 @@ public class TextFile extends File {
 
   /**
    * Getter for fileContents
+   * 
+   * @ return String The contents held in the text file.
    */
   public String getFileContents() {
     return fileContents;

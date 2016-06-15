@@ -36,4 +36,13 @@ public class Directory extends File {
     storedFiles.add(file);
   }
 
+  /**
+   * Getter for storedFiles.
+   * 
+   * @return Set<File> The set of all the stored files in the directory.
+   */
+  public Set<File> getStoredFiles() {
+    return storedFiles;
+  }
+
 }

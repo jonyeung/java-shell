@@ -28,6 +28,8 @@ public class File {
 
   /**
    * Getter for parent file.
+   * 
+   * @return File The parent file.
    */
   public File getParent() {
     return parent;
@@ -44,6 +46,8 @@ public class File {
 
   /**
    * Getter for name of the file.
+   * 
+   * @return String The name of the file.
    */
   public String getName() {
     return fileName;
