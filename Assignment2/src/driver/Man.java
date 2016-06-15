@@ -16,7 +16,10 @@ public class Man {
       + "\n\tIf OUTFILE does not exist, "
       + "then a new file called OUTFILE is created with contents STRING\n";
   private static String manMessage = "man CMD\n" 
-      + "\tPrints the documentation for the command CMD.";
+      + "\tPrints the documentation for the command CMD."
+      + "\n\tSpecial notes:\n"
+      + "\t- [someargument] indicates an optional argument.\n"
+      + "\t- '...' indicates a list of arguments.";
   private static String historyMessage = "history [number]\n"
       + "\tPrints out recent commands (both valid and invalid) with one command"
       + " on each line.\n"
@@ -29,35 +32,62 @@ public class Man {
   private static String pushdMessage = "pushd DIR\n"
       + "\tSaves the current working directory by pushing it onto a directory "
       + "stack and then changes the new current working diretory to DIR.";
+  private static String pwdMessage = "pwd\n"
+      + "\tPrints the current working directory (including the whole path).";
+  private static String lsMessage = "ls [PATH ...]\n"
+      + "\tIf PATH is not given, print the contents (file or directory) of"
+      + " the current directory, with a new line following each of the content."
+      + "\n\tOtherwise, for each path PATH:\n"
+      + "\t- If PATH specifies a file, ls prints the file name.\n"
+      + "\t- If PATH specifies a directory, ls prints PATH, followed by a"
+      + " colon, then the contents of the directory.";
+  private static String cdMessage = "cd DIR\n"
+      + "\tChange directory to DIR, which may be relative to the current"
+      + " directory or may be a full path.\n"
+      + "\tSpecial keywords:\n"
+      + "\t- '..' means a parent directory\n"
+      + "\t- '.' means the current directory\n";
+  private static String mkdirMessage = "mkdir DIR ...\n"
+      + "\tCreates directories, each of which may be relative to the current"
+      + " directory or may be a full path.";
+  private static String exitMessage = "exit\n"
+      + "\tQuits the program.";
 
   public static void printMan(String commandName) {
-
+    // Check each command name and print the appropriate message
     if (commandName.equals("mkdir")) {
-      // mkdir(inputArguments)
-      System.out.println("");
+      // mkdir
+      System.out.println(mkdirMessage);
     } else if (commandName.equals("cd")) {
-      // cd(inputArguments)
-      System.out.println("");
+      // cd
+      System.out.println(cdMessage);
     } else if (commandName.equals("ls")) {
-      // ls()
-      System.out.println("");
+      // ls
+      System.out.println(lsMessage);
     } else if (commandName.equals("pwd")) {
-      // pwd()
-      System.out.println("");
+      // pwd
+      System.out.println(pwdMessage);
     } else if (commandName.equals("pushd")) {
-      // pushd(inputArguments)
-      System.out.println("");
+      // pushd
+      System.out.println(pushdMessage);
     } else if (commandName.equals("popd")) {
-      // popd()
-      System.out.println("");
+      // popd
+      System.out.println(popdMessage);
     } else if (commandName.equals("history")) {
+      // history
       System.out.println(historyMessage);
     } else if (commandName.equals("cat")) {
+      // cat
       System.out.println(catMessage);
     } else if (commandName.equals("echo")) {
+      // echo
       System.out.println(echoMessage);
     } else if (commandName.equals("man")) {
+      // man
       System.out.println(manMessage);
+    } else if (commandName.equals("exit")) {
+      //exit
+      System.out.println(exitMessage);
     }
   }
 }
