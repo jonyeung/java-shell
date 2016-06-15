@@ -4,8 +4,12 @@ import java.util.Arrays;
 
 public class Interpreter {
 
-  private static String commands[] = {"exit", "mkdir", "cd", "ls", "pwd",
-      "pushd", "popd", "history", "cat", "echo", "man"};
+  private static String commands[] = {"mkdir", "cd", "ls", "pwd", "pushd",
+      "popd", "history", "cat", "echo", "man"};
+  // the maximum and minimum number of arguments of a command corresponding to
+  // the commands array
+  private static int maxArgs[] = {-1, 1, 1, 0, 1, 0, 1, -1, 3, 1};
+  private static int minArgs[] = {1, 1, 0, 0, 1, 0, 0, 1, 1, 1};
 
   /**
    * Gets input and separates the input into an array using the separator
@@ -30,6 +34,11 @@ public class Interpreter {
         numInputs++;
       }
     }
+
+    // if first word is echo, then call combine strings
+
+
+
     // returns only the values in the array that words
     return Arrays.copyOfRange(inputWords, 0, numInputs);
   }
@@ -54,17 +63,46 @@ public class Interpreter {
     return inputToArray(filepath, "/");
   }
 
-  /**
-   * Gets a file path in an array and checks it is valid. A file path is valid
-   * if none of the directories it references have spaces in it
-   * 
-   * @param filepath A file path to a file or directory in the file system
-   * @return String[] An array of strings that are individual directory or files
-   */
-  public boolean correctFilePath(String[] filepath) {
-    // not complete
-    return true;
+
+
+  public static String[] combineStrings(String[] input) {
+
+    int startQuoteIndex = 1;
+    int endQuoteIndex = 1;
+
+    int index = 0;
+    boolean notFound = true;
+
+    // loop through each input and check if any word ends with a double quote.
+    while (index < input.length && notFound) {
+
+      int lastCharIndex = input[index].length() - 1;
+      char lastChar = input[index].charAt(lastCharIndex);
+
+      if (lastChar == '"') {
+        notFound = false;
+      } else {
+        index++;
+      }
+    }
+
+    
+    
+    if (notFound == false) {
+      // Concatenate the word at index 1 with all the words between endQuoteIndex
+      for (int i = startQuoteIndex; i <= index; i++) {
+        //TODO work on this
+      }
+    }
+
+
+
+
+    String result[] = {};
+    return result;
   }
+
+
 
   /**
    * Gets the input from the JShell and checks whether it is valid or not.
@@ -76,25 +114,68 @@ public class Interpreter {
     // separate the input into an array using the whitespace in between each
     // word
     String inputWords[] = commandToArray(input);
+    boolean result = false;
 
+    // throw exception if no inputWords[0]
+    if (inputWords.length != 0) {
+      // checks the first word in valid
+      int commandPosition = validCommand(inputWords[0]);
+      if (commandPosition != -1) {
+        // checks that the right number of arguments is given
+        result = validNumberArguments(commandPosition, inputWords);
+      }
+    }
+    return result;
+  }
+
+  /**
+   * Gets the first word from the input and checks if it is a valid command. If
+   * valid then it returns the index of the command name in commands array
+   * 
+   * @param command The first word entered
+   * @return int Index of the command name
+   */
+  private static int validCommand(String command) {
     // checks if the first word inputed is a valid command by comparing it to
     // the array of commands
     int count = 0;
     boolean notFound = true;
     while (count < commands.length && notFound) {
-      if (inputWords[0].equals(commands[count])) {
+      if (command.equals(commands[count])) {
         notFound = false;
       } else {
         count++;
       }
     }
-    boolean result = !notFound;
-
-    // if the command is valid then do the next check
-    if (result) {
-      // not complete
+    int result;
+    if (notFound) {
+      // TODO throw exception
+      result = -1;
+    } else {
+      result = count;
     }
-
     return result;
   }
+
+  /**
+   * Checks if the number of arguments entered is valid
+   * 
+   * @param index Index of the command name
+   * @param input Each word entered in an array
+   * @return boolean Correct number of arguments
+   */
+  private static boolean validNumberArguments(int index, String[] input) {
+
+    int numArgs = input.length - 1;
+    boolean result = false;
+
+    if (minArgs[index] <= numArgs
+        && (numArgs <= maxArgs[index] || maxArgs[index] == -1)) {
+      result = true;
+    }
+    return result;
+  }
+
+
+
 }
