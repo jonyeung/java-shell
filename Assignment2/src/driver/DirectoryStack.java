@@ -13,6 +13,7 @@ public class DirectoryStack {
    * @param changeDirectory The current directory will be changed to this
    */
   private static void pushd(String changeDirectory) {
+
     // use pwd to get the name of the current directory
 
     // push the current directory onto the stack
@@ -25,11 +26,9 @@ public class DirectoryStack {
    * working directory to it
    */
   public static void popd() {
+
     // pops the first element and use cd
+
     // if there is no directory on the stack then raise exception
-
   }
-
-
-
 }

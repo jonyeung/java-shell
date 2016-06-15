@@ -6,6 +6,7 @@ public class Interpreter {
 
   private static String commands[] = {"mkdir", "cd", "ls", "pwd", "pushd",
       "popd", "history", "cat", "echo", "man"};
+
   // the maximum and minimum number of arguments of a command corresponding to
   // the commands array
   private static int maxArgs[] = {-1, 1, 1, 0, 1, 0, 1, -1, 3, 1};
@@ -28,6 +29,7 @@ public class Interpreter {
 
     // If extra spaces are in input, remove them. Go through each split word
     for (int i = 0; i < words.length; i++) {
+
       // If the word is not a space then add it to the input array
       if (words[i].length() != 0) {
         inputWords[numInputs] = words[i];
@@ -35,9 +37,7 @@ public class Interpreter {
       }
     }
 
-    // if first word is echo, then call combine strings
-
-
+    // TODO if first word is echo, then call combine strings
 
     // returns only the values in the array that words
     return Arrays.copyOfRange(inputWords, 0, numInputs);
@@ -63,8 +63,6 @@ public class Interpreter {
     return inputToArray(filepath, "/");
   }
 
-
-
   public static String[] combineStrings(String[] input) {
 
     int startQuoteIndex = 1;
@@ -86,23 +84,19 @@ public class Interpreter {
       }
     }
 
-    
-    
     if (notFound == false) {
-      // Concatenate the word at index 1 with all the words between endQuoteIndex
+
+      // Concatenate the word at index 1 with all the words between
+      // endQuoteIndex
       for (int i = startQuoteIndex; i <= index; i++) {
-        //TODO work on this
+        // TODO work on this
+
       }
     }
-
-
-
 
     String result[] = {};
     return result;
   }
-
-
 
   /**
    * Gets the input from the JShell and checks whether it is valid or not.
@@ -111,8 +105,8 @@ public class Interpreter {
    * @return boolean If input is a valid command
    */
   public static boolean validInput(String input) {
-    // separate the input into an array using the whitespace in between each
-    // word
+
+    // separate input into an array using whitespace between each word
     String inputWords[] = commandToArray(input);
     boolean result = false;
 
@@ -136,7 +130,8 @@ public class Interpreter {
    * @return int Index of the command name
    */
   private static int validCommand(String command) {
-    // checks if the first word inputed is a valid command by comparing it to
+
+    // checks if the 1st word input is a valid command by comparing it to
     // the array of commands
     int count = 0;
     boolean notFound = true;
@@ -175,7 +170,4 @@ public class Interpreter {
     }
     return result;
   }
-
-
-
 }

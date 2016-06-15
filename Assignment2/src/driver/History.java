@@ -31,14 +31,18 @@ public class History {
   public static void printHistory(int lastLines) {
 
     int startLineIndex = numLines - lastLines;
-    
+
     if (startLineIndex >= 0) {
+
       // loop through each line starting at startLineIndex and print them
       for (int i = startLineIndex; i < numLines; i++) {
         System.out.println(historyFile.get(i));
       }
+
     } else {
+
       // TODO if array is out of bounds throw exception
+
     }
 
   }

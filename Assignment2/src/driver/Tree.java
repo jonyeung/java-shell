@@ -2,7 +2,8 @@ package driver;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
+// TODO UNCOMMENT line below after traverse is complete
+//import java.util.Set;
 
 import driver.Node;
 

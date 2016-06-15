@@ -4,7 +4,6 @@ public class TextFile extends File {
 
   private String fileContents;
 
-
   /**
    * TextFile constructor with no parent and no contents.
    * 

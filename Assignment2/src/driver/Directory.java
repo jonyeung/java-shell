@@ -32,8 +32,10 @@ public class Directory extends File {
    * @param file The file to be stored in the directory.
    */
   public void storeFile(File file) {
+
     // add the file to the set of stored files
     storedFiles.add(file);
+
     // set the file's parent to be the directory it is being stored in
     file.setParent(this);
   }
@@ -46,5 +48,4 @@ public class Directory extends File {
   public ArrayList<File> getStoredFiles() {
     return storedFiles;
   }
-
 }

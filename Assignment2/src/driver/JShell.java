@@ -43,6 +43,7 @@ import driver.Node;
 public class JShell {
 
   public static void main(String[] args) throws IOException {
+
     // User input and default start of line
     String userInput;
     String startOfLine = "/#: ";
@@ -77,7 +78,7 @@ public class JShell {
         // If user inputs invalid command name, raise commandNameException
         // If user inputs invalid argument for the command name, raise
         // commandArgException
-        // Otherwise, execute the command, as wanted QED []
+        // Otherwise, execute the command, as wanted
       }
 
     } while (exitStatus == false);
@@ -91,7 +92,6 @@ public class JShell {
   public static void interpretInput(String userInput) {
 
     // Check if the input is valid
-
     if (Interpreter.validInput(userInput) == true) {
 
       // Break up the user input
@@ -103,7 +103,7 @@ public class JShell {
       // # of arguments in the input
       String[] commandArgs = null;
 
-      // TEMPORARY
+      // TODO
       // System.out.println("Command name: " + commandName);
       // System.out.println("~~~Arguments below~~~");
 
