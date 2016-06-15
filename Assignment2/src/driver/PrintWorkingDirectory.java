@@ -21,5 +21,10 @@ public class PrintWorkingDirectory {
     System.out.println(pathway);
 
   }
-
+  public static void main(String[] args) {
+    Directory dir1 = new Directory("my dir");
+    File f1 = new File("f1");
+    dir1.storeFile(f1);
+    printWD(f1);
+  }
 }

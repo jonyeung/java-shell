@@ -20,4 +20,13 @@ public class List {
    * @param String
    */
   }
+  
+  public static void main(String[] args) {
+    Directory dir1 = new Directory("my dir");
+    File f1 = new File("f1");
+    File f2 = new File("f2");
+    dir1.storeFile(f1);
+    dir1.storeFile(f2);
+    listContents(dir1);
+  }
 }

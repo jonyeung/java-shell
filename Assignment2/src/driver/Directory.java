@@ -1,11 +1,10 @@
 package driver;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
 
 public class Directory extends File {
 
-  private Set<File> storedFiles;
+  private ArrayList<File> storedFiles;
 
   /**
    * Directory constructor with no parent
@@ -14,7 +13,7 @@ public class Directory extends File {
    */
   public Directory(String name) {
     super(name);
-    storedFiles = new HashSet<File>();
+    storedFiles = new ArrayList<File>();
   }
 
   /**
@@ -44,7 +43,7 @@ public class Directory extends File {
    * 
    * @return Set<File> The set of all the stored files in the directory.
    */
-  public Set<File> getStoredFiles() {
+  public ArrayList<File> getStoredFiles() {
     return storedFiles;
   }
 

@@ -2,6 +2,8 @@ package driver;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+
 import driver.Node;
 
 /**
@@ -75,15 +77,30 @@ public class Tree {
     for (Node singleNode : startNode.getChildren()) {
       this.traverse(startNode, list);
     }
-  }
 
-  public static void main(String[] args) {
-
-    Tree tree = new Tree();
-    Node nodeAB = new Node();
-    Node nodeA = new Node();
-    nodeA.addChild(nodeAB);
-    tree.setRoot(nodeA);
-    tree.getRoot().toString();
+    /** TODO UNCOMMENT AND COMPLETE
+     * Traverse the file system based on the given path.
+     * 
+     * @param path The pathway the file system is to traverse.
+     * @return file The file found at the end of the path.
+     */
+    // public File traversePath(String path) {
+    // // parse the path by converting it to a list
+    // String[] pathway = Interpreter.filepathToArray(path);
+    // // make sure root is in the path
+    // if (root.getName() != pathway[0]) {
+    // // TODO THROW AN EXCEPTION
+    // }
+    // else {
+    // // traverse to the last file in the path
+    // Directory curr = root;
+    // for (int i=1; i < pathway.length; i++) {
+    // // check if the next file in the path is a child of the current directory
+    // ArrayList<File> storedFiles = curr.getStoredFiles();
+    //
+    // }
+    // }
+    //
+    // }
   }
 }
