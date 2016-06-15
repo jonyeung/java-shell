@@ -13,5 +13,11 @@ public class List {
     for (File file : dir.getStoredFiles()) {
       System.out.println(file.getName());
     }
+    
+  /**TODO
+   * Prints the contents of the directory found at the given pathway.
+   * 
+   * @param String
+   */
   }
 }

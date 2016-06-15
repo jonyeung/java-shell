@@ -16,8 +16,9 @@ public class PrintWorkingDirectory {
     while (curr.getParent() != null) {
       curr = curr.getParent();
       pathway = "/" + curr.getName() + "/" + pathway;
-      System.out.println(pathway);
     }
+    // print out the path
+    System.out.println(pathway);
 
   }
 }
