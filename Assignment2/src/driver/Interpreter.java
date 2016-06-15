@@ -82,8 +82,6 @@ public class Interpreter {
     int count = 0;
     boolean notFound = true;
     while (count < commands.length && notFound) {
-      // Gurpreet: Changed "inputWords[0] == commands[count]" (not valid in
-      // java b/c of java memory model)
       if (inputWords[0].equals(commands[count])) {
         notFound = false;
       } else {
