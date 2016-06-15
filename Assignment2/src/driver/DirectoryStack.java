@@ -7,7 +7,7 @@ public class DirectoryStack {
   private static Stack<String> savedDirectories = new Stack<String>();
 
   /**
-   * Puts the current working directory onto the stack of directories and 
+   * Puts the current working directory onto the stack of directories and
    * changes the current working directory to the one specified
    * 
    * @param changeDirectory The current directory will be changed to this
@@ -16,7 +16,7 @@ public class DirectoryStack {
     // use pwd to get the name of the current directory
 
     // push the current directory onto the stack
-    
+
     // use cd to change into changeDirectory
   }
 
@@ -27,7 +27,7 @@ public class DirectoryStack {
   public static void popd() {
     // pops the first element and use cd
     // if there is no directory on the stack then raise exception
-    
+
   }
 
 

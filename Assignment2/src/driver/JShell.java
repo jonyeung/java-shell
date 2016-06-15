@@ -59,8 +59,10 @@ public class JShell {
 
     // Continually prompt user for input
     do {
+
       // Print the start of each line before input
       System.out.print(startOfLine);
+
       // Retrieve input from user
       userInput = br.readLine();
       History.addToHistory(userInput);
@@ -77,6 +79,7 @@ public class JShell {
         // commandArgException
         // Otherwise, execute the command, as wanted QED []
       }
+
     } while (exitStatus == false);
   }
 
@@ -86,30 +89,35 @@ public class JShell {
    * @param userInput The line of input entered by the user to be interpreted
    */
   public static void interpretInput(String userInput) {
+
     // Check if the input is valid
     if (Interpreter.validInput(userInput) == true) {
+
       // Break up the user input
       String[] inputArray = Interpreter.inputToArray(userInput, " ");
+
       // inputArray[0] is the command name
       String commandName = inputArray[0];
+
       // # of arguments in the input
       String[] commandArgs = null;
 
       // TEMPORARY
       System.out.println("Command name: " + commandName);
       System.out.println("~~~Arguments below~~~");
-      //
 
       // Copy the arguments from inputArray to inputArguments, if there are any
       if (inputArray.length > 1) {
+
         commandArgs = new String[inputArray.length - 1];
+
         // Loop through the length of the inputArray
         for (int i = 0; i < inputArray.length - 1; i++) {
+
           // Copy arguments from inputArray to inputArguments
           commandArgs[i] = inputArray[i + 1];
-          // TEMPORARY
+          // TODO
           System.out.println(commandArgs[i]);
-          //
         }
       }
       // execute the command

@@ -2,7 +2,6 @@ package driver;
 
 import java.util.Set;
 
-
 public class Directory extends File {
 
   private Set<File> storedFiles;

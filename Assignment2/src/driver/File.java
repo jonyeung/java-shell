@@ -52,5 +52,4 @@ public class File {
   public String getName() {
     return fileName;
   }
-
 }

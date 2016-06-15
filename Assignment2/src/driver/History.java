@@ -13,6 +13,7 @@ public class History {
    * @param input The input that was given from the user
    */
   public static void addToHistory(String input) {
+
     // increment the number of lines in the file
     numLines++;
 
@@ -28,7 +29,9 @@ public class History {
    * @param lastLines The number of past commands that the user wants to see
    */
   public static void printHistory(int lastLines) {
+
     int startLineIndex = numLines - lastLines;
+
     // loop through each line starting at startLineIndex and print them
     for (int i = startLineIndex; i < numLines; i++) {
       System.out.println(historyFile.get(i));
