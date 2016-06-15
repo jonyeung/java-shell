@@ -91,6 +91,7 @@ public class JShell {
   public static void interpretInput(String userInput) {
 
     // Check if the input is valid
+
     if (Interpreter.validInput(userInput) == true) {
 
       // Break up the user input
@@ -103,8 +104,8 @@ public class JShell {
       String[] commandArgs = null;
 
       // TEMPORARY
-      System.out.println("Command name: " + commandName);
-      System.out.println("~~~Arguments below~~~");
+      // System.out.println("Command name: " + commandName);
+      // System.out.println("~~~Arguments below~~~");
 
       // Copy the arguments from inputArray to inputArguments, if there are any
       if (inputArray.length > 1) {
@@ -117,7 +118,7 @@ public class JShell {
           // Copy arguments from inputArray to inputArguments
           commandArgs[i] = inputArray[i + 1];
           // TODO
-          System.out.println(commandArgs[i]);
+          // System.out.println(commandArgs[i]);
         }
       }
       // execute the command
@@ -145,6 +146,7 @@ public class JShell {
       // ls()
     } else if (commandName.equals("pwd")) {
       // pwd()
+      // PrintWorkingDirectory.printWD(fileSystem.getDir());
     } else if (commandName.equals("pushd")) {
       // pushd(inputArguments)
     } else if (commandName.equals("popd")) {
@@ -153,14 +155,15 @@ public class JShell {
       if (commandArgs == null) {
         History.printAllHistory();
       } else {
-        History.printHistory(Integer.parseInt(commandArgs[1]));
+        History.printHistory(Integer.parseInt(commandArgs[0]));
       }
     } else if (commandName.equals("cat")) {
       // cat(inputArguments)
     } else if (commandName.equals("echo")) {
       // echo(inputArguments)
     } else if (commandName.equals("man")) {
-      // man(inputArguments)
+      // Call the man command on the first argument
+      Man.printMan(commandArgs[0]);
     }
   }
 }
