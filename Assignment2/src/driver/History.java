@@ -1,8 +1,10 @@
 package driver;
 
+import java.util.ArrayList;
+
 public class History {
 
-  private static TextFile historyFile = new TextFile("history");
+  private static ArrayList<String> historyFile = new ArrayList<String>();
   private static int numLines = 0;
 
   /**
@@ -14,11 +16,10 @@ public class History {
     // increment the number of lines in the file
     numLines++;
 
-    String appendLine = Integer.toString(numLines) + ". " + input + "\n";
+    String appendLine = Integer.toString(numLines) + ". " + input;
     // add the input line to the history file
-    historyFile.append(appendLine);
+    historyFile.add(appendLine);
   }
-
 
   /**
    * Gets the number of lines of past commands that need to be printed and
@@ -27,14 +28,10 @@ public class History {
    * @param lastLines The number of past commands that the user wants to see
    */
   public static void printHistory(int lastLines) {
-    // separates the file contents by line into an array
-    String lines[] = Interpreter.inputToArray(historyFile.getFileContents(),
-        "\n");
-
     int startLineIndex = numLines - lastLines;
     // loop through each line starting at startLineIndex and print them
     for (int i = startLineIndex; i < numLines; i++) {
-      System.out.println(lines[i]);
+      System.out.println(historyFile.get(i));
     }
   }
 
