@@ -12,6 +12,7 @@ public class File {
    */
   public File(String name) {
     this.fileName = name;
+    this.parent = null;
   }
 
   /**
