@@ -1,0 +1,14 @@
+What did I do last time?
+	-completed additional methods and requirements for file, directory, and text file classes
+	-finished PrintWorkingDirectory class
+	-completed one of two methods for List class
+	-met up with team members to brainstorm final design of how to implement file system
+
+What do I plan to do now?
+	-complete List class
+	-work with Jason to finish traversePath method
+	-start working on mkdir class
+
+Am I blocked on anything?
+	-Tree/FileStructure class
+
