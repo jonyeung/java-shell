@@ -48,7 +48,11 @@ public class Interpreter {
    * @return String[] An array of strings that are the commands words
    */
   public static String[] commandToArray(String command) {
+
     String words[] = inputToArray(command, " ");
+    // if the first word is echo, then inputToArray would have broken up the
+    // string into words. The other method keeps anything in double quotes as
+    // one string
     if (words[0].equals("echo")) {
       words = echoInputToArray(command);
     }
@@ -62,6 +66,7 @@ public class Interpreter {
    * @return String[] An array of strings that are individual directory or files
    */
   public static String[] filepathToArray(String filepath) {
+
     return inputToArray(filepath, "/");
   }
 
@@ -73,6 +78,7 @@ public class Interpreter {
    * @return String[] An array of strings separated properly
    */
   private static String[] echoInputToArray(String input) {
+
     int startIndex = 0;
     int endIndex = 0;
     int count = 0;
@@ -178,7 +184,7 @@ public class Interpreter {
    * @return boolean Correct number of arguments
    */
   private static boolean validNumberArguments(int index, String[] input) {
-    
+
     int numArgs = input.length - 1;
     boolean result = false;
     // checks that the in the input array, the correct number of arguments

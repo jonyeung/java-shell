@@ -95,7 +95,7 @@ public class JShell {
     if (Interpreter.validInput(userInput) == true) {
 
       // Break up the user input
-      String[] inputArray = Interpreter.inputToArray(userInput, " ");
+      String[] inputArray = Interpreter.commandToArray(userInput);
 
       // inputArray[0] is the command name
       String commandName = inputArray[0];
