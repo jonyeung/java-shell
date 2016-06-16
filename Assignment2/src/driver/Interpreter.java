@@ -37,8 +37,6 @@ public class Interpreter {
       }
     }
 
-    // TODO if first word is echo, then call combine strings
-
     // returns only the values in the array that words
     return Arrays.copyOfRange(inputWords, 0, numInputs);
   }
@@ -50,7 +48,11 @@ public class Interpreter {
    * @return String[] An array of strings that are the commands words
    */
   public static String[] commandToArray(String command) {
-    return inputToArray(command, " ");
+    String words[] = inputToArray(command, " ");
+    if (words[0].equals("echo")) {
+      words = echoInputToArray(command);
+    }
+    return words;
   }
 
   /**
@@ -63,39 +65,55 @@ public class Interpreter {
     return inputToArray(filepath, "/");
   }
 
-  public static String[] combineStrings(String[] input) {
-
-    int startQuoteIndex = 1;
-    int endQuoteIndex = 1;
-
-    int index = 0;
+  /**
+   * If the user entered a double quote while using echo, then there must be
+   * text with double quotes in between. This will keep the text as one string
+   * 
+   * @param input The input from the user
+   * @return String[] An array of strings separated properly
+   */
+  private static String[] echoInputToArray(String input) {
+    int startIndex = 0;
+    int endIndex = 0;
+    int count = 0;
     boolean notFound = true;
 
-    // loop through each input and check if any word ends with a double quote.
-    while (index < input.length && notFound) {
-
-      int lastCharIndex = input[index].length() - 1;
-      char lastChar = input[index].charAt(lastCharIndex);
-
-      if (lastChar == '"') {
-        notFound = false;
-      } else {
-        index++;
+    // find the location of the double quotes
+    while (count < input.length() && notFound) {
+      if (input.charAt(count) == '"') {
+        if (startIndex == 0) {
+          startIndex = count;
+        } else {
+          endIndex = count;
+          notFound = false;
+        }
       }
+      count++;
     }
 
-    if (notFound == false) {
-
-      // Concatenate the word at index 1 with all the words between
-      // endQuoteIndex
-      for (int i = startQuoteIndex; i <= index; i++) {
-        // TODO work on this
-
-      }
+    // if closing quote is not found throw exception
+    if (notFound == true) {
+      // TODO throw exception that handles only one double quote showing no end
+      // of quote
     }
 
-    String result[] = {};
-    return result;
+    // get the words between the start and end quote
+    String quote = input.substring(startIndex + 1, endIndex);
+    // get the words of everything other then the string in quote
+    String restOfInput =
+        input.substring(0, startIndex) + input.substring(endIndex + 1);
+    String words[] = inputToArray(restOfInput, " ");
+
+    String newInput[] = new String[words.length + 1];
+    newInput[0] = words[0];
+    newInput[1] = quote;
+    // if the quote is not on the last word from input, then add words from
+    // input to newInput
+    for (int i = 2; i < newInput.length; i++) {
+      newInput[i] = words[i - 1];
+    }
+    return newInput;
+
   }
 
   /**
@@ -160,10 +178,11 @@ public class Interpreter {
    * @return boolean Correct number of arguments
    */
   private static boolean validNumberArguments(int index, String[] input) {
-
+    
     int numArgs = input.length - 1;
     boolean result = false;
-
+    // checks that the in the input array, the correct number of arguments
+    // was given
     if (minArgs[index] <= numArgs
         && (numArgs <= maxArgs[index] || maxArgs[index] == -1)) {
       result = true;
