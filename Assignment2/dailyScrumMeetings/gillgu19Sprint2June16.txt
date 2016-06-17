@@ -1,0 +1,12 @@
+What did I do last time?
+	- Started and finished the Man class, wrote the descriptions for each command.
+	- Worked on JShell, discussed with Jason on how to implement the commands and how the interpreter would handle command name and arguments.
+	- Brainstormed ideas with the group on how to handle the file system and how the JShell would utilize it.
+
+What do I plan to do now?
+	- Continue working on the JShell (implement functionality of commands as they are completed)
+	- Implement exceptions where needed
+	- Start thinking about unit testing for Sprint 3
+
+Am I blocked on anything?
+	- Need the file system to be finished so I can get a scope of how JShell would work for commands that haven't been incorporated yet.
