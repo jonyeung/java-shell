@@ -1,0 +1,12 @@
+What did I do last time?
+	-Fixed bugs in history class and changed how it held the data 
+	-Added methods to Interpreter class
+	-Created DirectoryStack class
+	-Added and edited crc cards
+
+What do I plan to do now?
+	-Finish DirectoryStack
+	-Work on traversing the file system with Jonathan
+
+Am I blocked on anything
+	-No
