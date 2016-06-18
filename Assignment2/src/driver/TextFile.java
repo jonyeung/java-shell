@@ -32,7 +32,7 @@ public class TextFile extends File {
    * 
    * @param parentFile The parent of the TextFile.
    */
-  public TextFile(String name, File parentFile) {
+  public TextFile(String name, Directory parentFile) {
     super(name, parentFile);
   }
 
@@ -45,7 +45,7 @@ public class TextFile extends File {
    * 
    * @param parentFile The parent of the TextFile.
    */
-  public TextFile(String name, String text, File parentFile) {
+  public TextFile(String name, String text, Directory parentFile) {
     super(name, parentFile);
     fileContents = text;
   }

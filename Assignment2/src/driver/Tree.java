@@ -126,7 +126,7 @@ public class Tree {
 
   private File changeDirectory(Directory curr, String[] pathway) {
 
-    File returnFile;
+    File returnFile = null;
 
     // if no pathway is given, then change the working directory to curr
     if (pathway.length == 0) {
