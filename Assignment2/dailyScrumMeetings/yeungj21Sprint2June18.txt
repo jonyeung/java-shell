@@ -1,0 +1,12 @@
+What did I do last time?
+	-completed MakeDirectory class
+	-completed ChangeDirectory class
+	-helped Jason work on traversePath method
+	-fixed errors and added additional methods in other classes
+
+What do I plan to do now?
+	-finish up traversePath method
+	-convert Tree class to FileStructure
+
+Am I blocked on anything?
+	-Tree/FileStructure class
