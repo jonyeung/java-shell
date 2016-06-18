@@ -124,11 +124,11 @@ public class Tree {
     Tree.currentDirectory = currentDirectory;
   }
 
-  private File changeDirectory(Directory curr, String[] pathway) {
+  private File getDirectory(Directory curr, String[] pathway) {
 
     File returnFile = null;
 
-    // if no pathway is given, then change the working directory to curr
+    // if no pathway is given, then return curr
     if (pathway.length == 0) {
       returnFile = curr;
     } else {
@@ -143,7 +143,7 @@ public class Tree {
 
       // check if the search directory is '..' then search the parent if it
       // exists
-      if (searchDir == ".." && !curr.equals(rootDirectory)) {
+      if (searchDir == ".." && curr.equals(rootDirectory)) {
         returnFile = this.changeDirectory(curr.getParent(), newPathway);
       } else {
         // TODO raise error because no parent
@@ -178,9 +178,9 @@ public class Tree {
 
     File returnFile;
     if (relative) {
-      returnFile = changeDirectory(currentDirectory, pathway);
+      returnFile = getDirectory(currentDirectory, pathway);
     } else {
-      returnFile = changeDirectory(rootDirectory, pathway);
+      returnFile = getDirectory(rootDirectory, pathway);
     }
 
     return returnFile;
