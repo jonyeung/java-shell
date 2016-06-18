@@ -1,9 +1,10 @@
 package driver;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 // TODO UNCOMMENT line below after traverse is complete
-//import java.util.Set;
+// import java.util.Set;
 
 import driver.Node;
 
@@ -79,8 +80,9 @@ public class Tree {
       this.traverse(startNode, list);
     }
 
-    /** TODO UNCOMMENT AND COMPLETE
-     * Traverse the file system based on the given path.
+    /**
+     * TODO UNCOMMENT AND COMPLETE Traverse the file system based on the given
+     * path.
      * 
      * @param path The pathway the file system is to traverse.
      * @return file The file found at the end of the path.
@@ -104,4 +106,61 @@ public class Tree {
     //
     // }
   }
+
+
+
+  private static Directory rootDirectory = new Directory("root");
+  private static Directory currentDirectory = rootDirectory;
+
+  private void changeDirectory(Directory curr, String[] pathway) {
+    // if no pathway is given, then change the working directory to curr
+    if (pathway.length == 0) {
+      currentDirectory = curr;
+    } else {
+      // loop through each file in curr and check if any match the name of
+      // the first directory in pathway
+      int i = 0;
+      boolean notFound = true;
+      ArrayList<File> storedFiles = curr.getStoredFiles();
+
+      while (i < storedFiles.size() && notFound) {
+        File file = storedFiles.get(i);
+        // if the directory is found, then search the next thing on pathway
+        if (file.getName().equals(pathway[0]) && file instanceof Directory) {
+          notFound = false;
+          this.changeDirectory((Directory) file,
+              Arrays.copyOfRange(pathway, 1, pathway.length));
+        }
+      }
+
+      if (notFound) {
+        // TODO raise error because the directory was not found
+      }
+
+    }
+
+  }
+
+
+  private void traversePath(String path) {
+    // parse the path by converting it to a list
+    String[] pathway = Interpreter.filepathToArray(path);
+    // check if path is absolute or relative
+    boolean relative = true;
+    if (path.charAt(0) == '/') {
+      relative = false;
+    }
+
+    if (relative) {
+      changeDirectory(currentDirectory, pathway);
+    } else {
+      changeDirectory(rootDirectory, pathway);
+    }
+
+
+
+  }
+
+
+
 }
