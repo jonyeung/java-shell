@@ -37,7 +37,6 @@ public class Tree {
   /**
    * Set the root of tree
    * 
-   * @return root
    */
   public void setRoot(Node root) {
 
@@ -112,19 +111,39 @@ public class Tree {
   private static Directory rootDirectory = new Directory("root");
   private static Directory currentDirectory = rootDirectory;
 
+  /**
+   * Get the root directory
+   * 
+   */
   public static Directory getRootDirectory() {
     return rootDirectory;
   }
 
+  /**
+   * Get the current working directory
+   * 
+   */
   public static Directory getCurrentDirectory() {
     return currentDirectory;
   }
 
+  /**
+   * Set the current working directory
+   * 
+   * @param currentDirectory The directory that we want to change to
+   */
   public static void setCurrentDirectory(Directory currentDirectory) {
     Tree.currentDirectory = currentDirectory;
   }
 
-  private File getDirectory(Directory curr, String[] pathway) {
+  /**
+   * Returns a file using the pathway and starts the search in directory curr
+   * 
+   * @param curr The starting directory to look for file in pathway
+   * @param pathway The array of file/directory names to find a file
+   * @return File The file that we are looking for
+   */
+  private File getFile(Directory curr, String[] pathway) {
 
     File returnFile = null;
 
@@ -143,8 +162,9 @@ public class Tree {
 
       // check if the search directory is '..' then search the parent if it
       // exists
-      if (searchDir == ".." && curr.equals(rootDirectory)) {
-        returnFile = this.changeDirectory(curr.getParent(), newPathway);
+      // TODO I think it should be !curr.equals(rootDirectory)
+      if (searchDir == ".." && !curr.equals(rootDirectory)) {
+        returnFile = this.getFile(curr.getParent(), newPathway);
       } else {
         // TODO raise error because no parent
       }
@@ -154,7 +174,7 @@ public class Tree {
         // if the directory is found, then search the next thing on pathway
         if (file.getName().equals(searchDir) && file instanceof Directory) {
           notFound = false;
-          returnFile = this.changeDirectory((Directory) file, newPathway);
+          returnFile = this.getFile((Directory) file, newPathway);
         }
       }
 
@@ -166,7 +186,12 @@ public class Tree {
     return returnFile;
   }
 
-
+  /**
+   * Returns a file using the file path given
+   * 
+   * @param path The file path in the format given by the user
+   * @return File The file that we are looking for
+   */
   public File traversePath(String path) {
     // parse the path by converting it to a list
     String[] pathway = Interpreter.filepathToArray(path);
@@ -177,15 +202,13 @@ public class Tree {
     }
 
     File returnFile;
+    // searches the correct directory for the file in pathway
     if (relative) {
-      returnFile = getDirectory(currentDirectory, pathway);
+      returnFile = getFile(currentDirectory, pathway);
     } else {
-      returnFile = getDirectory(rootDirectory, pathway);
+      returnFile = getFile(rootDirectory, pathway);
     }
-
     return returnFile;
   }
-
-
 
 }
