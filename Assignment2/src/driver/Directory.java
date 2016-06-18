@@ -41,6 +41,20 @@ public class Directory extends File {
   }
 
   /**
+   * Adds a directory to the current directory.
+   * 
+   * @param dir The directory to be stored in the directory.
+   */
+  public void storeFile(Directory dir) {
+
+    // add the file to the set of stored files
+    storedFiles.add(dir);
+
+    // set the file's parent to be the directory it is being stored in
+    dir.setParent(this);
+  }
+
+  /**
    * Getter for storedFiles.
    * 
    * @return Set<File> The set of all the stored files in the directory.

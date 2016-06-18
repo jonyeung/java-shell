@@ -143,7 +143,7 @@ public class Tree {
    * @param pathway The array of file/directory names to find a file
    * @return File The file that we are looking for
    */
-  private File getFile(Directory curr, String[] pathway) {
+  private static File getFile(Directory curr, String[] pathway) {
 
     File returnFile = null;
 
@@ -192,7 +192,7 @@ public class Tree {
    * @param path The file path in the format given by the user
    * @return File The file that we are looking for
    */
-  public File traversePath(String path) {
+  public static File traversePath(String path) {
     // parse the path by converting it to a list
     String[] pathway = Interpreter.filepathToArray(path);
     // check if path is absolute or relative
