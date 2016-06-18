@@ -3,7 +3,7 @@ package driver;
 public class File {
 
   private String fileName;
-  private File parent;
+  private Directory parent;
 
   /**
    * File constructor with no parent
