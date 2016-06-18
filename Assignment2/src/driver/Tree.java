@@ -112,10 +112,25 @@ public class Tree {
   private static Directory rootDirectory = new Directory("root");
   private static Directory currentDirectory = rootDirectory;
 
-  private void changeDirectory(Directory curr, String[] pathway) {
+  public static Directory getRootDirectory() {
+    return rootDirectory;
+  }
+
+  public static Directory getCurrentDirectory() {
+    return currentDirectory;
+  }
+
+  public static void setCurrentDirectory(Directory currentDirectory) {
+    Tree.currentDirectory = currentDirectory;
+  }
+
+  private File changeDirectory(Directory curr, String[] pathway) {
+
+    File returnFile;
+
     // if no pathway is given, then change the working directory to curr
     if (pathway.length == 0) {
-      currentDirectory = curr;
+      returnFile = curr;
     } else {
       // loop through each file in curr and check if any match the name of
       // the first directory in pathway
@@ -123,13 +138,23 @@ public class Tree {
       boolean notFound = true;
       ArrayList<File> storedFiles = curr.getStoredFiles();
 
+      String searchDir = pathway[0];
+      String newPathway[] = Arrays.copyOfRange(pathway, 1, pathway.length);
+
+      // check if the search directory is '..' then search the parent if it
+      // exists
+      if (searchDir == ".." && !curr.equals(rootDirectory)) {
+        returnFile = this.changeDirectory(curr.getParent(), newPathway);
+      } else {
+        // TODO raise error because no parent
+      }
+
       while (i < storedFiles.size() && notFound) {
         File file = storedFiles.get(i);
         // if the directory is found, then search the next thing on pathway
-        if (file.getName().equals(pathway[0]) && file instanceof Directory) {
+        if (file.getName().equals(searchDir) && file instanceof Directory) {
           notFound = false;
-          this.changeDirectory((Directory) file,
-              Arrays.copyOfRange(pathway, 1, pathway.length));
+          returnFile = this.changeDirectory((Directory) file, newPathway);
         }
       }
 
@@ -138,11 +163,11 @@ public class Tree {
       }
 
     }
-
+    return returnFile;
   }
 
 
-  private void traversePath(String path) {
+  public File traversePath(String path) {
     // parse the path by converting it to a list
     String[] pathway = Interpreter.filepathToArray(path);
     // check if path is absolute or relative
@@ -151,14 +176,14 @@ public class Tree {
       relative = false;
     }
 
+    File returnFile;
     if (relative) {
-      changeDirectory(currentDirectory, pathway);
+      returnFile = changeDirectory(currentDirectory, pathway);
     } else {
-      changeDirectory(rootDirectory, pathway);
+      returnFile = changeDirectory(rootDirectory, pathway);
     }
 
-
-
+    return returnFile;
   }
 
 
