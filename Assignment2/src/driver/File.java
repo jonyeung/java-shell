@@ -22,16 +22,16 @@ public class File {
    * 
    * @param parentFile The parent of this file.
    */
-  public File(String name, File parentFile) {
+  public File(String name, Directory parentFile) {
     this.parent = parentFile;
   }
 
   /**
    * Getter for parent file.
    * 
-   * @return File The parent file.
+   * @return Directory The parent file.
    */
-  public File getParent() {
+  public Directory getParent() {
     return parent;
   }
 
@@ -40,7 +40,7 @@ public class File {
    * 
    * @param parent The parent of the file.
    */
-  public void setParent(File parent) {
+  public void setParent(Directory parent) {
     this.parent = parent;
   }
 

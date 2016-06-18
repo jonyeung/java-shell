@@ -22,7 +22,7 @@ public class Directory extends File {
    * @param name The name of the directory.
    * @param parentFile The parent of this directory.
    */
-  public Directory(String name, File parentFile) {
+  public Directory(String name, Directory parentFile) {
     super(name, parentFile);
   }
 
