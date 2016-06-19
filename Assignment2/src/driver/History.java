@@ -1,6 +1,7 @@
 package driver;
 
 import java.util.ArrayList;
+import driver.CommandException;
 
 public class History {
 
@@ -26,7 +27,7 @@ public class History {
    * Gets the number of lines of past commands that need to be printed and
    * prints them
    * 
-   * @param lastLines The number of past commands that the user wants to see
+   * @param lastLines The number of past commands that the user wants to see 
    */
   public static void printHistory(int lastLines) {
 
@@ -41,7 +42,7 @@ public class History {
 
     } else {
 
-      // TODO if array is out of bounds throw exception
+      // TODO: Throw exception in JShell, remove this if-else statement
 
     }
 
