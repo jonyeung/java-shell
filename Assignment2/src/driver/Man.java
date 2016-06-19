@@ -98,6 +98,8 @@ public class Man {
     } else if (commandName.equals("exit")) {
       // exit
       System.out.println(exitMessage);
+    } else {
+      // TODO: Throw exception if not a valid command
     }
   }
 }
