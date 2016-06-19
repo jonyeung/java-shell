@@ -1,16 +1,23 @@
 package driver;
 
+/**
+ * The File Class. This class consists of 2 constructors, the first taking in
+ * only a name <type str> parameter and the second taking in a name <type str>
+ * and a parentFile <type Directory> as parameters. This class also consists of
+ * accessor methods to get parent, set parent and get name.
+ */
 public class File {
 
   private String fileName;
   private Directory parent;
 
   /**
-   * File constructor with no parent
+   * File constructor with no parent.
    * 
    * @param name The name of the file.
    */
   public File(String name) {
+
     this.fileName = name;
     this.parent = null;
   }
@@ -23,6 +30,7 @@ public class File {
    * @param parentFile The parent of this file.
    */
   public File(String name, Directory parentFile) {
+
     this.parent = parentFile;
   }
 
@@ -32,6 +40,7 @@ public class File {
    * @return Directory The parent file.
    */
   public Directory getParent() {
+
     return parent;
   }
 
@@ -41,6 +50,7 @@ public class File {
    * @param parent The parent of the file.
    */
   public void setParent(Directory parent) {
+
     this.parent = parent;
   }
 
@@ -50,6 +60,7 @@ public class File {
    * @return String The name of the file.
    */
   public String getName() {
+
     return fileName;
   }
 }
