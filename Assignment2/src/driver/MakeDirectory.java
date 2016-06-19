@@ -29,7 +29,7 @@ public class MakeDirectory {
     String[] pathway = Interpreter.filepathToArray(path);
 
     // get the name of the new directory being made
-    String newDir = pathway[-1];
+    String newDir = pathway[pathway.length - 1];
 
     // get the parent directory of the new directory
     String parentPath = path.substring(0, path.lastIndexOf("/"));
