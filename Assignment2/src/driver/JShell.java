@@ -96,33 +96,23 @@ public class JShell {
 
       // Break up the user input
       String[] inputArray = Interpreter.commandToArray(userInput);
-
       // inputArray[0] is the command name
       String commandName = inputArray[0];
-
       // # of arguments in the input
       String[] commandArgs = null;
-
-      // TODO
-      // System.out.println("Command name: " + commandName);
-      // System.out.println("~~~Arguments below~~~");
 
       // Copy the arguments from inputArray to inputArguments, if there are any
       if (inputArray.length > 1) {
 
         commandArgs = new String[inputArray.length - 1];
-
         // Loop through the length of the inputArray
         for (int i = 0; i < inputArray.length - 1; i++) {
-
           // Copy arguments from inputArray to inputArguments
           commandArgs[i] = inputArray[i + 1];
-          // TODO
-          // System.out.println(commandArgs[i]);
         }
       }
-      // execute the command
-      executeCommand(commandName, commandArgs);
+      // execute the command, convert command name to lowercase
+      executeCommand(commandName.toLowerCase(), commandArgs);
     } else {
       System.out.println("Invalid input");
       // Throw exceptions
@@ -132,31 +122,39 @@ public class JShell {
   }
 
   /**
-   * Executes the command given the command name and its arguments, where
-   * both the command name and its arguments are valid
+   * Executes the command given the command name and its arguments, where both
+   * the command name and its arguments are valid
    * 
    * @param commandName The command name of the command to be executed
    * @param commandArgs The argument(s) for the command to be executed
    */
   public static void executeCommand(String commandName, String[] commandArgs) {
-    // TODO: 
+    // TODO:
     // 1. Need filesystem to finish mkdir completely
     if (commandName.equals("mkdir")) {
       String relativeIndicator = "/";
       for (int i = 1; i < commandArgs.length; i++) {
         if (commandArgs[i].equals(relativeIndicator)) {
           // TODO MakeDirectory.mkdirRelative(fileSystem, commandArgs[i]);
-        }
-        else {
+        } else {
           // TODO MakeDirectory.mkdirAbsolute(fileSystem. commandArgs[i]);
         }
       }
     } else if (commandName.equals("cd")) {
-      // cd(inputArguments)
+      // TODO:
+      // 1. Need filesystem to finish cd completely
+      // ChangeDirectory.cd(fileSystem, commandArgs[0]);
     } else if (commandName.equals("ls")) {
-      // ls()
+      // TODO:
+      // 1. Need filesystem to finish cd completely
+      if (commandArgs != null) {
+        for (int i = 0; i < commandArgs.length; i++) {
+          List.printDirectoryContentsGivenPath(commandArgs[i]);
+        }
+      } else {
+        // TODO List.listContents(fileSystem);
+      }
     } else if (commandName.equals("pwd")) {
-      // pwd()
       // PrintWorkingDirectory.printWD(fileSystem.getDir());
     } else if (commandName.equals("pushd")) {
       // pushd(inputArguments)
