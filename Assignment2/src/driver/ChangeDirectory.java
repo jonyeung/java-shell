@@ -10,8 +10,6 @@ public class ChangeDirectory {
    */
   public static void cd(Directory curr, String path) {
     // determine if the path is absolute or relative
-    // parse the path by converting it to a list
-    String[] pathway = Interpreter.filepathToArray(path);
     // check if path is absolute or relative
     boolean relative = true;
     if (path.charAt(0) == '/') {
