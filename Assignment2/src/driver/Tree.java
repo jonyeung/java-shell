@@ -106,16 +106,14 @@ public class Tree {
     // }
   }
 
-
-
-  private static Directory rootDirectory = new Directory("root");
-  private static Directory currentDirectory = rootDirectory;
+  private Directory rootDirectory = new Directory("root");
+  private Directory currentDirectory = rootDirectory;
 
   /**
    * Get the root directory
    * 
    */
-  public static Directory getRootDirectory() {
+  public Directory getRootDirectory() {
     return rootDirectory;
   }
 
@@ -123,7 +121,7 @@ public class Tree {
    * Get the current working directory
    * 
    */
-  public static Directory getCurrentDirectory() {
+  public Directory getCurrentDirectory() {
     return currentDirectory;
   }
 
@@ -132,8 +130,8 @@ public class Tree {
    * 
    * @param currentDirectory The directory that we want to change to
    */
-  public static void setCurrentDirectory(Directory currentDirectory) {
-    Tree.currentDirectory = currentDirectory;
+  public void setCurrentDirectory(Directory currentDirectory) {
+    this.currentDirectory = currentDirectory;
   }
 
   /**
@@ -143,34 +141,40 @@ public class Tree {
    * @param pathway The array of file/directory names to find a file
    * @return File The file that we are looking for
    */
-  private static File getFile(Directory curr, String[] pathway) {
+  private File getFile(Directory curr, String[] pathway) {
 
     File returnFile = null;
 
     // if no pathway is given, then return curr
     if (pathway.length == 0) {
+
       returnFile = curr;
     } else {
+
       // loop through each file in curr and check if any match the name of
       // the first directory in pathway
       int i = 0;
       boolean notFound = true;
+
       ArrayList<File> storedFiles = curr.getStoredFiles();
 
       String searchDir = pathway[0];
       String newPathway[] = Arrays.copyOfRange(pathway, 1, pathway.length);
 
-      // check if the search directory is '..' then search the parent if it
-      // exists
+      // check if search directory is '..', then search if parent exists
       // TODO I think it should be !curr.equals(rootDirectory)
       if (searchDir == ".." && !curr.equals(rootDirectory)) {
+
         returnFile = this.getFile(curr.getParent(), newPathway);
       } else {
+
         // TODO raise error because no parent
       }
 
       while (i < storedFiles.size() && notFound) {
+
         File file = storedFiles.get(i);
+
         // if the directory is found, then search the next thing on pathway
         if (file.getName().equals(searchDir) && file instanceof Directory) {
           notFound = false;
@@ -181,7 +185,6 @@ public class Tree {
       if (notFound) {
         // TODO raise error because the directory was not found
       }
-
     }
     return returnFile;
   }
@@ -192,11 +195,14 @@ public class Tree {
    * @param path The file path in the format given by the user
    * @return File The file that we are looking for
    */
-  public static File traversePath(String path) {
+  public File traversePath(String path) {
+
     // parse the path by converting it to a list
     String[] pathway = Interpreter.filepathToArray(path);
+
     // check if path is absolute or relative
     boolean relative = true;
+
     if (path.charAt(0) == '/') {
       relative = false;
     }
@@ -204,9 +210,9 @@ public class Tree {
     File returnFile;
     // searches the correct directory for the file in pathway
     if (relative) {
-      returnFile = getFile(currentDirectory, pathway);
+      returnFile = this.getFile(currentDirectory, pathway);
     } else {
-      returnFile = getFile(rootDirectory, pathway);
+      returnFile = this.getFile(rootDirectory, pathway);
     }
     return returnFile;
   }
