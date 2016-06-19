@@ -91,8 +91,12 @@ public class FileSystem {
       }
 
       if (notFound) {
-
-        // TODO raise directory not found exception
+        try {
+          throw new CommandException("Invalid directory name.");
+        } catch (CommandException e) {
+          // Print the message
+          System.out.println(e.getMessage());
+        }
       }
     }
     return returnFile;
