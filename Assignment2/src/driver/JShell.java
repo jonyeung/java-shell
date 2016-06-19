@@ -42,11 +42,16 @@ import driver.Node;
 
 public class JShell {
 
+  public static FileSystem fileSystem;
+
   public static void main(String[] args) throws IOException {
 
     // User input and default start of line
     String userInput;
     String startOfLine = "/#: ";
+
+    // File system
+    fileSystem = new FileSystem();
 
     // Boolean to check whether user has quit
     Boolean exitStatus = false;
@@ -125,30 +130,25 @@ public class JShell {
    * @param commandArgs The argument(s) for the command to be executed
    */
   public static void executeCommand(String commandName, String[] commandArgs) {
-    // TODO:
-    // 1. Need filesystem to finish mkdir completely
+    // Mkdir
     if (commandName.equals("mkdir")) {
       String relativeIndicator = "/";
-      for (int i = 1; i < commandArgs.length; i++) {
-        if (commandArgs[i].equals(relativeIndicator)) {
-          // TODO MakeDirectory.mkdirRelative(fileSystem, commandArgs[i]);
+      for (int i = 0; i < commandArgs.length; i++) {
+        if (commandArgs[i].startsWith(relativeIndicator)) {
+          MakeDirectory.mkdirAbsolute(fileSystem, commandArgs[i]);
         } else {
-          // TODO MakeDirectory.mkdirAbsolute(commandArgs[i]);
+          MakeDirectory.mkdirRelative(fileSystem, commandArgs[i]);
         }
       }
     } else if (commandName.equals("cd")) {
-      // TODO:
-      // 1. Need filesystem to finish cd completely
-      // ChangeDirectory.cd(fileSystem.currentdirectory, commandArgs[0]);
+      ChangeDirectory.changeCurrentDirectory(fileSystem, commandArgs[0]);
     } else if (commandName.equals("ls")) {
-      // TODO:
-      // 1. Need filesystem to finish cd completely
       if (commandArgs != null) {
         for (int i = 0; i < commandArgs.length; i++) {
-          List.printDirectoryContentsGivenPath(commandArgs[i]);
+          List.printDirectoryContentsGivenPath(fileSystem, commandArgs[i]);;
         }
       } else {
-        // TODO List.listContents(fileSystem);
+        List.listContents(fileSystem);
       }
     } else if (commandName.equals("pwd")) {
       // PrintWorkingDirectory.printWD();
