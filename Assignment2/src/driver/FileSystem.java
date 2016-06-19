@@ -5,12 +5,12 @@ import java.util.Arrays;
 import driver.File;
 
 /**
- * Represents a Tree of object File. Starts as a single root
+ * Represents a FileSystem of object File. Starts as a single root
  */
 public class FileSystem {
 
   /**
-   * Default Tree constructor
+   * Default FileSystem constructor
    */
   public FileSystem() {
 
@@ -22,7 +22,6 @@ public class FileSystem {
 
   /**
    * Get the root directory
-   * 
    */
   public Directory getRootDirectory() {
     return rootDirectory;
@@ -30,7 +29,6 @@ public class FileSystem {
 
   /**
    * Get the current working directory
-   * 
    */
   public Directory getCurrentDirectory() {
     return currentDirectory;
