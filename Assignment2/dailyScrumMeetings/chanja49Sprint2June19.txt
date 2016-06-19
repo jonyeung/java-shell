@@ -1,0 +1,11 @@
+What did I do last time?
+	-Completed traversing the file system with Jonathan
+	-Completed DirectoryStack
+	-Added exceptions to classes that I created
+	-Added a method to PrintWorkingDirectory
+
+What do I plan to do now?
+	-Create unit tests for commands that I created
+
+Am I blocked on anything
+	-No
