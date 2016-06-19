@@ -159,8 +159,11 @@ public class Interpreter {
     // the array of commands
     int count = 0;
     boolean notFound = true;
+    // loop through the commands array to see if the user's inputted command
+    // is in it
     while (count < commands.length && notFound) {
-      if (command.equals(commands[count])) {
+      // convert the command to lowercase for more command flexibility
+      if (command.toLowerCase().equals(commands[count])) {
         notFound = false;
       } else {
         count++;
