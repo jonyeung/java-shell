@@ -1,6 +1,5 @@
 package driver;
 
-
 public class MakeDirectory {
 
   /**
@@ -10,6 +9,7 @@ public class MakeDirectory {
    * @param dirName The name of the new directory being made
    */
   public static void mkdirRelative(FileSystem fileSystem, String dirName) {
+
     // create a new directory in the current directory of the file system
     fileSystem.getCurrentDirectory().storeFile(new Directory(dirName));
   }
@@ -21,8 +21,10 @@ public class MakeDirectory {
    * @param path The absolute file path of the new directory
    */
   public static void mkdirAbsolute(FileSystem fileSystem, String path) {
+
     // split the path into a list
     String[] pathway = Interpreter.filepathToArray(path);
+
     // get the name of the new directory being made
     String newDir = pathway[-1];
 
@@ -33,6 +35,4 @@ public class MakeDirectory {
     // create a new directory in the parent directory
     parent.storeFile(new Directory(newDir));
   }
-
-
 }
