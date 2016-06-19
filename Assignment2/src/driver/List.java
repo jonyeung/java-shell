@@ -21,10 +21,13 @@ public class List {
    * @param path The pathway specifying a certain file
    */
   public static void printDirectoryContentsGivenPath(String path) {
+
+    // Initialize FileSystem object
+    FileSystem fileSystem = new FileSystem();
+
     // reach the file found at the pathway
-    Directory file = (Directory) FileSystem.traversePath(path);
+    Directory file = (Directory) fileSystem.traversePath(path);
     // list the contents of this file
     List.listContents(file);
   }
-
 }
