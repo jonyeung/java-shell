@@ -5,11 +5,12 @@ public class PrintWorkingDirectory {
   /**
    * Returns the pathway of the current working directory
    * 
-   * @param file The file who's working directory is to be returned.
-   * @return String 
+   * @param fileSystem The file system with all the files and directories
+   * @return String
    */
-  public static String getFilepath(File file) {
-
+  public static String getFilepath(FileSystem fileSystem) {
+    // get the current directory
+    Directory file = fileSystem.getCurrentDirectory();
     // put the pathway string together starting with the current file
     String pathway = "/" + file.getName();
 
@@ -26,19 +27,14 @@ public class PrintWorkingDirectory {
 
   /**
    * Print the pathway of the current working directory
+   * 
+   * @param fileSystem The file system with all the files and directories
    */
-  public static void printWD() {
+  public static void printWD(FileSystem fileSystem) {
 
     // print out the path
-    System.out.println(getFilepath(Tree.getCurrentDirectory()));
+    System.out.println(getFilepath(fileSystem));
   }
-  
-  
-  
-  public static void main(String[] args) {
-    Directory dir1 = new Directory("my dir");
-    File f1 = new File("f1");
-    dir1.storeFile(f1);
-    printWD();
-  }
+
+
 }
