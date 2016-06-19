@@ -99,7 +99,14 @@ public class Man {
       // exit
       System.out.println(exitMessage);
     } else {
-      // TODO: Throw exception if not a valid command
+      // Throw exception for invalid command names.
+      try {
+        throw new CommandException(
+            commandName + " is not a valid command name.");
+      } catch (CommandException e) {
+        // Print the message
+        System.out.println(e.getMessage());
+      }
     }
   }
 }
