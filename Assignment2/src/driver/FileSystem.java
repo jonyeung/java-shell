@@ -12,14 +12,14 @@ import driver.Node;
  * Represents a Tree of Object String. Starts as a single root which points to a
  * List<Node<String>> of children.
  */
-public class Tree {
+public class FileSystem {
 
   private Node root;
 
   /**
    * Default Tree constructor
    */
-  public Tree() {
+  public FileSystem() {
 
     super();
   }

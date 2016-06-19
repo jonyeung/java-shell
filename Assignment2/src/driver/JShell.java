@@ -37,7 +37,7 @@ import driver.Directory;
 import driver.File;
 import driver.Interpreter;
 import driver.TextFile;
-import driver.Tree;
+import driver.FileSystem;
 import driver.Node;
 
 public class JShell {
