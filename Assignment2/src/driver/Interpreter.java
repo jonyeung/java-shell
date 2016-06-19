@@ -99,8 +99,14 @@ public class Interpreter {
 
     // if closing quote is not found throw exception
     if (notFound == true) {
-      // TODO throw exception that handles only one double quote showing no end
-      // of quote
+      // Raise exception if user does not have a closing double quote
+      try {
+        throw new CommandException(
+            "Quote does not end");
+      } catch (CommandException e) {
+        // Print the message
+        System.out.println(e.getMessage());
+      }
     }
 
     // get the words between the start and end quote
@@ -171,7 +177,14 @@ public class Interpreter {
     }
     int result;
     if (notFound) {
-      // TODO throw exception
+      // Raise exception if valid command is not given
+      try {
+        throw new CommandException(
+            command + " is not a valid command");
+      } catch (CommandException e) {
+        // Print the message
+        System.out.println(e.getMessage());
+      }
       result = -1;
     } else {
       result = count;
@@ -195,6 +208,16 @@ public class Interpreter {
     if (minArgs[index] <= numArgs
         && (numArgs <= maxArgs[index] || maxArgs[index] == -1)) {
       result = true;
+    } else {
+      // Raise exception if user did not input the correct number of arguments
+      try {
+        throw new CommandException(
+            "Number of parameters given is wrong.");
+        // TODO edit exception message
+      } catch (CommandException e) {
+        // Print the message
+        System.out.println(e.getMessage());
+      }
     }
     return result;
   }

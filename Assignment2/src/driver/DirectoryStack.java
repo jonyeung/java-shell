@@ -10,23 +10,26 @@ public class DirectoryStack {
    * Puts the current working directory onto the stack of directories and
    * changes the current working directory to the one specified
    * 
+   * @param fileSystem The file system with all the files and directories
    * @param changeDirectory The current directory will be changed to this
    */
-  private static void pushd(String newDir) {
-    Directory curr = Tree.getCurrentDirectory();
+  private static void pushd(FileSystem fileSystem, String newDir) {
+    
     // use pwd to get the name of the current directory
-    String currFilePath = PrintWorkingDirectory.getFilepath(curr);
+    String currFilePath = PrintWorkingDirectory.getFilepath(fileSystem);
     // push the current directory onto the stack
     savedDirectories.add(currFilePath);
     // use cd to change into changeDirectory
-    ChangeDirectory.changeCurrentDirectory(curr, newDir);
+    ChangeDirectory.changeCurrentDirectory(fileSystem, newDir);
   }
 
   /**
    * Gets the first directory saved onto the stack and changed the current
    * working directory to it
+   * 
+   * @param fileSystem The file system with all the files and directories
    */
-  public static void popd() {
+  public static void popd(FileSystem fileSystem) {
 
     // pops the first element and use cd
     if (savedDirectories.isEmpty()) {
@@ -40,7 +43,7 @@ public class DirectoryStack {
       }
     } else {
       String filepath = savedDirectories.pop();
-      ChangeDirectory.changeCurrentDirectory(Tree.getCurrentDirectory(), filepath);
+      ChangeDirectory.changeCurrentDirectory(fileSystem, filepath);
     }
   }
 }
