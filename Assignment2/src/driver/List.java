@@ -8,8 +8,10 @@ public class List {
    * @param fileSystem The file system containing all the files and directories
    */
   public static void listContents(FileSystem fileSystem) {
+
     // get the current directory the user is in
     Directory dir = fileSystem.getCurrentDirectory();
+
     // Print all the elements in the storedFiles found in dir
     for (File file : dir.getStoredFiles()) {
       System.out.println(file.getName());
@@ -24,12 +26,13 @@ public class List {
    */
   public static void printDirectoryContentsGivenPath(FileSystem fileSystem,
       String path) {
+
     // reach the file found at the pathway
     Directory dir = (Directory) fileSystem.traversePath(path);
+
     // Print all the elements in the storedFiles found in dir
     for (File file : dir.getStoredFiles()) {
       System.out.println(file.getName());
     }
   }
-
 }
