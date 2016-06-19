@@ -52,6 +52,8 @@ public class JShell {
 
     // File system
     fileSystem = new FileSystem();
+    
+    
 
     // Boolean to check whether user has quit
     Boolean exitStatus = false;
@@ -151,7 +153,7 @@ public class JShell {
         List.listContents(fileSystem);
       }
     } else if (commandName.equals("pwd")) {
-      // PrintWorkingDirectory.printWD();
+      PrintWorkingDirectory.printWD(fileSystem);
     } else if (commandName.equals("pushd")) {
       // pushd(inputArguments)
     } else if (commandName.equals("popd")) {
