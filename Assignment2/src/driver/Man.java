@@ -16,7 +16,7 @@ public class Man {
       + "\tAppends STRING, where STRING is a string of characters "
       + "surrounded by double quotations, to OUTFILE if it exists."
       + "\n\tIf OUTFILE does not exist, "
-      + "then a new file called OUTFILE is created with contents STRING\n";
+      + "then a new file called OUTFILE is created with contents STRING";
 
   private static String manMessage =
       "man CMD\n" + "\tPrints the documentation for the command CMD."
@@ -54,7 +54,7 @@ public class Man {
       + "\tChange directory to DIR, which may be relative to the current"
       + " directory or may be a full path.\n" + "\tSpecial keywords:\n"
       + "\t- '..' means a parent directory\n"
-      + "\t- '.' means the current directory\n";
+      + "\t- '.' means the current directory";
 
   private static String mkdirMessage = "mkdir DIR ...\n"
       + "\tCreates directories, each of which may be relative to the current"
