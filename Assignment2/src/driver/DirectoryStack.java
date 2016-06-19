@@ -19,7 +19,7 @@ public class DirectoryStack {
     // push the current directory onto the stack
     savedDirectories.add(currFilePath);
     // use cd to change into changeDirectory
-    ChangeDirectory.cd(curr, newDir);
+    ChangeDirectory.changeCurrentDirectory(curr, newDir);
   }
 
   /**
@@ -30,10 +30,17 @@ public class DirectoryStack {
 
     // pops the first element and use cd
     if (savedDirectories.isEmpty()) {
-      // TODO raise exception for popping from empty stack
+      // Raise exception when there are no directories to pop 
+      try {
+        throw new CommandException(
+            "No directories can be removed from the directory stack.");
+      } catch (CommandException e) {
+        // Print the message
+        System.out.println(e.getMessage());
+      }
     } else {
       String filepath = savedDirectories.pop();
-      ChangeDirectory.cd(Tree.getCurrentDirectory(), filepath);
+      ChangeDirectory.changeCurrentDirectory(Tree.getCurrentDirectory(), filepath);
     }
   }
 }
