@@ -12,13 +12,14 @@ public class DirectoryStack {
    * 
    * @param changeDirectory The current directory will be changed to this
    */
-  private static void pushd(String changeDirectory) {
-
+  private static void pushd(String newDir) {
+    Directory curr = Tree.getCurrentDirectory();
     // use pwd to get the name of the current directory
-
+    String currFilePath = PrintWorkingDirectory.getFilepath(curr);
     // push the current directory onto the stack
-
+    savedDirectories.add(currFilePath);
     // use cd to change into changeDirectory
+    ChangeDirectory.cd(curr, newDir);
   }
 
   /**
@@ -28,7 +29,11 @@ public class DirectoryStack {
   public static void popd() {
 
     // pops the first element and use cd
-
-    // if there is no directory on the stack then raise exception
+    if (savedDirectories.isEmpty()) {
+      // TODO raise exception for popping from empty stack
+    } else {
+      String filepath = savedDirectories.pop();
+      ChangeDirectory.cd(Tree.getCurrentDirectory(), filepath);
+    }
   }
 }
