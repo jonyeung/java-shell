@@ -14,22 +14,24 @@ public class Directory extends File {
   private ArrayList<File> storedFiles;
 
   /**
-   * Directory constructor with no parent
+   * Directory constructor with no parent.
    * 
    * @param name The name of the directory.
    */
   public Directory(String name) {
+
     super(name);
     storedFiles = new ArrayList<File>();
   }
 
   /**
-   * Directory constructor with a parent file
+   * Directory constructor with a parent file.
    * 
    * @param name The name of the directory.
    * @param parentFile The parent of this directory.
    */
   public Directory(String name, Directory parentFile) {
+
     super(name, parentFile);
   }
 
@@ -40,10 +42,10 @@ public class Directory extends File {
    */
   public void storeFile(File file) {
 
-    // add the file to the set of stored files
+    // Add the file to the set of stored files
     storedFiles.add(file);
 
-    // set the file's parent to be the directory it is being stored in
+    // Set the file's parent to be the directory it is being stored in
     file.setParent(this);
   }
 
@@ -54,10 +56,10 @@ public class Directory extends File {
    */
   public void storeFile(Directory dir) {
 
-    // add the file to the set of stored files
+    // Add the file to the set of stored files
     storedFiles.add(dir);
 
-    // set the file's parent to be the directory it is being stored in
+    // Set the file's parent to be the directory it is being stored in
     dir.setParent(this);
   }
 
@@ -67,6 +69,7 @@ public class Directory extends File {
    * @return Set<File> The set of all the stored files in the directory.
    */
   public ArrayList<File> getStoredFiles() {
+
     return storedFiles;
   }
 }
