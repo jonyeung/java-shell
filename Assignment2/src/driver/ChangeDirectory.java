@@ -8,7 +8,7 @@ public class ChangeDirectory {
    * @param curr The directory the user is currently in
    * @param path The new directory the user changes to
    */
-  public void changeCurrentDirectory(Directory curr, String path) {
+  public static void changeCurrentDirectory(Directory curr, String path) {
 
     // determine if the path is absolute or relative
     // check if path is absolute or relative
