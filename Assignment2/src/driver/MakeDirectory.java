@@ -27,7 +27,7 @@ public class MakeDirectory {
     
     // get the parent directory of the new directory
     String newPath = path.substring(0, path.lastIndexOf("/"));
-    Directory parent = (Directory) Tree.traversePath(newPath);
+    Directory parent = (Directory) FileSystem.traversePath(newPath);
     
     // create a new directory in the parent directory
     parent.storeFile(new Directory(newDir));

@@ -22,7 +22,7 @@ public class List {
    */
   public static void printDirectoryContentsGivenPath(String path) {
     // reach the file found at the pathway
-    Directory file = (Directory) Tree.traversePath(path);
+    Directory file = (Directory) FileSystem.traversePath(path);
     // list the contents of this file
     List.listContents(file);
   }
