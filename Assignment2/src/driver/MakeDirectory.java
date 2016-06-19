@@ -1,5 +1,8 @@
 package driver;
 
+/**
+ * This class consists exclusively of static methods for Make Directory (mkdir)
+ */
 public class MakeDirectory {
 
   /**
