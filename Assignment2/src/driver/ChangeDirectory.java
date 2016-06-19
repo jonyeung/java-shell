@@ -26,12 +26,12 @@ public class ChangeDirectory {
         }
       }
       // set the current directory to be the child file
-      Tree.setCurrentDirectory((Directory) file);
+      FileSystem.setCurrentDirectory((Directory) file);
     } else {
       // get the file found at the end of the pathway
-      File end = Tree.traversePath(path);
+      File end = FileSystem.traversePath(path);
       // set the current directory to be this file
-      Tree.setCurrentDirectory((Directory) end);
+      FileSystem.setCurrentDirectory((Directory) end);
     }
   }
 }
