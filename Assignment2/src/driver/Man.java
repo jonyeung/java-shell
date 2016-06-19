@@ -106,7 +106,6 @@ public class Man {
       } catch (CommandException e) {
         // Print the message
         System.out.println(e.getMessage());
-        //e.printStackTrace();
       }
     }
   }
