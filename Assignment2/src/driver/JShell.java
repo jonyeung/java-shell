@@ -137,13 +137,13 @@ public class JShell {
         if (commandArgs[i].equals(relativeIndicator)) {
           // TODO MakeDirectory.mkdirRelative(fileSystem, commandArgs[i]);
         } else {
-          // TODO MakeDirectory.mkdirAbsolute(fileSystem. commandArgs[i]);
+          // TODO MakeDirectory.mkdirAbsolute(commandArgs[i]);
         }
       }
     } else if (commandName.equals("cd")) {
       // TODO:
       // 1. Need filesystem to finish cd completely
-      // ChangeDirectory.cd(fileSystem, commandArgs[0]);
+      // ChangeDirectory.cd(fileSystem.currentdirectory, commandArgs[0]);
     } else if (commandName.equals("ls")) {
       // TODO:
       // 1. Need filesystem to finish cd completely
