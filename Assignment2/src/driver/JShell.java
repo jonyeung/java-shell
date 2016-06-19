@@ -51,10 +51,6 @@ public class JShell {
     // Boolean to check whether user has quit
     Boolean exitStatus = false;
 
-    // Interpreter
-    // TODO Requires discussion with group to determine how to
-    // utilize the interpreter
-
     // Create a new buffered reader to fetch input from console
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
@@ -155,7 +151,7 @@ public class JShell {
         // TODO List.listContents(fileSystem);
       }
     } else if (commandName.equals("pwd")) {
-      // PrintWorkingDirectory.printWD(fileSystem.getDir());
+      // PrintWorkingDirectory.printWD();
     } else if (commandName.equals("pushd")) {
       // pushd(inputArguments)
     } else if (commandName.equals("popd")) {
