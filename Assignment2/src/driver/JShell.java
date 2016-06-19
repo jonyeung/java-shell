@@ -132,14 +132,25 @@ public class JShell {
   }
 
   /**
-   * Executes the command given the command name and its arguments
+   * Executes the command given the command name and its arguments, where
+   * both the command name and its arguments are valid
    * 
    * @param commandName The command name of the command to be executed
    * @param commandArgs The argument(s) for the command to be executed
    */
   public static void executeCommand(String commandName, String[] commandArgs) {
+    // TODO: 
+    // 1. Need filesystem to finish mkdir completely
     if (commandName.equals("mkdir")) {
-      // mkdir(inputArguments)
+      String relativeIndicator = "/";
+      for (int i = 1; i < commandArgs.length; i++) {
+        if (commandArgs[i].equals(relativeIndicator)) {
+          // TODO MakeDirectory.mkdirRelative(fileSystem, commandArgs[i]);
+        }
+        else {
+          // TODO MakeDirectory.mkdirAbsolute(fileSystem. commandArgs[i]);
+        }
+      }
     } else if (commandName.equals("cd")) {
       // cd(inputArguments)
     } else if (commandName.equals("ls")) {
@@ -152,10 +163,11 @@ public class JShell {
     } else if (commandName.equals("popd")) {
       // popd()
     } else if (commandName.equals("history")) {
-      if (commandArgs == null) {
-        History.printAllHistory();
-      } else {
+      // Call the history command on the first argument
+      if (commandArgs != null) {
         History.printHistory(Integer.parseInt(commandArgs[0]));
+      } else {
+        History.printAllHistory();
       }
     } else if (commandName.equals("cat")) {
       // cat(inputArguments)
