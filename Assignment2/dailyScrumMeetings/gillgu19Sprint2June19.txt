@@ -1,0 +1,14 @@
+What did I do last time?
+	- Started working on exceptions, implemented two of them.
+	- Worked on JShell, incorporated Mkdir, Ls, Cd, Pwd.
+	- Incorporated the fileSystem to JShell to allow other commands to be 
+tested.
+	- Made minor changes to how the JShell handles command names, added flexibility to the case sensitivity of command names (user inputted command names are case insensitive).
+
+What do I plan to do now?
+	- Continue incorporating commands to the JShell.
+	- Test the implementation of all commands by writing Unit tests for them.
+	- Write exceptions for classes where needed.
+
+Am I blocked on anything?
+	- No.
