@@ -27,7 +27,7 @@ public class History {
    * Gets the number of lines of past commands that need to be printed and
    * prints them
    * 
-   * @param lastLines The number of past commands that the user wants to see 
+   * @param lastLines The number of past commands that the user wants to see
    */
   public static void printHistory(int lastLines) {
 
@@ -41,8 +41,14 @@ public class History {
       }
 
     } else {
-
-      // TODO: Throw exception in JShell, remove this if-else statement
+      // Raise exception when user inputs an invalid history number
+      try {
+        throw new CommandException(
+            "History for the past " + lastLines + " commands does not exist.");
+      } catch (CommandException e) {
+        // Print the message
+        System.out.println(e.getMessage());
+      }
 
     }
 
