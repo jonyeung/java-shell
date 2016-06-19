@@ -1,5 +1,9 @@
 package driver;
 
+/**
+ * This class consists exclusively of static methods for Change Directory
+ * (cd)
+ */
 public class ChangeDirectory {
 
   /**
