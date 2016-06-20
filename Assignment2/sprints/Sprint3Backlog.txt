@@ -1,0 +1,39 @@
+// Sprint 3 Backlog
+June 20 to June 28
+
+User Stories from Product Backlog that we will address in this sprint:
+a) As a user, I can read and write to files
+b) As a user, I can enter commands into the shell
+
+Specific tasks to be accomplished:
+a-1 (Echo) Print inputted text to the screen
+a-2 (Echo) Create files
+a-3 (Echo) Overwrites and appends to the file 
+b-1 (CommandException) Create exceptions for classes
+b-2 (TestMakeDirectory) Create unit tests for MakeDirectory
+b-3 (TestChangeDirectory) Create unit tests for ChangeDirectory
+b-4 (TestPrintWorkingDirectory) Create unit tests for PrintWorkingDirectory
+b-5 (TestList) Create unit tests for List
+b-6 (TestDirectoryStack) Create unit tests for DirectoryStack
+b-7 (TestFile) Create unit tests for File
+b-8 (TestDirectory) Create unit tests for Directory
+b-9 (TestHistory) Create unit tests for History
+b-10 (TestInterpreter) Create unit tests for Interpreter
+b-11(TestCommandException) Create unit tests for CommandException
+b-12 (TestEcho) Create unit tests for Echo
+b-13 (TestMan) Create unit tests for Man
+b-14 (TestTextFile) Create unit tests for TextFile
+b-15 (TestNode) Create unit tests for Node
+
+These tasks are assigned as follows:
+User: Jonathan Yeung
+Tasks: a-1, a-2, a-3, b-5, b-7, b-8, b-12, b-14
+
+User: Gurpreet Gill
+Tasks: b-1, b-4, b-11, b-13
+
+User: Boni Zhang
+Tasks: b-1, b-2, b-3
+
+User: Jason Chan
+Tasks: b-1, b-6, b-9, b-10
