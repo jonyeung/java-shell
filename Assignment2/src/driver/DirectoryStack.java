@@ -13,14 +13,14 @@ public class DirectoryStack {
    * @param fileSystem The file system with all the files and directories
    * @param changeDirectory The current directory will be changed to this
    */
-  private static void pushd(FileSystem fileSystem, String newDir) {
+  public static void pushd(FileSystem fileSystem, String changeDirectory) {
     
     // use pwd to get the name of the current directory
     String currFilePath = PrintWorkingDirectory.getFilepath(fileSystem);
     // push the current directory onto the stack
     savedDirectories.add(currFilePath);
     // use cd to change into changeDirectory
-    ChangeDirectory.changeCurrentDirectory(fileSystem, newDir);
+    ChangeDirectory.changeCurrentDirectory(fileSystem, changeDirectory);
   }
 
   /**

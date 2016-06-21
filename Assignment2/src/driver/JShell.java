@@ -31,6 +31,7 @@ package driver;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.io.IOException;
 
 import driver.Directory;
@@ -107,6 +108,9 @@ public class JShell {
       // Copy the arguments from inputArray to inputArguments, if there are any
       if (inputArray.length > 1) {
 
+        // TODO you can use this to do the same thing as the for loop
+        // commandArgs = Arrays.copyOfRange(inputArray, 1, inputArray.length);
+        
         commandArgs = new String[inputArray.length - 1];
         // Loop through the length of the inputArray
         for (int i = 0; i < inputArray.length - 1; i++) {
@@ -155,9 +159,9 @@ public class JShell {
     } else if (commandName.equals("pwd")) {
       PrintWorkingDirectory.printWD(fileSystem);
     } else if (commandName.equals("pushd")) {
-      // pushd(inputArguments)
+      DirectoryStack.pushd(fileSystem, commandArgs[0]);
     } else if (commandName.equals("popd")) {
-      // popd()
+      DirectoryStack.popd(fileSystem);
     } else if (commandName.equals("history")) {
       // Call the history command on the first argument
       if (commandArgs != null) {

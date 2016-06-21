@@ -71,31 +71,33 @@ public class FileSystem {
       String newPathway[] = Arrays.copyOfRange(pathway, 1, pathway.length);
 
       // check if search directory is '..', then search if parent exists
-      if (searchDir == ".." && !curr.equals(rootDirectory)) {
+      if (searchDir.equals("..") && !curr.equals(rootDirectory)) {
 
         returnFile = this.getFile(curr.getParent(), newPathway);
-      } else {
+      } else if (searchDir.equals("..")) {
 
         // TODO raise no parent exception
-      }
+      } else {
 
-      while (i < storedFiles.size() && notFound) {
+        while (i < storedFiles.size() && notFound) {
 
-        File file = storedFiles.get(i);
+          File file = storedFiles.get(i);
 
-        // if the directory is found, then search the next thing on pathway
-        if (file.getName().equals(searchDir) && file instanceof Directory) {
-          notFound = false;
-          returnFile = this.getFile((Directory) file, newPathway);
+          // if the directory is found, then search the next thing on pathway
+          if (file.getName().equals(searchDir) && file instanceof Directory) {
+            notFound = false;
+            returnFile = this.getFile((Directory) file, newPathway);
+          }
+          i++;
         }
-      }
 
-      if (notFound) {
-        try {
-          throw new CommandException("Invalid directory name.");
-        } catch (CommandException e) {
-          // Print the message
-          System.out.println(e.getMessage());
+        if (notFound) {
+          try {
+            throw new CommandException("Invalid directory name.");
+          } catch (CommandException e) {
+            // Print the message
+            System.out.println(e.getMessage());
+          }
         }
       }
     }

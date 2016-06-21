@@ -12,14 +12,14 @@ public class PrintWorkingDirectory {
     // get the current directory
     Directory file = fileSystem.getCurrentDirectory();
     // put the pathway string together starting with the current file
-    String pathway = "/" + file.getName();
+    String pathway = "/";
 
     // add to the pathway all the parents of the current file
     File curr = file;
 
     while (curr.getParent() != null) {
-      curr = curr.getParent();
       pathway = "/" + curr.getName() + pathway;
+      curr = curr.getParent();
     }
 
     return pathway;
