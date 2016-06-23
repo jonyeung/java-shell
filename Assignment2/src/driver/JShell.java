@@ -45,7 +45,7 @@ public class JShell {
 
   public static FileSystem fileSystem;
 
-  public static void main(String[] args) throws IOException {
+  public static void main(String[] args) throws IOException, CommandException {
 
     // User input and default start of line
     String userInput;
@@ -53,8 +53,6 @@ public class JShell {
 
     // File system
     fileSystem = new FileSystem();
-    
-    
 
     // Boolean to check whether user has quit
     Boolean exitStatus = false;
@@ -92,8 +90,9 @@ public class JShell {
    * Interprets the user input
    * 
    * @param userInput The line of input entered by the user to be interpreted
+   * @throws CommandException
    */
-  public static void interpretInput(String userInput) {
+  public static void interpretInput(String userInput) throws CommandException {
 
     // Check if the input is valid
     if (Interpreter.validInput(userInput) == true) {
@@ -107,18 +106,10 @@ public class JShell {
 
       // Copy the arguments from inputArray to inputArguments, if there are any
       if (inputArray.length > 1) {
-
-        // TODO you can use this to do the same thing as the for loop
-        // commandArgs = Arrays.copyOfRange(inputArray, 1, inputArray.length);
-        
-        commandArgs = new String[inputArray.length - 1];
-        // Loop through the length of the inputArray
-        for (int i = 0; i < inputArray.length - 1; i++) {
-          // Copy arguments from inputArray to inputArguments
-          commandArgs[i] = inputArray[i + 1];
-        }
+        commandArgs = Arrays.copyOfRange(inputArray, 1, inputArray.length);
       }
-      // execute the command, convert command name to lowercase
+
+      // Execute the command, convert command name to lowercase
       executeCommand(commandName.toLowerCase(), commandArgs);
     } else {
       System.out.println("Invalid input");
@@ -134,8 +125,10 @@ public class JShell {
    * 
    * @param commandName The command name of the command to be executed
    * @param commandArgs The argument(s) for the command to be executed
+   * @throws CommandException
    */
-  public static void executeCommand(String commandName, String[] commandArgs) {
+  public static void executeCommand(String commandName, String[] commandArgs)
+      throws CommandException {
     // Mkdir
     if (commandName.equals("mkdir")) {
       String relativeIndicator = "/";
@@ -163,11 +156,15 @@ public class JShell {
     } else if (commandName.equals("popd")) {
       DirectoryStack.popd(fileSystem);
     } else if (commandName.equals("history")) {
-      // Call the history command on the first argument
-      if (commandArgs != null) {
-        History.printHistory(Integer.parseInt(commandArgs[0]));
-      } else {
-        History.printAllHistory();
+      try {
+        // Call the history command on the first argument
+        if (commandArgs != null) {
+          History.printHistory(Integer.parseInt(commandArgs[0]));
+        } else {
+          History.printAllHistory();
+        }
+      } catch (CommandException e) {
+        System.out.println(e.getMessage());
       }
     } else if (commandName.equals("cat")) {
       // cat(inputArguments)
@@ -175,7 +172,11 @@ public class JShell {
       // echo(inputArguments)
     } else if (commandName.equals("man")) {
       // Call the man command on the first argument
-      Man.printMan(commandArgs[0]);
+      try {
+        Man.printMan(commandArgs[0]);
+      } catch (CommandException e) {
+        System.out.println(e.getMessage());
+      }
     }
   }
 }
