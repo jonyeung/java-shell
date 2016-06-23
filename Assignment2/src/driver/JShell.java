@@ -34,12 +34,8 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.io.IOException;
 
-import driver.Directory;
-import driver.File;
 import driver.Interpreter;
-import driver.TextFile;
 import driver.FileSystem;
-import driver.Node;
 
 public class JShell {
 
@@ -92,7 +88,7 @@ public class JShell {
 
     // Execute the command accordingly if it is valid
     if (Interpreter.validInput(userInput) == true) {
-      
+
       // Break up the user input
       String[] inputArray = Interpreter.commandToArray(userInput);
       // inputArray[0] is the command name
@@ -122,17 +118,16 @@ public class JShell {
       throws CommandException {
     // Mkdir
     if (commandName.equals("mkdir")) {
-      
+
       String relativeIndicator = "/";
       for (int i = 0; i < commandArgs.length; i++) {
         try {
-        if (commandArgs[i].startsWith(relativeIndicator)) {
-          MakeDirectory.mkdirAbsolute(fileSystem, commandArgs[i]);
-        } else {
-          MakeDirectory.mkdirRelative(fileSystem, commandArgs[i]);
-        }
-        } 
-        catch (CommandException e) {
+          if (commandArgs[i].startsWith(relativeIndicator)) {
+            MakeDirectory.mkdirAbsolute(fileSystem, commandArgs[i]);
+          } else {
+            MakeDirectory.mkdirRelative(fileSystem, commandArgs[i]);
+          }
+        } catch (CommandException e) {
           System.out.println(e.getMessage());
         }
       }
