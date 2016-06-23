@@ -28,36 +28,31 @@ public class History {
    * prints them
    * 
    * @param lastLines The number of past commands that the user wants to see
+   * @throws CommandException
    */
-  public static void printHistory(int lastLines) {
+  @SuppressWarnings("finally")
+  public static void printHistory(int lastLines) throws CommandException {
 
     int startLineIndex = numLines - lastLines;
 
-    if (startLineIndex >= 0) {
-
+    try {
       // loop through each line starting at startLineIndex and print them
       for (int i = startLineIndex; i < numLines; i++) {
         System.out.println(historyFile.get(i));
       }
-
-    } else {
-      // Raise exception when user inputs an invalid history number
-      try {
-        throw new CommandException(
-            "History for the past " + lastLines + " commands does not exist.");
-      } catch (CommandException e) {
-        // Print the message
-        System.out.println(e.getMessage());
-      }
-
+    } finally {
+      // Throw the command exception if user enters invalid history number
+      throw new CommandException(
+          "History for the past " + lastLines + " commands does not exist.");
     }
-
   }
 
   /**
    * Gets the all past commands and prints them
+   * 
+   * @throws CommandException
    */
-  public static void printAllHistory() {
+  public static void printAllHistory() throws CommandException {
     printHistory(numLines);
   }
 }
