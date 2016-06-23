@@ -171,7 +171,7 @@ public class JShell {
     } else if (commandName.equals("man")) {
       // Call the man command on the first argument
       try {
-        Man.printMan(commandArgs[0]);
+        Manual.printMan(commandArgs[0]);
       } catch (CommandException e) {
         System.out.println(e.getMessage());
       }
