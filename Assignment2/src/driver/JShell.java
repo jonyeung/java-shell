@@ -87,16 +87,16 @@ public class JShell {
   }
 
   /**
-   * Interprets the user input
+   * Interprets the user input and runs the command if it is valid
    * 
    * @param userInput The line of input entered by the user to be interpreted
    * @throws CommandException
    */
   public static void interpretInput(String userInput) throws CommandException {
 
-    // Check if the input is valid
+    // Execute the command accordingly if it is valid
     if (Interpreter.validInput(userInput) == true) {
-
+      
       // Break up the user input
       String[] inputArray = Interpreter.commandToArray(userInput);
       // inputArray[0] is the command name
@@ -111,11 +111,6 @@ public class JShell {
 
       // Execute the command, convert command name to lowercase
       executeCommand(commandName.toLowerCase(), commandArgs);
-    } else {
-      System.out.println("Invalid input");
-      // Throw exceptions
-      // Exception 1: Invalid command name
-      // Exception 2: Invalid argument(s)
     }
   }
 
@@ -131,14 +126,21 @@ public class JShell {
       throws CommandException {
     // Mkdir
     if (commandName.equals("mkdir")) {
+      
       String relativeIndicator = "/";
       for (int i = 0; i < commandArgs.length; i++) {
+        try {
         if (commandArgs[i].startsWith(relativeIndicator)) {
           MakeDirectory.mkdirAbsolute(fileSystem, commandArgs[i]);
         } else {
           MakeDirectory.mkdirRelative(fileSystem, commandArgs[i]);
         }
+        } 
+        catch (CommandException e) {
+          System.out.println(e.getMessage());
+        }
       }
+
     } else if (commandName.equals("cd")) {
       ChangeDirectory.changeCurrentDirectory(fileSystem, commandArgs[0]);
     } else if (commandName.equals("ls")) {
