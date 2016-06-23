@@ -101,10 +101,9 @@ public class Interpreter {
     if (notFound == true) {
       // Raise exception if user does not have a closing double quote
       try {
-        throw new CommandException(
-            "Quote does not end");
+        throw new CommandException("Quote does not end");
       } catch (CommandException e) {
-        // Print the message
+        // Print the exception message
         System.out.println(e.getMessage());
       }
     }
@@ -179,10 +178,9 @@ public class Interpreter {
     if (notFound) {
       // Raise exception if valid command is not given
       try {
-        throw new CommandException(
-            command + " is not a valid command");
+        throw new CommandException(command + " is not a valid command name.");
       } catch (CommandException e) {
-        // Print the message
+        // Print the exception message
         System.out.println(e.getMessage());
       }
       result = -1;
@@ -211,11 +209,11 @@ public class Interpreter {
     } else {
       // Raise exception if user did not input the correct number of arguments
       try {
-        throw new CommandException(
-            "Number of parameters given is wrong.");
-        // TODO edit exception message
+        throw new CommandException("Please supply valid arguments for the "
+            + commands[index] + " command.\nSee the manual of "
+            + commands[index] + " for usage information.");
       } catch (CommandException e) {
-        // Print the message
+        // Print the exception message
         System.out.println(e.getMessage());
       }
     }
