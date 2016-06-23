@@ -75,12 +75,8 @@ public class JShell {
         // Terminate loop
         exitStatus = true;
       } else {
+        // Interpret the input
         interpretInput(userInput);
-        // Check for valid input
-        // If user inputs invalid command name, raise commandNameException
-        // If user inputs invalid argument for the command name, raise
-        // commandArgException
-        // Otherwise, execute the command, as wanted
       }
 
     } while (exitStatus == false);
