@@ -1,0 +1,11 @@
+What did I do last time?
+	-Created a document to record all bugs found
+	-Created a unit test for Interpreter class
+	-Fixed some bugs with pwd  
+
+What do I plan to do now?
+	-Continue to create unit tests for history, pushd, popd
+	-Do general testing on other commands
+
+Am I blocked on anything
+	-No
