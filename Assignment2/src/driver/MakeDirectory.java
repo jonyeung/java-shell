@@ -10,11 +10,20 @@ public class MakeDirectory {
    * 
    * @param fileSystem The file system with all the files and directories
    * @param dirName The name of the new directory being made
+   * @throws CommandException
    */
-  public static void mkdirRelative(FileSystem fileSystem, String dirName) {
+  public static void mkdirRelative(FileSystem fileSystem, String dirName)
+      throws CommandException {
 
-    // create a new directory in the current directory of the file system
-    fileSystem.getCurrentDirectory().storeFile(new Directory(dirName));
+    // If dirName isn't in the current directory, then create it
+    if (fileSystem.getCurrentDirectory().fileInDirectory(dirName) == false) {
+      // create a new directory in the current directory of the file system
+      fileSystem.getCurrentDirectory().storeFile(new Directory(dirName));
+    } else {
+      // Throw exception if it's already in the current directory
+      throw new CommandException(
+          dirName + " is already an existing directory.");
+    }
   }
 
   /**
