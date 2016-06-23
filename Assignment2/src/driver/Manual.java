@@ -1,6 +1,6 @@
 package driver;
 
-public class Man {
+public class Manual {
 
   private final static String CATMESSAGE = "cat FILE1 [FILE2 ...]\n"
       + "\tDisplays the contents of FILE1 and other files"
