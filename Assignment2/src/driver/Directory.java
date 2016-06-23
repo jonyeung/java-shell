@@ -72,4 +72,27 @@ public class Directory extends File {
 
     return storedFiles;
   }
+
+
+  /**
+   * @param directoryName The name of the directory to check in current
+   *        directory.
+   * @return Boolean The boolean that determines whether or not directoryName is
+   *         in current directory.
+   */
+  public boolean fileInDirectory(String directoryName) {
+    // Initialize boolean to keep track of whether or not directoryName is in
+    // current directory
+    Boolean fileResult = false;
+
+    // Loop through each directory name in the current directory and check
+    // if they have the same name as directoryName
+    for (int i = 0; i < storedFiles.size(); i++) {
+      // If any of them do, then fileResult becomes true
+      if (storedFiles.get(i).getName().equals(directoryName)) {
+        fileResult = true;
+      }
+    }
+    return fileResult;
+  }
 }
