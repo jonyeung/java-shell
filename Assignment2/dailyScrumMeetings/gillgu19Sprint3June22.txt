@@ -1,0 +1,12 @@
+What did I do last time?
+	- Implemented exceptions for commands (mkdir, history, man)
+	- Worked on JShell, reformatted some code
+	- Modified Man.java, took feedback from Brian on the small errors to fix
+
+What do I plan to do now?
+	- Work with the team in finding bugs in our current code
+	- Implement exceptions where needed
+	- Start unit testing
+
+Am I blocked on anything?
+	- Need final few commands to be completed so I can implement their exceptions and finish up the commands as soon as possible.
