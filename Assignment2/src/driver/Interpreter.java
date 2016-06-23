@@ -4,13 +4,14 @@ import java.util.Arrays;
 
 public class Interpreter {
 
-  private static String commands[] = {"mkdir", "cd", "ls", "pwd", "pushd",
+  // the valid commands JShell can run
+  private final static String commands[] = {"mkdir", "cd", "ls", "pwd", "pushd",
       "popd", "history", "cat", "echo", "man"};
 
   // the maximum and minimum number of arguments of a command corresponding to
   // the commands array
-  private static int maxArgs[] = {-1, 1, 1, 0, 1, 0, 1, -1, 3, 1};
-  private static int minArgs[] = {1, 1, 0, 0, 1, 0, 0, 1, 1, 1};
+  private final static int maxArgs[] = {-1, 1, 1, 0, 1, 0, 1, -1, 3, 1};
+  private final static int minArgs[] = {1, 1, 0, 0, 1, 0, 0, 1, 1, 1};
 
   /**
    * Gets input and separates the input into an array using the separator
@@ -19,7 +20,7 @@ public class Interpreter {
    * @param separator Split the input by the separator
    * @return String[] An array of strings that are the words
    */
-  public static String[] inputToArray(String input, String separator) {
+  private static String[] inputToArray(String input, String separator) {
 
     // split the input up by space.
     String words[] = input.split(separator);
