@@ -10,14 +10,20 @@ public class ChangeDirectory {
    * 
    * @param fileSystem The file system with all the files and directories
    * @param path The new directory the user changes to
+   * @throws CommandException
    */
-  public static void changeCurrentDirectory(FileSystem fileSystem,
-      String path) {
+  public static void changeCurrentDirectory(FileSystem fileSystem, String path)
+      throws CommandException {
 
-    // get the file from the path
-    Directory destinationDirectory = fileSystem.traversePath(path);
+    if (fileSystem.getCurrentDirectory().fileInDirectory(path) == true
+        || path.equals("..") || path.equals(".")) {
+      // get the file from the path
+      Directory destinationDirectory = fileSystem.traversePath(path);
 
-    // set the current directory of fileSystem to this file
-    fileSystem.setCurrentDirectory(destinationDirectory);
+      // set the current directory of fileSystem to this file
+      fileSystem.setCurrentDirectory(destinationDirectory);
+    } else {
+      throw new CommandException(path + " is not a valid directory name.");
+    }
   }
 }
