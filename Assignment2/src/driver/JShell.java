@@ -116,55 +116,45 @@ public class JShell {
    */
   public static void executeCommand(String commandName, String[] commandArgs)
       throws CommandException {
-    // Mkdir
-    if (commandName.equals("mkdir")) {
-
-      for (int i = 0; i < commandArgs.length; i++) {
-        try {
-          MakeDirectory.makeADirectory(fileSystem, commandArgs[i]);
-        } catch (CommandException e) {
-          System.out.println(e.getMessage());
-        }
-      }
-
-    } else if (commandName.equals("cd")) {
-      ChangeDirectory.changeCurrentDirectory(fileSystem, commandArgs[0]);
-    } else if (commandName.equals("ls")) {
-      if (commandArgs != null) {
+    try {
+      // Mkdir
+      if (commandName.equals("mkdir")) {
         for (int i = 0; i < commandArgs.length; i++) {
-          List.printDirectoryContentsGivenPath(fileSystem, commandArgs[i]);;
+          MakeDirectory.makeADirectory(fileSystem, commandArgs[i]);
         }
-      } else {
-        List.listContents(fileSystem);
-      }
-    } else if (commandName.equals("pwd")) {
-      PrintWorkingDirectory.printWD(fileSystem);
-    } else if (commandName.equals("pushd")) {
-      DirectoryStack.pushd(fileSystem, commandArgs[0]);
-    } else if (commandName.equals("popd")) {
-      DirectoryStack.popd(fileSystem);
-    } else if (commandName.equals("history")) {
-      try {
+      } else if (commandName.equals("cd")) {
+        ChangeDirectory.changeCurrentDirectory(fileSystem, commandArgs[0]);
+      } else if (commandName.equals("ls")) {
+        if (commandArgs != null) {
+          for (int i = 0; i < commandArgs.length; i++) {
+            List.printDirectoryContentsGivenPath(fileSystem, commandArgs[i]);;
+          }
+        } else {
+          List.listContents(fileSystem);
+        }
+      } else if (commandName.equals("pwd")) {
+        PrintWorkingDirectory.printWD(fileSystem);
+      } else if (commandName.equals("pushd")) {
+        DirectoryStack.pushd(fileSystem, commandArgs[0]);
+      } else if (commandName.equals("popd")) {
+        DirectoryStack.popd(fileSystem);
+      } else if (commandName.equals("history")) {
         // Call the history command on the first argument
         if (commandArgs != null) {
           History.printHistory(Integer.parseInt(commandArgs[0]));
         } else {
           History.printAllHistory();
         }
-      } catch (CommandException e) {
-        System.out.println(e.getMessage());
-      }
-    } else if (commandName.equals("cat")) {
-      // cat(inputArguments)
-    } else if (commandName.equals("echo")) {
-      // echo(inputArguments)
-    } else if (commandName.equals("man")) {
-      // Call the man command on the first argument
-      try {
+      } else if (commandName.equals("cat")) {
+        // cat(inputArguments)
+      } else if (commandName.equals("echo")) {
+        // echo(inputArguments)
+      } else if (commandName.equals("man")) {
+        // Call the man command on the first argument
         Manual.printMan(commandArgs[0]);
-      } catch (CommandException e) {
-        System.out.println(e.getMessage());
       }
+    } catch (CommandException e) {
+      System.out.println(e.getMessage());
     }
   }
 }
