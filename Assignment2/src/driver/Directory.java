@@ -42,26 +42,28 @@ public class Directory extends File {
    */
   public void storeFile(File file) {
 
+    // add the file in the directory in alphabetical order
+    int index = 0;
+    if (!storedFiles.isEmpty()) {
+
+      // find the index that the file should go in
+      boolean notFound = true;
+      while (index < storedFiles.size() && notFound) {
+        String fileName = storedFiles.get(index).getName();
+        if (file.getName().compareTo(fileName) < 0) {
+          notFound = false;
+        } else {
+          index++;
+        }
+      }
+    }
     // Add the file to the set of stored files
-    storedFiles.add(file);
+    storedFiles.add(index, file);
 
     // Set the file's parent to be the directory it is being stored in
     file.setParent(this);
   }
 
-  /**
-   * Adds a directory to the current directory.
-   * 
-   * @param dir The directory to be stored in the directory.
-   */
-  public void storeFile(Directory dir) {
-
-    // Add the file to the set of stored files
-    storedFiles.add(dir);
-
-    // Set the file's parent to be the directory it is being stored in
-    dir.setParent(this);
-  }
 
   /**
    * Getter for storedFiles.
