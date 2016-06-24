@@ -23,9 +23,10 @@ public class List {
    * 
    * @param fileSystem The file system containing all the files and directories
    * @param path The pathway specifying a certain file
+   * @throws CommandException 
    */
   public static void printDirectoryContentsGivenPath(FileSystem fileSystem,
-      String path) {
+      String path) throws CommandException {
 
     // reach the file found at the pathway
     Directory dir = fileSystem.traversePath(path);
