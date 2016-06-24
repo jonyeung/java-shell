@@ -35,14 +35,9 @@ public class DirectoryStack {
 
     // pops the first element and use cd
     if (savedDirectories.isEmpty()) {
-      // Raise exception when there are no directories to pop
-      try {
+      // Throw exception when there are no directories to pop
         throw new CommandException(
             "No directories can be removed from the directory stack.");
-      } catch (CommandException e) {
-        // Print the message
-        System.out.println(e.getMessage());
-      }
     } else {
       String filepath = savedDirectories.pop();
       ChangeDirectory.changeCurrentDirectory(fileSystem, filepath);
