@@ -30,17 +30,16 @@ public class History {
    * @param lastLines The number of past commands that the user wants to see
    * @throws CommandException
    */
-  @SuppressWarnings("finally")
   public static void printHistory(int lastLines) throws CommandException {
 
     int startLineIndex = numLines - lastLines;
 
-    try {
+    if (startLineIndex >= 0 && lastLines > 0) {
       // loop through each line starting at startLineIndex and print them
       for (int i = startLineIndex; i < numLines; i++) {
         System.out.println(historyFile.get(i));
       }
-    } finally {
+    } else {
       // Throw the command exception if user enters invalid history number
       throw new CommandException(
           "History for the past " + lastLines + " commands does not exist.");
