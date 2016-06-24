@@ -88,9 +88,10 @@ public class FileSystem {
    * @param curr The starting directory to look for file in pathway
    * @param pathway The array of file/directory names to find a file
    * @return Directory The Directory that we are looking for
-   * @throws CommandException 
+   * @throws CommandException
    */
-  private Directory getDirectory(Directory curr, String[] pathway) throws CommandException {
+  private Directory getDirectory(Directory curr, String[] pathway)
+      throws CommandException {
 
     Directory returnDirectory = null;
     // if no pathway is given, then return curr
@@ -104,13 +105,22 @@ public class FileSystem {
 
       // check if the search directory is '..', then search if parent exists
       if (searchDir.equals("..") && !curr.equals(rootDirectory)) {
-
         returnDirectory = this.getDirectory(curr.getParent(), newPathway);
+
       } else if (searchDir.equals("..")) {
         throw new CommandException("You are currently at the root directory.");
+
       } else {
-        // find the search directory in the current directory.
-        File file = searchFile(curr, searchDir);
+
+        File file;
+        // check if the search directory is '.', then it is the current
+        if (searchDir.equals(".")) {
+          file = curr;
+        } else {
+          // find the search directory in the current directory.
+          file = searchFile(curr, searchDir);
+        }
+        // check that the file found is a directory and that we can look into it
         if (file instanceof Directory) {
           returnDirectory = this.getDirectory((Directory) file, newPathway);
         }
@@ -124,7 +134,7 @@ public class FileSystem {
    * 
    * @param path The file path in the format given by the user
    * @return Directory The Directory that we are looking for
-   * @throws CommandException 
+   * @throws CommandException
    */
   public Directory traversePath(String path) throws CommandException {
 
