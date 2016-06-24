@@ -43,8 +43,13 @@ public class FileSystem {
     this.currentDirectory = currentDirectory;
   }
 
-
-
+  /**
+   * Returns a file named dirName by searching the directory curr
+   * 
+   * @param curr The directory to look for the file
+   * @param dirName The name of the file we want
+   * @return File The File that we are looking for
+   */
   public File searchFile(Directory curr, String dirName) {
 
     // get all the files in the curr directory
@@ -76,10 +81,9 @@ public class FileSystem {
     return returnFile;
   }
 
-
-
   /**
-   * Returns a file using the pathway and starts the search in directory curr
+   * Returns a directory using the pathway and starts the search in directory
+   * curr
    * 
    * @param curr The starting directory to look for file in pathway
    * @param pathway The array of file/directory names to find a file
@@ -105,7 +109,7 @@ public class FileSystem {
         // if the parent is the root then raise an error
         // TODO raise no parent exception
       } else {
-        // find the search directory in the current directory. 
+        // find the search directory in the current directory.
         File file = searchFile(curr, searchDir);
         if (file instanceof Directory) {
           returnDirectory = this.getDirectory((Directory) file, newPathway);

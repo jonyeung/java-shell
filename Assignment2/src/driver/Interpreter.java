@@ -10,7 +10,7 @@ public class Interpreter {
 
   // the maximum and minimum number of arguments of a command corresponding to
   // the commands array
-  private final static int maxArgs[] = {-1, 1, 1, 0, 1, 0, 1, -1, 3, 1};
+  private final static int maxArgs[] = {-1, 1, -1, 0, 1, 0, 1, -1, 3, 1};
   private final static int minArgs[] = {1, 1, 0, 0, 1, 0, 0, 1, 1, 1};
 
   /**

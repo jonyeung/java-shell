@@ -14,7 +14,7 @@ public class DirectoryStack {
    * @param filepath The current directory will be changed to this
    */
   public static void pushd(FileSystem fileSystem, String filepath) {
-    
+
     // use pwd to get the name of the current directory
     String currFilePath = PrintWorkingDirectory.getFilepath(fileSystem);
     // push the current directory onto the stack
@@ -33,7 +33,7 @@ public class DirectoryStack {
 
     // pops the first element and use cd
     if (savedDirectories.isEmpty()) {
-      // Raise exception when there are no directories to pop 
+      // Raise exception when there are no directories to pop
       try {
         throw new CommandException(
             "No directories can be removed from the directory stack.");

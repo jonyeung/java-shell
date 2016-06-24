@@ -1,8 +1,7 @@
 package driver;
 
 /**
- * This class consists exclusively of static methods for Change Directory
- * (cd)
+ * This class consists exclusively of static methods for Change Directory (cd)
  */
 public class ChangeDirectory {
 
@@ -17,7 +16,7 @@ public class ChangeDirectory {
 
     // get the file from the path
     Directory destinationDirectory = fileSystem.traversePath(path);
- 
+
     // set the current directory of fileSystem to this file
     fileSystem.setCurrentDirectory(destinationDirectory);
   }
