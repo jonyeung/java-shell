@@ -12,8 +12,9 @@ public class DirectoryStack {
    * 
    * @param fileSystem The file system with all the files and directories
    * @param filepath The current directory will be changed to this
+   * @throws CommandException 
    */
-  public static void pushd(FileSystem fileSystem, String filepath) {
+  public static void pushd(FileSystem fileSystem, String filepath) throws CommandException {
 
     // use pwd to get the name of the current directory
     String currFilePath = PrintWorkingDirectory.getFilepath(fileSystem);
@@ -28,8 +29,9 @@ public class DirectoryStack {
    * working directory to it
    * 
    * @param fileSystem The file system with all the files and directories
+   * @throws CommandException 
    */
-  public static void popd(FileSystem fileSystem) {
+  public static void popd(FileSystem fileSystem) throws CommandException {
 
     // pops the first element and use cd
     if (savedDirectories.isEmpty()) {
