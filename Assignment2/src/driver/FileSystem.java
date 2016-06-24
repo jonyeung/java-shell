@@ -9,6 +9,9 @@ import driver.File;
  */
 public class FileSystem {
 
+  private Directory rootDirectory = new Directory("root");
+  private Directory currentDirectory = rootDirectory;
+
   /**
    * Default FileSystem constructor
    */
@@ -16,9 +19,6 @@ public class FileSystem {
 
     super();
   }
-
-  private Directory rootDirectory = new Directory("root");
-  private Directory currentDirectory = rootDirectory;
 
   /**
    * Get the root directory
@@ -43,93 +43,109 @@ public class FileSystem {
     this.currentDirectory = currentDirectory;
   }
 
+
+
+  public File searchFile(Directory curr, String dirName) {
+
+    // get all the files in the curr directory
+    ArrayList<File> storedFiles = curr.getStoredFiles();
+    int i = 0;
+    boolean notFound = true;
+    File returnFile = null;
+
+    // loop through each file and check if it has the same name as dirName
+    while (i < storedFiles.size() && notFound) {
+
+      File file = storedFiles.get(i);
+      // if the directory is found, then search the next thing on pathway
+      if (file.getName().equals(dirName)) {
+        notFound = false;
+        returnFile = file;
+      }
+      i++;
+    }
+
+    if (notFound) {
+      try {
+        throw new CommandException("Invalid directory name.");
+      } catch (CommandException e) {
+        // Print the message
+        System.out.println(e.getMessage());
+      }
+    }
+    return returnFile;
+  }
+
+
+
   /**
    * Returns a file using the pathway and starts the search in directory curr
    * 
    * @param curr The starting directory to look for file in pathway
    * @param pathway The array of file/directory names to find a file
-   * @return File The file that we are looking for
+   * @return Directory The Directory that we are looking for
    */
-  private File getFile(Directory curr, String[] pathway) {
+  private Directory getDirectory(Directory curr, String[] pathway) {
 
-    File returnFile = null;
-
+    Directory returnDirectory = null;
     // if no pathway is given, then return curr
     if (pathway.length == 0) {
 
-      returnFile = curr;
+      returnDirectory = curr;
     } else {
-
-      // loop through each file in curr and check if any match the name of
-      // the first directory in pathway
-      int i = 0;
-      boolean notFound = true;
-
-      ArrayList<File> storedFiles = curr.getStoredFiles();
 
       String searchDir = pathway[0];
       String newPathway[] = Arrays.copyOfRange(pathway, 1, pathway.length);
 
-      // check if search directory is '..', then search if parent exists
+      // check if the search directory is '..', then search if parent exists
       if (searchDir.equals("..") && !curr.equals(rootDirectory)) {
 
-        returnFile = this.getFile(curr.getParent(), newPathway);
+        returnDirectory = this.getDirectory(curr.getParent(), newPathway);
       } else if (searchDir.equals("..")) {
-
+        // if the parent is the root then raise an error
         // TODO raise no parent exception
       } else {
-
-        while (i < storedFiles.size() && notFound) {
-
-          File file = storedFiles.get(i);
-
-          // if the directory is found, then search the next thing on pathway
-          if (file.getName().equals(searchDir) && file instanceof Directory) {
-            notFound = false;
-            returnFile = this.getFile((Directory) file, newPathway);
-          }
-          i++;
-        }
-
-        if (notFound) {
-          try {
-            throw new CommandException("Invalid directory name.");
-          } catch (CommandException e) {
-            // Print the message
-            System.out.println(e.getMessage());
-          }
+        // find the search directory in the current directory. 
+        File file = searchFile(curr, searchDir);
+        if (file instanceof Directory) {
+          returnDirectory = this.getDirectory((Directory) file, newPathway);
         }
       }
     }
-    return returnFile;
+    return returnDirectory;
   }
 
   /**
    * Returns a file using the file path given
    * 
    * @param path The file path in the format given by the user
-   * @return File The file that we are looking for
+   * @return Directory The Directory that we are looking for
    */
-  public File traversePath(String path) {
+  public Directory traversePath(String path) {
 
-    // parse the path by converting it to a list
-    String[] pathway = Interpreter.filepathToArray(path);
+    Directory returnFile;
 
-    // check if path is absolute or relative
-    boolean relative = true;
-
-    if (path.charAt(0) == '/') {
-      relative = false;
-    }
-
-    File returnFile;
-
-    // searches the correct directory for the file in pathway
-    if (relative) {
-      returnFile = this.getFile(currentDirectory, pathway);
+    if (path.length() == 0) {
+      returnFile = this.getCurrentDirectory();
     } else {
-      returnFile = this.getFile(rootDirectory, pathway);
+      // parse the path by converting it to a list
+      String[] pathway = Interpreter.filepathToArray(path);
+
+      // check if path is absolute or relative
+      boolean relative = true;
+
+      if (path.charAt(0) == '/') {
+        relative = false;
+      }
+
+      // searches the correct directory for the file in pathway
+      if (relative) {
+        returnFile = this.getDirectory(currentDirectory, pathway);
+      } else {
+        returnFile = this.getDirectory(rootDirectory, pathway);
+      }
     }
+
     return returnFile;
   }
 }

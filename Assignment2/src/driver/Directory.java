@@ -75,12 +75,13 @@ public class Directory extends File {
 
 
   /**
-   * @param directoryName The name of the directory to check in current
-   *        directory.
+   * Checks if a file is in this directory
+   * 
+   * @param fileName The name of the file to check in current directory.
    * @return Boolean The boolean that determines whether or not directoryName is
    *         in current directory.
    */
-  public boolean fileInDirectory(String directoryName) {
+  public boolean fileInDirectory(String fileName) {
     // Initialize boolean to keep track of whether or not directoryName is in
     // current directory
     Boolean fileResult = false;
@@ -89,7 +90,7 @@ public class Directory extends File {
     // if they have the same name as directoryName
     for (int i = 0; i < storedFiles.size(); i++) {
       // If any of them do, then fileResult becomes true
-      if (storedFiles.get(i).getName().equals(directoryName)) {
+      if (storedFiles.get(i).getName().equals(fileName)) {
         fileResult = true;
       }
     }

@@ -28,7 +28,7 @@ public class List {
       String path) {
 
     // reach the file found at the pathway
-    Directory dir = (Directory) fileSystem.traversePath(path);
+    Directory dir = fileSystem.traversePath(path);
 
     // Print all the elements in the storedFiles found in dir
     for (File file : dir.getStoredFiles()) {

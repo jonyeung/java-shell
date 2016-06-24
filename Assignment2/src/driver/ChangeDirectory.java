@@ -16,9 +16,9 @@ public class ChangeDirectory {
       String path) {
 
     // get the file from the path
-    File destinationFile = fileSystem.traversePath(path);
+    Directory destinationDirectory = fileSystem.traversePath(path);
  
     // set the current directory of fileSystem to this file
-    fileSystem.setCurrentDirectory((Directory) destinationFile);
+    fileSystem.setCurrentDirectory(destinationDirectory);
   }
 }

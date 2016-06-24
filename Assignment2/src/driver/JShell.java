@@ -119,14 +119,9 @@ public class JShell {
     // Mkdir
     if (commandName.equals("mkdir")) {
 
-      String relativeIndicator = "/";
       for (int i = 0; i < commandArgs.length; i++) {
         try {
-          if (commandArgs[i].startsWith(relativeIndicator)) {
-            MakeDirectory.mkdirAbsolute(fileSystem, commandArgs[i]);
-          } else {
-            MakeDirectory.mkdirRelative(fileSystem, commandArgs[i]);
-          }
+          MakeDirectory.makeADirectory(fileSystem, commandArgs[i]);
         } catch (CommandException e) {
           System.out.println(e.getMessage());
         }
