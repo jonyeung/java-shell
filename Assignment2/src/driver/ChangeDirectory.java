@@ -23,7 +23,7 @@ public class ChangeDirectory {
       // set the current directory of fileSystem to this file
       fileSystem.setCurrentDirectory(destinationDirectory);
     } else {
-      throw new CommandException(path + " is not a valid directory name.");
+      throw new CommandException("\"" + path + "\"" + " is not a valid directory name.");
     }
   }
 }
