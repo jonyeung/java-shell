@@ -47,8 +47,10 @@ public class Interpreter {
    * 
    * @param command A command that was input from the user in JShell
    * @return String[] An array of strings that are the commands words
+   * @throws CommandException
    */
-  public static String[] commandToArray(String command) {
+  public static String[] commandToArray(String command)
+      throws CommandException {
 
     String words[] = inputToArray(command, " ");
     // if the first word is echo, then inputToArray would have broken up the
@@ -77,8 +79,10 @@ public class Interpreter {
    * 
    * @param input The input from the user
    * @return String[] An array of strings separated properly
+   * @throws CommandException
    */
-  private static String[] echoInputToArray(String input) {
+  private static String[] echoInputToArray(String input)
+      throws CommandException {
 
     int startIndex = 0;
     int endIndex = 0;
@@ -101,12 +105,7 @@ public class Interpreter {
     // if closing quote is not found throw exception
     if (notFound == true) {
       // Raise exception if user does not have a closing double quote
-      try {
-        throw new CommandException("Quote does not end");
-      } catch (CommandException e) {
-        // Print the exception message
-        System.out.println(e.getMessage());
-      }
+      throw new CommandException("Quote does not end.");
     }
 
     // get the words between the start and end quote
@@ -133,8 +132,9 @@ public class Interpreter {
    * 
    * @param input The string entered by the user
    * @return boolean If input is a valid command
+   * @throws CommandException
    */
-  public static boolean validInput(String input) {
+  public static boolean validInput(String input) throws CommandException {
 
     // separate input into an array using whitespace between each word
     String inputWords[] = commandToArray(input);
@@ -158,8 +158,9 @@ public class Interpreter {
    * 
    * @param command The first word entered
    * @return int Index of the command name
+   * @throws CommandException
    */
-  private static int validCommand(String command) {
+  private static int validCommand(String command) throws CommandException {
 
     // checks if the 1st word input is a valid command by comparing it to
     // the array of commands
@@ -178,13 +179,7 @@ public class Interpreter {
     int result;
     if (notFound) {
       // Raise exception if valid command is not given
-      try {
-        throw new CommandException(command + " is not a valid command name.");
-      } catch (CommandException e) {
-        // Print the exception message
-        System.out.println(e.getMessage());
-      }
-      result = -1;
+      throw new CommandException(command + " is not a valid command name.");
     } else {
       result = count;
     }
@@ -197,8 +192,10 @@ public class Interpreter {
    * @param index Index of the command name
    * @param input Each word entered in an array
    * @return boolean Correct number of arguments
+   * @throws CommandException
    */
-  private static boolean validNumberArguments(int index, String[] input) {
+  private static boolean validNumberArguments(int index, String[] input)
+      throws CommandException {
 
     int numArgs = input.length - 1;
     boolean result = false;
@@ -208,15 +205,10 @@ public class Interpreter {
         && (numArgs <= maxArgs[index] || maxArgs[index] == -1)) {
       result = true;
     } else {
-      // Raise exception if user did not input the correct number of arguments
-      try {
-        throw new CommandException("Please supply valid arguments for the "
-            + commands[index] + " command.\nSee the manual of "
-            + commands[index] + " for usage information.");
-      } catch (CommandException e) {
-        // Print the exception message
-        System.out.println(e.getMessage());
-      }
+      // Throw exception if user did not input the correct number of arguments
+      throw new CommandException("Please supply valid arguments for the "
+          + commands[index] + " command.\nSee the manual of " + commands[index]
+          + " for usage information.");
     }
     return result;
   }
