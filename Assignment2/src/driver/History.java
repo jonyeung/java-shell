@@ -42,7 +42,7 @@ public class History {
     } else {
       // Throw the command exception if user enters invalid history number
       throw new CommandException(
-          "History for the past " + lastLines + " commands does not exist.");
+          "History for the past " + lastLines + " command(s) does not exist.");
     }
   }
 
