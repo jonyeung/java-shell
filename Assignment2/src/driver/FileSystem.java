@@ -157,7 +157,7 @@ public class FileSystem {
         returnFile = this.getDirectory(rootDirectory, pathway);
       }
     }
-    
+
     return returnFile;
   }
 }
