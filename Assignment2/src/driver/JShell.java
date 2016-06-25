@@ -130,7 +130,7 @@ public class JShell {
     } else if (commandName.equals("ls")) {
       if (commandArgs != null) {
         for (int i = 0; i < commandArgs.length; i++) {
-          List.printDirectoryContentsGivenPath(fileSystem, commandArgs[i]);;
+          List.listContentsAbsolute(fileSystem, commandArgs[i]);;
         }
       } else {
         List.listContents(fileSystem);

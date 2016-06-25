@@ -25,7 +25,7 @@ public class List {
    * @param path The pathway specifying a certain file
    * @throws CommandException
    */
-  public static void printDirectoryContentsGivenPath(FileSystem fileSystem,
+  public static void listContentsAbsolute(FileSystem fileSystem,
       String path) throws CommandException {
 
     // reach the file found at the pathway
