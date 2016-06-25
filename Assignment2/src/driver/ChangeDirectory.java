@@ -15,16 +15,10 @@ public class ChangeDirectory {
   public static void changeCurrentDirectory(FileSystem fileSystem, String path)
       throws CommandException {
 
-    if (fileSystem.getCurrentDirectory().fileInDirectory(path) == true
-        || path.equals("..") || path.equals(".")) {
-      // get the file from the path
-      Directory destinationDirectory = fileSystem.traversePath(path);
+    // get the file from the path
+    Directory destinationDirectory = fileSystem.traversePath(path);
 
-      // set the current directory of fileSystem to this file
-      fileSystem.setCurrentDirectory(destinationDirectory);
-    } else {
-      throw new CommandException(
-          "\"" + path + "\"" + " is not a valid directory name.");
-    }
+    // set the current directory of fileSystem to this file
+    fileSystem.setCurrentDirectory(destinationDirectory);
   }
 }
