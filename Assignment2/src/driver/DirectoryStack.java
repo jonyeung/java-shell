@@ -12,9 +12,10 @@ public class DirectoryStack {
    * 
    * @param fileSystem The file system with all the files and directories
    * @param filepath The current directory will be changed to this
-   * @throws CommandException 
+   * @throws CommandException
    */
-  public static void pushd(FileSystem fileSystem, String filepath) throws CommandException {
+  public static void pushd(FileSystem fileSystem, String filepath)
+      throws CommandException {
 
     // use pwd to get the name of the current directory
     String currFilePath = PrintWorkingDirectory.getFilepath(fileSystem);
@@ -29,15 +30,15 @@ public class DirectoryStack {
    * working directory to it
    * 
    * @param fileSystem The file system with all the files and directories
-   * @throws CommandException 
+   * @throws CommandException
    */
   public static void popd(FileSystem fileSystem) throws CommandException {
 
     // pops the first element and use cd
     if (savedDirectories.isEmpty()) {
       // Throw exception when there are no directories to pop
-        throw new CommandException(
-            "No directories can be removed from the directory stack.");
+      throw new CommandException(
+          "No directories can be removed from the directory stack.");
     } else {
       String filepath = savedDirectories.pop();
       ChangeDirectory.changeCurrentDirectory(fileSystem, filepath);
