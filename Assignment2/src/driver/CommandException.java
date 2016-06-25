@@ -6,7 +6,7 @@ package driver;
  * The Command Exception class.
  */
 public class CommandException extends Exception {
-  
+
   public CommandException(String errorMessage) {
 
     super(errorMessage);
