@@ -23,7 +23,7 @@ public class List {
    * 
    * @param fileSystem The file system containing all the files and directories
    * @param path The pathway specifying a certain file
-   * @throws CommandException 
+   * @throws CommandException
    */
   public static void printDirectoryContentsGivenPath(FileSystem fileSystem,
       String path) throws CommandException {
