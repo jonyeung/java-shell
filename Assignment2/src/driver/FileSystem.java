@@ -93,12 +93,9 @@ public class FileSystem {
   private Directory getDirectory(Directory curr, String[] pathway)
       throws CommandException {
 
-    Directory returnDirectory = null;
+    Directory returnDirectory = curr;
     // if no pathway is given, then return curr
-    if (pathway.length == 0) {
-
-      returnDirectory = curr;
-    } else {
+    if (pathway.length != 0) {
 
       String searchDir = pathway[0];
       String newPathway[] = Arrays.copyOfRange(pathway, 1, pathway.length);
@@ -160,7 +157,7 @@ public class FileSystem {
         returnFile = this.getDirectory(rootDirectory, pathway);
       }
     }
-
+    
     return returnFile;
   }
 }
