@@ -39,122 +39,126 @@ import driver.FileSystem;
 
 public class JShell {
 
-  public static FileSystem fileSystem;
+	public static FileSystem fileSystem;
 
-  public static void main(String[] args) throws IOException, CommandException {
+	public static void main(String[] args) throws IOException, CommandException {
 
-    // User input and default start of line
-    String userInput;
-    String startOfLine = "/#: ";
+		// User input and default start of line
+		String userInput;
+		String startOfLine = "/#: ";
 
-    // File system
-    fileSystem = new FileSystem();
+		// File system
+		fileSystem = new FileSystem();
 
-    // Boolean to check whether user has quit
-    Boolean exitStatus = false;
+		// Boolean to check whether user has quit
+		Boolean exitStatus = false;
 
-    // Create a new buffered reader to fetch input from console
-    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		// Create a new buffered reader to fetch input from console
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-    // Continually prompt user for input
-    do {
+		// Continually prompt user for input
+		do {
 
-      // Print the start of each line before input
-      System.out.print(startOfLine);
+			// Print the start of each line before input
+			System.out.print(startOfLine);
 
-      // Retrieve input from user
-      userInput = br.readLine();
-      History.addToHistory(userInput);
+			// Retrieve input from user
+			userInput = br.readLine();
+			History.addToHistory(userInput);
 
-      // Terminate program if user types "exit"
-      if (userInput.equals("exit")) {
-        // Terminate loop
-        exitStatus = true;
-      } else {
-        // Interpret the input
-        interpretInput(userInput);
-      }
+			// Terminate program if user types "exit"
+			if (userInput.equals("exit")) {
+				// Terminate loop
+				exitStatus = true;
+			} else {
+				// Interpret the input
+				interpretInput(userInput);
+			}
 
-    } while (exitStatus == false);
-  }
+		} while (exitStatus == false);
+	}
 
-  /**
-   * Interprets the user input and runs the command if it is valid
-   * 
-   * @param userInput The line of input entered by the user to be interpreted
-   * @throws CommandException
-   */
-  public static void interpretInput(String userInput) throws CommandException {
+	/**
+	 * Interprets the user input and runs the command if it is valid
+	 * 
+	 * @param userInput
+	 *            The line of input entered by the user to be interpreted
+	 * @throws CommandException
+	 */
+	public static void interpretInput(String userInput) throws CommandException {
+		try {
+			// Execute the command accordingly if it is valid
+			if (Interpreter.validInput(userInput) == true) {
 
-    // Execute the command accordingly if it is valid
-    if (Interpreter.validInput(userInput) == true) {
+				// Break up the user input
+				String[] inputArray = Interpreter.commandToArray(userInput);
+				// inputArray[0] is the command name
+				String commandName = inputArray[0];
+				// # of arguments in the input
+				String[] commandArgs = null;
 
-      // Break up the user input
-      String[] inputArray = Interpreter.commandToArray(userInput);
-      // inputArray[0] is the command name
-      String commandName = inputArray[0];
-      // # of arguments in the input
-      String[] commandArgs = null;
+				// Copy the arguments from inputArray to inputArguments, if
+				// there are any
+				if (inputArray.length > 1) {
+					commandArgs = Arrays.copyOfRange(inputArray, 1, inputArray.length);
+				}
 
-      // Copy the arguments from inputArray to inputArguments, if there are any
-      if (inputArray.length > 1) {
-        commandArgs = Arrays.copyOfRange(inputArray, 1, inputArray.length);
-      }
+				// Execute the command, convert command name to lowercase
+				executeCommand(commandName.toLowerCase(), commandArgs);
+			}
+		} catch (CommandException e) {
+			System.out.println(e.getMessage());
+		}
+	}
 
-      // Execute the command, convert command name to lowercase
-      executeCommand(commandName.toLowerCase(), commandArgs);
-    }
-  }
+	/**
+	 * Executes the command given the command name and its arguments, where both
+	 * the command name and its arguments are valid
+	 * 
+	 * @param commandName
+	 *            The command name of the command to be executed
+	 * @param commandArgs
+	 *            The argument(s) for the command to be executed
+	 * @throws CommandException
+	 */
+	public static void executeCommand(String commandName, String[] commandArgs) throws CommandException {
+		// Mkdir
+		if (commandName.equals("mkdir")) {
+			for (int i = 0; i < commandArgs.length; i++) {
+				MakeDirectory.makeADirectory(fileSystem, commandArgs[i]);
+			}
+		} else if (commandName.equals("cd")) {
+			ChangeDirectory.changeCurrentDirectory(fileSystem, commandArgs[0]);
+		} else if (commandName.equals("ls")) {
+			if (commandArgs != null) {
+				for (int i = 0; i < commandArgs.length; i++) {
+					List.printDirectoryContentsGivenPath(fileSystem, commandArgs[i]);
+					;
+				}
+			} else {
+				List.listContents(fileSystem);
+			}
+		} else if (commandName.equals("pwd")) {
+			PrintWorkingDirectory.printWD(fileSystem);
+		} else if (commandName.equals("pushd")) {
+			DirectoryStack.pushd(fileSystem, commandArgs[0]);
+		} else if (commandName.equals("popd")) {
+			DirectoryStack.popd(fileSystem);
+		} else if (commandName.equals("history")) {
+			// Call the history command on the first argument
+			if (commandArgs != null) {
+				History.printHistory(Integer.parseInt(commandArgs[0]));
+			} else {
+				History.printAllHistory();
+			}
+		} else if (commandName.equals("cat")) {
+			// cat(inputArguments)
+		} else if (commandName.equals("echo")) {
+			// echo(inputArguments)
+		} else if (commandName.equals("man")) {
+			// Call the man command on the first argument
+			Manual.printMan(commandArgs[0]);
+		}
+	}
 
-  /**
-   * Executes the command given the command name and its arguments, where both
-   * the command name and its arguments are valid
-   * 
-   * @param commandName The command name of the command to be executed
-   * @param commandArgs The argument(s) for the command to be executed
-   * @throws CommandException
-   */
-  public static void executeCommand(String commandName, String[] commandArgs)
-      throws CommandException {
-    try {
-      // Mkdir
-      if (commandName.equals("mkdir")) {
-        for (int i = 0; i < commandArgs.length; i++) {
-          MakeDirectory.makeADirectory(fileSystem, commandArgs[i]);
-        }
-      } else if (commandName.equals("cd")) {
-        ChangeDirectory.changeCurrentDirectory(fileSystem, commandArgs[0]);
-      } else if (commandName.equals("ls")) {
-        if (commandArgs != null) {
-          for (int i = 0; i < commandArgs.length; i++) {
-            List.printDirectoryContentsGivenPath(fileSystem, commandArgs[i]);;
-          }
-        } else {
-          List.listContents(fileSystem);
-        }
-      } else if (commandName.equals("pwd")) {
-        PrintWorkingDirectory.printWD(fileSystem);
-      } else if (commandName.equals("pushd")) {
-        DirectoryStack.pushd(fileSystem, commandArgs[0]);
-      } else if (commandName.equals("popd")) {
-        DirectoryStack.popd(fileSystem);
-      } else if (commandName.equals("history")) {
-        // Call the history command on the first argument
-        if (commandArgs != null) {
-          History.printHistory(Integer.parseInt(commandArgs[0]));
-        } else {
-          History.printAllHistory();
-        }
-      } else if (commandName.equals("cat")) {
-        // cat(inputArguments)
-      } else if (commandName.equals("echo")) {
-        // echo(inputArguments)
-      } else if (commandName.equals("man")) {
-        // Call the man command on the first argument
-        Manual.printMan(commandArgs[0]);
-      }
-    } catch (CommandException e) {
-      System.out.println(e.getMessage());
-    }
-  }
 }
