@@ -30,7 +30,8 @@ public class MakeDirectory {
 
     // check if the directory name is valid
     if (!checkDirName(newDir, parent)) {
-      throw new CommandException("Invalid directory name.");
+      throw new CommandException(
+          "\"" + path + "\"" + " is not a valid directory name.");
     }
     parent.storeFile(new Directory(newDir));
   }
