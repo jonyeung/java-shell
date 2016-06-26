@@ -16,6 +16,7 @@ public class DirectoryStack {
    * @return int The number of directories saved
    */
   public static int numDirectories() {
+
     return savedDirectories.size();
   }
 
@@ -30,11 +31,13 @@ public class DirectoryStack {
   public static void pushd(FileSystem fileSystem, String filepath)
       throws CommandException {
 
-    // use pwd to get the name of the current directory
+    // Use pwd to get the name of the current directory
     String currFilePath = PrintWorkingDirectory.printWD(fileSystem);
-    // push the current directory onto the stack
+
+    // Push the current directory onto the stack
     savedDirectories.add(currFilePath);
-    // use cd to change into changeDirectory
+
+    // Use cd to change into changeDirectory
     ChangeDirectory.changeCurrentDirectory(fileSystem, filepath);
   }
 
@@ -47,12 +50,14 @@ public class DirectoryStack {
    */
   public static void popd(FileSystem fileSystem) throws CommandException {
 
-    // pops the first element and use cd
+    // Pop the first element and use cd
     if (savedDirectories.isEmpty()) {
+
       // Throw exception when there are no directories to pop
       throw new CommandException(
           "No directories can be removed from the directory stack.");
     } else {
+
       String filepath = savedDirectories.pop();
       ChangeDirectory.changeCurrentDirectory(fileSystem, filepath);
     }
@@ -63,6 +68,7 @@ public class DirectoryStack {
    * 
    */
   public static void removeSavedDirectories() {
+
     savedDirectories.clear();
   }
 }
