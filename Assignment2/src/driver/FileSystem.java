@@ -72,7 +72,7 @@ public class FileSystem {
 
     if (notFound) {
       try {
-        throw new CommandException("Invalid directory name.");
+        throw new CommandException("Directory " + dirName + " does not exist.");
       } catch (CommandException e) {
         // Print the message
         System.out.println(e.getMessage());
