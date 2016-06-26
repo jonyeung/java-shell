@@ -24,34 +24,48 @@ public class History {
   }
 
   /**
+   * Delete all previous commands from history
+   * 
+   */
+  public static void resetHistory() {
+
+    historyFile.clear();
+    numLines = 0;
+  }
+  
+  /**
    * Gets the number of lines of past commands that need to be printed and
-   * prints them
+   * returns them
    * 
    * @param lastLines The number of past commands that the user wants to see
+   * @return String The lines that we want to return
    * @throws CommandException
    */
-  public static void printHistory(int lastLines) throws CommandException {
+  public static String printHistory(int lastLines) throws CommandException {
 
     int startLineIndex = numLines - lastLines;
+    String output = "";
 
     if (startLineIndex >= 0 && lastLines > 0) {
       // loop through each line starting at startLineIndex and print them
       for (int i = startLineIndex; i < numLines; i++) {
-        System.out.println(historyFile.get(i));
+        output += historyFile.get(i) + "\n";
       }
     } else {
       // Throw the command exception if user enters invalid history number
       throw new CommandException(
           "History for the past " + lastLines + " command(s) does not exist.");
     }
+    return output.substring(0, output.length() - 1);
   }
 
   /**
    * Gets the all past commands and prints them
    * 
+   * @return String All past commands 
    * @throws CommandException
    */
-  public static void printAllHistory() throws CommandException {
-    printHistory(numLines);
+  public static String printAllHistory() throws CommandException {
+    return printHistory(numLines);
   }
 }
