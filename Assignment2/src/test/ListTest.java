@@ -30,6 +30,8 @@ public class ListTest {
 
   @Test
   public void testListWithNoDirectories() throws CommandException {
+    // test that nothing is returned when list is called on a directory holding
+    // no files
     Directory root = fileSys.getRootDirectory();
     fileSys.setCurrentDirectory(root);
     String output = List.list(fileSys, null);
@@ -38,6 +40,7 @@ public class ListTest {
 
   @Test
   public void testListWithMultipleDirectories() throws CommandException {
+    // test that all the file's contents are returned
     Directory root = fileSys.getRootDirectory();
     root.storeFile(new File("file1"));
     root.storeFile(new File("file2"));
@@ -49,6 +52,8 @@ public class ListTest {
 
   @Test
   public void testListWithAbsolutePath() throws CommandException {
+    // test that all the file's contents are returned at the file found at
+    // the given file path
     Directory root = fileSys.getRootDirectory();
     Directory dir1 = new Directory("dir1");
     Directory dir2 = new Directory("dir2");
@@ -68,6 +73,7 @@ public class ListTest {
 
   @Test
   public void testListException() throws CommandException {
+    // test that a CommandException is raised if a directory does not exist
     try {
       List.list(fileSys, Interpreter.filepathToArray("/dir1"));
     } catch (CommandException e) {
