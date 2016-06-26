@@ -171,7 +171,7 @@ public class JShell {
         // echo(inputArguments)
         break;
       case "man":
-        Manual.printMan(commandArgs[0]);
+        output = Manual.printMan(commandArgs[0]);
         break;
     }
 
