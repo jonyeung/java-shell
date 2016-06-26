@@ -2,6 +2,10 @@ package driver;
 
 import java.util.Stack;
 
+/**
+ * This class allows you to save directories onto a stack and remove from it,
+ * changing the current working directory to the most recently saved directory
+ */
 public class DirectoryStack {
 
   private static Stack<String> savedDirectories = new Stack<String>();

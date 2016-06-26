@@ -2,6 +2,10 @@ package driver;
 
 import java.util.Arrays;
 
+/**
+ * This class has methods that check if user input is valid and can interpret
+ * user input for use in other classes
+ */
 public class Interpreter {
 
   // the valid commands JShell can run

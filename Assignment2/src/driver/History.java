@@ -3,6 +3,9 @@ package driver;
 import java.util.ArrayList;
 import driver.CommandException;
 
+/**
+ * This class consists exclusively of static methods for History
+ */
 public class History {
 
   private static ArrayList<String> historyFile = new ArrayList<String>();
