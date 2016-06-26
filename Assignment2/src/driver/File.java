@@ -26,7 +26,6 @@ public class File {
    * File constructor with a parent file
    * 
    * @param name The name of the file.
-   * 
    * @param parentFile The parent of this file.
    */
   public File(String name, Directory parentFile) {
