@@ -164,12 +164,7 @@ public class JShell {
         break;
 
       case "history":
-        // Call the history command on the first argument
-        if (commandArgs != null) {
-          output = History.printHistory(Integer.parseInt(commandArgs[0]));
-        } else {
-          output = History.printAllHistory();
-        }
+        output = History.executeHistory(commandArgs);
         break;
 
       case "cat":

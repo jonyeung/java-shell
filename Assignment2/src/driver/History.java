@@ -28,13 +28,36 @@ public class History {
   }
 
   /**
-   * Delete all previous commands from history
+   * Returns the past commands entered.
    * 
+   * @param commandArgs The number of past commands the user wants
+   * @return String The output of history
    */
-  public static void resetHistory() {
+  public static String executeHistory(String[] commandArgs)
+      throws CommandException {
 
-    historyFile.clear();
-    numLines = 0;
+    String output = "";
+    // If an argument is given, then check if it is a number. If so return the
+    // n-th past commands.
+    if (commandArgs != null) {
+      int numPastCommands;
+      boolean success = true;
+      try {
+        numPastCommands = Integer.parseInt(commandArgs[0]);
+      } catch (Exception e) {
+        success = false;
+        throw new CommandException("Argument given is not an integer");
+      }
+
+      if (success) {
+        output = printHistory(numPastCommands);
+      }
+
+    } else {
+      // If no argument is given then print all past commands
+      output = printHistory(numLines);
+    }
+    return output;
   }
 
   /**
@@ -45,7 +68,7 @@ public class History {
    * @return String The lines that we want to return
    * @throws CommandException
    */
-  public static String printHistory(int lastLines) throws CommandException {
+  private static String printHistory(int lastLines) throws CommandException {
 
     int startLineIndex = numLines - lastLines;
     String output = "";
@@ -66,13 +89,12 @@ public class History {
   }
 
   /**
-   * Gets the all past commands and prints them
+   * Delete all previous commands from history
    * 
-   * @return String All past commands
-   * @throws CommandException
    */
-  public static String printAllHistory() throws CommandException {
+  public static void resetHistory() {
 
-    return printHistory(numLines);
+    historyFile.clear();
+    numLines = 0;
   }
 }
