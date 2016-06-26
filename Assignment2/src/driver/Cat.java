@@ -6,8 +6,7 @@ package driver;
 public class Cat {
 
   /**
-   * Puts the current working directory onto the stack of directories and
-   * changes the current working directory to the one specified
+   * Returns the contents of each file given
    * 
    * @param fileSystem The file system with all the files and directories
    * @param filepaths The files that we want to read
