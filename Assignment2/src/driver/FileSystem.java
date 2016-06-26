@@ -202,6 +202,8 @@ public class FileSystem {
 
     if (fileName.equals(".")) {
       currFile = parent;
+    } else if (fileName.equals("..")) {
+      currFile = parent.getParent();
     } else {
       currFile = this.searchFile(parent, fileName);
     }
