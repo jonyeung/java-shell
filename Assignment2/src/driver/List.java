@@ -3,9 +3,13 @@ package driver;
 public class List {
 
   /**
-   * ?????????????????????????????????????????????????
+   * Prints the contents of each file in file paths.
+   * 
+   * @param fileSystem The file system containing all the files and directories
+   * @param filepaths The file paths that we have to we want to list contents of
+   * @throws CommandException
    */
-  public static void ls(FileSystem fileSystem, String[] filepaths)
+  public static void list(FileSystem fileSystem, String[] filepaths)
       throws CommandException {
 
     // if no file paths given then print contents of current directory
@@ -42,6 +46,13 @@ public class List {
     }
   }
 
+  /**
+   * Prints the contents of the directory given
+   * 
+   * @param fileSystem The file system containing all the files and directories
+   * @param dir The directory that we want to print its contents
+   * @throws CommandException
+   */
   private static void listContents(FileSystem fileSystem, Directory dir)
       throws CommandException {
 
@@ -51,39 +62,4 @@ public class List {
     }
   }
 
-
-  /**
-   * Prints the contents of the current directory.
-   * 
-   * @param fileSystem The file system containing all the files and directories
-   */
-  public static void listContents(FileSystem fileSystem) {
-
-    // get the current directory the user is in
-    Directory dir = fileSystem.getCurrentDirectory();
-
-    // Print all the elements in the storedFiles found in dir
-    for (File file : dir.getStoredFiles()) {
-      System.out.println(file.getName());
-    }
-  }
-
-  /**
-   * Prints the contents of the directory found at the given pathway.
-   * 
-   * @param fileSystem The file system containing all the files and directories
-   * @param path The pathway specifying a certain file
-   * @throws CommandException
-   */
-  public static void listContentsAbsolute(FileSystem fileSystem, String path)
-      throws CommandException {
-
-    // reach the file found at the pathway
-    Directory dir = fileSystem.traversePath(path);
-
-    // Print all the elements in the storedFiles found in dir
-    for (File file : dir.getStoredFiles()) {
-      System.out.println(file.getName());
-    }
-  }
 }
