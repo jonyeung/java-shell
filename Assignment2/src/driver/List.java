@@ -33,7 +33,7 @@ public class List {
         File currFile = fileSystem.getFile(path);
 
         if (count > 1) {
-          output += "\n";
+          output += "\n\n";
         }
         output += path + ":\n";
 
