@@ -1,5 +1,7 @@
 package driver;
 
+import java.util.Hashtable;
+
 public class Manual {
 
   private final static String CATMESSAGE = "cat FILE1 [FILE2 ...]\n"
@@ -62,42 +64,29 @@ public class Manual {
 
   private final static String EXITMESSAGE = "exit\n" + "\tQuits the program.";
 
-  public static void printMan(String commandName) throws CommandException {
+  private static Hashtable<String, String> commandMessages;
 
-    // Check each command name and print the appropriate message
-    if (commandName.equals("mkdir")) {
-      // mkdir
-      System.out.println(MKDIRMESSAGE);
-    } else if (commandName.equals("cd")) {
-      // cd
-      System.out.println(CDMESSAGE);
-    } else if (commandName.equals("ls")) {
-      // ls
-      System.out.println(LSMESSAGE);
-    } else if (commandName.equals("pwd")) {
-      // pwd
-      System.out.println(PWDMESSAGE);
-    } else if (commandName.equals("pushd")) {
-      // pushd
-      System.out.println(PUSHDMESSAGE);
-    } else if (commandName.equals("popd")) {
-      // popd
-      System.out.println(POPDMESSAGE);
-    } else if (commandName.equals("history")) {
-      // history
-      System.out.println(HISTORYMESSAGE);
-    } else if (commandName.equals("cat")) {
-      // cat
-      System.out.println(CATMESSAGE);
-    } else if (commandName.equals("echo")) {
-      // echo
-      System.out.println(ECHOMESSAGE);
-    } else if (commandName.equals("man")) {
-      // man
-      System.out.println(MANMESSAGE);
-    } else if (commandName.equals("exit")) {
-      // exit
-      System.out.println(EXITMESSAGE);
+  public static void printMan(String commandName) throws CommandException {
+    // New hashtable mapping command names to respective messages
+    commandMessages = new Hashtable<String, String>();
+    commandMessages.put("mkdir", MKDIRMESSAGE);
+    commandMessages.put("cd", CDMESSAGE);
+    commandMessages.put("ls", LSMESSAGE);
+    commandMessages.put("pwd", PWDMESSAGE);
+    commandMessages.put("pushd", PUSHDMESSAGE);
+    commandMessages.put("popd", POPDMESSAGE);
+    commandMessages.put("history", HISTORYMESSAGE);
+    commandMessages.put("cat", CATMESSAGE);
+    commandMessages.put("echo", ECHOMESSAGE);
+    commandMessages.put("man", MANMESSAGE);
+    commandMessages.put("exit", EXITMESSAGE);
+
+    // Get the command message from the hashtable
+    String commandMessage = commandMessages.get(commandName);
+
+    // If the command message exists, print the message
+    if (commandMessage != null) {
+      System.out.println(commandMessage);
     } else {
       // Throw exception for invalid command manuals.
       throw new CommandException(
