@@ -2,8 +2,12 @@ package driver;
 
 import java.util.Hashtable;
 
+/**
+ * This class handles the manuals for each command.
+ */
 public class Manual {
 
+  // Constant strings for each command message
   private final static String CATMESSAGE = "cat FILE1 [FILE2 ...]\n"
       + "\tDisplays the contents of FILE1 and other files"
       + " (i.e. File2 ...) in the shell.";
@@ -64,8 +68,15 @@ public class Manual {
 
   private final static String EXITMESSAGE = "exit\n" + "\tQuits the program.";
 
+  // Hasthtable to map commands to each message
   private static Hashtable<String, String> commandMessages;
 
+  /**
+   * Returns the message to be printed by the JShell
+   * 
+   * @param commandName The name of the command to display the manual for
+   * @throws CommandException
+   */
   public static void printMan(String commandName) throws CommandException {
     // New hashtable mapping command names to respective messages
     commandMessages = new Hashtable<String, String>();
