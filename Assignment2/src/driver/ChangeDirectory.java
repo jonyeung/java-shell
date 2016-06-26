@@ -15,10 +15,10 @@ public class ChangeDirectory {
   public static void changeCurrentDirectory(FileSystem fileSystem, String path)
       throws CommandException {
 
-    // get the file from the path
+    // Get the file from the path
     Directory destinationDirectory = fileSystem.traversePath(path);
 
-    // set the current directory of fileSystem to this file
+    // Set the current directory of fileSystem to this file
     fileSystem.setCurrentDirectory(destinationDirectory);
   }
 }
