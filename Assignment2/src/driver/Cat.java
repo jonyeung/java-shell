@@ -17,23 +17,24 @@ public class Cat {
 
     int count = 1;
     String output = "";
-    
-    // loop through each file path given and read its contents
+
+    // Loop through each file path given and read its contents
     for (String path : filepaths) {
-      // get the file at path
+
+      // Get the file at path
       File currFile = fileSystem.getFile(path);
-      
-      // print the contents of currFile
+
+      // Print the contents of currFile
       if (currFile instanceof TextFile) {
+
         if (count == 1) {
           output += "\n\n";
         }
+
         output += ((TextFile) currFile).getFileContents();
       }
       count++;
     }
     return output;
   }
-
-
 }
