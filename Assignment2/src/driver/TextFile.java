@@ -14,6 +14,7 @@ public class TextFile extends File {
    * @param name The name of the TextFile.
    */
   public TextFile(String name) {
+
     super(name);
   }
 
@@ -24,6 +25,7 @@ public class TextFile extends File {
    * @param text The content of the TextFile.
    */
   public TextFile(String name, String text) {
+
     super(name);
     fileContents = text;
   }
@@ -35,6 +37,7 @@ public class TextFile extends File {
    * @param parentFile The parent of the TextFile.
    */
   public TextFile(String name, Directory parentFile) {
+
     super(name, parentFile);
   }
 
@@ -46,6 +49,7 @@ public class TextFile extends File {
    * @param parentFile The parent of the TextFile.
    */
   public TextFile(String name, String text, Directory parentFile) {
+
     super(name, parentFile);
     fileContents = text;
   }
@@ -56,6 +60,7 @@ public class TextFile extends File {
    * @param newText The new text contents the file is to hold.
    */
   public void write(String newText) {
+
     fileContents = newText;
   }
 
@@ -65,6 +70,7 @@ public class TextFile extends File {
    * @param newLine The new line that is to be appended to the file.
    */
   public void append(String newLine) {
+
     fileContents = fileContents + newLine;
   }
 
@@ -74,6 +80,7 @@ public class TextFile extends File {
    * @return String The contents held in the text file.
    */
   public String getFileContents() {
+
     return fileContents;
   }
 }
