@@ -1,20 +1,26 @@
 package driver;
 
+/**
+ * This class returns the contents of a file
+ */
 public class List {
 
   /**
-   * Prints the contents of each file in file paths.
+   * Returns the contents of each file in file paths.
    * 
    * @param fileSystem The file system containing all the files and directories
    * @param filepaths The file paths that we have to we want to list contents of
+   * @return String The contents of each file path given
    * @throws CommandException
    */
-  public static void list(FileSystem fileSystem, String[] filepaths)
+  public static String list(FileSystem fileSystem, String[] filepaths)
       throws CommandException {
 
-    // if no file paths given then print contents of current directory
+    String output = "";
+
+    // if no file paths given then return contents of current directory
     if (filepaths == null) {
-      listContents(fileSystem, fileSystem.getCurrentDirectory());
+      output = listContents(fileSystem, fileSystem.getCurrentDirectory());
 
     } else {
 
@@ -27,39 +33,47 @@ public class List {
         File currFile = fileSystem.getFile(path);
 
         if (count > 1) {
-          System.out.println("");
+          output += "\n";
         }
-        System.out.println(path + ":");
+        output += path + ":\n";
 
-        // if it is a directory then print the contents of the file otherwise,
+        // if it is a directory then return the contents of the file, otherwise
         // it is a file and it will read it.
         if (currFile instanceof Directory) {
-          listContents(fileSystem, (Directory) currFile);
+          output += listContents(fileSystem, (Directory) currFile);
 
         } else {
           // reads the file
-          System.out.println(((TextFile) currFile).getFileContents());
-
+          output += ((TextFile) currFile).getFileContents();
         }
         count++;
       }
     }
+    return output;
   }
 
   /**
-   * Prints the contents of the directory given
+   * Returns the contents of the directory given
    * 
    * @param fileSystem The file system containing all the files and directories
-   * @param dir The directory that we want to print its contents
+   * @param dir The directory that we want to return its contents
+   * @return String The contents of the directory
    * @throws CommandException
    */
-  private static void listContents(FileSystem fileSystem, Directory dir)
+  private static String listContents(FileSystem fileSystem, Directory dir)
       throws CommandException {
 
-    // Print all the elements in the storedFiles found in dir
+    String output = "";
+
+    // Returns all the elements in the storedFiles found in dir
     for (File file : dir.getStoredFiles()) {
-      System.out.println(file.getName());
+      output += file.getName() + "\n";
     }
+
+    if (!output.equals("")) {
+      output = output.substring(0, output.length() - 1);
+    }
+    return output;
   }
 
 }

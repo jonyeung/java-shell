@@ -145,10 +145,10 @@ public class JShell {
         ChangeDirectory.changeCurrentDirectory(fileSystem, commandArgs[0]);
         break;
       case "ls":
-        List.list(fileSystem, commandArgs);
+        output = List.list(fileSystem, commandArgs);
         break;
       case "pwd":
-        System.out.println(PrintWorkingDirectory.printWD(fileSystem));
+        output = PrintWorkingDirectory.printWD(fileSystem);
         break;
       case "pushd":
         DirectoryStack.pushd(fileSystem, commandArgs[0]);
