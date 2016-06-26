@@ -54,17 +54,17 @@ public class FileSystem {
   private File searchFile(Directory curr, String dirName)
       throws CommandException {
 
-    // get all the files in the curr directory
+    // Get all the files in the curr directory
     ArrayList<File> storedFiles = curr.getStoredFiles();
     int i = 0;
     boolean notFound = true;
     File returnFile = null;
 
-    // loop through each file and check if it has the same name as dirName
+    // Loop through each file and check if it has the same name as dirName
     while (i < storedFiles.size() && notFound) {
 
       File file = storedFiles.get(i);
-      // if the directory is found, then search the next thing on pathway
+      // If the directory is found, then search the next thing on pathway
       if (file.getName().equals(dirName)) {
         notFound = false;
         returnFile = file;
@@ -91,13 +91,13 @@ public class FileSystem {
       throws CommandException {
 
     Directory returnDirectory = curr;
-    // if no pathway is given, then return curr
+    // If no pathway is given, then return curr
     if (pathway.length != 0) {
 
       String searchDir = pathway[0];
       String newPathway[] = Arrays.copyOfRange(pathway, 1, pathway.length);
 
-      // check if the search directory is '..', then search if parent exists
+      // Check if the search directory is '..', then search if parent exists
       if (searchDir.equals("..") && !curr.equals(rootDirectory)) {
         returnDirectory = this.getDirectory(curr.getParent(), newPathway);
 
@@ -107,14 +107,14 @@ public class FileSystem {
       } else {
 
         File file;
-        // check if the search directory is '.', then it is the current
+        // Check if the search directory is '.', then it is the current
         if (searchDir.equals(".")) {
           file = curr;
         } else {
-          // find the search directory in the current directory.
+          // Find the search directory in the current directory.
           file = searchFile(curr, searchDir);
         }
-        // check that the file found is a directory and that we can look into it
+        // Check that the file found is a directory and that we can look into it
         if (file instanceof Directory) {
           returnDirectory = this.getDirectory((Directory) file, newPathway);
         }
@@ -137,17 +137,17 @@ public class FileSystem {
     if (path.length() == 0) {
       returnFile = this.getCurrentDirectory();
     } else {
-      // parse the path by converting it to a list
+      // Parse the path by converting it to a list
       String[] pathway = Interpreter.filepathToArray(path);
 
-      // check if path is absolute or relative
+      // Check if path is absolute or relative
       boolean relative = true;
 
       if (path.charAt(0) == '/') {
         relative = false;
       }
 
-      // searches the correct directory for the file in pathway
+      // Searches the correct directory for the file in pathway
       if (relative) {
         returnFile = this.getDirectory(currentDirectory, pathway);
       } else {
@@ -167,17 +167,17 @@ public class FileSystem {
    */
   public Directory getParentDirectory(String path) throws CommandException {
 
-    // split the path into a list and get the new directory name
+    // Split the path into a list and get the new directory name
     String[] pathway = Interpreter.filepathToArray(path);
     String newFile = pathway[pathway.length - 1];
 
-    // get the parent's file path
+    // Get the parent's file path
     int lastIndex = path.length() - newFile.length();
     if (path.charAt(path.length() - 1) == '/') {
       lastIndex--;
     }
     String parentPath = path.substring(0, lastIndex);
-    // change into the parent's directory and store the new directory in it
+    // Change into the parent's directory and store the new directory in it
     Directory parent = this.traversePath(parentPath);
 
     return parent;
@@ -192,14 +192,15 @@ public class FileSystem {
    */
   public File getFile(String path) throws CommandException {
 
-    // split the path into a list and get the new directory name
+    // Split the path into a list and get the new directory name
     String[] pathway = Interpreter.filepathToArray(path);
     String fileName = pathway[pathway.length - 1];
 
     // Get the parent directory and get the file that we want to ls
     Directory parent = this.getParentDirectory(path);
     File currFile;
-    if (fileName.equals(".")){
+
+    if (fileName.equals(".")) {
       currFile = parent;
     } else {
       currFile = this.searchFile(parent, fileName);
@@ -207,5 +208,4 @@ public class FileSystem {
 
     return currFile;
   }
-
 }
