@@ -27,7 +27,7 @@ public class ListTest {
     fileSys = null;
   }
 
-  
+
   @Test
   public void testListWithNoDirectories() throws CommandException {
     Directory root = fileSys.getRootDirectory();
@@ -35,7 +35,7 @@ public class ListTest {
     String output = List.list(fileSys, null);
     assertEquals(output, "");
   }
-  
+
   @Test
   public void testListWithMultipleDirectories() throws CommandException {
     Directory root = fileSys.getRootDirectory();
@@ -46,7 +46,7 @@ public class ListTest {
     String output = List.list(fileSys, null);
     assertEquals(output, "file1\nfile2\nfile3");
   }
-  
+
   @Test
   public void testListWithAbsolutePath() throws CommandException {
     Directory root = fileSys.getRootDirectory();
@@ -60,9 +60,18 @@ public class ListTest {
     dir2.storeFile(dir3);
     dir3.storeFile(file1);
     dir3.storeFile(file2);
-    String output = List.list(fileSys, Interpreter.filepathToArray("/dir1/" +
-    		"dir2/dir3"));
-    assertEquals(output, "file1\nfile2");
-    
+    String[] path = Interpreter.commandToArray("/dir1/dir2/dir3");
+    String output = List.list(fileSys, path);
+    assertEquals(output, "/dir1/dir2/dir3:\nfile1\nfile2");
+
+  }
+
+  @Test
+  public void testListException() throws CommandException {
+    try {
+      List.list(fileSys, Interpreter.filepathToArray("/dir1"));
+    } catch (CommandException e) {
+
+    }
   }
 }
