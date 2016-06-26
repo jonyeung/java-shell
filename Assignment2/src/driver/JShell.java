@@ -37,10 +37,22 @@ import java.io.IOException;
 import driver.Interpreter;
 import driver.FileSystem;
 
+/**
+ * This class runs the main method of the program, allowing users to interact
+ * with it by typing in commands.
+ */
 public class JShell {
 
   public static FileSystem fileSystem;
 
+  /**
+   * Main method of the program. Continues to prompt users for input and
+   * terminates upon user request.
+   * 
+   * @param args
+   * @throws IOException
+   * @throws CommandException
+   */
   public static void main(String[] args) throws IOException, CommandException {
 
     // User input and default start of line
