@@ -1,6 +1,6 @@
 package driver;
 
 public interface Command {
-  
-  public void execute(String[] commandArgs);
+
+  public void execute(FileSystem fileSystem, String[] commandArgs);
 }
