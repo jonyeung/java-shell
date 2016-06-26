@@ -77,7 +77,7 @@ public class Manual {
    * @param commandName The name of the command to display the manual for
    * @throws CommandException
    */
-  public static void printMan(String commandName) throws CommandException {
+  public static String printMan(String commandName) throws CommandException {
     // New hashtable mapping command names to respective messages
     commandMessages = new Hashtable<String, String>();
     commandMessages.put("mkdir", MKDIRMESSAGE);
@@ -97,7 +97,7 @@ public class Manual {
 
     // If the command message exists, print the message
     if (commandMessage != null) {
-      System.out.println(commandMessage);
+      return commandMessage;
     } else {
       // Throw exception for invalid command manuals.
       throw new CommandException(
