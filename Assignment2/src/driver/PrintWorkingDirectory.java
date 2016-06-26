@@ -30,10 +30,11 @@ public class PrintWorkingDirectory {
    * 
    * @param fileSystem The file system with all the files and directories
    */
-  public static void printWD(FileSystem fileSystem) {
+  public static String printWD(FileSystem fileSystem) {
 
     // print out the path
-    System.out.println(getFilepath(fileSystem));
+    String workingDirectory = getFilepath(fileSystem);
+    return workingDirectory;
   }
 
 
