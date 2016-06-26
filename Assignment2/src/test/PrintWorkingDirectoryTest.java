@@ -22,6 +22,7 @@ public class PrintWorkingDirectoryTest {
 
   @Test
   public void testPrintRootDirectory() {
+    // test printing the root directory
     expectedOutput = "/";
     result = PrintWorkingDirectory.printWD(fileSystem);
     assertEquals(result, expectedOutput);
@@ -29,6 +30,8 @@ public class PrintWorkingDirectoryTest {
 
   @Test
   public void testPrintNewlyMadeDirectory() throws CommandException {
+    // test the result of calling PWD on a newly made directory that user
+    // cd's into
     expectedOutput = "/dir/";
     MakeDirectory.makeADirectory(fileSystem, "dir");
     ChangeDirectory.changeCurrentDirectory(fileSystem, "dir");
