@@ -18,7 +18,7 @@ public class DirectoryStack {
       throws CommandException {
 
     // use pwd to get the name of the current directory
-    String currFilePath = PrintWorkingDirectory.getFilepath(fileSystem);
+    String currFilePath = PrintWorkingDirectory.printWD(fileSystem);
     // push the current directory onto the stack
     savedDirectories.add(currFilePath);
     // use cd to change into changeDirectory
