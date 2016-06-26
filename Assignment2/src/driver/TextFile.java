@@ -1,5 +1,9 @@
 package driver;
 
+/**
+ * This class represents a text file that holds text which can be manipulated by
+ * the user with echo or cat
+ */
 public class TextFile extends File {
 
   private String fileContents;
@@ -17,7 +21,6 @@ public class TextFile extends File {
    * TextFile constructor with no parent and non-empty contents.
    * 
    * @param name The name of the TextFile.
-   * 
    * @param text The content of the TextFile.
    */
   public TextFile(String name, String text) {
@@ -29,7 +32,6 @@ public class TextFile extends File {
    * TextFile constructor with a parent and no contents.
    * 
    * @param name The name of the TextFile.
-   * 
    * @param parentFile The parent of the TextFile.
    */
   public TextFile(String name, Directory parentFile) {
@@ -40,9 +42,7 @@ public class TextFile extends File {
    * TextFile constructor with a parent and non-empty contents.
    * 
    * @param name The name of the TextFile.
-   * 
    * @param text The content of the TextFile.
-   * 
    * @param parentFile The parent of the TextFile.
    */
   public TextFile(String name, String text, Directory parentFile) {
@@ -71,7 +71,7 @@ public class TextFile extends File {
   /**
    * Getter for fileContents
    * 
-   * @ return String The contents held in the text file.
+   * @return String The contents held in the text file.
    */
   public String getFileContents() {
     return fileContents;
