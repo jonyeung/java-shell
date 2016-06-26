@@ -30,7 +30,6 @@
 package driver;
 
 import java.io.BufferedReader;
-import java.util.Hashtable;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.io.IOException;
@@ -42,8 +41,7 @@ public class JShell {
 
   public static FileSystem fileSystem;
 
-  public static void main(String[] args) throws IOException, CommandException,
-      InstantiationException, IllegalAccessException, ClassNotFoundException {
+  public static void main(String[] args) throws IOException, CommandException {
 
     // User input and default start of line
     String userInput;
@@ -85,12 +83,8 @@ public class JShell {
    * 
    * @param userInput The line of input entered by the user to be interpreted
    * @throws CommandException
-   * @throws ClassNotFoundException
-   * @throws IllegalAccessException
-   * @throws InstantiationException
    */
-  public static void interpretInput(String userInput) throws CommandException,
-      InstantiationException, IllegalAccessException, ClassNotFoundException {
+  public static void interpretInput(String userInput) throws CommandException {
     try {
       // Execute the command accordingly if it is valid
       if (Interpreter.validInput(userInput) == true) {
@@ -123,13 +117,9 @@ public class JShell {
    * @param commandName The command name of the command to be executed
    * @param commandArgs The argument(s) for the command to be executed
    * @throws CommandException
-   * @throws IllegalAccessException
-   * @throws InstantiationException
-   * @throws ClassNotFoundException
    */
   public static void executeCommand(String commandName, String[] commandArgs)
       throws CommandException {
-
     // Mkdir
     if (commandName.equals("mkdir")) {
       for (int i = 0; i < commandArgs.length; i++) {
@@ -147,11 +137,13 @@ public class JShell {
       DirectoryStack.popd(fileSystem);
     } else if (commandName.equals("history")) {
       // Call the history command on the first argument
+      String output;
       if (commandArgs != null) {
-        History.printHistory(Integer.parseInt(commandArgs[0]));
+        output = History.printHistory(Integer.parseInt(commandArgs[0]));
       } else {
-        History.printAllHistory();
+        output = History.printAllHistory();
       }
+      System.out.println(output);
     } else if (commandName.equals("cat")) {
       // cat(inputArguments)
     } else if (commandName.equals("echo")) {
