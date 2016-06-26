@@ -57,6 +57,7 @@ public class Directory extends File {
         }
       }
     }
+
     // Add the file to the set of stored files
     storedFiles.add(index, file);
 
@@ -84,6 +85,7 @@ public class Directory extends File {
    *         in current directory.
    */
   public boolean fileInDirectory(String fileName) {
+
     // Initialize boolean to keep track of whether or not directoryName is in
     // current directory
     Boolean fileResult = false;
