@@ -18,16 +18,9 @@ public class MakeDirectory {
     String[] pathway = Interpreter.filepathToArray(path);
     String newDir = pathway[pathway.length - 1];
 
-    // get the parent's file path
-    int lastIndex = path.length() - newDir.length();
-    if (path.charAt(path.length() - 1) == '/') {
-      lastIndex--;
-    }
-    String parentPath = path.substring(0, lastIndex);
-
-    // change into the parent's directory and store the new directory in it
-    Directory parent = fileSystem.traversePath(parentPath);
-
+    // Get the parent directory
+    Directory parent = fileSystem.getParentDirectory(path);
+    
     // check if the directory name is valid
     if (!checkDirName(newDir, parent)) {
       throw new CommandException(

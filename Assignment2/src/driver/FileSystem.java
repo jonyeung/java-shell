@@ -160,4 +160,30 @@ public class FileSystem {
 
     return returnFile;
   }
+
+  /**
+   * Returns the parent directory of the file path given
+   * 
+   * @param path The file path in the format given by the user
+   * @return Directory The parent directory
+   * @throws CommandException
+   */
+  public Directory getParentDirectory(String path) throws CommandException {
+
+    // split the path into a list and get the new directory name
+    String[] pathway = Interpreter.filepathToArray(path);
+    String newFile = pathway[pathway.length - 1];
+
+    // get the parent's file path
+    int lastIndex = path.length() - newFile.length();
+    if (path.charAt(path.length() - 1) == '/') {
+      lastIndex--;
+    }
+    String parentPath = path.substring(0, lastIndex);
+    // change into the parent's directory and store the new directory in it
+    Directory parent = this.traversePath(parentPath);
+
+    return parent;
+  }
+
 }
