@@ -49,8 +49,10 @@ public class FileSystem {
    * @param curr The directory to look for the file
    * @param dirName The name of the file we want
    * @return File The File that we are looking for
+   * @throws CommandException
    */
-  public File searchFile(Directory curr, String dirName) {
+  private File searchFile(Directory curr, String dirName)
+      throws CommandException {
 
     // get all the files in the curr directory
     ArrayList<File> storedFiles = curr.getStoredFiles();
@@ -71,12 +73,7 @@ public class FileSystem {
     }
 
     if (notFound) {
-      try {
-        throw new CommandException("Directory " + dirName + " does not exist.");
-      } catch (CommandException e) {
-        // Print the message
-        System.out.println(e.getMessage());
-      }
+      throw new CommandException("Directory " + dirName + " does not exist.");
     }
     return returnFile;
   }
@@ -184,6 +181,31 @@ public class FileSystem {
     Directory parent = this.traversePath(parentPath);
 
     return parent;
+  }
+
+  /**
+   * Returns the file using the file path
+   * 
+   * @param path The file path in the format given by the user
+   * @return File The file wanted
+   * @throws CommandException
+   */
+  public File getFile(String path) throws CommandException {
+
+    // split the path into a list and get the new directory name
+    String[] pathway = Interpreter.filepathToArray(path);
+    String fileName = pathway[pathway.length - 1];
+
+    // Get the parent directory and get the file that we want to ls
+    Directory parent = this.getParentDirectory(path);
+    File currFile;
+    if (fileName.equals(".")){
+      currFile = parent;
+    } else {
+      currFile = this.searchFile(parent, fileName);
+    }
+
+    return currFile;
   }
 
 }

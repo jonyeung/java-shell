@@ -13,27 +13,31 @@ public class List {
       listContents(fileSystem, fileSystem.getCurrentDirectory());
 
     } else {
+
+      int count = 1;
+
       // loop through each file path given
       for (String path : filepaths) {
-        // split the path into a list and get the new directory name
-        String[] pathway = Interpreter.filepathToArray(path);
-        String fileName = pathway[pathway.length - 1];
 
-        // Get the parent directory and get the file that we want to ls
-        Directory parent = fileSystem.getParentDirectory(path);
-        File currFile = fileSystem.searchFile(parent, fileName);
+        // get the file at path
+        File currFile = fileSystem.getFile(path);
+
+        if (count > 1) {
+          System.out.println("");
+        }
         System.out.println(path + ":");
-        
+
         // if it is a directory then print the contents of the file otherwise,
         // it is a file and it will read it.
         if (currFile instanceof Directory) {
           listContents(fileSystem, (Directory) currFile);
 
         } else {
-          // TODO call cat command
+          // reads the file
+          System.out.println(((TextFile) currFile).getFileContents());
 
         }
-        System.out.println("");
+        count++;
       }
     }
   }

@@ -128,13 +128,7 @@ public class JShell {
     } else if (commandName.equals("cd")) {
       ChangeDirectory.changeCurrentDirectory(fileSystem, commandArgs[0]);
     } else if (commandName.equals("ls")) {
-      if (commandArgs != null) {
-        for (int i = 0; i < commandArgs.length; i++) {
-          List.listContentsAbsolute(fileSystem, commandArgs[i]);;
-        }
-      } else {
-        List.listContents(fileSystem);
-      }
+      List.ls(fileSystem, commandArgs);
     } else if (commandName.equals("pwd")) {
       PrintWorkingDirectory.printWD(fileSystem);
     } else if (commandName.equals("pushd")) {
