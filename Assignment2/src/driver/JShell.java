@@ -30,18 +30,21 @@
 package driver;
 
 import java.io.BufferedReader;
+import java.util.Hashtable;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.io.IOException;
 
 import driver.Interpreter;
 import driver.FileSystem;
+import driver.Command;
 
 public class JShell {
 
   public static FileSystem fileSystem;
 
-  public static void main(String[] args) throws IOException, CommandException {
+  public static void main(String[] args) throws IOException, CommandException,
+      InstantiationException, IllegalAccessException, ClassNotFoundException {
 
     // User input and default start of line
     String userInput;
@@ -83,8 +86,12 @@ public class JShell {
    * 
    * @param userInput The line of input entered by the user to be interpreted
    * @throws CommandException
+   * @throws ClassNotFoundException
+   * @throws IllegalAccessException
+   * @throws InstantiationException
    */
-  public static void interpretInput(String userInput) throws CommandException {
+  public static void interpretInput(String userInput) throws CommandException,
+      InstantiationException, IllegalAccessException, ClassNotFoundException {
     try {
       // Execute the command accordingly if it is valid
       if (Interpreter.validInput(userInput) == true) {
@@ -117,9 +124,25 @@ public class JShell {
    * @param commandName The command name of the command to be executed
    * @param commandArgs The argument(s) for the command to be executed
    * @throws CommandException
+   * @throws IllegalAccessException
+   * @throws InstantiationException
+   * @throws ClassNotFoundException
    */
   public static void executeCommand(String commandName, String[] commandArgs)
-      throws CommandException {
+      throws CommandException, InstantiationException, IllegalAccessException,
+      ClassNotFoundException {
+    Hashtable<String, String> allCommands = new Hashtable<String, String>();
+
+    allCommands.put("mkdir", "MakeDirectory");
+    allCommands.put("cd", "ChangeDirectory");
+    allCommands.put("ls", "List");
+
+    String className = allCommands.get(commandName);
+    Class returnClass = Class.forName(className);
+    Command commandOb = (Command) returnClass.newInstance();
+    commandOb.execute(commandArgs);
+
+
     // Mkdir
     if (commandName.equals("mkdir")) {
       for (int i = 0; i < commandArgs.length; i++) {
