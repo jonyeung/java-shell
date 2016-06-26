@@ -13,17 +13,17 @@ import driver.FileSystem;
 public class ListTest {
 
   FileSystem fileSys;
-  
+
   @Before
   public void setUp() {
     fileSys = new FileSystem();
   }
-  
+
   @After
   public void cleanUp() {
     fileSys = null;
   }
-  
+
   @Test
   public void testEmptyListContents() {
     Directory root = new Directory("root");
@@ -32,5 +32,4 @@ public class ListTest {
     root.storeFile(new File("file3"));
     fileSys.setCurrentDirectory(root);
   }
-
 }
