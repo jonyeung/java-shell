@@ -18,7 +18,7 @@ public class List {
 
     String output = "";
 
-    // if no file paths given then return contents of current directory
+    // If no file paths given then return contents of current directory
     if (filepaths == null) {
       output = listContents(fileSystem, fileSystem.getCurrentDirectory());
 
@@ -26,10 +26,10 @@ public class List {
 
       int count = 1;
 
-      // loop through each file path given
+      // Loop through each file path given
       for (String path : filepaths) {
 
-        // get the file at path
+        // Get the file at path
         File currFile = fileSystem.getFile(path);
 
         if (count > 1) {
@@ -37,13 +37,13 @@ public class List {
         }
         output += path + ":\n";
 
-        // if it is a directory then return the contents of the file, otherwise
+        // If it is a directory then return the contents of the file, otherwise
         // it is a file and it will read it.
         if (currFile instanceof Directory) {
           output += listContents(fileSystem, (Directory) currFile);
 
         } else {
-          // reads the file
+          // Read the file
           output += ((TextFile) currFile).getFileContents();
         }
         count++;
@@ -65,7 +65,7 @@ public class List {
 
     String output = "";
 
-    // Returns all the elements in the storedFiles found in dir
+    // Return all the elements in the storedFiles found in dir
     for (File file : dir.getStoredFiles()) {
       output += file.getName() + "\n";
     }
@@ -75,5 +75,4 @@ public class List {
     }
     return output;
   }
-
 }
