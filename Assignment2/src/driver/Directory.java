@@ -42,11 +42,11 @@ public class Directory extends File {
    */
   public void storeFile(File file) {
 
-    // add the file in the directory in alphabetical order
+    // Add the file in the directory in alphabetical order
     int index = 0;
     if (!storedFiles.isEmpty()) {
 
-      // find the index that the file should go in
+      // Find the index that the file should go in
       boolean notFound = true;
       while (index < storedFiles.size() && notFound) {
         String fileName = storedFiles.get(index).getName();
