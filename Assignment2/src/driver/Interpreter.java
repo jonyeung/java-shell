@@ -8,11 +8,11 @@ import java.util.Arrays;
  */
 public class Interpreter {
 
-  // the valid commands JShell can run
+  // The valid commands JShell can run
   private final static String commands[] = {"mkdir", "cd", "ls", "pwd", "pushd",
       "popd", "history", "cat", "echo", "man"};
 
-  // the maximum and minimum number of arguments of a command corresponding to
+  // The maximum and minimum number of arguments of a command corresponding to
   // the commands array
   private final static int maxArgs[] = {-1, 1, -1, 0, 1, 0, 1, -1, 3, 1};
   private final static int minArgs[] = {1, 1, 0, 0, 1, 0, 0, 1, 1, 1};
@@ -26,7 +26,7 @@ public class Interpreter {
    */
   private static String[] inputToArray(String input, String separator) {
 
-    // split the input up by space.
+    // Split the input up by space.
     String words[] = input.split(separator);
 
     String inputWords[] = new String[words.length];
@@ -42,7 +42,7 @@ public class Interpreter {
       }
     }
 
-    // returns only the values in the array that words
+    // Return only the values in the array that words
     return Arrays.copyOfRange(inputWords, 0, numInputs);
   }
 
@@ -57,7 +57,7 @@ public class Interpreter {
       throws CommandException {
 
     String words[] = inputToArray(command, " ");
-    // if the first word is echo, then inputToArray would have broken up the
+    // If the first word is echo, then inputToArray would have broken up the
     // string into words. The other method keeps anything in double quotes as
     // one string
     if (words[0].equals("echo")) {
@@ -93,7 +93,7 @@ public class Interpreter {
     int count = 0;
     boolean notFound = true;
 
-    // find the location of the double quotes
+    // Find the location of the double quotes
     while (count < input.length() && notFound) {
       if (input.charAt(count) == '"') {
         if (startIndex == 0) {
@@ -106,15 +106,16 @@ public class Interpreter {
       count++;
     }
 
-    // if closing quote is not found throw exception
+    // If closing quote is not found, throw exception
     if (notFound == true) {
       // Raise exception if user does not have a closing double quote
       throw new CommandException("Quote does not end.");
     }
 
-    // get the words between the start and end quote
+    // Get the words between the start and end quote
     String quote = input.substring(startIndex + 1, endIndex);
-    // get the words of everything other then the string in quote
+
+    // Get the words of everything other then the string in quote
     String restOfInput =
         input.substring(0, startIndex) + input.substring(endIndex + 1);
     String words[] = inputToArray(restOfInput, " ");
@@ -122,13 +123,13 @@ public class Interpreter {
     String newInput[] = new String[words.length + 1];
     newInput[0] = words[0];
     newInput[1] = quote;
-    // if the quote is not on the last word from input, then add words from
+
+    // If the quote is not on the last word from input, then add words from
     // input to newInput
     for (int i = 2; i < newInput.length; i++) {
       newInput[i] = words[i - 1];
     }
     return newInput;
-
   }
 
   /**
@@ -140,16 +141,16 @@ public class Interpreter {
    */
   public static boolean validInput(String input) throws CommandException {
 
-    // separate input into an array using whitespace between each word
+    // Separate input into an array using whitespace between each word
     String inputWords[] = commandToArray(input);
     boolean result = false;
 
-    // throw exception if no inputWords[0]
+    // Throw exception if no inputWords[0]
     if (inputWords.length != 0) {
-      // checks the first word in valid
+      // Check the first word is valid
       int commandPosition = validCommand(inputWords[0]);
       if (commandPosition != -1) {
-        // checks that the right number of arguments is given
+        // Check that the correct number of arguments is given
         result = validNumberArguments(commandPosition, inputWords);
       }
     }
@@ -166,14 +167,16 @@ public class Interpreter {
    */
   private static int validCommand(String command) throws CommandException {
 
-    // checks if the 1st word input is a valid command by comparing it to
+    // Check if the 1st word input is a valid command by comparing it to
     // the array of commands
     int count = 0;
     boolean notFound = true;
-    // loop through the commands array to see if the user's inputted command
+
+    // Loop through the commands array to see if the user's inputted command
     // is in it
     while (count < commands.length && notFound) {
-      // convert the command to lowercase for more command flexibility
+
+      // Convert the command to lowercase for more command flexibility
       if (command.toLowerCase().equals(commands[count])) {
         notFound = false;
       } else {
@@ -182,9 +185,11 @@ public class Interpreter {
     }
     int result;
     if (notFound) {
+
       // Raise exception if valid command is not given
       throw new CommandException(command + " is not a valid command name.");
     } else {
+
       result = count;
     }
     return result;
@@ -203,7 +208,8 @@ public class Interpreter {
 
     int numArgs = input.length - 1;
     boolean result = false;
-    // checks that the in the input array, the correct number of arguments
+
+    // Check that in the input array, the correct number of arguments
     // was given
     if (minArgs[index] <= numArgs
         && (numArgs <= maxArgs[index] || maxArgs[index] == -1)) {
