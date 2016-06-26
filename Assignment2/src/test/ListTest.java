@@ -30,7 +30,7 @@ public class ListTest {
   
   @Test
   public void testListWithNoDirectories() throws CommandException {
-    Directory root = new Directory("root");
+    Directory root = fileSys.getRootDirectory();
     fileSys.setCurrentDirectory(root);
     String output = List.list(fileSys, null);
     assertEquals(output, "");
@@ -38,7 +38,7 @@ public class ListTest {
   
   @Test
   public void testListWithMultipleDirectories() throws CommandException {
-    Directory root = new Directory("root");
+    Directory root = fileSys.getRootDirectory();
     root.storeFile(new File("file1"));
     root.storeFile(new File("file2"));
     root.storeFile(new File("file3"));
@@ -60,8 +60,8 @@ public class ListTest {
     dir2.storeFile(dir3);
     dir3.storeFile(file1);
     dir3.storeFile(file2);
-    String output = List.list(fileSys, Interpreter.filepathToArray("/root" +
-    		"/dir1/dir2"));
+    String output = List.list(fileSys, Interpreter.filepathToArray("/dir1/" +
+    		"dir2/dir3"));
     assertEquals(output, "file1\nfile2");
     
   }
