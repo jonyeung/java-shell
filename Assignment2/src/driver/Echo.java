@@ -38,7 +38,7 @@ public class Echo {
         // get the existing text file with the same name
         ArrayList<File> storedFiles = curr.getStoredFiles();
         for (File file : storedFiles) {
-          if (file.getName() == fileName) {
+          if (file.getName().equals(fileName)) {
             // set this file's contents to string
            // try {
            //   if (chevrons) {
