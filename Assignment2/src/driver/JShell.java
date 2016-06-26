@@ -130,7 +130,7 @@ public class JShell {
     } else if (commandName.equals("ls")) {
       List.list(fileSystem, commandArgs);
     } else if (commandName.equals("pwd")) {
-      PrintWorkingDirectory.printWD(fileSystem);
+      System.out.println(PrintWorkingDirectory.printWD(fileSystem));
     } else if (commandName.equals("pushd")) {
       DirectoryStack.pushd(fileSystem, commandArgs[0]);
     } else if (commandName.equals("popd")) {
