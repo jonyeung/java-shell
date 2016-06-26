@@ -147,7 +147,7 @@ public class FileSystem {
         relative = false;
       }
 
-      // Searches the correct directory for the file in pathway
+      // Search the correct directory for the file in pathway
       if (relative) {
         returnFile = this.getDirectory(currentDirectory, pathway);
       } else {
