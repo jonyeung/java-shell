@@ -8,7 +8,7 @@ public class PrintWorkingDirectory {
    * @param fileSystem The file system with all the files and directories
    * @return String
    */
-  public static String getFilepath(FileSystem fileSystem) {
+  public static String printWD(FileSystem fileSystem) {
     // get the current directory
     Directory file = fileSystem.getCurrentDirectory();
     // put the pathway string together starting with the current file
@@ -24,18 +24,5 @@ public class PrintWorkingDirectory {
 
     return pathway;
   }
-
-  /**
-   * Print the pathway of the current working directory
-   * 
-   * @param fileSystem The file system with all the files and directories
-   */
-  public static String printWD(FileSystem fileSystem) {
-
-    // print out the path
-    String workingDirectory = getFilepath(fileSystem);
-    return workingDirectory;
-  }
-
 
 }
