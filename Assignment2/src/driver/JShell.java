@@ -129,19 +129,7 @@ public class JShell {
    * @throws ClassNotFoundException
    */
   public static void executeCommand(String commandName, String[] commandArgs)
-      throws CommandException, InstantiationException, IllegalAccessException,
-      ClassNotFoundException {
-    Hashtable<String, String> allCommands = new Hashtable<String, String>();
-
-    allCommands.put("mkdir", "MakeDirectory");
-    allCommands.put("cd", "ChangeDirectory");
-    allCommands.put("ls", "List");
-
-    String className = allCommands.get(commandName);
-    Class returnClass = Class.forName(className);
-    Command commandOb = (Command) returnClass.newInstance();
-    commandOb.execute(commandArgs);
-
+      throws CommandException {
 
     // Mkdir
     if (commandName.equals("mkdir")) {
