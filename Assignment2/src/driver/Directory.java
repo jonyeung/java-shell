@@ -69,13 +69,12 @@ public class Directory extends File {
   /**
    * Getter for storedFiles.
    * 
-   * @return Set<File> The set of all the stored files in the directory.
+   * @return ArrayList<File> The list of all the stored files in the directory.
    */
   public ArrayList<File> getStoredFiles() {
 
     return storedFiles;
   }
-
 
   /**
    * Checks if a file is in this directory
