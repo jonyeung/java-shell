@@ -20,7 +20,7 @@ public class MakeDirectory {
 
     // Get the parent directory
     Directory parent = fileSystem.getParentDirectory(path);
-    
+
     // check if the directory name is valid
     if (!checkDirName(newDir, parent)) {
       throw new CommandException(
