@@ -7,6 +7,15 @@ public class DirectoryStack {
   private static Stack<String> savedDirectories = new Stack<String>();
 
   /**
+   * Returns the number of directories that are saved in the stack
+   * 
+   * @return int The number of directories saved
+   */
+  public static int numDirectories() {
+    return savedDirectories.size();
+  }
+
+  /**
    * Puts the current working directory onto the stack of directories and
    * changes the current working directory to the one specified
    * 
@@ -43,5 +52,13 @@ public class DirectoryStack {
       String filepath = savedDirectories.pop();
       ChangeDirectory.changeCurrentDirectory(fileSystem, filepath);
     }
+  }
+
+  /**
+   * Removes all directories saved.
+   * 
+   */
+  public static void removeSavedDirectories() {
+    savedDirectories.clear();
   }
 }
