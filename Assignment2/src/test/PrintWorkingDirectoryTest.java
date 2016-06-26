@@ -18,6 +18,8 @@ public class PrintWorkingDirectoryTest {
   @Before
   public void setup() {
     fileSystem = new FileSystem();
+    expectedOutput = "";
+    result = "";
   }
 
   @Test
