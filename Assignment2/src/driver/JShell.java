@@ -136,26 +136,33 @@ public class JShell {
     String output = "";
 
     switch (commandName) {
+
       case "mkdir":
         for (String command : commandArgs) {
           MakeDirectory.makeADirectory(fileSystem, command);
         }
         break;
+
       case "cd":
         ChangeDirectory.changeCurrentDirectory(fileSystem, commandArgs[0]);
         break;
+
       case "ls":
         output = List.list(fileSystem, commandArgs);
         break;
+
       case "pwd":
         output = PrintWorkingDirectory.printWD(fileSystem);
         break;
+
       case "pushd":
         DirectoryStack.pushd(fileSystem, commandArgs[0]);
         break;
+
       case "popd":
         DirectoryStack.popd(fileSystem);
         break;
+
       case "history":
         // Call the history command on the first argument
         if (commandArgs != null) {
@@ -164,12 +171,15 @@ public class JShell {
           output = History.printAllHistory();
         }
         break;
+
       case "cat":
         output = Cat.cat(fileSystem, commandArgs);
         break;
+
       case "echo":
         // echo(inputArguments)
         break;
+
       case "man":
         output = Manual.printMan(commandArgs[0]);
         break;
