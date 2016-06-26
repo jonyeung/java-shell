@@ -1,12 +1,16 @@
 package driver;
 
+/**
+ * This class determines what the current working directory is so that the 
+ * JShell can print it upon request of the user.
+ */
 public class PrintWorkingDirectory {
 
   /**
-   * Returns the pathway of the current working directory
+   * Finds and returns the current working directory
    * 
    * @param fileSystem The file system with all the files and directories
-   * @return String
+   * @return String The pathway of the current working directory
    */
   public static String printWD(FileSystem fileSystem) {
     // get the current directory
