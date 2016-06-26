@@ -18,10 +18,11 @@ public class History {
    */
   public static void addToHistory(String input) {
 
-    // increment the number of lines in the file
+    // Increment the number of lines in the file
     numLines++;
 
     String appendLine = Integer.toString(numLines) + ". " + input;
+
     // add the input line to the history file
     historyFile.add(appendLine);
   }
@@ -35,7 +36,7 @@ public class History {
     historyFile.clear();
     numLines = 0;
   }
-  
+
   /**
    * Gets the number of lines of past commands that need to be printed and
    * returns them
@@ -50,11 +51,13 @@ public class History {
     String output = "";
 
     if (startLineIndex >= 0 && lastLines > 0) {
-      // loop through each line starting at startLineIndex and print them
+
+      // Loop through each line starting at startLineIndex and print them
       for (int i = startLineIndex; i < numLines; i++) {
         output += historyFile.get(i) + "\n";
       }
     } else {
+
       // Throw the command exception if user enters invalid history number
       throw new CommandException(
           "History for the past " + lastLines + " command(s) does not exist.");
@@ -65,10 +68,11 @@ public class History {
   /**
    * Gets the all past commands and prints them
    * 
-   * @return String All past commands 
+   * @return String All past commands
    * @throws CommandException
    */
   public static String printAllHistory() throws CommandException {
+
     return printHistory(numLines);
   }
 }
