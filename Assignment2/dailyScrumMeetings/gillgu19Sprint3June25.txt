@@ -1,0 +1,12 @@
+What did I do last time?
+	- Fixed bugs in mkdir and cd with the help of Jason.
+	- Removed a lot of duplicated code in the classes that threw exceptions (unnecessary try catch statements).
+	- Started unit testing (PWD).
+
+What do I plan to do now? 
+	- Finish working on the unit tests I've been assigned.
+	- Reformat any code as necessary.
+	- Work with group on fixing bugs to complete the assignment.
+
+Am I blocked on anything?
+	- Nope.
