@@ -1,7 +1,7 @@
 package driver;
 
 /**
- * This class determines what the current working directory is so that the 
+ * This class determines what the current working directory is so that the
  * JShell can print it upon request of the user.
  */
 public class PrintWorkingDirectory {
@@ -13,12 +13,14 @@ public class PrintWorkingDirectory {
    * @return String The pathway of the current working directory
    */
   public static String printWD(FileSystem fileSystem) {
-    // get the current directory
+
+    // Get the current directory
     Directory file = fileSystem.getCurrentDirectory();
-    // put the pathway string together starting with the current file
+
+    // Put the pathway string together starting with the current file
     String pathway = "/";
 
-    // add to the pathway all the parents of the current file
+    // Add to the pathway all the parents of the current file
     File curr = file;
 
     while (curr.getParent() != null) {
@@ -28,5 +30,4 @@ public class PrintWorkingDirectory {
 
     return pathway;
   }
-
 }
