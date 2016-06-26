@@ -21,28 +21,34 @@ public class Echo {
    */
   public static void echoNew(FileSystem fileSys, String string, String path,
       Boolean chevrons) throws CommandException {
-    // get the name of the text file
+
+    // Get the name of the text file
     String[] pathway = Interpreter.filepathToArray(path);
     String fileName = pathway[pathway.length - 1];
 
-    // determine if the path is relative or not
+    // Determine if the path is relative or not
     boolean relative = path.contains("/");
 
     Directory curr;
 
     if (relative) {
-      // check if the file exists in the current directory
+
+      // Check if the file exists in the current directory
       curr = fileSys.getCurrentDirectory();
 
     } else {
-      // reach the parent directory of the text file
+
+      // Reach the parent directory of the text file
       curr = fileSys.traversePath(path);
     }
 
     if (curr.fileInDirectory(fileName)) {
-      // get the existing text file with the same name
+
+      // Get the existing text file with the same name
       ArrayList<File> storedFiles = curr.getStoredFiles();
+
       for (File file : storedFiles) {
+
         if (file.getName().equals(fileName)) {
           // set this file's contents to string
           // try {
@@ -57,11 +63,10 @@ public class Echo {
         }
       }
     } else {
-      // add a text file to this directory with contents string
+
+      // Add a text file to this directory with contents string
       TextFile newFile = new TextFile(fileName, string, curr);
       curr.storeFile(newFile);
     }
-
-
   }
 }
