@@ -14,14 +14,14 @@ public class MakeDirectory {
   public static void makeADirectory(FileSystem fileSystem, String path)
       throws CommandException {
 
-    // split the path into a list and get the new directory name
+    // Split the path into a list and get the new directory name
     String[] pathway = Interpreter.filepathToArray(path);
     String newDir = pathway[pathway.length - 1];
 
     // Get the parent directory
     Directory parent = fileSystem.getParentDirectory(path);
 
-    // check if the directory name is valid
+    // Check if the directory name is valid
     if (!checkDirName(newDir, parent)) {
       throw new CommandException(
           "\"" + path + "\"" + " is not a valid directory name.");
@@ -40,10 +40,10 @@ public class MakeDirectory {
    */
   private static boolean checkDirName(String dirName, Directory parentDir) {
 
-    // check that no current file in the parent directory has the same name
+    // Check that no current file in the parent directory has the same name
     boolean result = !parentDir.fileInDirectory(dirName);
 
-    // check that the dirName doesn't contain special characters
+    // Check that the dirName doesn't contain special characters
     int i = 0;
     while (i < dirName.length() && result) {
       if (!Character.isLetterOrDigit(dirName.charAt(i))) {
