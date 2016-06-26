@@ -37,7 +37,6 @@ import java.io.IOException;
 
 import driver.Interpreter;
 import driver.FileSystem;
-import driver.Command;
 
 public class JShell {
 
