@@ -120,38 +120,47 @@ public class JShell {
    */
   public static void executeCommand(String commandName, String[] commandArgs)
       throws CommandException {
-    // Mkdir
-    if (commandName.equals("mkdir")) {
-      for (int i = 0; i < commandArgs.length; i++) {
-        MakeDirectory.makeADirectory(fileSystem, commandArgs[i]);
-      }
-    } else if (commandName.equals("cd")) {
-      ChangeDirectory.changeCurrentDirectory(fileSystem, commandArgs[0]);
-    } else if (commandName.equals("ls")) {
-      List.list(fileSystem, commandArgs);
-    } else if (commandName.equals("pwd")) {
-      System.out.println(PrintWorkingDirectory.printWD(fileSystem));
-    } else if (commandName.equals("pushd")) {
-      DirectoryStack.pushd(fileSystem, commandArgs[0]);
-    } else if (commandName.equals("popd")) {
-      DirectoryStack.popd(fileSystem);
-    } else if (commandName.equals("history")) {
-      // Call the history command on the first argument
-      String output;
-      if (commandArgs != null) {
-        output = History.printHistory(Integer.parseInt(commandArgs[0]));
-      } else {
-        output = History.printAllHistory();
-      }
-      System.out.println(output);
-    } else if (commandName.equals("cat")) {
-      // cat(inputArguments)
-    } else if (commandName.equals("echo")) {
-      // echo(inputArguments)
-    } else if (commandName.equals("man")) {
-      // Call the man command on the first argument
-      Manual.printMan(commandArgs[0]);
+    
+    switch(commandName) {
+      case "mkdir" :        
+        for (String command : commandArgs) {
+          MakeDirectory.makeADirectory(fileSystem, command);
+        }
+        break;
+      case "cd" :
+        ChangeDirectory.changeCurrentDirectory(fileSystem, commandArgs[0]);
+        break;
+      case "ls" :
+        List.list(fileSystem, commandArgs);
+        break;
+      case "pwd" :
+        System.out.println(PrintWorkingDirectory.printWD(fileSystem));
+        break;
+      case "pushd" :
+        DirectoryStack.pushd(fileSystem, commandArgs[0]);
+        break;
+      case "popd" :
+        DirectoryStack.popd(fileSystem);
+        break;
+      case "history" :
+        // Call the history command on the first argument
+        String output;
+        if (commandArgs != null) {
+          output = History.printHistory(Integer.parseInt(commandArgs[0]));
+        } else {
+          output = History.printAllHistory();
+        }
+        System.out.println(output);
+        break;
+      case "cat" :  
+        Cat.cat(fileSystem, commandArgs);
+        break;
+      case "echo" :
+        //echo(inputArguments)
+        break;
+      case "man" :
+        Manual.printMan(commandArgs[0]);
+        break;
     }
   }
-
 }
