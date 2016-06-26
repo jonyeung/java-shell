@@ -49,7 +49,7 @@ public class JShell {
    * Main method of the program. Continues to prompt users for input and
    * terminates upon user request.
    * 
-   * @param args
+   * @param args The arguments inputted by the user in the program
    * @throws IOException
    * @throws CommandException
    */
