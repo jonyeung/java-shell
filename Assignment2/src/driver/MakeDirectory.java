@@ -54,10 +54,4 @@ public class MakeDirectory {
 
     return result;
   }
-  
-  public void execute(FileSystem fileSystem, String[] commandArgs) throws CommandException {
-    for (int i = 0; i < commandArgs.length; i++) {
-      MakeDirectory.makeADirectory(fileSystem, commandArgs[i]);
-    }
-  }
 }
