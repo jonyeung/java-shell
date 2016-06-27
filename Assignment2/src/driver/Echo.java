@@ -63,10 +63,14 @@ public class Echo {
 
       File file = fileSys.getFile(path);
 
-      if (chevrons) {
-        ((TextFile) file).append(fileContents);
-      } else {
-        ((TextFile) file).write(fileContents);
+      if (file instanceof TextFile) {
+        // If double chevrons are given, then append to the file, otherwise
+        // overwrite the old file
+        if (chevrons) {
+          ((TextFile) file).append(fileContents);
+        } else {
+          ((TextFile) file).write(fileContents);
+        }
       }
 
     } else {

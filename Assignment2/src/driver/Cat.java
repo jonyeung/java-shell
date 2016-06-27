@@ -32,6 +32,8 @@ public class Cat {
         }
 
         output += ((TextFile) currFile).getFileContents();
+      } else {
+        throw new CommandException(path + " is not a file.");
       }
       count++;
     }
