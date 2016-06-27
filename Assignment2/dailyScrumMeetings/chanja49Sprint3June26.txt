@@ -1,0 +1,18 @@
+What did I do last time?
+	-Fixed bugs with MakeDirectory when given a relative filepath
+	-Combined mkdir absolute and relative methods
+	-Added to List so it calls cat method to read a file
+	-Combined List with no arguments method and list with a filepath 
+	 argument method
+	-Created a cat class and its methods
+	-Added more options in fileSystem traversals such as returning 
+	 parent directory given a file path
+	-Refactored code in various command classes to return a String instead
+	 of writing to the screen
+	-Added unit tests for Interpreter, History, and DirectoryStack classes
+
+What do I plan to do now?
+	-Test code to find bugs and fix them
+
+Am I blocked on anything
+	-No
