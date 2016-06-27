@@ -109,7 +109,8 @@ public class Interpreter {
     // If closing quote is not found, throw exception
     if (notFound == true) {
       // Raise exception if user does not have a closing double quote
-      throw new CommandException("Quote does not end.");
+      throw new CommandException("Quote does not end. See the manual "
+          + "for echo.");
     }
 
     // Get the words between the start and end quote
