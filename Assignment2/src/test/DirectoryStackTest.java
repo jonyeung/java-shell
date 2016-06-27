@@ -21,6 +21,12 @@ public class DirectoryStackTest {
 
   FileSystem fileSystem;
 
+  /**
+   * Sets up a Filesystem that holds directories: user1, user2, and user3
+   * where user1 contains a directory called docs
+   * 
+   * @throws CommandException
+   */
   @Before
   public void setUp() throws CommandException {
     fileSystem = new FileSystem();
@@ -32,6 +38,9 @@ public class DirectoryStackTest {
     user1.storeFile(new Directory("docs"));
   }
 
+  /**
+   * Cleans up the Filesystem and empties the directory stack
+   */
   @After
   public void cleanUp() {
     fileSystem = null;
