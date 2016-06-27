@@ -33,7 +33,7 @@ public class MakeDirectory {
    * are used in the name and if a file with the same name in the parent
    * directory does not exist
    * 
-   * @param dirName The directory name that this are checking
+   * @param dirName The directory name to check
    * @param parentDir The directory that the new directory will be made in
    * @return boolean Whether the directory name is valid
    */
