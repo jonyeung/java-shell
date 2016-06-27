@@ -3,34 +3,23 @@ package test;
 import org.junit.*;
 import static org.junit.Assert.*;
 
-import java.util.ArrayList;
-
 import driver.FileSystem;
 import driver.CommandException;
 import driver.MakeDirectory;
-import driver.File;
+import driver.Directory;
 
 public class MakeDirectoryTest {
 
-  @Before
+  @Test
   public void setup() throws CommandException {
 
-    FileSystem fileSystem = new FileSystem();
-    MakeDirectory.makeADirectory(fileSystem, "user1");
-
-    ArrayList<File> expected = new ArrayList<File>();
-    ArrayList<File> actual = fileSystem.getCurrentDirectory().getStoredFiles();
-    assertEquals(expected, actual);
-  }
-
-  @Test
-  public void testMakeDirectoryContainingFile() throws CommandException {
+    Directory directory = new Directory("root");
+    String expectedDirectory = directory.getName();
 
     FileSystem fileSystem = new FileSystem();
     MakeDirectory.makeADirectory(fileSystem, "user1");
+    String actualDirectory = fileSystem.getCurrentDirectory().getName();
 
-    ArrayList<File> expected = new ArrayList<File>();
-    ArrayList<File> actual = fileSystem.getCurrentDirectory().getStoredFiles();
-    assertEquals(expected, actual);
+    assertEquals(expectedDirectory, actualDirectory);
   }
 }
