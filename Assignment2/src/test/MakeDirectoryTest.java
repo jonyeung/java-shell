@@ -13,10 +13,21 @@ import driver.File;
 
 public class MakeDirectoryTest {
 
+  Directory directory;
+
+  @Before
+  public void setUp() {
+    directory = new Directory("root");
+  }
+
+  @After
+  public void cleanUp() {
+    directory = null;
+  }
+
   @Test
   public void testNoDirectoriesExceptRoot() throws CommandException {
 
-    Directory directory = new Directory("root");
     String expectedDirectory = directory.getName();
 
     FileSystem fileSystem = new FileSystem();
@@ -27,8 +38,6 @@ public class MakeDirectoryTest {
 
   @Test
   public void testMakeUser1Directory() throws CommandException {
-
-    Directory directory = new Directory("root");
 
     // TODO write line of code below that adds a user1 dir to expected dir
 
