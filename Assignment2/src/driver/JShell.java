@@ -135,50 +135,63 @@ public class JShell {
 
     String output = "";
 
+    // Execute the appropriate command
     switch (commandName) {
 
+      // Assertion error for extra safety
       default:
         throw new AssertionError(commandName);
 
+        // Cases below
       case "mkdir":
+        // Create a directory for each command argument
         for (String command : commandArgs) {
           MakeDirectory.makeADirectory(fileSystem, command);
         }
         break;
 
       case "cd":
+        // Change directory to the first command arg
         ChangeDirectory.changeCurrentDirectory(fileSystem, commandArgs[0]);
         break;
 
       case "ls":
+        // Add the list to output
         output = List.list(fileSystem, commandArgs);
         break;
 
       case "pwd":
+        // Add the working directory to output
         output = PrintWorkingDirectory.printWD(fileSystem);
         break;
 
       case "pushd":
+        // Push the first command arg to directory stack
         DirectoryStack.pushd(fileSystem, commandArgs[0]);
         break;
 
       case "popd":
+        // Pop the last item on the directory stack
         DirectoryStack.popd(fileSystem);
         break;
 
       case "history":
+        // Add the history to output
         output = History.executeHistory(commandArgs);
         break;
 
       case "cat":
+        // Add the file contents of the each command to output
         output = Cat.cat(fileSystem, commandArgs);
         break;
 
       case "echo":
+        // Add the contents of the command args to output
         output = Echo.executeEcho(fileSystem, commandArgs);
         break;
 
       case "man":
+        // Add the manual for the command to output
         output = Manual.printMan(commandArgs[0]);
         break;
     }
