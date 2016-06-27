@@ -12,6 +12,9 @@ import driver.Directory;
 import driver.FileSystem;
 import driver.TextFile;
 
+/**
+ * A class to test the Cat class
+ */
 public class CatTest {
 
   FileSystem fileSystem;
@@ -27,38 +30,50 @@ public class CatTest {
     root.storeFile(new TextFile("work", "abc123", root));
     root.storeFile(new TextFile("secret", "my secret is...", root));
   }
-  
+
   @After
   public void cleanUp() {
     fileSystem = null;
   }
-  
+
+  /**
+   * Test if calling cat with one text file will work
+   * 
+   * @throws CommandException
+   */
   @Test
   public void testCatOneFile() throws CommandException {
-    
-    // test if calling cat with one text file will work
-    args = new String[]{"work"};
+
+    args = new String[] {"work"};
     result = Cat.cat(fileSystem, args);
     expected = "abc123";
     assertEquals(result, expected);
   }
 
+  /**
+   * Test if calling cat with multiple text files will work
+   * 
+   * @throws CommandException
+   */
   @Test
   public void testCatMultipleFile() throws CommandException {
-    
-    // test if calling cat with 3 text files will work
-    args = new String[]{"work", "doc", "secret"};
+
+    args = new String[] {"work", "doc", "secret"};
     result = Cat.cat(fileSystem, args);
     expected = "abc123\n\n\n\nHi world\n\n\n\nmy secret is...";
     assertEquals(result, expected);
   }
-  
+
+  /**
+   * Test if calling cat with a non-existing file will raise an exception
+   * 
+   * @throws CommandException
+   */
   @Test
   public void testCatWithFakeFile() throws CommandException {
-    
-    // test if calling cat with a non-existing file will raise an exception
+
     try {
-      args = new String[]{"asf"};
+      args = new String[] {"asf"};
       result = Cat.cat(fileSystem, args);
       fail("The file should not exist");
     } catch (CommandException e) {

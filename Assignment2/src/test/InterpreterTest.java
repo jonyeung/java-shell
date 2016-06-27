@@ -2,9 +2,6 @@ package test;
 
 import static org.junit.Assert.*;
 
-import java.util.Arrays;
-
-import org.junit.Before;
 import org.junit.Test;
 
 import driver.CommandException;
@@ -18,6 +15,11 @@ public class InterpreterTest {
   String[] result;
   String[] expected;
 
+  /**
+   * Test that a valid input will work
+   * 
+   * @throws CommandException
+   */
   @Test
   public void testCommandToArray() throws CommandException {
 
@@ -27,16 +29,25 @@ public class InterpreterTest {
     assertArrayEquals(result, expected);
   }
 
+  /**
+   * Test that input with multiple file paths is valid
+   * 
+   * @throws CommandException
+   */
   @Test
   public void testCommandWithFilepathsToArray() throws CommandException {
 
-    String userInput = "mkdir user1/hi /user1/user2 /user1/user3/";
+    String userInput = "ls user1/hi /user1/user2 /user1/user3/";
     result = Interpreter.commandToArray(userInput);
-    expected =
-        new String[] {"mkdir", "user1/hi", "/user1/user2", "/user1/user3/"};
+    expected = new String[] {"ls", "user1/hi", "/user1/user2", "/user1/user3/"};
     assertArrayEquals(result, expected);
   }
 
+  /**
+   * Test that a command with echo will keep anything in double quotes together
+   * 
+   * @throws CommandException
+   */
   @Test
   public void testCommandWithEchoToArray() throws CommandException {
 
@@ -46,6 +57,10 @@ public class InterpreterTest {
     assertArrayEquals(result, expected);
   }
 
+  /**
+   * Test that converting a relative file path to an array of strings works
+   * 
+   */
   @Test
   public void testRelativeFilepathToArray() {
 
@@ -55,6 +70,10 @@ public class InterpreterTest {
     assertArrayEquals(result, expected);
   }
 
+  /**
+   * Test that converting an absolute file path to an array of strings works
+   * 
+   */
   @Test
   public void testAbsoluteFilepathToArray() {
 
@@ -64,36 +83,48 @@ public class InterpreterTest {
     assertArrayEquals(result, expected);
   }
 
+  /**
+   * Test that the input is valid even if it has bad space formatting
+   * 
+   * @throws CommandException
+   */
   @Test
-  public void testMkdirValidInput() throws CommandException {
+  public void testValidInputWithSpacesInInput() throws CommandException {
 
     String userInput = "       mkdir    user1 user2      user3   ";
     assertTrue(Interpreter.validInput(userInput));
   }
 
+  /**
+   * Test that the input fails if not enough arguments are given
+   * 
+   * @throws CommandException
+   */
   @Test
-  public void testMkdirFailValidInput() throws CommandException {
+  public void testFailNotEnoughArgs() throws CommandException {
 
     try {
-      String userInput = "mkdir";
+      String userInput = "pushd";
       Interpreter.validInput(userInput);
       fail("Not enough arguments are given");
     } catch (CommandException e) {
     }
   }
 
+  /**
+   * Test that the input fails if the command is not real
+   * 
+   * @throws CommandException
+   */
   @Test
-  public void testCdValidInput() {
+  public void testFakeCommand() throws CommandException {
 
-    // String userInput = " mkdir user1 user2 user3 ";
-    // assertTrue(Interpreter.validInput(userInput));
-  }
-
-  @Test
-  public void testCdFailValidInput() {
-
-    // String userInput = "mkdir";
-    // assertFalse(Interpreter.validInput(userInput));
+    try {
+      String userInput = " hi !";
+      Interpreter.validInput(userInput);
+      fail("Invalid command");
+    } catch (CommandException e) {
+    }
   }
 
 }

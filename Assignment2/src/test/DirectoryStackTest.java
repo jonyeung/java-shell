@@ -14,6 +14,9 @@ import driver.FileSystem;
 import driver.MakeDirectory;
 import driver.PrintWorkingDirectory;
 
+/**
+ * A class to test the DirectoryStack class
+ */
 public class DirectoryStackTest {
 
   FileSystem fileSystem;
@@ -35,10 +38,14 @@ public class DirectoryStackTest {
     DirectoryStack.removeSavedDirectories();
   }
 
+  /**
+   * Test that pushd adds the directory to the stack
+   * 
+   * @throws CommandException
+   */
   @Test
   public void testPushd() throws CommandException {
 
-    // test that pushd adds the directory to the stack
     DirectoryStack.pushd(fileSystem, "/user2");
     DirectoryStack.pushd(fileSystem, "/user1/docs");
     assertEquals(DirectoryStack.numDirectories(), 2);
@@ -48,10 +55,14 @@ public class DirectoryStackTest {
     assertEquals(result, expected);
   }
 
+  /**
+   * Test that popd returns to the most recently pushed directory
+   * 
+   * @throws CommandException
+   */
   @Test
   public void testPopd() throws CommandException {
 
-    // test that popd returns to the most recently pushed directory
     DirectoryStack.pushd(fileSystem, "user2");
     DirectoryStack.pushd(fileSystem, "/user1/docs");
     DirectoryStack.popd(fileSystem);
@@ -62,15 +73,19 @@ public class DirectoryStackTest {
     assertEquals(result, expected);
   }
 
+  /**
+   * Test that popd raises an exception of popping from empty stack
+   * 
+   * @throws CommandException
+   */
   @Test
   public void testPopdFromEmptyStack() throws CommandException {
 
-    // test that popd raises an exception of popping from empty stack
     try {
       DirectoryStack.popd(fileSystem);
       fail("Popping from empty stack");
     } catch (CommandException e) {
     }
   }
-  
+
 }
