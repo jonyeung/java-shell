@@ -1,8 +1,11 @@
 Class name: MakeDirectory
-Parent class: Command
+Parent class: N/A
 Subclasses: N/A
 
 Responsibilities:
 Creates directories
 
 Collaborators:
+CommandException
+Directory
+FileSystem

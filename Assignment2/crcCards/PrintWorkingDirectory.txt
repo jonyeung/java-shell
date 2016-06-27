@@ -1,8 +1,11 @@
 Class name: PrintWorkingDirectory
-Parent class: Command
+Parent class: N/A
 Subclasses: N/A
 
 Responsibilities:
 Prints the current file path
 
-Collaborators: N/A
+Collaborators: 
+Directory
+File
+FileSystem

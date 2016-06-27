@@ -8,4 +8,4 @@ Interprets the command and decides which class will handle it
 Interprets the file path given in the command 
 
 Collaborators:
-Command
+CommandException

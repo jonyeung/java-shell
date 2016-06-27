@@ -5,5 +5,4 @@ Subclasses: N/A
 Responsibilities:
 Contains other files and directories
 
-Collaborators: 
-N/A
+Collaborators: N/A

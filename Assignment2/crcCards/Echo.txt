@@ -1,9 +1,14 @@
 Class name: Echo
-Parent class: Command
+Parent class: N/A
 Subclasses: N/A
 
 Responsibilities:
 Writes to a file
 Creates a file
 
-Collaborators: N/A
+Collaborators: 
+CommandException
+Directory
+FileSystem
+Interpreter
+TextFile

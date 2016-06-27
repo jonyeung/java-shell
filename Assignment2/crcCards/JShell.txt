@@ -1,4 +1,4 @@
-Class name: Shell
+Class name: JShell
 Parent class: N/A
 Subclasses: N/A
 
@@ -9,4 +9,15 @@ Gives the input to the interpreter
 Quits the program
 
 Collaborators:
+Cat
+ChangeDirectory
+CommandException
+DirectoryStack
+Echo
+FileSystem
+History
 Interpreter
+List
+MakeDirectory
+Manual
+PrintWorkingDirectory

@@ -1,8 +1,9 @@
 Class name: Man
-Parent class: Command
+Parent class: N/A
 Subclasses: N/A
 
 Responsibilities:
 Prints the description of the command with a usage example.
 
-Collaborators: N/A
+Collaborators: 
+CommandException

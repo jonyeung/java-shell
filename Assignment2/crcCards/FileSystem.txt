@@ -1,0 +1,12 @@
+Class name: FileSystem
+Parent class: N/A
+Subclasses: N/A
+
+Responsibilities:
+Traverse the file system tree structure
+
+Collaborators:
+CommandException
+Directories
+Files
+Interpreter

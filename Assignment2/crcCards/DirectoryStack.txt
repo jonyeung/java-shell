@@ -1,5 +1,5 @@
 Class name: DirectoryStack
-Parent class: Command
+Parent class: N/A
 Subclasses: N/A
 
 Responsibilities:
@@ -7,4 +7,8 @@ Saves the current directory onto a stack
 Removes the most recent directory on the stack and changed the current
 	directory to it.
 
-Collaborators: ChangeDirectory, PrintWorkingDirectory
+Collaborators: 
+ChangeDirectory
+CommandException
+FileSystem
+PrintWorkingDirectory

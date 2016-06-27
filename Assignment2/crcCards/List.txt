@@ -1,8 +1,14 @@
 Class name: List
-Parent class: Command
+Parent class: N/A
 Subclasses: N/A
 
 Responsibilities:
 Prints the names of all files and directories in the directory given
+Reads files contents
 
-Collaborators: N/A
+Collaborators: 
+CommandException
+Directory
+File
+FileSystem
+TextFile

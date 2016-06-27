@@ -1,8 +1,10 @@
 Class name: History
-Parent class: Command
+Parent class: N/A
 Subclasses: N/A
 
 Responsibilities:
 Prints out the past commands entered by the user
 
-Collaborators: N/A
+Collaborators: 
+CommandException
+

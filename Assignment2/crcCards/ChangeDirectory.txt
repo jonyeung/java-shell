@@ -1,8 +1,11 @@
 Class name: ChangeDirectory
-Parent class: Command
+Parent class: N/A
 Subclasses: N/A
 
 Responsibilities:
 Change current directory
 
-Collaborators: N/A
+Collaborators:
+CommandException
+FileSystem
+Directory
