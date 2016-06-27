@@ -71,7 +71,7 @@ public class TextFile extends File {
    */
   public void append(String newLine) {
 
-    fileContents = fileContents + newLine;
+    fileContents += "\n" + newLine;
   }
 
   /**

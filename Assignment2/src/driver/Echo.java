@@ -1,14 +1,43 @@
 package driver;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 /**
  * This class implements the echo command as per assignment requirements by
  * utilizing the filesystem and path names to correctly append or overwrite text
  * in a textfile
  */
 public class Echo {
+
+  /**
+   * Writes the string to an out file if given, otherwise return the string
+   * 
+   * @param fileSys The file system being utilized
+   * @param commandArgs The arguments given by the user
+   * @return String Returns the string given if no out file is given
+   * @throws CommandException
+   */
+  public static String executeEcho(FileSystem fileSys, String[] commandArgs)
+      throws CommandException {
+
+    String output = "";
+
+    // If all 3 parameters for echo exist
+    if (commandArgs.length == 3) {
+      if (commandArgs[1].equals(">")) {
+        echoNew(fileSys, commandArgs[0], commandArgs[2], false);
+      } else if (commandArgs[1].equals(">>")) {
+        echoNew(fileSys, commandArgs[0], commandArgs[2], true);
+      } else {
+        throw new CommandException("Invalid arguments given.");
+      }
+      // If only 1 parameter exists, print onto command line
+    } else if (commandArgs.length == 1) {
+      output = commandArgs[0];
+    } else {
+      throw new CommandException("Please read the manual for Echo.");
+    }
+
+    return output;
+  }
 
   /**
    * Creates a new text file who's contents contain only string. If the text
@@ -24,53 +53,30 @@ public class Echo {
       String path, Boolean chevrons) throws CommandException {
 
     // Get the name of the text file
-    String[] fullPathway = Interpreter.filepathToArray(path);
-    String fileName = fullPathway[fullPathway.length - 1];
+    String[] pathway = Interpreter.filepathToArray(path);
+    String fileName = pathway[pathway.length - 1];
 
-    // Determine if the path is absolute
-    boolean absolute = path.contains("/");
-    
+    Directory curr = fileSys.getParentDirectory(path);
 
-    Directory curr;
-
-    if (absolute) {
-      // Reach the parent directory of the text file
-      int lastDirectoryIndex = path.lastIndexOf("/");
-      String pathway = path.substring(0,lastDirectoryIndex);
-      curr = fileSys.traversePath(pathway);
-
-    } else {
-      // Check if the file exists in the current directory
-      curr = fileSys.getCurrentDirectory();
-    }
-
+    // If the file is already in the directory, then get it
     if (curr.fileInDirectory(fileName)) {
-      // Get the existing text file with the same name
-      ArrayList<File> storedFiles = curr.getStoredFiles();
 
-      for (File file : storedFiles) {
+      File file = fileSys.getFile(path);
 
-        if (file.getName().equals(fileName)) {
-          if (chevrons) {
-            ((TextFile) file).append(fileContents);
-          } else {
-            ((TextFile) file).write(fileContents);
-          }
-        }
+      if (chevrons) {
+        ((TextFile) file).append(fileContents);
+      } else {
+        ((TextFile) file).write(fileContents);
       }
+
     } else {
-      // Add a text file to this directory with contents string
-      TextFile newFile = new TextFile(fileName, fileContents, curr);
-      curr.storeFile(newFile);
+      if (chevrons) {
+        throw new CommandException("Cannot append to non-existing file.");
+      } else {
+        // Add a text file to this directory with contents string
+        TextFile newFile = new TextFile(fileName, fileContents, curr);
+        curr.storeFile(newFile);
+      }
     }
-  }
-  
-  public static void main(String[] args) throws CommandException {
-    FileSystem fileSys = new FileSystem();
-    Directory root = fileSys.getRootDirectory();
-    Directory user1 = new Directory("user1");
-    root.storeFile(user1);
-    echoNew(fileSys, "hello", "/user1/hello.txt", false);
-    List.list(fileSys, Interpreter.filepathToArray("/user1"));
   }
 }

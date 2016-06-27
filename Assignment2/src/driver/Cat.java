@@ -27,8 +27,8 @@ public class Cat {
       // Print the contents of currFile
       if (currFile instanceof TextFile) {
 
-        if (count == 1) {
-          output += "\n\n";
+        if (count != 1) {
+          output += "\n\n\n\n";
         }
 
         output += ((TextFile) currFile).getFileContents();

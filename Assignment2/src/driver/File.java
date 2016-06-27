@@ -29,6 +29,7 @@ public class File {
    * @param parentFile The parent of this file.
    */
   public File(String name, Directory parentFile) {
+
     this.fileName = name;
     this.parent = parentFile;
   }
