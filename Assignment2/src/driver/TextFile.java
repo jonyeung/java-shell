@@ -70,8 +70,12 @@ public class TextFile extends File {
    * @param newLine The new line that is to be appended to the file.
    */
   public void append(String newLine) {
-
-    fileContents += "\n" + newLine;
+    // fileContents becomes newLine if it was not already holding anything
+    if (fileContents == null) {
+      fileContents = newLine;
+    } else {
+      fileContents += "\n" + newLine;
+    }
   }
 
   /**
