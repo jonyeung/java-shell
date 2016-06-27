@@ -12,18 +12,25 @@ public class ManualTest {
   String result;
 
   @Before
-  public void setup() {
+  public void setUp() {
     result = "";
     expectedOutput = "";
+  }
+
+  @After
+  public void cleanUp() {
+    result = null;
+    expectedOutput = null;
   }
 
   @Test
   public void testCorrectManualCommand() throws CommandException {
     // tests if the correct output is returned from calling man on the cat
     // command
-    expectedOutput = "cat FILE1 [FILE2 ...]\n"
-        + "\tDisplays the contents of FILE1 and other files"
-        + " (i.e. File2 ...) in the shell.";
+    expectedOutput =
+        "cat FILE1 [FILE2 ...]\n"
+            + "\tDisplays the contents of FILE1 and other files"
+            + " (i.e. File2 ...) in the shell.";
     result = Manual.printMan("cat");
     assertEquals(result, expectedOutput);
   }
