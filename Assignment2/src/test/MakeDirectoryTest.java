@@ -30,7 +30,7 @@ public class MakeDirectoryTest {
 
     Directory directory = new Directory("root");
 
-    // TODO write line of code below that adds a user1 to expected dir
+    // TODO write line of code below that adds a user1 dir to expected dir
 
 
     ArrayList<File> expected = directory.getStoredFiles();
