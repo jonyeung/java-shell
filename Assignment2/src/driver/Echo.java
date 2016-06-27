@@ -77,8 +77,7 @@ public class Echo {
       if (chevrons) {
         throw new CommandException("Cannot append to non-existing file.");
       } else {
-        
-        // Check if the directory name is valid
+        // Check if the file name is valid
         if (!checkFileName(fileName, curr)) {
           throw new CommandException(path + " is not a valid file name.");
         }
@@ -88,11 +87,11 @@ public class Echo {
       }
     }
   }
-  
+
   /**
-   * Checks if the file name is valid. It is valid if no special characters
-   * are used in the name and if a file with the same name in the parent
-   * directory does not exist
+   * Checks if the file name is valid. It is valid if no special characters are
+   * used in the name and if a file with the same name in the parent directory
+   * does not exist
    * 
    * @param fileName The file name to check
    * @param parentDir The directory that the new file will be made in
