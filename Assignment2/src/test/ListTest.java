@@ -94,7 +94,7 @@ public class ListTest {
 
   @Test
   public void testListException() throws CommandException {
-    // test that a CommandException is raised if a directory does not exist
+    // test that a CommandException is thrown if a directory does not exist
     try {
       List.list(fileSys, Interpreter.filepathToArray("/dir1"));
     } catch (CommandException e) {

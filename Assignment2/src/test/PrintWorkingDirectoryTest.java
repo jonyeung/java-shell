@@ -16,10 +16,17 @@ public class PrintWorkingDirectoryTest {
   String result;
 
   @Before
-  public void setup() {
+  public void setUp() {
     fileSystem = new FileSystem();
     expectedOutput = "";
     result = "";
+  }
+
+  @After
+  public void cleanUp() {
+    fileSystem = null;
+    expectedOutput = null;
+    result = null;
   }
 
   @Test
@@ -41,4 +48,5 @@ public class PrintWorkingDirectoryTest {
 
     assertEquals(result, expectedOutput);
   }
+
 }
