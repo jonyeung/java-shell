@@ -139,7 +139,7 @@ public class JShell {
 
       default:
         throw new AssertionError(commandName);
-        
+
       case "mkdir":
         for (String command : commandArgs) {
           MakeDirectory.makeADirectory(fileSystem, command);
