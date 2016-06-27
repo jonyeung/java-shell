@@ -1,0 +1,11 @@
+What did I do last time?
+	-Finished Echo
+	-Fixed bugs in Echo
+	-Created unit tests for List, File, Directory, TextFile
+	-Fixed bugs in TextFile and File
+
+What do I plan to do now?
+	-today is the due date and I have finished all my tasks
+
+Am I blocked on anything?
+	-None
