@@ -11,20 +11,33 @@ import driver.MakeDirectory;
 import driver.Directory;
 import driver.File;
 
+/**
+ * Class to test the methods in MakeDirectory
+ */
 public class MakeDirectoryTest {
 
   Directory directory;
 
+  /**
+   * Sets up the directory
+   */
   @Before
   public void setUp() {
     directory = new Directory("root");
   }
-
+  
+  /**
+   * Sets the directory to null
+   */
   @After
   public void cleanUp() {
     directory = null;
   }
 
+  /**
+   * MODIFY THIS JAVA DOC
+   * @throws CommandException
+   */
   @Test
   public void testNoDirectoriesExceptRoot() throws CommandException {
 
@@ -36,6 +49,10 @@ public class MakeDirectoryTest {
     assertEquals(expectedDirectory, actualDirectory);
   }
 
+  /**
+   * MODIFY THIS JAVA DOC
+   * @throws CommandException
+   */
   @Test
   public void testMakeUser1Directory() throws CommandException {
 
