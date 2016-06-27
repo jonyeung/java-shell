@@ -15,15 +15,15 @@ public class ManualTest {
   String result;
 
   /**
-   * Sets the expectedOutput and result strings to empty strings before 
-   * each test case
+   * Sets the expectedOutput and result strings to empty strings before each
+   * test case
    */
   @Before
   public void setUp() {
     result = "";
     expectedOutput = "";
   }
-  
+
   @After
   public void cleanUp() {
     result = null;
