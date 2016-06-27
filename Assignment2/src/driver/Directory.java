@@ -65,7 +65,6 @@ public class Directory extends File {
     file.setParent(this);
   }
 
-
   /**
    * Getter for storedFiles.
    * 

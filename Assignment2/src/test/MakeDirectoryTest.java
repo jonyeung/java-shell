@@ -12,10 +12,19 @@ import driver.File;
 
 public class MakeDirectoryTest {
 
-  FileSystem fileSystem;
-
   @Before
   public void setup() throws CommandException {
+
+    FileSystem fileSystem = new FileSystem();
+    MakeDirectory.makeADirectory(fileSystem, "user1");
+
+    ArrayList<File> expected = new ArrayList<File>();
+    ArrayList<File> actual = fileSystem.getCurrentDirectory().getStoredFiles();
+    assertEquals(expected, actual);
+  }
+
+  @Test
+  public void testMakeDirectoryContainingFile() throws CommandException {
 
     FileSystem fileSystem = new FileSystem();
     MakeDirectory.makeADirectory(fileSystem, "user1");
