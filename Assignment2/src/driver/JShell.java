@@ -172,7 +172,7 @@ public class JShell {
         break;
 
       case "echo":
-        // echo(inputArguments)
+        //Echo.echoNew(fileSystem, string, path, chevrons);
         break;
 
       case "man":
