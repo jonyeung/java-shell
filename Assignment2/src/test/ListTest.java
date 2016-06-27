@@ -75,9 +75,23 @@ public class ListTest {
   public void testListWithMultipleAbsolutePaths() throws CommandException {
     // test that all file contents are shown for every path that is provided
     Directory root = fileSys.getRootDirectory();
-    
+    Directory dir1 = new Directory("dir1");
+    Directory dir2 = new Directory("dir2");
+    Directory file1 = new Directory("file1");
+    Directory file2 = new Directory("file2");
+    Directory file3 = new Directory("file3");
+    Directory file4 = new Directory("file4");
+    root.storeFile(dir1);
+    root.storeFile(dir2);
+    dir1.storeFile(file1);
+    dir1.storeFile(file2);
+    dir2.storeFile(file3);
+    dir2.storeFile(file4);
+    String[] path = Interpreter.commandToArray("/dir1" + " /dir2");
+    String output = List.list(fileSys, path);
+    assertEquals(output, "/dir1:\nfile1\nfile2\n\n/dir2:\nfile3\nfile4");
   }
-  
+
   @Test
   public void testListException() throws CommandException {
     // test that a CommandException is raised if a directory does not exist
