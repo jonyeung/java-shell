@@ -9,12 +9,18 @@ import driver.ChangeDirectory;
 import driver.CommandException;
 import driver.MakeDirectory;
 
+/**
+ * Class for testing the methods in PrintWorkingDirectory
+ */
 public class PrintWorkingDirectoryTest {
 
   FileSystem fileSystem;
   String expectedOutput;
   String result;
 
+  /**
+   * Sets up the fileSystem and expected/result strings
+   */
   @Before
   public void setUp() {
     fileSystem = new FileSystem();
@@ -22,6 +28,9 @@ public class PrintWorkingDirectoryTest {
     result = "";
   }
 
+  /**
+   * Sets the fileSystem and expected/result strings to null
+   */
   @After
   public void cleanUp() {
     fileSystem = null;
@@ -29,21 +38,27 @@ public class PrintWorkingDirectoryTest {
     result = null;
   }
 
+  /**
+   * Test printing the root directory
+   */
   @Test
   public void testPrintRootDirectory() {
-    // test printing the root directory
     expectedOutput = "/";
     result = PrintWorkingDirectory.printWD(fileSystem);
     assertEquals(result, expectedOutput);
   }
 
+  /**
+   * Test the result of calling PWD on a newly made directory that user cd's
+   * into
+   * 
+   * @throws CommandException
+   */
   @Test
   public void testPrintNewlyMadeDirectory() throws CommandException {
-    // test the result of calling PWD on a newly made directory that user
-    // cd's into
-    expectedOutput = "/dir/";
     MakeDirectory.makeADirectory(fileSystem, "dir");
     ChangeDirectory.changeCurrentDirectory(fileSystem, "dir");
+    expectedOutput = "/dir/";
     result = PrintWorkingDirectory.printWD(fileSystem);
 
     assertEquals(result, expectedOutput);
