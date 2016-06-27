@@ -29,6 +29,11 @@ public class List {
       // Loop through each file path given
       for (String path : filepaths) {
 
+        // Invalid if user tries to list contents of directory before root
+        if (path.equals("..")) {
+          throw new CommandException("Invalid directory.");
+        }
+
         // Get the file at path
         File currFile = fileSystem.getFile(path);
 
