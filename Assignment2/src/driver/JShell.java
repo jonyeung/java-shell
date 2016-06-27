@@ -96,7 +96,7 @@ public class JShell {
    * @param userInput The line of input entered by the user to be interpreted
    * @throws CommandException
    */
-  public static void interpretInput(String userInput) throws CommandException {
+  private static void interpretInput(String userInput) throws CommandException {
     try {
       // Execute the command accordingly if it is valid
       if (Interpreter.validInput(userInput) == true) {
@@ -130,13 +130,16 @@ public class JShell {
    * @param commandArgs The argument(s) for the command to be executed
    * @throws CommandException
    */
-  public static void executeCommand(String commandName, String[] commandArgs)
+  private static void executeCommand(String commandName, String[] commandArgs)
       throws CommandException {
 
     String output = "";
 
     switch (commandName) {
 
+      default:
+        throw new AssertionError(commandName);
+        
       case "mkdir":
         for (String command : commandArgs) {
           MakeDirectory.makeADirectory(fileSystem, command);
