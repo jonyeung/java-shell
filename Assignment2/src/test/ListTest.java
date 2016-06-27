@@ -17,30 +17,43 @@ public class ListTest {
 
   FileSystem fileSys;
 
+  /**
+   * Sets up the Filesystem
+   */
   @Before
   public void setUp() {
     fileSys = new FileSystem();
   }
 
+  /**
+   * Cleans up the Filesystem
+   */
   @After
   public void cleanUp() {
     fileSys = null;
   }
 
-
+  /**
+   * Test that nothing is returned when list is called on a directory holding no
+   * files
+   * 
+   * @throws CommandException
+   */
   @Test
   public void testListWithNoDirectories() throws CommandException {
-    // test that nothing is returned when list is called on a directory holding
-    // no files
     Directory root = fileSys.getRootDirectory();
     fileSys.setCurrentDirectory(root);
     String output = List.list(fileSys, null);
     assertEquals(output, "");
   }
 
+  /**
+   * Test that all the file's contents are returned
+   * 
+   * @throws CommandException
+   */
   @Test
   public void testListWithMultipleDirectories() throws CommandException {
-    // test that all the file's contents are returned
     Directory root = fileSys.getRootDirectory();
     root.storeFile(new File("file1"));
     root.storeFile(new File("file2"));
@@ -50,10 +63,15 @@ public class ListTest {
     assertEquals(output, "file1\nfile2\nfile3");
   }
 
+  /**
+   * Test that all the file's contents are returned at the file found at the
+   * given file path
+   * 
+   * @throws CommandException
+   */
   @Test
   public void testListWithAbsolutePath() throws CommandException {
-    // test that all the file's contents are returned at the file found at
-    // the given file path
+
     Directory root = fileSys.getRootDirectory();
     Directory dir1 = new Directory("dir1");
     Directory dir2 = new Directory("dir2");
@@ -71,9 +89,14 @@ public class ListTest {
 
   }
 
+  /**
+   * Test that all file contents are shown for every path that is provided
+   * 
+   * @throws CommandException
+   */
   @Test
   public void testListWithMultipleAbsolutePaths() throws CommandException {
-    // test that all file contents are shown for every path that is provided
+
     Directory root = fileSys.getRootDirectory();
     Directory dir1 = new Directory("dir1");
     Directory dir2 = new Directory("dir2");
@@ -92,9 +115,14 @@ public class ListTest {
     assertEquals(output, "/dir1:\nfile1\nfile2\n\n/dir2:\nfile3\nfile4");
   }
 
+  /**
+   * Test that a CommandException is thrown if a directory does not exist
+   * 
+   * @throws CommandException
+   */
   @Test
   public void testListException() throws CommandException {
-    // test that a CommandException is thrown if a directory does not exist
+
     try {
       List.list(fileSys, Interpreter.filepathToArray("/dir1"));
     } catch (CommandException e) {
