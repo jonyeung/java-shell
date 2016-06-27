@@ -19,48 +19,61 @@ public class ChangeDirectoryTest {
   FileSystem fileSystem;
   String expectedResult;
   String actualResult;
-  
+
+  /**
+   * Sets up the fileSystem and expected/actual result strings
+   * 
+   * @throws Exception
+   */
   @Before
-  public void setUp() throws Exception {
+  public void setUp() {
     expectedResult = "";
     actualResult = "";
     fileSystem = new FileSystem();
   }
 
+  /**
+   * Sets the fileSystem and expected/actual result strings to null
+   */
   @After
-  public void tearDown() throws Exception {
+  public void tearDown() {
     fileSystem = null;
+    actualResult = null;
+    expectedResult = null;
   }
 
   /**
    * Testing changing into directory before the root
+   * 
    * @throws CommandException
    */
   @Test
   public void testChangingToInvalidRoot() throws CommandException {
     try {
-    ChangeDirectory.changeCurrentDirectory(fileSystem, "..");
-    fail("You are currently at the root directory.");
+      ChangeDirectory.changeCurrentDirectory(fileSystem, "..");
+      fail("You are currently at the root directory.");
     } catch (CommandException e) {
     }
   }
-  
+
   /**
    * Testing changing into invalid directory
+   * 
    * @throws CommandException
    */
   @Test
   public void testChangingToInvalidDirectory() throws CommandException {
     try {
-    ChangeDirectory.changeCurrentDirectory(fileSystem, "invalidName");
-    fail("Directory invalidName does not exist.");
+      ChangeDirectory.changeCurrentDirectory(fileSystem, "invalidName");
+      fail("Directory invalidName does not exist.");
     } catch (CommandException e) {
     }
   }
-  
+
   /**
    * Testing changing into valid directory
-   * @throws CommandException 
+   * 
+   * @throws CommandException
    */
   @Test
   public void testChangingToValidDirectory() throws CommandException {
@@ -71,7 +84,7 @@ public class ChangeDirectoryTest {
     actualResult = "/" + fileSystem.getCurrentDirectory().getName() + "/";
     assertEquals(actualResult, expectedResult);
   }
-  
-  
+
+
 
 }
