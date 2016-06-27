@@ -172,7 +172,19 @@ public class JShell {
         break;
 
       case "echo":
-        //Echo.echoNew(fileSystem, string, path, chevrons);
+        // all 3 parameters for echo exist
+        if (commandArgs.length == 3) {
+          if (commandArgs[1].equals(">")) {
+            Echo.echoNew(fileSystem, commandArgs[0], commandArgs[2], false);
+          } else if (commandArgs[2].equals(">>")) {
+            Echo.echoNew(fileSystem, commandArgs[0], commandArgs[2], true);
+          }
+        // only 1 parameter exists, print onto command line
+        } else if (commandArgs.length == 1) {
+          System.out.println(commandArgs[0]);
+        } else {
+          throw new CommandException("Please read the manual for Echo.");
+        }
         break;
 
       case "man":
