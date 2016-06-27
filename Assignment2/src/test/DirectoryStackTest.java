@@ -7,7 +7,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 import driver.CommandException;
+import driver.Directory;
 import driver.DirectoryStack;
+import driver.File;
 import driver.FileSystem;
 import driver.MakeDirectory;
 import driver.PrintWorkingDirectory;
@@ -19,10 +21,12 @@ public class DirectoryStackTest {
   @Before
   public void setUp() throws CommandException {
     fileSystem = new FileSystem();
-    String[] commandArgs = {"user1", "user2", "user3", "user1/docs"};
-    for (int i = 0; i < commandArgs.length; i++) {
-      MakeDirectory.makeADirectory(fileSystem, commandArgs[i]);
-    }
+    Directory root = fileSystem.getRootDirectory();
+    Directory user1 = new Directory("user1");
+    root.storeFile(user1);
+    root.storeFile(new Directory("user2"));
+    root.storeFile(new Directory("user3"));
+    user1.storeFile(new Directory("docs"));
   }
 
   @After
@@ -39,8 +43,8 @@ public class DirectoryStackTest {
     DirectoryStack.pushd(fileSystem, "/user1/docs");
     assertEquals(DirectoryStack.numDirectories(), 2);
 
-    String result = PrintWorkingDirectory.printWD(fileSystem);
-    String expected = "/user1/docs/";
+    String result = fileSystem.getCurrentDirectory().getName();
+    String expected = "docs";
     assertEquals(result, expected);
   }
 
@@ -51,10 +55,10 @@ public class DirectoryStackTest {
     DirectoryStack.pushd(fileSystem, "user2");
     DirectoryStack.pushd(fileSystem, "/user1/docs");
     DirectoryStack.popd(fileSystem);
-
-    String result = PrintWorkingDirectory.printWD(fileSystem);
-    String expected = "/user2/";
     assertEquals(DirectoryStack.numDirectories(), 1);
+
+    String result = fileSystem.getCurrentDirectory().getName();
+    String expected = "user2";
     assertEquals(result, expected);
   }
 
