@@ -72,6 +72,13 @@ public class ListTest {
   }
 
   @Test
+  public void testListWithMultipleAbsolutePaths() throws CommandException {
+    // test that all file contents are shown for every path that is provided
+    Directory root = fileSys.getRootDirectory();
+    
+  }
+  
+  @Test
   public void testListException() throws CommandException {
     // test that a CommandException is raised if a directory does not exist
     try {

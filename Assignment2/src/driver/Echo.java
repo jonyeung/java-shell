@@ -1,6 +1,7 @@
 package driver;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * This class implements the echo command as per assignment requirements by
@@ -16,28 +17,31 @@ public class Echo {
    * @param fileSys The file system being utilized
    * @param fileContents The contents of the text file
    * @param path The location of the text file
-   * @param chevrons Boolean that is true if there're 2 chevrons, false o/w
+   * @param chevrons Boolean that is true if there are 2 chevrons, false o/w
    * @throws CommandException
    */
   public static void echoNew(FileSystem fileSys, String fileContents,
       String path, Boolean chevrons) throws CommandException {
 
     // Get the name of the text file
-    String[] pathway = Interpreter.filepathToArray(path);
-    String fileName = pathway[pathway.length - 1];
+    String[] fullPathway = Interpreter.filepathToArray(path);
+    String fileName = fullPathway[fullPathway.length - 1];
 
-    // Determine if the path is relative or not
-    boolean relative = path.contains("/");
+    // Determine if the path is absolute
+    boolean absolute = path.contains("/");
+    
 
     Directory curr;
 
-    if (relative) {
-      // Check if the file exists in the current directory
-      curr = fileSys.getCurrentDirectory();
+    if (absolute) {
+      // Reach the parent directory of the text file
+      int lastDirectoryIndex = path.lastIndexOf("/");
+      String pathway = path.substring(0,lastDirectoryIndex);
+      curr = fileSys.traversePath(pathway);
 
     } else {
-      // Reach the parent directory of the text file
-      curr = fileSys.traversePath(path);
+      // Check if the file exists in the current directory
+      curr = fileSys.getCurrentDirectory();
     }
 
     if (curr.fileInDirectory(fileName)) {
@@ -59,5 +63,14 @@ public class Echo {
       TextFile newFile = new TextFile(fileName, fileContents, curr);
       curr.storeFile(newFile);
     }
+  }
+  
+  public static void main(String[] args) throws CommandException {
+    FileSystem fileSys = new FileSystem();
+    Directory root = fileSys.getRootDirectory();
+    Directory user1 = new Directory("user1");
+    root.storeFile(user1);
+    echoNew(fileSys, "hello", "/user1/hello.txt", false);
+    List.list(fileSys, Interpreter.filepathToArray("/user1"));
   }
 }
