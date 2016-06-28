@@ -90,7 +90,6 @@ public class History {
 
   /**
    * Delete all previous commands from history
-   * 
    */
   public static void resetHistory() {
 
