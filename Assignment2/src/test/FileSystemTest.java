@@ -23,9 +23,9 @@ public class FileSystemTest {
   String expected;
 
   /**
-   * Sets up a Filesystem that holds directories: dir1 and dir2
-   * dir1 contains directories called file1 and file2
-   * dir2 contains directories called fileA and fileB and a TextFile fileC
+   * Sets up a Filesystem that holds directories: dir1 and dir2 dir1 contains
+   * directories called file1 and file2 dir2 contains directories called fileA
+   * and fileB and a TextFile fileC
    */
   @Before
   public void setUp() {
@@ -197,5 +197,4 @@ public class FileSystemTest {
     expected = "file1";
     assertEquals(result, expected);
   }
-
 }
