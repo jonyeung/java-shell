@@ -13,7 +13,7 @@ import driver.FileSystem;
 import driver.TextFile;
 
 /**
- * A class to test the Echo class
+ * Class for testing the methods in Echo
  */
 public class EchoTest {
 
@@ -22,11 +22,17 @@ public class EchoTest {
   String result;
   String[] args;
 
+  /**
+   * Sets up the fileSystem
+   */
   @Before
   public void setUp() throws CommandException {
     fileSystem = new FileSystem();
   }
 
+  /**
+   * Sets the fileSystem to null
+   */
   @After
   public void cleanUp() {
     fileSystem = null;

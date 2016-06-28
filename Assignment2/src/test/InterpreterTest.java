@@ -8,7 +8,7 @@ import driver.CommandException;
 import driver.Interpreter;
 
 /**
- * This class tests the methods in the Interpreter class
+ * Class for testing the methods in Interpreter
  */
 public class InterpreterTest {
 

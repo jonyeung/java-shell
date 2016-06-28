@@ -13,7 +13,7 @@ import driver.FileSystem;
 import driver.TextFile;
 
 /**
- * A class to test the Cat class
+ * Class for testing the methods in Cat
  */
 public class CatTest {
 
@@ -22,6 +22,9 @@ public class CatTest {
   String expected;
   String[] args = null;
 
+  /**
+   * Sets up the fileSystem
+   */
   @Before
   public void setUp() throws CommandException {
     fileSystem = new FileSystem();
@@ -31,6 +34,9 @@ public class CatTest {
     root.storeFile(new TextFile("secret", "my secret is...", root));
   }
 
+  /**
+   * Sets the fileSystem to null
+   */
   @After
   public void cleanUp() {
     fileSystem = null;

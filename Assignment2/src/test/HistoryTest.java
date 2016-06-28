@@ -10,7 +10,7 @@ import driver.CommandException;
 import driver.History;
 
 /**
- * A class to test the History class
+ * Class for testing the methods in History
  */
 public class HistoryTest {
 
@@ -18,6 +18,9 @@ public class HistoryTest {
   String result;
   String[] args = null;
 
+  /**
+   * Sets up the history with past commands
+   */
   @Before
   public void setup() {
     History.addToHistory("cd ..");
@@ -26,6 +29,9 @@ public class HistoryTest {
     History.addToHistory("fsdfasd");
   }
 
+  /**
+   * Removes all past history commands
+   */
   @After
   public void cleanUp() {
     History.resetHistory();
@@ -80,7 +86,7 @@ public class HistoryTest {
   }
 
   /**
-   * Test an exception is thrown when given an invalid argument 
+   * Test an exception is thrown when given an invalid argument
    * 
    * @throws CommandException
    */
