@@ -9,13 +9,10 @@ import org.junit.Test;
 import driver.CommandException;
 import driver.Directory;
 import driver.DirectoryStack;
-import driver.File;
 import driver.FileSystem;
-import driver.MakeDirectory;
-import driver.PrintWorkingDirectory;
 
 /**
- * A class to test the DirectoryStack class
+ * Class for testing the methods in DirectoryStack
  */
 public class DirectoryStackTest {
 
@@ -29,6 +26,7 @@ public class DirectoryStackTest {
    */
   @Before
   public void setUp() throws CommandException {
+    
     fileSystem = new FileSystem();
     Directory root = fileSystem.getRootDirectory();
     Directory user1 = new Directory("user1");
@@ -43,6 +41,7 @@ public class DirectoryStackTest {
    */
   @After
   public void cleanUp() {
+    
     fileSystem = null;
     DirectoryStack.removeSavedDirectories();
   }
