@@ -142,5 +142,4 @@ public class EchoTest {
     } catch (CommandException e) {
     }
   }
-
 }
