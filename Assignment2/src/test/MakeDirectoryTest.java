@@ -21,6 +21,7 @@ public class MakeDirectoryTest {
    */
   @Before
   public void setUp() {
+
     fileSystem = new FileSystem();
     directory = new Directory("root");
 
@@ -31,9 +32,9 @@ public class MakeDirectoryTest {
    */
   @After
   public void cleanUp() {
+
     directory = null;
   }
-
 
   /**
    * Test that makeADirectory creates a directory in the root
@@ -42,6 +43,7 @@ public class MakeDirectoryTest {
    */
   @Test
   public void testMakeADirectoryRoot() throws CommandException {
+
     MakeDirectory.makeADirectory(fileSystem, "dir1");
     Directory root = fileSystem.getRootDirectory();
     assertTrue(root.fileInDirectory("dir1"));
@@ -55,6 +57,7 @@ public class MakeDirectoryTest {
    */
   @Test
   public void testMakeADirectoryAbsolute() throws CommandException {
+
     Directory root = fileSystem.getRootDirectory();
     Directory user1 = new Directory("user1");
     Directory dir1 = new Directory("dir1");
@@ -62,6 +65,5 @@ public class MakeDirectoryTest {
     user1.storeFile(dir1);
     MakeDirectory.makeADirectory(fileSystem, "/user1/dir1/doc1");
     assertTrue(dir1.fileInDirectory("doc1"));
-
   }
 }
