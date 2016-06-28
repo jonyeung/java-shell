@@ -84,7 +84,4 @@ public class ChangeDirectoryTest {
     actualResult = "/" + fileSystem.getCurrentDirectory().getName() + "/";
     assertEquals(actualResult, expectedResult);
   }
-
-
-
 }
