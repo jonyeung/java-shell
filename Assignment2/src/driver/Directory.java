@@ -7,7 +7,6 @@ import java.util.ArrayList;
  * in only a name <type str> parameter and the second taking in a name <type
  * str> and a parentFile <type Directory> as parameters. This class also
  * consists of methods to store the file and get stored files.
- * 
  */
 public class Directory extends File {
 
