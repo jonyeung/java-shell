@@ -78,6 +78,7 @@ public class Manual {
    * @throws CommandException
    */
   public static String printMan(String commandName) throws CommandException {
+
     // New hashtable mapping command names to respective messages
     commandMessages = new Hashtable<String, String>();
     commandMessages.put("mkdir", MKDIRMESSAGE);
