@@ -23,6 +23,7 @@ public class PrintWorkingDirectoryTest {
    */
   @Before
   public void setUp() {
+
     fileSystem = new FileSystem();
     expectedOutput = "";
     result = "";
@@ -33,6 +34,7 @@ public class PrintWorkingDirectoryTest {
    */
   @After
   public void cleanUp() {
+
     fileSystem = null;
     expectedOutput = null;
     result = null;
@@ -43,6 +45,7 @@ public class PrintWorkingDirectoryTest {
    */
   @Test
   public void testPrintRootDirectory() {
+
     expectedOutput = "/";
     result = PrintWorkingDirectory.printWD(fileSystem);
     assertEquals(result, expectedOutput);
@@ -56,6 +59,7 @@ public class PrintWorkingDirectoryTest {
    */
   @Test
   public void testPrintNewlyMadeDirectory() throws CommandException {
+
     MakeDirectory.makeADirectory(fileSystem, "dir");
     ChangeDirectory.changeCurrentDirectory(fileSystem, "dir");
     expectedOutput = "/dir/";
@@ -63,5 +67,4 @@ public class PrintWorkingDirectoryTest {
 
     assertEquals(result, expectedOutput);
   }
-
 }
