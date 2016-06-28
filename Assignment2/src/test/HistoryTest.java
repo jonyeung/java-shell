@@ -103,6 +103,4 @@ public class HistoryTest {
     } catch (CommandException e) {
     }
   }
-
-
 }
