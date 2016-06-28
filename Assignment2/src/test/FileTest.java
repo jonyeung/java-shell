@@ -7,6 +7,9 @@ import org.junit.Test;
 import driver.Directory;
 import driver.File;
 
+/**
+ * Class for testing the methods in file
+ */
 public class FileTest {
 
   /**
