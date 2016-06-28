@@ -97,6 +97,7 @@ public class JShell {
    * @throws CommandException
    */
   private static void interpretInput(String userInput) throws CommandException {
+
     try {
       // Execute the command accordingly if it is valid
       if (Interpreter.validInput(userInput) == true) {
