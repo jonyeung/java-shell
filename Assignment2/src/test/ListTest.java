@@ -13,6 +13,9 @@ import driver.FileSystem;
 import driver.Interpreter;
 import driver.List;
 
+/**
+ * Class for testing the methods in List
+ */
 public class ListTest {
 
   FileSystem fileSys;
