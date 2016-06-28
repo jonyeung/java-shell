@@ -25,6 +25,7 @@ public class ListTest {
    */
   @Before
   public void setUp() {
+
     fileSys = new FileSystem();
   }
 
@@ -33,6 +34,7 @@ public class ListTest {
    */
   @After
   public void cleanUp() {
+
     fileSys = null;
   }
 
@@ -44,6 +46,7 @@ public class ListTest {
    */
   @Test
   public void testListWithNoDirectories() throws CommandException {
+
     Directory root = fileSys.getRootDirectory();
     fileSys.setCurrentDirectory(root);
     String output = List.list(fileSys, null);
@@ -57,6 +60,7 @@ public class ListTest {
    */
   @Test
   public void testListWithMultipleDirectories() throws CommandException {
+
     Directory root = fileSys.getRootDirectory();
     root.storeFile(new File("file1"));
     root.storeFile(new File("file2"));
@@ -129,7 +133,6 @@ public class ListTest {
     try {
       List.list(fileSys, Interpreter.filepathToArray("/dir1"));
     } catch (CommandException e) {
-
     }
   }
 }
