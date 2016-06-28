@@ -128,7 +128,7 @@ public class InterpreterTest {
     } catch (CommandException e) {
     }
   }
-  
+
   /**
    * Test that the new file name given is valid
    * 
@@ -142,7 +142,7 @@ public class InterpreterTest {
     Directory root = fileSystem.getRootDirectory();
     assertTrue(Interpreter.checkFileName(userInput, root));
   }
-  
+
   /**
    * Test that the new file name given is valid
    * 
@@ -151,18 +151,12 @@ public class InterpreterTest {
   @Test
   public void testCheckInvalidFileName() throws CommandException {
 
-    
     FileSystem fileSystem = new FileSystem();
     Directory root = fileSystem.getRootDirectory();
     String userInput = "!@";
     assertFalse(Interpreter.checkFileName(userInput, root));
-    
+
     userInput = ".";
     assertFalse(Interpreter.checkFileName(userInput, root));
   }
-  
-  
-  
-  
-
 }
