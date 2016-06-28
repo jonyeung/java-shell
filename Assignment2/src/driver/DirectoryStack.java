@@ -65,7 +65,6 @@ public class DirectoryStack {
 
   /**
    * Removes all directories saved.
-   * 
    */
   public static void removeSavedDirectories() {
 
