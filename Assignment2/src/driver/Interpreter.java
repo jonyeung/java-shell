@@ -109,8 +109,8 @@ public class Interpreter {
     // If closing quote is not found, throw exception
     if (notFound == true) {
       // Raise exception if user does not have a closing double quote
-      throw new CommandException("Quote does not end. See the manual "
-          + "for echo.");
+      throw new CommandException(
+          "Quote does not end. See the manual " + "for echo.");
     }
 
     // Get the words between the start and end quote
@@ -221,6 +221,32 @@ public class Interpreter {
           + commands[index] + " command.\nSee the manual of " + commands[index]
           + " for usage information.");
     }
+    return result;
+  }
+
+  /**
+   * Checks if the file name is valid. It is valid if no special characters are
+   * used in the name and if a file with the same name in the parent directory
+   * does not exist
+   * 
+   * @param fileName The file name to check
+   * @param parentDir The directory that the new file will be made in
+   * @return boolean Whether the file name is valid
+   */
+  public static boolean checkFileName(String fileName, Directory parentDir) {
+
+    // Check that no current file in the parent directory has the same name
+    boolean result = !parentDir.fileInDirectory(fileName);
+
+    // Check that the dirName doesn't contain special characters
+    int i = 0;
+    while (i < fileName.length() && result) {
+      if (!Character.isLetterOrDigit(fileName.charAt(i))) {
+        result = false;
+      }
+      i++;
+    }
+
     return result;
   }
 }

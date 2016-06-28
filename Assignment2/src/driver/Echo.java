@@ -78,7 +78,7 @@ public class Echo {
         throw new CommandException("Cannot append to non-existing file.");
       } else {
         // Check if the file name is valid
-        if (!checkFileName(fileName, curr)) {
+        if (!Interpreter.checkFileName(fileName, curr)) {
           throw new CommandException(path + " is not a valid file name.");
         }
         // Add a text file to this directory with contents string
@@ -86,31 +86,5 @@ public class Echo {
         curr.storeFile(newFile);
       }
     }
-  }
-
-  /**
-   * Checks if the file name is valid. It is valid if no special characters are
-   * used in the name and if a file with the same name in the parent directory
-   * does not exist
-   * 
-   * @param fileName The file name to check
-   * @param parentDir The directory that the new file will be made in
-   * @return boolean Whether the file name is valid
-   */
-  private static boolean checkFileName(String fileName, Directory parentDir) {
-
-    // Check that no current file in the parent directory has the same name
-    boolean result = !parentDir.fileInDirectory(fileName);
-
-    // Check that the dirName doesn't contain special characters
-    int i = 0;
-    while (i < fileName.length() && result) {
-      if (!Character.isLetterOrDigit(fileName.charAt(i))) {
-        result = false;
-      }
-      i++;
-    }
-
-    return result;
   }
 }
