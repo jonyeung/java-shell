@@ -1,7 +1,8 @@
 What did I do last time?
 	-made contributions to the product backlog
 	-articulated a well thought-out plan to incorporate all member's CRC cards
-	-delegated responsibilities within the team on the overall design and direction of the assignment
+	-delegated responsibilities within the team on the overall design and
+	direction of the assignment
 	-worked on the tasks delegated and assigned to me for Sprint 1
 	-designed and planned the structure of the file system class
 	-researched the linux file system to aid in the development of JShell
@@ -15,4 +16,4 @@ What do I plan to do now?
 	-incorporate and integrate the tree structure into the file system
 
 Am I blocked on anything?
--None
+	-None

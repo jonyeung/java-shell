@@ -1,12 +1,14 @@
 What did I do last time?
 	-made contributions to the product backlog
-	-delegated responsibilities within the team on the overall design and direction of the assignment
+	-delegated responsibilities within the team on the finishing touches
+	for the assignment
 	-worked on the tasks delegated and assigned to me for Sprint 2
 	-designed and planned the structure of the file system class
 
 What do I plan to do now?
-	- Unit testing
-	- Debugging current working and non-working classes
+	- Take a final look at all the classes
+	- Do last minute refactoring to make a2 project submission as close
+	to bug-free as possible
 
 Am I blocked on anything?
--None
+	-None

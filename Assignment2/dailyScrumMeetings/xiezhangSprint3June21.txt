@@ -1,12 +1,14 @@
 What did I do last time?
 	-made contributions to the product backlog
-	-delegated responsibilities within the team on the overall design and direction of the assignment
-	-worked on the tasks delegated and assigned to me for Sprint 2
+	-delegated responsibilities within the team on the refactoring of
+	certain parts of the code
+	-worked on the tasks delegated and assigned to me for Sprint 3
 	-designed and planned the structure of the file system class
 
 What do I plan to do now?
 	- Unit testing
 	- Debugging current working and non-working classes
+	- Writing JUnit tests for an array of command classes
 
 Am I blocked on anything?
 -None
