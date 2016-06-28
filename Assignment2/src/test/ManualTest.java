@@ -20,12 +20,14 @@ public class ManualTest {
    */
   @Before
   public void setUp() {
+
     result = "";
     expectedOutput = "";
   }
 
   @After
   public void cleanUp() {
+
     result = null;
     expectedOutput = null;
   }
@@ -37,6 +39,7 @@ public class ManualTest {
    */
   @Test
   public void testCorrectManualCommand() throws CommandException {
+
     expectedOutput = "cat FILE1 [FILE2 ...]\n"
         + "\tDisplays the contents of FILE1 and other files"
         + " (i.e. File2 ...) in the shell.";
@@ -52,6 +55,7 @@ public class ManualTest {
    */
   @Test
   public void testManualException() throws CommandException {
+
     try {
       Manual.printMan("invalidcommand");
       fail("invalidcommand does not have a command manual.");
