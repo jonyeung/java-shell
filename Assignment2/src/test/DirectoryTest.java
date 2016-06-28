@@ -11,6 +11,9 @@ import org.junit.Test;
 import driver.Directory;
 import driver.File;
 
+/**
+ * Class that tests the method in DirectoryTest
+ */
 public class DirectoryTest {
 
   Directory parent;
