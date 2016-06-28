@@ -93,5 +93,4 @@ public class DirectoryStackTest {
     } catch (CommandException e) {
     }
   }
-
 }
