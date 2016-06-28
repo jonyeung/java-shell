@@ -16,16 +16,19 @@ import driver.File;
  */
 public class MakeDirectoryTest {
 
+  FileSystem fileSystem;
   Directory directory;
 
   /**
-   * Sets up the directory
+   * Sets up the directory and FileSystem
    */
   @Before
   public void setUp() {
+    fileSystem = new FileSystem();
     directory = new Directory("root");
+
   }
-  
+
   /**
    * Sets the directory to null
    */
@@ -34,37 +37,34 @@ public class MakeDirectoryTest {
     directory = null;
   }
 
+
   /**
-   * MODIFY THIS JAVA DOC
+   * Test that makeADirectory creates a directory in the root
+   * 
    * @throws CommandException
    */
   @Test
-  public void testNoDirectoriesExceptRoot() throws CommandException {
-
-    String expectedDirectory = directory.getName();
-
-    FileSystem fileSystem = new FileSystem();
-    String actualDirectory = fileSystem.getCurrentDirectory().getName();
-
-    assertEquals(expectedDirectory, actualDirectory);
+  public void testMakeADirectoryRoot() throws CommandException {
+    MakeDirectory.makeADirectory(fileSystem, "dir1");
+    Directory root = fileSystem.getRootDirectory();
+    assertTrue(root.fileInDirectory("dir1"));
   }
 
   /**
-   * MODIFY THIS JAVA DOC
+   * Test that makeADirectory creates a directory in the file specified at the
+   * given absolute pathway
+   * 
    * @throws CommandException
    */
   @Test
-  public void testMakeUser1Directory() throws CommandException {
+  public void testMakeADirectoryAbsolute() throws CommandException {
+    Directory root = fileSystem.getRootDirectory();
+    Directory user1 = new Directory("user1");
+    Directory dir1 = new Directory("dir1");
+    root.storeFile(user1);
+    user1.storeFile(dir1);
+    MakeDirectory.makeADirectory(fileSystem, "/user1/dir1/doc1");
+    assertTrue(dir1.fileInDirectory("doc1"));
 
-    // TODO write line of code below that adds a user1 dir to expected dir
-
-
-    ArrayList<File> expected = directory.getStoredFiles();
-
-    FileSystem fileSystem = new FileSystem();
-    MakeDirectory.makeADirectory(fileSystem, "user1");
-    ArrayList<File> actual = fileSystem.getCurrentDirectory().getStoredFiles();
-
-    assertEquals(expected, actual);
   }
 }
