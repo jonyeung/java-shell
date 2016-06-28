@@ -28,7 +28,7 @@ public class DirectoryTest {
   }
 
   /**
-   * test that store file puts the given file into the directory's list
+   * Test that store file puts the given file into the directory's list
    */
   @Test
   public void testStoreFile() {
@@ -45,7 +45,7 @@ public class DirectoryTest {
   }
 
   /**
-   * test that store file stores the files in alphabetical order, regardless of
+   * Test that store file stores the files in alphabetical order, regardless of
    * when a file was stored
    */
   @Test
@@ -65,20 +65,23 @@ public class DirectoryTest {
     assertEquals(output, expected);
   }
 
+  /**
+   * Test file in directory in the event where the file is in the directory
+   */
   @Test
   public void testFileInDirectoryFileExists() {
 
-    // testing file in directory in the event where the file is in the directory
     File file1 = new File("file1");
     parent.storeFile(file1);
     assertTrue(parent.fileInDirectory("file1"));
   }
 
+  /**
+   * Test file in directory in the event where the file is not in the directory
+   */
   @Test
   public void testFileInDirectoryFileDoesNotExists() {
 
-    // testing file in directory in the event where the file is not in
-    // the directory
     assertFalse(parent.fileInDirectory("file1"));
   }
 }
