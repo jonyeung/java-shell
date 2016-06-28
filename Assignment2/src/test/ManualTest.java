@@ -25,6 +25,9 @@ public class ManualTest {
     expectedOutput = "";
   }
 
+  /**
+   * Sets both result and expectedOutput strings to null
+   */
   @After
   public void cleanUp() {
 
