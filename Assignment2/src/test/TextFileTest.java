@@ -17,6 +17,7 @@ public class TextFileTest {
    */
   @Test
   public void testConstructorWithContents() {
+
     TextFile file = new TextFile("file", "string contents");
     assertEquals(file.getFileContents(), "string contents");
   }
@@ -26,6 +27,7 @@ public class TextFileTest {
    */
   @Test
   public void testWriteOverwritesContents() {
+
     TextFile file = new TextFile("file", "old contents");
     file.write("new contents");
     assertEquals(file.getFileContents(), "new contents");
@@ -37,6 +39,7 @@ public class TextFileTest {
    */
   @Test
   public void testWriteToEmpty() {
+
     TextFile file = new TextFile("file");
     file.write("new contents");
     assertEquals(file.getFileContents(), "new contents");
@@ -48,6 +51,7 @@ public class TextFileTest {
    */
   @Test
   public void testAppendToEmpty() {
+
     TextFile file = new TextFile("file");
     file.append("new contents");
     assertEquals(file.getFileContents(), "new contents");
@@ -58,6 +62,7 @@ public class TextFileTest {
    */
   @Test
   public void testAppendAddsToContents() {
+
     TextFile file = new TextFile("file", "old contents");
     file.append("new contents");
     assertEquals(file.getFileContents(), "old contents\nnew contents");
