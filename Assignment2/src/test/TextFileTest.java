@@ -6,6 +6,9 @@ import org.junit.Test;
 
 import driver.TextFile;
 
+/**
+ * Class for testing the methods in TextFile
+ */
 public class TextFileTest {
 
   /**
