@@ -27,6 +27,7 @@ public class ChangeDirectoryTest {
    */
   @Before
   public void setUp() {
+
     expectedResult = "";
     actualResult = "";
     fileSystem = new FileSystem();
@@ -37,6 +38,7 @@ public class ChangeDirectoryTest {
    */
   @After
   public void tearDown() {
+
     fileSystem = null;
     actualResult = null;
     expectedResult = null;
@@ -49,6 +51,7 @@ public class ChangeDirectoryTest {
    */
   @Test
   public void testChangingToInvalidRoot() throws CommandException {
+
     try {
       ChangeDirectory.changeCurrentDirectory(fileSystem, "..");
       fail("You are currently at the root directory.");
@@ -63,6 +66,7 @@ public class ChangeDirectoryTest {
    */
   @Test
   public void testChangingToInvalidDirectory() throws CommandException {
+
     try {
       ChangeDirectory.changeCurrentDirectory(fileSystem, "invalidName");
       fail("Directory invalidName does not exist.");
@@ -77,6 +81,7 @@ public class ChangeDirectoryTest {
    */
   @Test
   public void testChangingToValidDirectory() throws CommandException {
+
     Directory validFile = new Directory("validDir");
     fileSystem.getRootDirectory().storeFile(validFile);
     ChangeDirectory.changeCurrentDirectory(fileSystem, "validDir");
