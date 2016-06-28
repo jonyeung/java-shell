@@ -204,6 +204,9 @@ public class FileSystem {
       currFile = parent;
     } else if (fileName.equals("..")) {
       currFile = parent.getParent();
+      if (currFile == null) {
+        throw new CommandException("Root does not have a parent directory");
+      }
     } else {
       currFile = this.searchFile(parent, fileName);
     }
