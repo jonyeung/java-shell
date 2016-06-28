@@ -23,6 +23,7 @@ public class HistoryTest {
    */
   @Before
   public void setup() {
+
     History.addToHistory("cd ..");
     History.addToHistory("mkdir textFolder");
     History.addToHistory("echo \"Hello World\"");
@@ -34,6 +35,7 @@ public class HistoryTest {
    */
   @After
   public void cleanUp() {
+
     History.resetHistory();
   }
 

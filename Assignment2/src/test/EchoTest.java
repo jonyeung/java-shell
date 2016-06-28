@@ -26,7 +26,8 @@ public class EchoTest {
    * Sets up the fileSystem
    */
   @Before
-  public void setUp() throws CommandException {
+  public void setUp() {
+
     fileSystem = new FileSystem();
   }
 
@@ -35,6 +36,7 @@ public class EchoTest {
    */
   @After
   public void cleanUp() {
+
     fileSystem = null;
   }
 

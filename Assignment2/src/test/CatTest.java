@@ -23,10 +23,11 @@ public class CatTest {
   String[] args = null;
 
   /**
-   * Sets up the fileSystem
+   * Sets up the fileSystem containing three text files: doc, work and secret
    */
   @Before
-  public void setUp() throws CommandException {
+  public void setUp() {
+    
     fileSystem = new FileSystem();
     Directory root = fileSystem.getRootDirectory();
     root.storeFile(new TextFile("doc", "Hi world", root));
@@ -39,6 +40,7 @@ public class CatTest {
    */
   @After
   public void cleanUp() {
+    
     fileSystem = null;
   }
 

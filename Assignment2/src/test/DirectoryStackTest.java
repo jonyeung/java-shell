@@ -19,14 +19,12 @@ public class DirectoryStackTest {
   FileSystem fileSystem;
 
   /**
-   * Sets up a Filesystem that holds directories: user1, user2, and user3
-   * where user1 contains a directory called docs
-   * 
-   * @throws CommandException
+   * Sets up a Filesystem that holds directories: user1, user2, and user3 where
+   * user1 contains a directory called docs
    */
   @Before
-  public void setUp() throws CommandException {
-    
+  public void setUp() {
+
     fileSystem = new FileSystem();
     Directory root = fileSystem.getRootDirectory();
     Directory user1 = new Directory("user1");
@@ -41,7 +39,7 @@ public class DirectoryStackTest {
    */
   @After
   public void cleanUp() {
-    
+
     fileSystem = null;
     DirectoryStack.removeSavedDirectories();
   }

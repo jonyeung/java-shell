@@ -23,10 +23,13 @@ public class FileSystemTest {
   String expected;
 
   /**
-   * Sets up the fileSystem with multiple directories and files
+   * Sets up a Filesystem that holds directories: dir1 and dir2
+   * dir1 contains directories called file1 and file2
+   * dir2 contains directories called fileA and fileB and a TextFile fileC
    */
   @Before
   public void setUp() {
+
     fileSystem = new FileSystem();
     Directory root = fileSystem.getRootDirectory();
     Directory dir1 = new Directory("dir1");
@@ -49,6 +52,7 @@ public class FileSystemTest {
    */
   @After
   public void cleanUp() {
+
     fileSystem = null;
   }
 
