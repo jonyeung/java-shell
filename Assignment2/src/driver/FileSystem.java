@@ -24,6 +24,7 @@ public class FileSystem {
    * Get the root directory
    */
   public Directory getRootDirectory() {
+
     return rootDirectory;
   }
 
@@ -31,6 +32,7 @@ public class FileSystem {
    * Get the current working directory
    */
   public Directory getCurrentDirectory() {
+
     return currentDirectory;
   }
 
@@ -40,6 +42,7 @@ public class FileSystem {
    * @param currentDirectory The directory that we want to change to
    */
   public void setCurrentDirectory(Directory currentDirectory) {
+
     this.currentDirectory = currentDirectory;
   }
 
@@ -91,6 +94,7 @@ public class FileSystem {
       throws CommandException {
 
     Directory returnDirectory = curr;
+
     // If no pathway is given, then return curr
     if (pathway.length != 0) {
 
