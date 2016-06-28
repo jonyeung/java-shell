@@ -238,13 +238,28 @@ public class Interpreter {
     // Check that no current file in the parent directory has the same name
     boolean result = !parentDir.fileInDirectory(fileName);
 
-    // Check that the dirName doesn't contain special characters
-    int i = 0;
-    while (i < fileName.length() && result) {
-      if (!Character.isLetterOrDigit(fileName.charAt(i))) {
-        result = false;
+    // separate the fileName by '.' character
+    String[] name = inputToArray(fileName, "\\.");
+
+    // If name is empty then fileName only contained '.' characters and is not
+    // valid
+    if (name.length == 0) {
+      result = false;
+    }
+
+    // Go through each index in name and make sure each are valid
+    int j = 0;
+    while (j < name.length && result) {
+      String file = name[j];
+      // Check that the file doesn't contain special characters
+      int i = 0;
+      while (i < file.length() && result) {
+        if (!Character.isLetterOrDigit(file.charAt(i))) {
+          result = false;
+        }
+        i++;
       }
-      i++;
+      j++;
     }
 
     return result;

@@ -7,6 +7,7 @@ import driver.FileSystem;
 import driver.CommandException;
 import driver.MakeDirectory;
 import driver.Directory;
+import driver.Echo;
 
 /**
  * Class to test the methods in MakeDirectory
@@ -65,5 +66,37 @@ public class MakeDirectoryTest {
     user1.storeFile(dir1);
     MakeDirectory.makeADirectory(fileSystem, "/user1/dir1/doc1");
     assertTrue(dir1.fileInDirectory("doc1"));
+  }
+
+  /**
+   * Test that makeADirectory throws an exception when creating a directory with
+   * special characters
+   * 
+   * @throws CommandException
+   */
+  @Test
+  public void testMakeADirectoryWithSpecialChars() throws CommandException {
+
+    try {
+      MakeDirectory.makeADirectory(fileSystem, "&*#");
+      fail("Invalid directory name");
+    } catch (CommandException e) {
+    }
+  }
+  
+  /**
+   * Test that makeADirectory throws an exception when creating a directory with
+   * '.' characters only
+   * 
+   * @throws CommandException
+   */
+  @Test
+  public void testMakeADirectoryWithDotChars() throws CommandException {
+
+    try {
+      MakeDirectory.makeADirectory(fileSystem, "..");
+      fail("Invalid directory name");
+    } catch (CommandException e) {
+    }
   }
 }
