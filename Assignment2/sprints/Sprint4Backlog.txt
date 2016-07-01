@@ -1,0 +1,35 @@
+User Stories from Product Backlog that we will address in this sprint:
+a) As a user, I can list all files in a directory and its subdirectories.
+b) As a user, I can move files from one directory to another.
+c) As a user, I can copy files from one directory to another.
+d) As a user, I can get the contents from a URL.
+e) As a user, I can recall specific commands based on their history number.
+f) As a user, I can see which lines in a file match a regex.
+g) As a user, I can view the contents of files.
+h) As a user, I should be able to redirect the output of a command to a file.
+
+Specific tasks to be accomplished:
+a-1 (List) List all files in a directory and its subdirectories
+a-2 (fileSystem) Create method that helps with doing things recursively
+b-1 (Move) Write the code for the basic structure of the Move class
+c-1 (Copy) Write the code for the basic structure of the Copy class
+d-1 (Curl) Get contents from URL
+e-1 (History) Create method that tracks each command entered in the JShell
+e-2 (JShell) Implement the new addition of history into JShell
+f-1 (TextFile) Get lines from a file
+f-2 (Grep) Match regex with lines
+g-1 (Cat) Display an error for invalid file names, and display the contents of each valid file name
+h-1 (Interpreter) Create methods that help with redirected output
+
+These tasks are assigned as follows:
+User: Jonathan Yeung
+Tasks: b-1, c-1
+
+User: Gurpreet Gill
+Tasks: e-1, e-2, g-1, f-1, f-2
+
+User: Boni Zhang
+Tasks: d-1, f-2
+
+User: Jason Chan
+Tasks: a-2, h-1
