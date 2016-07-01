@@ -1,0 +1,9 @@
+As a user, I can list all files in a directory and its subdirectories. 3 hours.
+As a user, I can move files from one directory to another. 2 hours.
+As a user, I can copy files from one directory to another. 2 hours.
+As a user, I can get the contents from a URL. 5 hours.
+As a user, I can recall specific commands based on their history number. 2 hours.
+As a user, I can see which lines in a file match a regex. 7 hours.
+As a user, I can see which lines in a file in a directory match a regex. 7 hours.
+As a user, I can view the contents of a file. 2 hours.
+As a user, I should be able to redirect the output of a command to a file. 4 hours.
