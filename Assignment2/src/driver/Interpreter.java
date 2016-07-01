@@ -1,5 +1,6 @@
 package driver;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
@@ -10,24 +11,32 @@ public class Interpreter {
 
   // The valid commands JShell can run
   private final static String commands[] = {"mkdir", "cd", "ls", "pwd", "pushd",
-      "popd", "history", "cat", "echo", "man"};
+      "popd", "history", "cat", "echo", "man", "mv", "cp", "curl", "grep"};
 
   // The maximum and minimum number of arguments of a command corresponding to
   // the commands array
-  private final static int maxArgs[] = {-1, 1, -1, 0, 1, 0, 1, -1, 3, 1};
-  private final static int minArgs[] = {1, 1, 0, 0, 1, 0, 0, 1, 1, 1};
+  private final static int maxArgs[] =
+      {-1, 1, -1, 0, 1, 0, 1, -1, 3, 1, 2, 2, 1, -1};
+  private final static int minArgs[] =
+      {1, 1, 0, 0, 1, 0, 0, 1, 1, 1, 2, 2, 1, 2};
 
   /**
    * Gets input and separates the input into an array using the separator
    * 
    * @param input The input that was given from the user
    * @param separator Split the input by the separator
-   * @return String[] An array of strings that are the words
+   * @return String[] An array of strings that are the words wanted
+   * @throws CommandException
    */
-  private static String[] inputToArray(String input, String separator) {
+  private static String[] inputToArray(String input, char separator)
+      throws CommandException {
 
-    // Split the input up by space.
-    String words[] = input.split(separator);
+    // Split the input up by the separator.
+    ArrayList<String> stringArray = separateInput(input, separator);
+
+    // turn array list into an array
+    String[] words = new String[stringArray.size()];
+    words = stringArray.toArray(words);
 
     String inputWords[] = new String[words.length];
     int numInputs = 0;
@@ -47,6 +56,53 @@ public class Interpreter {
   }
 
   /**
+   * Gets input and separates the input into an array list using the separator.
+   * 
+   * @param input The input that was given from the user
+   * @param separator Split the input by the separator
+   * @return ArrayList An array list of strings that are the words wanted
+   * @throws CommandException
+   */
+  private static ArrayList<String> separateInput(String input, char separator)
+      throws CommandException {
+
+    ArrayList<String> returnStrings = new ArrayList<String>();
+    int startIndex = 0;
+    boolean inQuote = false;
+
+    // loop through the input and separate the string based on the separator
+    for (int i = 0; i < input.length(); i++) {
+
+      // if index i is not in the middle of a quote, and we found a separator
+      // char then we want to get the word
+      if (input.charAt(i) == separator && !inQuote) {
+        returnStrings.add(input.substring(startIndex, i));
+        startIndex = i + 1;
+
+        // if index i found the " char then we want to include everything after
+        // it as a whole until we find another " char
+      } else if (input.charAt(i) == '\"' && !inQuote) {
+        inQuote = true;
+        startIndex = i + 1;
+
+      } else if (input.charAt(i) == '\"' && inQuote) {
+        inQuote = false;
+        returnStrings.add(input.substring(startIndex, i));
+        startIndex = i + 1;
+
+      }
+    }
+    // if the number " characters do not match up, then there is an error in
+    if (inQuote) {
+      throw new CommandException("Quote does not end.");
+    } else {
+      // add the last word
+      returnStrings.add(input.substring(startIndex, input.length()));
+    }
+    return returnStrings;
+  }
+
+  /**
    * Gets the command and returns an array without spaces included.
    * 
    * @param command A command that was input from the user in JShell
@@ -56,14 +112,7 @@ public class Interpreter {
   public static String[] commandToArray(String command)
       throws CommandException {
 
-    String words[] = inputToArray(command, " ");
-    // If the first word is echo, then inputToArray would have broken up the
-    // string into words. The other method keeps anything in double quotes as
-    // one string
-    if (words[0].equals("echo")) {
-      words = echoInputToArray(command);
-    }
-    return words;
+    return inputToArray(command, ' ');
   }
 
   /**
@@ -71,66 +120,12 @@ public class Interpreter {
    * 
    * @param filepath A file path to a file or directory in the file system
    * @return String[] An array of strings that are individual directory or files
-   */
-  public static String[] filepathToArray(String filepath) {
-
-    return inputToArray(filepath, "/");
-  }
-
-  /**
-   * If the user entered a double quote while using echo, then there must be
-   * text with double quotes in between. This will keep the text as one string
-   * 
-   * @param input The input from the user
-   * @return String[] An array of strings separated properly
    * @throws CommandException
    */
-  private static String[] echoInputToArray(String input)
+  public static String[] filepathToArray(String filepath)
       throws CommandException {
 
-    int startIndex = 0;
-    int endIndex = 0;
-    int count = 0;
-    boolean notFound = true;
-
-    // Find the location of the double quotes
-    while (count < input.length() && notFound) {
-      if (input.charAt(count) == '"') {
-        if (startIndex == 0) {
-          startIndex = count;
-        } else {
-          endIndex = count;
-          notFound = false;
-        }
-      }
-      count++;
-    }
-
-    // If closing quote is not found, throw exception
-    if (notFound == true) {
-      // Raise exception if user does not have a closing double quote
-      throw new CommandException(
-          "Quote does not end. See the manual " + "for echo.");
-    }
-
-    // Get the words between the start and end quote
-    String quote = input.substring(startIndex + 1, endIndex);
-
-    // Get the words of everything other then the string in quote
-    String restOfInput =
-        input.substring(0, startIndex) + input.substring(endIndex + 1);
-    String words[] = inputToArray(restOfInput, " ");
-
-    String newInput[] = new String[words.length + 1];
-    newInput[0] = words[0];
-    newInput[1] = quote;
-
-    // If the quote is not on the last word from input, then add words from
-    // input to newInput
-    for (int i = 2; i < newInput.length; i++) {
-      newInput[i] = words[i - 1];
-    }
-    return newInput;
+    return inputToArray(filepath, '/');
   }
 
   /**
@@ -232,14 +227,16 @@ public class Interpreter {
    * @param fileName The file name to check
    * @param parentDir The directory that the new file will be made in
    * @return boolean Whether the file name is valid
+   * @throws CommandException
    */
-  public static boolean checkFileName(String fileName, Directory parentDir) {
+  public static boolean checkFileName(String fileName, Directory parentDir)
+      throws CommandException {
 
     // Check that no current file in the parent directory has the same name
     boolean result = !parentDir.fileInDirectory(fileName);
 
     // separate the fileName by '.' character
-    String[] name = inputToArray(fileName, "\\.");
+    String[] name = inputToArray(fileName, '.');
 
     // If name is empty then fileName only contained '.' characters and is not
     // valid

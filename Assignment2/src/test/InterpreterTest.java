@@ -62,9 +62,11 @@ public class InterpreterTest {
   /**
    * Test that converting a relative file path to an array of strings works
    * 
+   * @throws CommandException
+   * 
    */
   @Test
-  public void testRelativeFilepathToArray() {
+  public void testRelativeFilepathToArray() throws CommandException {
 
     String filepath = "user1/documents/work/cscb07";
     result = Interpreter.filepathToArray(filepath);
@@ -75,9 +77,11 @@ public class InterpreterTest {
   /**
    * Test that converting an absolute file path to an array of strings works
    * 
+   * @throws CommandException
+   * 
    */
   @Test
-  public void testAbsoluteFilepathToArray() {
+  public void testAbsoluteFilepathToArray() throws CommandException {
 
     String filepath = "/user1/documents/work/cscb07";
     result = Interpreter.filepathToArray(filepath);
