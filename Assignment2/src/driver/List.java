@@ -16,44 +16,41 @@ public class List {
   public static String list(FileSystem fileSystem, String[] filepaths)
       throws CommandException {
 
-    String output = "";
+    String outputDirectories = "";
+    String outputFiles = "";
+    String output;
 
     // If no file paths given then return contents of current directory
     if (filepaths == null) {
       output = listContents(fileSystem, fileSystem.getCurrentDirectory());
 
     } else {
-
-      int count = 1;
-
+      
       // Loop through each file path given
       for (String path : filepaths) {
-
-        // Invalid if user tries to list contents of directory before root
-        if (path.equals("..")) {
-          throw new CommandException("Invalid directory.");
-        }
 
         // Get the file at path
         File currFile = fileSystem.getFile(path);
 
-        if (count > 1) {
-          output += "\n\n";
-        }
-        output += path + ":\n";
-
         // If it is a directory then return the contents of the file, otherwise
         // it is a file and it will read it.
         if (currFile instanceof Directory) {
-          output += listContents(fileSystem, (Directory) currFile);
+          outputDirectories += "\n\n" + path + ":\n"
+              + listContents(fileSystem, (Directory) currFile);
 
         } else {
-          // Read the file
-          output += ((TextFile) currFile).getFileContents();
+          // Add the file name
+          outputFiles = path + " " + outputFiles;
         }
-        count++;
+      }
+      // combine outputFiles and outputDirectories
+      if (outputFiles.equals("")) {
+        output = outputDirectories.trim();
+      } else {
+        output = outputFiles.trim() + outputDirectories;
       }
     }
+
     return output;
   }
 

@@ -2,6 +2,8 @@ package driver;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+
 import driver.File;
 
 /**
@@ -216,5 +218,54 @@ public class FileSystem {
     }
 
     return currFile;
+  }
+
+  /**
+   * Recursively go through each directory and return an array list containing
+   * all subdirectories
+   * 
+   * @param curr The current directory to look through
+   * @return ArrayList<Directory> The list of subdirectories
+   * @throws CommandException
+   */
+  private ArrayList<Directory> recurseDirectories(Directory curr)
+      throws CommandException {
+
+    // Get all the files in the curr directory
+    ArrayList<File> storedFiles = curr.getStoredFiles();
+    ArrayList<Directory> directoryList = new ArrayList<Directory>();
+    directoryList.add(curr);
+
+    // go through each file and dir in curr and if it is a dir go through that
+    // dir and add its dirs to the list
+    for (int i = 0; i < storedFiles.size(); i++) {
+      File currFile = storedFiles.get(i);
+
+      if (currFile instanceof Directory) {
+        directoryList.addAll(this.recurseDirectories((Directory) currFile));
+      }
+    }
+    return directoryList;
+  }
+
+  /**
+   * Returns an array of all subdirectories of directory path
+   * 
+   * @param path The filepath we want all subdirectories of
+   * @return Directory[] An array of subdirectories
+   * @throws CommandException
+   */
+  public Directory[] getSubDirectories(String path) throws CommandException {
+
+    // Get the current directory at path
+    Directory curr = this.traversePath(path);
+    // Use helper to get all subdirectories in array list format
+    ArrayList<Directory> directoryList = this.recurseDirectories(curr);
+
+    // Turn array list into an array
+    Directory[] returnDirectories = new Directory[directoryList.size()];
+    returnDirectories = directoryList.toArray(returnDirectories);
+
+    return returnDirectories;
   }
 }

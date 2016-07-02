@@ -2,6 +2,8 @@ package test;
 
 import static org.junit.Assert.*;
 
+import java.util.Arrays;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -19,7 +21,7 @@ public class FileSystemTest {
 
   FileSystem fileSystem;
   File testFile;
-  String result;
+  String result = "";
   String expected;
 
   /**
@@ -195,6 +197,22 @@ public class FileSystemTest {
     testFile = fileSystem.traversePath("dir1/file1");
     result = testFile.getName();
     expected = "file1";
+    assertEquals(result, expected);
+  }
+  
+  /**
+   * Test if getting all subdirectories will return correctly
+   * 
+   * @throws CommandException
+   */
+  @Test
+  public void testGetSubDirectories() throws CommandException {
+
+    Directory[] allDirs = fileSystem.getSubDirectories(".");
+    for (int i = 0; i < allDirs.length; i++) {
+      result += allDirs[i].getName() + " ";
+    }
+    expected = "root dir1 file1 file2 dir2 fileA fileB ";
     assertEquals(result, expected);
   }
 }

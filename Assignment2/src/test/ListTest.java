@@ -12,6 +12,7 @@ import driver.File;
 import driver.FileSystem;
 import driver.Interpreter;
 import driver.List;
+import driver.TextFile;
 
 /**
  * Class for testing the methods in List
@@ -120,6 +121,32 @@ public class ListTest {
     String[] path = Interpreter.commandToArray("/dir1" + " /dir2");
     String output = List.list(fileSys, path);
     assertEquals(output, "/dir1:\nfile1\nfile2\n\n/dir2:\nfile3\nfile4");
+  }
+
+  /**
+   * Test that all file contents are shown for every path that is provided and
+   * that file names are formatted properly
+   * 
+   * @throws CommandException
+   */
+  @Test
+  public void testListWithMultipleDirectoriesAndFiles()
+      throws CommandException {
+
+    Directory root = fileSys.getRootDirectory();
+    Directory dir1 = new Directory("dir1");
+    Directory dir2 = new Directory("dir2");
+    TextFile file1 = new TextFile("file1", "abc", dir1);
+    TextFile file2 = new TextFile("file2", "hi", root);
+    root.storeFile(dir1);
+    root.storeFile(dir2);
+    dir1.storeFile(file1);
+    root.storeFile(file2);
+    String[] path = Interpreter.commandToArray(". /dir1/file1 file2 dir1");
+    String output = List.list(fileSys, path);
+    String expected =
+        "file2 /dir1/file1\n\n.:\ndir1\ndir2\nfile2\n\ndir1:\nfile1";
+    assertEquals(output, expected);
   }
 
   /**
