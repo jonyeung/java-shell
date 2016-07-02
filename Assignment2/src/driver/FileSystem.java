@@ -2,7 +2,6 @@ package driver;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 
 import driver.File;
 
@@ -228,7 +227,7 @@ public class FileSystem {
    * @return ArrayList<Directory> The list of subdirectories
    * @throws CommandException
    */
-  private ArrayList<Directory> recurseDirectories(Directory curr)
+  public ArrayList<Directory> recurseDirectories(Directory curr)
       throws CommandException {
 
     // Get all the files in the curr directory
@@ -255,17 +254,12 @@ public class FileSystem {
    * @return Directory[] An array of subdirectories
    * @throws CommandException
    */
-  public Directory[] getSubDirectories(String path) throws CommandException {
+  public ArrayList<Directory> getSubDirectories(String path)
+      throws CommandException {
 
     // Get the current directory at path
     Directory curr = this.traversePath(path);
     // Use helper to get all subdirectories in array list format
-    ArrayList<Directory> directoryList = this.recurseDirectories(curr);
-
-    // Turn array list into an array
-    Directory[] returnDirectories = new Directory[directoryList.size()];
-    returnDirectories = directoryList.toArray(returnDirectories);
-
-    return returnDirectories;
+    return this.recurseDirectories(curr);
   }
 }

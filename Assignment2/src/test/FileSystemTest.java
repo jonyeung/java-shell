@@ -2,7 +2,7 @@ package test;
 
 import static org.junit.Assert.*;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 
 import org.junit.After;
 import org.junit.Before;
@@ -199,7 +199,7 @@ public class FileSystemTest {
     expected = "file1";
     assertEquals(result, expected);
   }
-  
+
   /**
    * Test if getting all subdirectories will return correctly
    * 
@@ -208,9 +208,9 @@ public class FileSystemTest {
   @Test
   public void testGetSubDirectories() throws CommandException {
 
-    Directory[] allDirs = fileSystem.getSubDirectories(".");
-    for (int i = 0; i < allDirs.length; i++) {
-      result += allDirs[i].getName() + " ";
+    ArrayList<Directory> allDirs = fileSystem.getSubDirectories(".");
+    for (int i = 0; i < allDirs.size(); i++) {
+      result += allDirs.get(i).getName() + " ";
     }
     expected = "root dir1 file1 file2 dir2 fileA fileB ";
     assertEquals(result, expected);

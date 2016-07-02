@@ -7,7 +7,6 @@ import driver.FileSystem;
 import driver.CommandException;
 import driver.MakeDirectory;
 import driver.Directory;
-import driver.Echo;
 
 /**
  * Class to test the methods in MakeDirectory
@@ -83,7 +82,7 @@ public class MakeDirectoryTest {
     } catch (CommandException e) {
     }
   }
-  
+
   /**
    * Test that makeADirectory throws an exception when creating a directory with
    * '.' characters only
