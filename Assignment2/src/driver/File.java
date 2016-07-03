@@ -6,7 +6,7 @@ package driver;
  * and a parentFile <type Directory> as parameters. This class also consists of
  * accessor methods to get parent, set parent and get name.
  */
-public class File implements Comparable<File> {
+public class File {
 
   private String fileName;
   private Directory parent;
@@ -62,19 +62,5 @@ public class File implements Comparable<File> {
   public String getName() {
 
     return fileName;
-  }
-
-  /**
-   * Allows comparisons between files by comparing their names
-   * 
-   * @param otherFile The second file we want to compare to
-   * @return int Returns a negative number if curr file occurs before and
-   *         positive if curr is after. The number value will be how far apart
-   *         the two file names are alphabetically
-   */
-  @Override
-  public int compareTo(File otherFile) {
-
-    return this.getName().compareTo(otherFile.getName());
   }
 }

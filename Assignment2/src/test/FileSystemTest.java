@@ -3,6 +3,9 @@ package test;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Hashtable;
 
 import org.junit.After;
 import org.junit.Before;
@@ -201,18 +204,26 @@ public class FileSystemTest {
   }
 
   /**
-   * Test if getting all subdirectories will return correctly
+   * Test if recurseDirectories will return all sub-directories given the root
+   * directory
    * 
    * @throws CommandException
    */
   @Test
-  public void testGetSubDirectories() throws CommandException {
+  public void testRecurseDirectories() throws CommandException {
 
-    ArrayList<Directory> allDirs = fileSystem.getSubDirectories(".");
-    for (int i = 0; i < allDirs.size(); i++) {
-      result += allDirs.get(i).getName() + " ";
-    }
-    expected = "root dir1 file1 file2 dir2 fileA fileB ";
+    Directory root = fileSystem.getRootDirectory();
+    Hashtable<String, File> fm = new Hashtable<String, File>();
+
+    // Call method on root directory. This should modify the hashtable, fm. Get
+    // the keys in fm and sort them
+    fileSystem.recurseDirectories(root, ".", fm);
+    ArrayList<String> result = Collections.list(fm.keys());
+    Collections.sort(result);
+
+    String[] path = {".", "./dir1", "./dir1/file1", "./dir1/file2", "./dir2",
+        "./dir2/fileA", "./dir2/fileB"};
+    ArrayList<String> expected = new ArrayList<String>(Arrays.asList(path));
     assertEquals(result, expected);
   }
 }

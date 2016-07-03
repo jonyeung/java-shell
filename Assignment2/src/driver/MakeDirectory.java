@@ -10,6 +10,7 @@ public class MakeDirectory {
    * 
    * @param fileSystem The file system with all the files and directories
    * @param path The file path of the new directory
+   * @throws CommandException
    */
   public static void makeADirectory(FileSystem fileSystem, String path)
       throws CommandException {
@@ -25,6 +26,6 @@ public class MakeDirectory {
     if (!Interpreter.checkFileName(newDir, parent)) {
       throw new CommandException(path + " is not a valid directory name.");
     }
-    parent.storeFile(new Directory(newDir));
+    parent.storeFile(new Directory(newDir, parent));
   }
 }

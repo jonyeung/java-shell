@@ -91,7 +91,7 @@ public class ListTest {
     dir2.storeFile(dir3);
     dir3.storeFile(file1);
     dir3.storeFile(file2);
-    String[] path = Interpreter.commandToArray("/dir1/dir2/dir3");
+    String[] path = {"/dir1/dir2/dir3"};
     String output = List.list(fileSys, path);
     assertEquals(output, "/dir1/dir2/dir3:\nfile1\nfile2");
 
@@ -118,7 +118,7 @@ public class ListTest {
     dir1.storeFile(file2);
     dir2.storeFile(file3);
     dir2.storeFile(file4);
-    String[] path = Interpreter.commandToArray("/dir1" + " /dir2");
+    String[] path = {"/dir1", "/dir2"};
     String output = List.list(fileSys, path);
     assertEquals(output, "/dir1:\nfile1\nfile2\n\n/dir2:\nfile3\nfile4");
   }
@@ -142,10 +142,10 @@ public class ListTest {
     root.storeFile(dir2);
     dir1.storeFile(file1);
     root.storeFile(file2);
-    String[] path = Interpreter.commandToArray(". /dir1/file1 file2 dir1");
+    String[] path = {".", "dir1/file1", "/file2", "dir1"};
     String output = List.list(fileSys, path);
     String expected =
-        "file2 /dir1/file1\n\n.:\ndir1\ndir2\nfile2\n\ndir1:\nfile1";
+        "/file2 dir1/file1\n\n.:\ndir1\ndir2\nfile2\n\ndir1:\nfile1";
     assertEquals(output, expected);
   }
 
@@ -158,7 +158,8 @@ public class ListTest {
   public void testListException() throws CommandException {
 
     try {
-      List.list(fileSys, Interpreter.filepathToArray("/dir1"));
+      String[] path = {"/dir1"};
+      List.list(fileSys, path);
     } catch (CommandException e) {
     }
   }

@@ -2,6 +2,7 @@ package driver;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Hashtable;
 
 import driver.File;
 
@@ -220,46 +221,34 @@ public class FileSystem {
   }
 
   /**
-   * Recursively go through each directory and return an array list containing
-   * all subdirectories
+   * Recursively go through each directory and add each directory to the hash
+   * table fm
    * 
    * @param curr The current directory to look through
-   * @return ArrayList<Directory> The list of subdirectories
+   * @param path The current file path of directory curr
+   * @param fm A hash table containing file path that map to corresponding files
    * @throws CommandException
    */
-  public ArrayList<Directory> recurseDirectories(Directory curr)
-      throws CommandException {
+  public void recurseDirectories(Directory curr, String path,
+      Hashtable<String, File> fm) throws CommandException {
 
     // Get all the files in the curr directory
     ArrayList<File> storedFiles = curr.getStoredFiles();
-    ArrayList<Directory> directoryList = new ArrayList<Directory>();
-    directoryList.add(curr);
 
-    // go through each file and dir in curr and if it is a dir go through that
-    // dir and add its dirs to the list
+    // Add the file path and current directory to the hash table
+    fm.put(path, curr);
+
+    // go through each file in the current directory. If it is a directory
+    // recursively go through that directory and add its directories to the hash
+    // table
     for (int i = 0; i < storedFiles.size(); i++) {
       File currFile = storedFiles.get(i);
 
       if (currFile instanceof Directory) {
-        directoryList.addAll(this.recurseDirectories((Directory) currFile));
+        String newPath = path + "/" + currFile.getName();
+        this.recurseDirectories((Directory) currFile, newPath, fm);
       }
     }
-    return directoryList;
   }
 
-  /**
-   * Returns an array of all subdirectories of directory path
-   * 
-   * @param path The filepath we want all subdirectories of
-   * @return Directory[] An array of subdirectories
-   * @throws CommandException
-   */
-  public ArrayList<Directory> getSubDirectories(String path)
-      throws CommandException {
-
-    // Get the current directory at path
-    Directory curr = this.traversePath(path);
-    // Use helper to get all subdirectories in array list format
-    return this.recurseDirectories(curr);
-  }
 }

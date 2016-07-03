@@ -1,5 +1,9 @@
 package driver;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Hashtable;
+
 /**
  * This class returns the contents of a file
  */
@@ -16,42 +20,122 @@ public class List {
   public static String list(FileSystem fileSystem, String[] filepaths)
       throws CommandException {
 
-    String outputDirectories = "";
-    String outputFiles = "";
     String output;
+    // TODO change recursiveFlag to true if given -r
+    boolean recursiveFlag = false;
 
     // If no file paths given then return contents of current directory
     if (filepaths == null) {
       output = listContents(fileSystem, fileSystem.getCurrentDirectory());
 
     } else {
-      
-      // Loop through each file path given
-      for (String path : filepaths) {
 
-        // Get the file at path
-        File currFile = fileSystem.getFile(path);
+      // Creates a hash table that matches file paths to the corresponding File
+      Hashtable<String, File> filepathMatch = new Hashtable<String, File>();
 
-        // If it is a directory then return the contents of the file, otherwise
-        // it is a file and it will read it.
-        if (currFile instanceof Directory) {
-          outputDirectories += "\n\n" + path + ":\n"
-              + listContents(fileSystem, (Directory) currFile);
-
-        } else {
-          // Add the file name
-          outputFiles = path + " " + outputFiles;
-        }
-      }
-      // combine outputFiles and outputDirectories
-      if (outputFiles.equals("")) {
-        output = outputDirectories.trim();
+      // If the -r option is given, then put all directories and sub-directories
+      // into the hash table, otherwise only put the file paths given into the
+      // hash table
+      if (recursiveFlag) {
+        recursiveList(fileSystem, filepaths, filepathMatch);
       } else {
-        output = outputFiles.trim() + outputDirectories;
+        notRecursiveList(fileSystem, filepaths, filepathMatch);
+      }
+
+      // sort the file paths by alphabetical order
+      ArrayList<String> paths = Collections.list(filepathMatch.keys());
+      Collections.sort(paths);
+
+      output = listAll(fileSystem, paths, filepathMatch);
+    }
+    return output;
+  }
+
+  /**
+   * Returns the wanted output when the user gives a list of files that they
+   * want to ls
+   * 
+   * @param fileSystem The file system containing all the files and directories
+   * @param files An array list of all file paths that we want to list
+   * @param fm A hash table containing file path that map to corresponding files
+   * @return String The wanted output when listing multiple files
+   * @throws CommandException
+   */
+  private static String listAll(FileSystem fileSystem, ArrayList<String> paths,
+      Hashtable<String, File> fm) throws CommandException {
+
+    String outputDirectories = "";
+    String outputFiles = "";
+    String output;
+
+    // Loop through each file
+    for (int i = 0; i < paths.size(); i++) {
+
+      String currFilePath = paths.get(i);
+      File currFile = fm.get(currFilePath);
+
+      // If the current file is a directory then add the contents of the
+      // directory to the directory output string
+      if (currFile instanceof Directory) {
+        outputDirectories += "\n\n" + currFilePath + ":\n"
+            + listContents(fileSystem, (Directory) currFile);
+
+      } else {
+        // Otherwise add the name of the current file to file output string
+        outputFiles += currFilePath + " ";
       }
     }
-
+    // combine outputFiles and outputDirectories
+    if (outputFiles.equals("")) {
+      output = outputDirectories.trim();
+    } else {
+      output = outputFiles.trim() + outputDirectories;
+    }
     return output;
+  }
+
+  /**
+   * Returns a list of all directories and their subdirectories in filepaths
+   * 
+   * @param fileSystem The file system containing all the files and directories
+   * @param filepaths The filepaths that we want to list recursivly
+   * @param fm A hash table containing file path that map to corresponding files
+   * @throws CommandException
+   */
+  private static void recursiveList(FileSystem fileSystem, String[] filepaths,
+      Hashtable<String, File> fm) throws CommandException {
+
+    // Loop through each file path given
+    for (String path : filepaths) {
+
+      // Get the file at path
+      File currFile = fileSystem.getFile(path);
+
+      // If the curr is a directory, add all sub-directories to the hash table
+      if (currFile instanceof Directory) {
+        fileSystem.recurseDirectories((Directory) currFile, path, fm);
+      }
+    }
+  }
+
+  /**
+   * Returns an array list of files in filepaths
+   * 
+   * @param fileSystem The file system containing all the files and directories
+   * @param filepaths The filepaths that we want to list
+   * @param fm A hash table containing file path that map to corresponding files
+   * @throws CommandException
+   */
+  private static void notRecursiveList(FileSystem fileSystem,
+      String[] filepaths, Hashtable<String, File> fm) throws CommandException {
+
+    // Loop through each file path given
+    for (String path : filepaths) {
+
+      // Get the file at path and add it to the hash table
+      File currFile = fileSystem.getFile(path);
+      fm.put(path, currFile);
+    }
   }
 
   /**
