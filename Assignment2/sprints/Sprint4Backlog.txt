@@ -29,7 +29,7 @@ User: Gurpreet Gill
 Tasks: e-1, e-2, g-1, f-1, f-2
 
 User: Boni Zhang
-Tasks: a-1, d-1, f-2
+Tasks: d-1, f-2
 
 User: Jason Chan
-Tasks: a-2, h-1
+Tasks: a-1, a-2, h-1
