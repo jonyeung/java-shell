@@ -77,9 +77,12 @@ public class List {
       // If the current file is a directory then add the contents of the
       // directory to the directory output string
       if (currFile instanceof Directory) {
-        outputDirectories += "\n\n" + currFilePath + ":\n"
-            + listContents(fileSystem, (Directory) currFile);
 
+        String contents = listContents(fileSystem, (Directory) currFile);
+        outputDirectories += "\n\n" + currFilePath + ":";
+        if (!contents.equals("")) {
+          outputDirectories += "\n" + contents;
+        }
       } else {
         // Otherwise add the name of the current file to file output string
         outputFiles += currFilePath + " ";
