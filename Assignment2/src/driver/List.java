@@ -1,6 +1,7 @@
 package driver;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Hashtable;
 
@@ -17,12 +18,20 @@ public class List {
    * @return String The contents of each file path given
    * @throws CommandException
    */
-  public static String list(FileSystem fileSystem, String[] filepaths)
+  public static String list(FileSystem fileSystem, String[] args)
       throws CommandException {
 
     String output;
-    // TODO change recursiveFlag to true if given -r
-    boolean recursiveFlag = false;
+    boolean recursiveFlag;
+    String[] filepaths;
+    // Checks if the recursive option of list is wanted
+    if (args != null && args[0].equalsIgnoreCase("-r")) {
+      recursiveFlag = true;
+      filepaths = Arrays.copyOfRange(args, 1, args.length);
+    } else {
+      recursiveFlag = false;
+      filepaths = args;
+    }
 
     // If no file paths given then return contents of current directory
     if (filepaths == null) {
