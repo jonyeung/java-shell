@@ -1,0 +1,13 @@
+What did I do last time?
+	-worked on Sprint 4 tasks
+	-wrote code for Move.java
+	-created method to move and copy items from one location to another
+	-discovered a bug in existing code in JShell/MakeDirectory
+
+What do I plan to do now?
+	-test for bugs in code
+	-fix the bug in JShell/MakeDirectory
+	-brainstorm plans for doing the regex part of the assignment
+
+Am I blocked on anything?
+	-None
