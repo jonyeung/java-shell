@@ -9,16 +9,19 @@ public class Move {
    * @param fileSys The file system being worked with
    * @param oldPath The location of the file to be moved
    * @param newPath The destination of the file that is being moved
+   * @param deleteOriginal True if the item is being moved and not copied
    * @throws CommandException
    */
-  public void moveItem(FileSystem fileSys, String oldPath, String newPath)
-      throws CommandException {
+  public static void moveItem(FileSystem fileSys, String oldPath, 
+      String newPath, boolean deleteOriginal) throws CommandException {
     // get the item specified at oldPath
     File item = fileSys.getFile(oldPath);
 
-    // remove this item from its parent directory
-    item.getParent().getStoredFiles().remove(item);
-
+    if (deleteOriginal) {
+      // remove this item from its parent directory
+      item.getParent().getStoredFiles().remove(item);
+    }
+      
     // get the directory specified at newPath
     try {
       Directory newLocation = (Directory) fileSys.getFile(newPath);
