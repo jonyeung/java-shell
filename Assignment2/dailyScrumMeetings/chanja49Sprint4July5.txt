@@ -1,0 +1,11 @@
+What did I do last time?
+	-Added recursive option in list
+	-Added a method in file system that give all sub-directories back
+	-Added some test cases for new methods
+	-Updated Interpreter class with new command names
+
+What do I plan to do now?
+	-Work on redirected output
+
+Am I blocked on anything
+	-No
