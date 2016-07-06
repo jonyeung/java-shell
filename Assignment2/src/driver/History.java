@@ -151,7 +151,7 @@ public class History {
     }
     // Command position cannot be less than 1
     if (commandPosition < 1) {
-      throw new CommandException("Invalid history number");
+      throw new CommandException("Invalid history number.");
     }
 
     // Invalid number input exception
