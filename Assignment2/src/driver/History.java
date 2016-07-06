@@ -98,6 +98,8 @@ public class History {
   }
 
   /**
+   * Recalls the command at position commandArg and returns the command to be
+   * executed.
    * 
    * @param commandPosition The command
    * @return String The command to be returned from historyFile
@@ -139,6 +141,13 @@ public class History {
     return commandToRun;
   }
 
+  /**
+   * Checks if the "!" command has valid arguments
+   * 
+   * @param commandArg The number of the command in history to check
+   * @return Boolean True if the command has valid arguments
+   * @throws CommandException
+   */
   private static Boolean checkExactExecute(String commandArg)
       throws CommandException {
     String commandToRun = "";
