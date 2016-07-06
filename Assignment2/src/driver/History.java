@@ -96,4 +96,70 @@ public class History {
     historyFile.clear();
     numLines = 0;
   }
+
+  /**
+   * 
+   * @param commandPosition The command
+   * @return String The command to be returned from historyFile
+   * @throws CommandException
+   */
+  public static String recallExactCommand(String commandArg)
+      throws CommandException {
+    String commandToRun = "";
+    int commandPosition = 0;
+    Boolean infLoop = false;
+
+    // Check if arguments are valid for "!" command
+    if (checkExactExecute(commandArg) == true) {
+      commandPosition = Integer.parseInt(commandArg);
+      commandToRun = historyFile.get(commandPosition - 1).substring(3);
+
+      // Cannot re-execute command starting with "!"
+      if (commandToRun.startsWith("!")) {
+        try {
+          Integer.parseInt(commandToRun.substring(1));
+          infLoop = true;
+        } catch (Exception e) {
+          // Go through appropriate error messages if arguments are valid
+          checkExactExecute(commandToRun.substring(1));
+        }
+      }
+
+      // Infinite loop if asked to re-run a "!" command.
+      if (infLoop == true) {
+        throw new CommandException("Cannot re-execute command at position "
+            + Integer.toString(commandPosition)
+            + " (infinite loop).\nPlease see the manual for the \"!\" "
+            + "command.");
+      }
+    }
+
+    return commandToRun;
+  }
+
+  private static Boolean checkExactExecute(String commandArg)
+      throws CommandException {
+    String commandToRun = "";
+    int commandPosition = 0;
+
+    try {
+      commandPosition = Integer.parseInt(commandArg);
+    } catch (Exception e) {
+      throw new CommandException("Please input a number.");
+    }
+    // Command position cannot be less than 1
+    if (commandPosition < 1) {
+      throw new CommandException("Invalid history number");
+    }
+
+    // Invalid number input exception
+    try {
+      // Get the command to run and split the extra bit at the start
+      commandToRun = historyFile.get(commandPosition - 1).substring(3);
+    } catch (Exception e) {
+      throw new CommandException("Please input a valid number.");
+    }
+
+    return true;
+  }
 }
