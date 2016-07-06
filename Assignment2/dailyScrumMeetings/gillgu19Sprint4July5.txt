@@ -1,0 +1,12 @@
+What did I do last time?
+	- Added the manual entry for the "!" command
+	- Added methods to history.java to help with implementing the "!" command
+	- Finished writing the "!" command, including all exceptions, and implemented it into the JShell. 
+	- Discussed what tasks needed to be done with the group and who's doing what task.
+
+What do I plan to do now?
+	- Work on tasks that I did not complete (handling exceptions with Cat)
+	- Work on getting lines from a file for the grep command
+
+Am I stuck on anything?
+	- No. 
