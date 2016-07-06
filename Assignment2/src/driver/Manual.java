@@ -67,6 +67,9 @@ public class Manual {
       + " directory or may be a full path.";
 
   private final static String EXITMESSAGE = "exit\n" + "\tQuits the program.";
+  private final static String EXCLAMATIONMESSAGE =
+      "!number\n\tRecalls any previously entered command by its history number"
+          + " and executes the requested command.";
 
   // Hasthtable to map commands to each message
   private static Hashtable<String, String> commandMessages;
@@ -92,6 +95,7 @@ public class Manual {
     commandMessages.put("echo", ECHOMESSAGE);
     commandMessages.put("man", MANMESSAGE);
     commandMessages.put("exit", EXITMESSAGE);
+    commandMessages.put("!", EXCLAMATIONMESSAGE);
 
     // Get the command message from the hashtable
     String commandMessage = commandMessages.get(commandName);
