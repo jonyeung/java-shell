@@ -114,7 +114,7 @@ public class JShell {
         if (inputArray.length > 1) {
           commandArgs = Arrays.copyOfRange(inputArray, 1, inputArray.length);
         }
-
+        
         // Execute the command, convert command name to lowercase
         executeCommand(commandName.toLowerCase(), commandArgs);
       }
@@ -135,6 +135,7 @@ public class JShell {
       throws CommandException {
 
     String output = "";
+    String testcommand = "";
 
     // Execute the appropriate command
     switch (commandName) {
@@ -194,6 +195,10 @@ public class JShell {
       case "man":
         // Add the manual for the command to output
         output = Manual.printMan(commandArgs[0]);
+        break;
+      
+      case "!":
+        interpretInput(History.recallExactCommand(commandArgs[0]));
         break;
     }
 
