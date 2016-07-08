@@ -107,14 +107,14 @@ public class JShell {
         // inputArray[0] is the command name
         String commandName = inputArray[0];
         // # of arguments in the input
-        String[] commandArgs = null;
+        String[] commandArgs = {};
 
         // Copy the arguments from inputArray to inputArguments, if
         // there are any
         if (inputArray.length > 1) {
           commandArgs = Arrays.copyOfRange(inputArray, 1, inputArray.length);
         }
-        
+
         // Execute the command, convert command name to lowercase
         executeCommand(commandName.toLowerCase(), commandArgs);
       }
@@ -135,6 +135,17 @@ public class JShell {
       throws CommandException {
 
     String output = "";
+
+    boolean outputToFile = false;
+    String[] redirectArgs = null;
+    int argLen = commandArgs.length;
+
+    if (argLen >= 2 && (commandArgs[argLen - 2].equals(">")
+        || commandArgs[argLen - 2].equals(">>"))) {
+      redirectArgs = Arrays.copyOfRange(commandArgs, argLen - 2, argLen);
+      commandArgs = Arrays.copyOfRange(commandArgs, 0, argLen - 2);
+      outputToFile = true;
+    }
 
     // Execute the appropriate command
     switch (commandName) {
@@ -195,18 +206,24 @@ public class JShell {
         // Add the manual for the command to output
         output = Manual.printMan(commandArgs[0]);
         break;
-      
+
       case "!":
         interpretInput(History.recallExactCommand(commandArgs[0]));
         break;
-      
+
       case "mv":
         Move.moveItem(fileSystem, commandArgs[0], commandArgs[1], true);
         break;
     }
 
     if (!output.equals("")) {
-      System.out.println(output);
+      // If the user wants to redirect output to a file, then call echo on file
+      if (outputToFile) {
+        String[] echoCommandArgs = {output, redirectArgs[0], redirectArgs[1]};
+        Echo.executeEcho(fileSystem, echoCommandArgs);
+      } else {
+        System.out.println(output);
+      }
     }
   }
 }
