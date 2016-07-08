@@ -2,6 +2,7 @@ package driver;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Hashtable;
 
 /**
  * This class has methods that check if user input is valid and can interpret
@@ -9,17 +10,31 @@ import java.util.Arrays;
  */
 public class Interpreter {
 
-  // The valid commands JShell can run
-  private final static String commands[] = {"mkdir", "cd", "ls", "pwd", "pushd",
-      "popd", "history", "cat", "echo", "man", "mv", "cp", "curl", "grep", "!",
-      "exit"};
+  private static Hashtable<String, Integer[]> commands =
+      new Hashtable<String, Integer[]>();
 
-  // The maximum and minimum number of arguments of a command corresponding to
-  // the commands array
-  private final static int maxArgs[] =
-      {-1, 1, -1, 0, 1, 0, 1, -1, 3, 1, 2, 2, 1, -1, 1, 0};
-  private final static int minArgs[] =
-      {1, 1, 0, 0, 1, 0, 0, 1, 1, 1, 2, 2, 1, 2, 1, 0};
+  /**
+   * Set up the hash table for valid commands
+   */
+  public static void setUp() {
+    
+    commands.put("mkdir", new Integer[] {1, -1});
+    commands.put("cd", new Integer[] {1, 1});
+    commands.put("ls", new Integer[] {0, -1});
+    commands.put("pwd", new Integer[] {0, 0});
+    commands.put("pushd", new Integer[] {1, 1});
+    commands.put("popd", new Integer[] {0, 0});
+    commands.put("history", new Integer[] {0, 1});
+    commands.put("cat", new Integer[] {1, -1});
+    commands.put("echo", new Integer[] {1, 3});
+    commands.put("man", new Integer[] {1, 1});
+    commands.put("!", new Integer[] {1, 1});
+    commands.put("mv", new Integer[] {2, 2});
+    commands.put("cp", new Integer[] {2, 2});
+    commands.put("curl", new Integer[] {1, 1});
+    commands.put("grep", new Integer[] {2, -1});
+    commands.put("exit", new Integer[] {0, 0});
+  }
 
   /**
    * Gets input and separates the input into an array using the separator
@@ -27,7 +42,7 @@ public class Interpreter {
    * @param input The input that was given from the user
    * @param separator Split the input by the separator
    * @return String[] An array of strings that are the words wanted
-   * @throws CommandException
+   * @throws CommandException When an odd number of " characters are given
    */
   private static String[] inputToArray(String input, char separator)
       throws CommandException {
@@ -61,8 +76,9 @@ public class Interpreter {
    * 
    * @param input The input that was given from the user
    * @param separator Split the input by the separator
-   * @return ArrayList An array list of strings that are the words wanted
-   * @throws CommandException
+   * @return ArrayList<String> An array list of strings that are the words
+   *         wanted
+   * @throws CommandException When an odd number of " characters are given
    */
   private static ArrayList<String> separateInput(String input, char separator)
       throws CommandException {
@@ -108,7 +124,7 @@ public class Interpreter {
    * 
    * @param command A command that was input from the user in JShell
    * @return String[] An array of strings that are the commands words
-   * @throws CommandException
+   * @throws CommandException When an odd number of " characters are given
    */
   public static String[] commandToArray(String command)
       throws CommandException {
@@ -126,7 +142,7 @@ public class Interpreter {
    * 
    * @param filepath A file path to a file or directory in the file system
    * @return String[] An array of strings that are individual directory or files
-   * @throws CommandException
+   * @throws CommandException When an odd number of " characters are given
    */
   public static String[] filepathToArray(String filepath)
       throws CommandException {
@@ -139,98 +155,85 @@ public class Interpreter {
    * 
    * @param input The string entered by the user
    * @return boolean If input is a valid command
-   * @throws CommandException
+   * @throws CommandException When no input is given, Command name is not valid,
+   *         The wrong number of arguments are given, Improper use of chevrons
    */
   public static boolean validInput(String input) throws CommandException {
 
     // Separate input into an array using whitespace between each word
     String inputWords[] = commandToArray(input);
-    boolean result = false;
-    int commandPosition = 0;
 
     // Throw exception if no inputWords[0]
-    if (inputWords.length != 0) {
-      // Check the first word is valid
-      commandPosition = validCommand(inputWords[0]);
-      // Check the placement of chevrons in the input is correct
-      result = usesChevrons(inputWords);
+    if (inputWords.length == 0) {
+      throw new CommandException("No command given.");
     }
+
+    // Check the first word is valid
+    Integer[] minMaxArgs = validCommand(inputWords[0]);
+    // Check the placement of chevrons in the input is correct
+    boolean result = usesChevrons(inputWords);
+
     // If the input uses chevrons, then change inputWords since we only want to
-    // check if everything upto the chevrons in the command is valid
+    // check if everything up to the chevrons in the command is valid
     if (result) {
       inputWords = Arrays.copyOfRange(inputWords, 0, inputWords.length - 2);
     }
 
     // Check that the correct number of arguments is given
-    result = validNumberArguments(commandPosition, inputWords);
+    result = validNumberArguments(minMaxArgs, inputWords);
 
     return result;
   }
 
   /**
    * Gets the first word from the input and checks if it is a valid command. If
-   * valid then it returns the index of the command name in commands array
+   * valid then it returns an array of the minimum and maximum number of
+   * arguments
    * 
    * @param command The first word entered
-   * @return int Index of the command name
+   * @return Integer[] The minimum and maximum number of arguments for the
+   *         command given
    * @throws CommandException Command name is not valid
    */
-  private static int validCommand(String command) throws CommandException {
+  private static Integer[] validCommand(String command)
+      throws CommandException {
 
-    // Check if the 1st word input is a valid command by comparing it to
-    // the array of commands
-    int count = 0;
-    boolean notFound = true;
-
-    // Loop through the commands array to see if the user's inputed command
-    // is in it
-    while (count < commands.length && notFound) {
-
-      // Convert the command to lower case for more command flexibility
-      if (command.toLowerCase().equals(commands[count])) {
-        notFound = false;
-      } else {
-        count++;
-      }
-    }
-    int result;
-    if (notFound) {
-
+    // Check if the 1st word inputed is a valid command by getting it from the
+    // hash table
+    Integer[] minMaxArgs = commands.get(command);
+    if (minMaxArgs == null) {
       // Raise exception if valid command is not given
       throw new CommandException(command + " is not a valid command name.");
-    } else {
-
-      result = count;
     }
-    return result;
+
+    return minMaxArgs;
   }
 
   /**
    * Checks if the number of arguments entered is valid
    * 
-   * @param index Index of the command name
+   * @param minMaxArgs An array of minimum and maximum arguments the command can
+   *        take
    * @param input Each word entered in an array
    * @return boolean Correct number of arguments
-   * @throws CommandException If the wrong number of arguments are given
+   * @throws CommandException The wrong number of arguments are given
    */
-  private static boolean validNumberArguments(int index, String[] input)
-      throws CommandException {
+  private static boolean validNumberArguments(Integer[] minMaxArgs,
+      String[] input) throws CommandException {
 
     int numArgs = input.length - 1;
-    boolean result = false;
 
     // Check that in the input array, the correct number of arguments
     // was given
-    if (minArgs[index] <= numArgs
-        && (numArgs <= maxArgs[index] || maxArgs[index] == -1)) {
-      result = true;
+    if (minMaxArgs[0] <= numArgs
+        && (numArgs <= minMaxArgs[1] || minMaxArgs[1] == -1)) {
     } else {
       // Throw exception if user did not input the correct number of arguments
       throw new CommandException("Please supply valid arguments for the "
-          + commands[index] + " command.\nSee the manual of " + commands[index]
+          + input[0] + " command.\nSee the manual of " + input[0]
           + " for usage information.");
     }
-    return result;
+    return true;
   }
 
   /**
@@ -240,7 +243,7 @@ public class Interpreter {
    * 
    * @param input Each word entered in an array
    * @return boolean If the input uses chevrons
-   * @throws CommandException If there are multiple chevrons or in wrong index
+   * @throws CommandException Improper use of chevrons
    */
   private static boolean usesChevrons(String[] input) throws CommandException {
 
@@ -274,7 +277,7 @@ public class Interpreter {
    * @param fileName The file name to check
    * @param parentDir The directory that the new file will be made in
    * @return boolean Whether the file name is valid
-   * @throws CommandException
+   * @throws CommandException When an odd number of " characters are in fileName
    */
   public static boolean checkFileName(String fileName, Directory parentDir)
       throws CommandException {

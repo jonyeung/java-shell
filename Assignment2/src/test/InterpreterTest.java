@@ -2,6 +2,7 @@ package test;
 
 import static org.junit.Assert.*;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import driver.CommandException;
@@ -16,6 +17,17 @@ public class InterpreterTest {
 
   String[] result;
   String[] expected;
+
+  /**
+   * Sets up the fileSystem and expected/actual result strings
+   * 
+   * @throws Exception
+   */
+  @Before
+  public void setUp() {
+
+    Interpreter.setUp();
+  }
 
   /**
    * Test that a valid input will work

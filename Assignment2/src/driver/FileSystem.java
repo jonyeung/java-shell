@@ -54,7 +54,7 @@ public class FileSystem {
    * @param curr The directory to look for the file
    * @param dirName The name of the file we want
    * @return File The File that we are looking for
-   * @throws CommandException
+   * @throws CommandException If search file does not exist
    */
   private File searchFile(Directory curr, String dirName)
       throws CommandException {
@@ -78,7 +78,7 @@ public class FileSystem {
     }
 
     if (notFound) {
-      throw new CommandException("Directory " + dirName + " does not exist.");
+      throw new CommandException("File " + dirName + " does not exist.");
     }
     return returnFile;
   }
@@ -90,7 +90,8 @@ public class FileSystem {
    * @param curr The starting directory to look for file in pathway
    * @param pathway The array of file/directory names to find a file
    * @return Directory The Directory that we are looking for
-   * @throws CommandException
+   * @throws CommandException If search file does not exist, If trying to search
+   *         the parent of the root
    */
   private Directory getDirectory(Directory curr, String[] pathway)
       throws CommandException {
@@ -134,7 +135,8 @@ public class FileSystem {
    * 
    * @param path The file path in the format given by the user
    * @return Directory The Directory that we are looking for
-   * @throws CommandException
+   * @throws CommandException If search file does not exist, If trying to search
+   *         the parent of the root, Bad format of filepath
    */
   public Directory traversePath(String path) throws CommandException {
 
@@ -169,7 +171,8 @@ public class FileSystem {
    * 
    * @param path The file path in the format given by the user
    * @return Directory The parent directory
-   * @throws CommandException
+   * @throws CommandException If search file does not exist, If trying to search
+   *         the parent of the root, Bad format of filepath
    */
   public Directory getParentDirectory(String path) throws CommandException {
 
@@ -194,7 +197,8 @@ public class FileSystem {
    * 
    * @param path The file path in the format given by the user
    * @return File The file wanted
-   * @throws CommandException
+   * @throws CommandException If search file does not exist, If trying to search
+   *         the parent of the root, Bad format of filepath
    */
   public File getFile(String path) throws CommandException {
 
@@ -210,6 +214,7 @@ public class FileSystem {
       currFile = parent;
     } else if (fileName.equals("..")) {
       currFile = parent.getParent();
+      // If trying to get the parent of the root, throw an exception
       if (currFile == null) {
         throw new CommandException("Root does not have a parent directory");
       }
@@ -227,10 +232,9 @@ public class FileSystem {
    * @param curr The current directory to look through
    * @param path The current file path of directory curr
    * @param fm A hash table containing file path that map to corresponding files
-   * @throws CommandException
    */
   public void recurseDirectories(Directory curr, String path,
-      Hashtable<String, File> fm) throws CommandException {
+      Hashtable<String, File> fm) {
 
     // Get all the files in the curr directory
     ArrayList<File> storedFiles = curr.getStoredFiles();
@@ -238,7 +242,7 @@ public class FileSystem {
     // Add the file path and current directory to the hash table
     fm.put(path, curr);
 
-    // go through each file in the current directory. If it is a directory
+    // Go through each file in the current directory. If it is a directory
     // recursively go through that directory and add its directories to the hash
     // table
     for (int i = 0; i < storedFiles.size(); i++) {

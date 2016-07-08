@@ -32,6 +32,8 @@ public class History {
    * 
    * @param commandArgs The number of past commands the user wants
    * @return String The output of history
+   * @throws CommandException Argument is not an Integer, Number of past lines
+   *         the user wants to view does not exist
    */
   public static String executeHistory(String[] commandArgs)
       throws CommandException {
@@ -39,7 +41,7 @@ public class History {
     String output = "";
     // If an argument is given, then check if it is a number. If so return the
     // n-th past commands.
-    if (commandArgs != null) {
+    if (commandArgs.length != 0) {
       int numPastCommands;
       boolean success = true;
       try {
@@ -66,7 +68,8 @@ public class History {
    * 
    * @param lastLines The number of past commands that the user wants to see
    * @return String The lines that we want to return
-   * @throws CommandException
+   * @throws CommandException Number of past lines the user wants to view does
+   *         not exist
    */
   private static String printHistory(int lastLines) throws CommandException {
 

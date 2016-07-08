@@ -26,7 +26,8 @@ public class DirectoryStack {
    * 
    * @param fileSystem The file system with all the files and directories
    * @param filepath The current directory will be changed to this
-   * @throws CommandException
+   * @throws CommandException If trying to cd to a file that does not exist, If
+   *         trying to cd to the parent of the root, Bad format of filepath
    */
   public static void pushd(FileSystem fileSystem, String filepath)
       throws CommandException {
@@ -46,7 +47,9 @@ public class DirectoryStack {
    * working directory to it
    * 
    * @param fileSystem The file system with all the files and directories
-   * @throws CommandException
+   * @throws CommandException If trying to cd to a file that does not exist, If
+   *         trying to cd to the parent of the root, Bad format of filepath,
+   *         Trying to pop from empty directory stack
    */
   public static void popd(FileSystem fileSystem) throws CommandException {
 

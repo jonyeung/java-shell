@@ -63,6 +63,9 @@ public class JShell {
 
     // File system
     fileSystem = new FileSystem();
+    
+    // Set up the interpreter hash table
+    Interpreter.setUp();
 
     // Boolean to check whether user has quit
     exitStatus = false;

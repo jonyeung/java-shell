@@ -10,7 +10,8 @@ public class ChangeDirectory {
    * 
    * @param fileSystem The file system with all the files and directories
    * @param path The new directory the user changes to
-   * @throws CommandException
+   * @throws CommandException If trying to cd to a file that does not exist, If
+   *         trying to cd to the parent of the root, Bad format of filepath
    */
   public static void changeCurrentDirectory(FileSystem fileSystem, String path)
       throws CommandException {
