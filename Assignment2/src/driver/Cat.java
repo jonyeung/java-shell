@@ -10,33 +10,29 @@ public class Cat {
    * 
    * @param fileSystem The file system with all the files and directories
    * @param filepaths The files that we want to read
-   * @throws CommandException
    */
-  public static String cat(FileSystem fileSystem, String[] filepaths)
-      throws CommandException {
+  public static String cat(FileSystem fileSystem, String[] filepaths) {
 
-    int count = 1;
     String output = "";
 
     // Loop through each file path given and read its contents
     for (String path : filepaths) {
 
-      // Get the file at path
-      File currFile = fileSystem.getFile(path);
-
-      // Print the contents of currFile
-      if (currFile instanceof TextFile) {
-
-        if (count != 1) {
-          output += "\n\n\n\n";
+      try {
+        // Get the file at path
+        File currFile = fileSystem.getFile(path);
+        // Print the contents of currFile
+        if (currFile instanceof TextFile) {
+          output +=
+              path + ":\n" + ((TextFile) currFile).getFileContents() + "\n\n";
+        } else {
+          throw new CommandException("");
         }
-
-        output += ((TextFile) currFile).getFileContents();
-      } else {
-        throw new CommandException(path + " is not a file.");
+      } catch (CommandException e) {
+        output += path + " is not a file.\n\n";
       }
-      count++;
+
     }
-    return output;
+    return output.trim();
   }
 }
