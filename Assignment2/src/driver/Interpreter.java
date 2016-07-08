@@ -1,5 +1,7 @@
 package driver;
 
+import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Hashtable;
@@ -17,7 +19,7 @@ public class Interpreter {
    * Set up the hash table for valid commands
    */
   public static void setUp() {
-    
+
     commands.put("mkdir", new Integer[] {1, -1});
     commands.put("cd", new Integer[] {1, 1});
     commands.put("ls", new Integer[] {0, -1});
@@ -100,11 +102,11 @@ public class Interpreter {
         // it as a whole until we find another " char
       } else if (input.charAt(i) == '\"' && !inQuote) {
         inQuote = true;
-        startIndex = i + 1;
+        startIndex = i;
 
       } else if (input.charAt(i) == '\"' && inQuote) {
         inQuote = false;
-        returnStrings.add(input.substring(startIndex, i));
+        returnStrings.add(input.substring(startIndex, i + 1));
         startIndex = i + 1;
 
       }

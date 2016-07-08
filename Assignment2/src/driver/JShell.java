@@ -42,7 +42,7 @@ import driver.FileSystem;
  * with it by typing in commands.
  */
 public class JShell {
-  
+
   private static Boolean exitStatus;
 
   public static FileSystem fileSystem;
@@ -63,7 +63,7 @@ public class JShell {
 
     // File system
     fileSystem = new FileSystem();
-    
+
     // Set up the interpreter hash table
     Interpreter.setUp();
 
@@ -213,7 +213,7 @@ public class JShell {
       case "mv":
         Move.moveItem(fileSystem, commandArgs[0], commandArgs[1], true);
         break;
-        
+
       case "exit":
         exitStatus = true;
         break;
@@ -222,6 +222,7 @@ public class JShell {
     if (!output.equals("")) {
       // If the user wants to redirect output to a file, then call echo on file
       if (outputToFile) {
+        output = "\"" + output + "\"";
         String[] echoCommandArgs = {output, redirectArgs[0], redirectArgs[1]};
         Echo.executeEcho(fileSystem, echoCommandArgs);
       } else {

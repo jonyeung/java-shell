@@ -67,7 +67,7 @@ public class InterpreterTest {
 
     String userInput = "echo \"hello this is it\" > outfile";
     result = Interpreter.commandToArray(userInput);
-    expected = new String[] {"echo", "hello this is it", ">", "outfile"};
+    expected = new String[] {"echo", "\"hello this is it\"", ">", "outfile"};
     assertArrayEquals(result, expected);
   }
 

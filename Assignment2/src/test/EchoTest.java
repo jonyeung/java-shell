@@ -48,7 +48,7 @@ public class EchoTest {
   @Test
   public void testEchoString() throws CommandException {
 
-    args = new String[] {"Hi World"};
+    args = new String[] {"\"Hi World\""};
     result = Echo.executeEcho(fileSystem, args);
     expected = "Hi World";
     assertEquals(result, expected);
@@ -62,7 +62,7 @@ public class EchoTest {
   @Test
   public void testEchoWriteToFile() throws CommandException {
 
-    args = new String[] {"Hi World", ">", "out.txt"};
+    args = new String[] {"\"Hi World\"", ">", "out.txt"};
     result = Echo.executeEcho(fileSystem, args);
     expected = "";
     assertEquals(result, expected);
@@ -82,9 +82,9 @@ public class EchoTest {
   @Test
   public void testEchoAppendToFile() throws CommandException {
 
-    args = new String[] {"Hi World", ">", "out.txt"};
+    args = new String[] {"\"Hi World\"", ">", "out.txt"};
     Echo.executeEcho(fileSystem, args);
-    args = new String[] {"This is my world", ">>", "out.txt"};
+    args = new String[] {"\"This is my world\"", ">>", "out.txt"};
     Echo.executeEcho(fileSystem, args);
 
     Directory root = fileSystem.getRootDirectory();

@@ -16,7 +16,7 @@ public class HistoryTest {
 
   String expectedOutput;
   String result;
-  String[] args = null;
+  String[] args = {};
 
   /**
    * Sets up the history with past commands

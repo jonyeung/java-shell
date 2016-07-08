@@ -1,5 +1,7 @@
 package driver;
 
+import java.util.Arrays;
+
 /**
  * This class implements the echo command as per assignment requirements by
  * utilizing the filesystem and path names to correctly append or overwrite text
@@ -19,8 +21,16 @@ public class Echo {
       throws CommandException {
 
     String output = "";
+    // If the string that we want to echo is not surrounded by double quotes,
+    // then raise an exception
+    if (commandArgs[0].charAt(0) != '\"') {
+      throw new CommandException("Please read the manual for Echo.");
+    } else {
+      // Remove double quotes from string
+      commandArgs[0] = commandArgs[0].substring(1, commandArgs[0].length() - 1);
+    }
 
-    // If all 3 parameters for echo exist
+    // If all 3 parameters for echo exist, check if want to append or write over
     if (commandArgs.length == 3) {
       if (commandArgs[1].equals(">")) {
         echoNew(fileSys, commandArgs[0], commandArgs[2], false);
