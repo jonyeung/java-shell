@@ -32,6 +32,7 @@ public class Directory extends File {
   public Directory(String name, Directory parentFile) {
 
     super(name, parentFile);
+    storedFiles = new ArrayList<File>();
   }
 
   /**
