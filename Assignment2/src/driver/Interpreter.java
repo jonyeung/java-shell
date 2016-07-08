@@ -11,14 +11,15 @@ public class Interpreter {
 
   // The valid commands JShell can run
   private final static String commands[] = {"mkdir", "cd", "ls", "pwd", "pushd",
-      "popd", "history", "cat", "echo", "man", "mv", "cp", "curl", "grep", "!"};
+      "popd", "history", "cat", "echo", "man", "mv", "cp", "curl", "grep", "!",
+      "exit"};
 
   // The maximum and minimum number of arguments of a command corresponding to
   // the commands array
   private final static int maxArgs[] =
-      {-1, 1, -1, 0, 1, 0, 1, -1, 3, 1, 2, 2, 1, -1, 1};
+      {-1, 1, -1, 0, 1, 0, 1, -1, 3, 1, 2, 2, 1, -1, 1, 0};
   private final static int minArgs[] =
-      {1, 1, 0, 0, 1, 0, 0, 1, 1, 1, 2, 2, 1, 2, 1};
+      {1, 1, 0, 0, 1, 0, 0, 1, 1, 1, 2, 2, 1, 2, 1, 0};
 
   /**
    * Gets input and separates the input into an array using the separator
