@@ -42,6 +42,8 @@ import driver.FileSystem;
  * with it by typing in commands.
  */
 public class JShell {
+  
+  private static Boolean exitStatus;
 
   public static FileSystem fileSystem;
 
@@ -63,7 +65,7 @@ public class JShell {
     fileSystem = new FileSystem();
 
     // Boolean to check whether user has quit
-    Boolean exitStatus = false;
+    exitStatus = false;
 
     // Create a new buffered reader to fetch input from console
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -78,14 +80,8 @@ public class JShell {
       userInput = br.readLine();
       History.addToHistory(userInput);
 
-      // Terminate program if user types "exit"
-      if (userInput.equals("exit")) {
-        // Terminate loop
-        exitStatus = true;
-      } else {
-        // Interpret the input
-        interpretInput(userInput);
-      }
+      // Interpret the input
+      interpretInput(userInput);
 
     } while (exitStatus == false);
   }
@@ -213,6 +209,10 @@ public class JShell {
 
       case "mv":
         Move.moveItem(fileSystem, commandArgs[0], commandArgs[1], true);
+        break;
+        
+      case "exit":
+        exitStatus = true;
         break;
     }
 
