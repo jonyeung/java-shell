@@ -47,7 +47,8 @@ public class ListTest {
   @Test
   public void testListWithNoDirectories() throws CommandException {
 
-    String output = List.list(fileSys, null);
+    String[] args = {};
+    String output = List.list(fileSys, args);
     assertEquals(output, "");
   }
 
@@ -63,7 +64,8 @@ public class ListTest {
     root.storeFile(new File("file1"));
     root.storeFile(new File("file2"));
     root.storeFile(new File("file3"));
-    String output = List.list(fileSys, null);
+    String[] args = {};
+    String output = List.list(fileSys, args);
     assertEquals(output, "file1\nfile2\nfile3");
   }
 

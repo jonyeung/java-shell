@@ -111,10 +111,11 @@ public class Interpreter {
    */
   public static String[] commandToArray(String command)
       throws CommandException {
-    
+
     // Special exception for "!" command, since it has no spaces
     if (command.startsWith("!")) {
-      command = command.substring(0, 1) + " " + command.substring(1);
+      command = command.substring(0, 1) + " "
+          + command.substring(1, command.length());
     }
     return inputToArray(command, ' ');
   }
@@ -144,16 +145,24 @@ public class Interpreter {
     // Separate input into an array using whitespace between each word
     String inputWords[] = commandToArray(input);
     boolean result = false;
+    int commandPosition = 0;
 
     // Throw exception if no inputWords[0]
     if (inputWords.length != 0) {
       // Check the first word is valid
-      int commandPosition = validCommand(inputWords[0]);
-      if (commandPosition != -1) {
-        // Check that the correct number of arguments is given
-        result = validNumberArguments(commandPosition, inputWords);
-      }
+      commandPosition = validCommand(inputWords[0]);
+      // Check the placement of chevrons in the input is correct
+      result = usesChevrons(inputWords);
     }
+    // If the input uses chevrons, then change inputWords since we only want to
+    // check if everything upto the chevrons in the command is valid
+    if (result) {
+      inputWords = Arrays.copyOfRange(inputWords, 0, inputWords.length - 2);
+    }
+
+    // Check that the correct number of arguments is given
+    result = validNumberArguments(commandPosition, inputWords);
+
     return result;
   }
 
@@ -163,7 +172,7 @@ public class Interpreter {
    * 
    * @param command The first word entered
    * @return int Index of the command name
-   * @throws CommandException
+   * @throws CommandException Command name is not valid
    */
   private static int validCommand(String command) throws CommandException {
 
@@ -172,11 +181,11 @@ public class Interpreter {
     int count = 0;
     boolean notFound = true;
 
-    // Loop through the commands array to see if the user's inputted command
+    // Loop through the commands array to see if the user's inputed command
     // is in it
     while (count < commands.length && notFound) {
 
-      // Convert the command to lowercase for more command flexibility
+      // Convert the command to lower case for more command flexibility
       if (command.toLowerCase().equals(commands[count])) {
         notFound = false;
       } else {
@@ -201,7 +210,7 @@ public class Interpreter {
    * @param index Index of the command name
    * @param input Each word entered in an array
    * @return boolean Correct number of arguments
-   * @throws CommandException
+   * @throws CommandException If the wrong number of arguments are given
    */
   private static boolean validNumberArguments(int index, String[] input)
       throws CommandException {
@@ -220,6 +229,39 @@ public class Interpreter {
           + commands[index] + " command.\nSee the manual of " + commands[index]
           + " for usage information.");
     }
+    return result;
+  }
+
+  /**
+   * If chevrons are used, return true, otherwise return false. If chevrons are
+   * in the wrong location or there are more than one, then it will throw an
+   * exception
+   * 
+   * @param input Each word entered in an array
+   * @return boolean If the input uses chevrons
+   * @throws CommandException If there are multiple chevrons or in wrong index
+   */
+  private static boolean usesChevrons(String[] input) throws CommandException {
+
+    int i = 0;
+    boolean result = false;
+
+    // Loop through each string in input and check if any are single or double
+    // chevrons
+    while (i < input.length && !result) {
+      if (input[i].equals(">") || input[i].equals(">>")) {
+        // If the index is not at the second last position, then the chevrons
+        // are in the wrong location
+        if (i != input.length - 2) {
+          throw new CommandException(
+              "The placement of " + input[i] + " is not correct.");
+        } else {
+          result = true;
+        }
+      }
+      i++;
+    }
+
     return result;
   }
 

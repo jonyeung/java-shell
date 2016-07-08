@@ -25,7 +25,7 @@ public class List {
     boolean recursiveFlag;
     String[] filepaths;
     // Checks if the recursive option of list is wanted
-    if (args != null && args[0].equalsIgnoreCase("-r")) {
+    if (args.length != 0 && args[0].equalsIgnoreCase("-r")) {
       recursiveFlag = true;
       filepaths = Arrays.copyOfRange(args, 1, args.length);
     } else {
@@ -34,7 +34,7 @@ public class List {
     }
 
     // If no file paths given then return contents of current directory
-    if (filepaths == null) {
+    if (filepaths.length == 0) {
       output = listContents(fileSystem, fileSystem.getCurrentDirectory());
 
     } else {
