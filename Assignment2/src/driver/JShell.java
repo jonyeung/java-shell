@@ -135,7 +135,6 @@ public class JShell {
       throws CommandException {
 
     String output = "";
-    String testcommand = "";
 
     // Execute the appropriate command
     switch (commandName) {
@@ -199,6 +198,10 @@ public class JShell {
       
       case "!":
         interpretInput(History.recallExactCommand(commandArgs[0]));
+        break;
+      
+      case "mv":
+        Move.moveItem(fileSystem, commandArgs[0], commandArgs[1], true);
         break;
     }
 
