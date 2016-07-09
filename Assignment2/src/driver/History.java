@@ -122,10 +122,8 @@ public class History {
       // Cannot re-execute command starting with "!"
       if (commandToRun.startsWith("!")) {
         try {
-          if (Integer.parseInt(commandToRun.substring(1)) == Integer
-              .parseInt(commandArg)) {
-            infLoop = true;
-          }
+          Integer.parseInt(commandToRun.substring(1));
+          infLoop = true;
         } catch (Exception e) {
           // Go through appropriate error messages if arguments are valid
           checkExactExecute(commandToRun.substring(1));
