@@ -139,8 +139,9 @@ public class JShell {
     String[] redirectArgs = null;
     int argLen = commandArgs.length;
 
-    if (argLen >= 2 && (commandArgs[argLen - 2].equals(">")
-        || commandArgs[argLen - 2].equals(">>"))) {
+    if (argLen >= 2
+        && (commandArgs[argLen - 2].equals(">") || commandArgs[argLen - 2]
+            .equals(">>"))) {
       redirectArgs = Arrays.copyOfRange(commandArgs, argLen - 2, argLen);
       commandArgs = Arrays.copyOfRange(commandArgs, 0, argLen - 2);
       outputToFile = true;
@@ -149,7 +150,7 @@ public class JShell {
     // Execute the appropriate command
     switch (commandName) {
 
-      // Assertion error for extra safety
+    // Assertion error for extra safety
       default:
         throw new AssertionError(commandName);
 
@@ -212,6 +213,10 @@ public class JShell {
 
       case "mv":
         Move.moveItem(fileSystem, commandArgs[0], commandArgs[1], true);
+        break;
+
+      case "cp":
+        Move.moveItem(fileSystem, commandArgs[0], commandArgs[1], false);
         break;
 
       case "exit":
