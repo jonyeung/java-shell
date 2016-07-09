@@ -1,0 +1,10 @@
+What did I do last time?
+	- Fixed bug in exit command that lost us 0.25 marks in A2A.
+	- Fixed bug in "!" command that went into an infinite loop (thanks to Jason for testing)
+	- Implemented move into JShell.
+
+What do I plan to do now?
+	- Work on grep with the team
+
+Am I stuck on anything?
+	- No.
