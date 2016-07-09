@@ -25,6 +25,10 @@ public class MakeDirectory {
     // Check if the directory name is valid
     if (!Interpreter.checkFileName(newDir, parent)) {
       throw new CommandException(path + " is not a valid directory name.");
+
+      // Check that no current file in the parent directory has the same name
+    } else if (parent.fileInDirectory(newDir)) {
+      throw new CommandException("Directory " + path + " already exists.");
     }
     parent.storeFile(new Directory(newDir, parent));
   }

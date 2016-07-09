@@ -284,8 +284,7 @@ public class Interpreter {
   public static boolean checkFileName(String fileName, Directory parentDir)
       throws CommandException {
 
-    // Check that no current file in the parent directory has the same name
-    boolean result = !parentDir.fileInDirectory(fileName);
+    boolean result = true;
 
     // separate the fileName by '.' character
     String[] name = inputToArray(fileName, '.');

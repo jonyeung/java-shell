@@ -204,6 +204,9 @@ public class FileSystem {
 
     // Split the path into a list and get the new directory name
     String[] pathway = Interpreter.filepathToArray(path);
+    if (pathway.length == 0) {
+      throw new CommandException("Cannot get file at " + path);
+    }
     String fileName = pathway[pathway.length - 1];
 
     // Get the parent directory and get the file that we want to ls

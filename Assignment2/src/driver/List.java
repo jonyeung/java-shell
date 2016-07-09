@@ -28,6 +28,10 @@ public class List {
     if (args.length != 0 && args[0].equalsIgnoreCase("-r")) {
       recursiveFlag = true;
       filepaths = Arrays.copyOfRange(args, 1, args.length);
+      // Add current directory to file paths if no other file paths are given
+      if (filepaths.length == 0){
+        filepaths = new String[]{"."};
+      }
     } else {
       recursiveFlag = false;
       filepaths = args;
