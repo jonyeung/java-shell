@@ -198,7 +198,7 @@ public class FileSystem {
    * @param path The file path in the format given by the user
    * @return File The file wanted
    * @throws CommandException If search file does not exist, If trying to search
-   *         the parent of the root, Bad format of filepath
+   *         the parent of the root, Bad format of file path
    */
   public File getFile(String path) throws CommandException {
 
@@ -209,7 +209,7 @@ public class FileSystem {
     }
     String fileName = pathway[pathway.length - 1];
 
-    // Get the parent directory and get the file that we want to ls
+    // Get the parent directory and get the file that we want to list
     Directory parent = this.getParentDirectory(path);
     File currFile;
 
@@ -236,7 +236,7 @@ public class FileSystem {
    * @param path The current file path of directory curr
    * @param fm A hash table containing file path that map to corresponding files
    */
-  public void recurseDirectories(Directory curr, String path,
+  private void recurseDirectories(Directory curr, String path,
       Hashtable<String, File> fm) {
 
     // Get all the files in the curr directory
@@ -255,6 +255,52 @@ public class FileSystem {
         String newPath = path + "/" + currFile.getName();
         this.recurseDirectories((Directory) currFile, newPath, fm);
       }
+    }
+  }
+
+  /**
+   * Returns a list of all directories and their sub-directories in filepaths
+   * 
+   * @param fileSystem The file system containing all the files and directories
+   * @param filepaths The file paths that we want to list recursively
+   * @param fm A hash table containing file path that map to corresponding files
+   * @throws CommandException If file at filepath does not exist or Bad format
+   *         of file path
+   */
+  public void recursiveDirectoryList(String[] filepaths,
+      Hashtable<String, File> fm) throws CommandException {
+
+    // Loop through each file path given
+    for (String path : filepaths) {
+
+      // Get the file at path
+      File currFile = this.getFile(path);
+
+      // If the curr is a directory, add all sub-directories to the hash table
+      if (currFile instanceof Directory) {
+        this.recurseDirectories((Directory) currFile, path, fm);
+      }
+    }
+  }
+
+  /**
+   * Returns an array list of files in file paths
+   * 
+   * @param fileSystem The file system containing all the files and directories
+   * @param filepaths The file paths that we want to list
+   * @param fm A hash table containing file path that map to corresponding files
+   * @throws CommandException If file at filepath does not exist or Bad format
+   *         of file path
+   */
+  public void DirectoryList(String[] filepaths, Hashtable<String, File> fm)
+      throws CommandException {
+
+    // Loop through each file path given
+    for (String path : filepaths) {
+
+      // Get the file at path and add it to the hash table
+      File currFile = this.getFile(path);
+      fm.put(path, currFile);
     }
   }
 

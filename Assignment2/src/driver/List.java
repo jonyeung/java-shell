@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.Hashtable;
 
 /**
- * This class returns the contents of a file
+ * This class returns the contents of a directory
  */
 public class List {
 
@@ -16,7 +16,8 @@ public class List {
    * @param fileSystem The file system containing all the files and directories
    * @param filepaths The file paths that we have to we want to list contents of
    * @return String The contents of each file path given
-   * @throws CommandException
+   * @throws CommandException If file at filepath does not exist or Bad format
+   *         of file path
    */
   public static String list(FileSystem fileSystem, String[] args)
       throws CommandException {
@@ -29,8 +30,8 @@ public class List {
       recursiveFlag = true;
       filepaths = Arrays.copyOfRange(args, 1, args.length);
       // Add current directory to file paths if no other file paths are given
-      if (filepaths.length == 0){
-        filepaths = new String[]{"."};
+      if (filepaths.length == 0) {
+        filepaths = new String[] {"."};
       }
     } else {
       recursiveFlag = false;
@@ -50,9 +51,9 @@ public class List {
       // into the hash table, otherwise only put the file paths given into the
       // hash table
       if (recursiveFlag) {
-        recursiveList(fileSystem, filepaths, filepathMatch);
+        fileSystem.recursiveDirectoryList(filepaths, filepathMatch);
       } else {
-        notRecursiveList(fileSystem, filepaths, filepathMatch);
+        fileSystem.DirectoryList(filepaths, filepathMatch);
       }
 
       // sort the file paths by alphabetical order
@@ -66,16 +67,15 @@ public class List {
 
   /**
    * Returns the wanted output when the user gives a list of files that they
-   * want to ls
+   * want to list
    * 
    * @param fileSystem The file system containing all the files and directories
    * @param files An array list of all file paths that we want to list
    * @param fm A hash table containing file path that map to corresponding files
    * @return String The wanted output when listing multiple files
-   * @throws CommandException
    */
   private static String listAll(FileSystem fileSystem, ArrayList<String> paths,
-      Hashtable<String, File> fm) throws CommandException {
+      Hashtable<String, File> fm) {
 
     String outputDirectories = "";
     String outputFiles = "";
@@ -111,59 +111,13 @@ public class List {
   }
 
   /**
-   * Returns a list of all directories and their subdirectories in filepaths
-   * 
-   * @param fileSystem The file system containing all the files and directories
-   * @param filepaths The filepaths that we want to list recursivly
-   * @param fm A hash table containing file path that map to corresponding files
-   * @throws CommandException
-   */
-  private static void recursiveList(FileSystem fileSystem, String[] filepaths,
-      Hashtable<String, File> fm) throws CommandException {
-
-    // Loop through each file path given
-    for (String path : filepaths) {
-
-      // Get the file at path
-      File currFile = fileSystem.getFile(path);
-
-      // If the curr is a directory, add all sub-directories to the hash table
-      if (currFile instanceof Directory) {
-        fileSystem.recurseDirectories((Directory) currFile, path, fm);
-      }
-    }
-  }
-
-  /**
-   * Returns an array list of files in filepaths
-   * 
-   * @param fileSystem The file system containing all the files and directories
-   * @param filepaths The filepaths that we want to list
-   * @param fm A hash table containing file path that map to corresponding files
-   * @throws CommandException
-   */
-  private static void notRecursiveList(FileSystem fileSystem,
-      String[] filepaths, Hashtable<String, File> fm) throws CommandException {
-
-    // Loop through each file path given
-    for (String path : filepaths) {
-
-      // Get the file at path and add it to the hash table
-      File currFile = fileSystem.getFile(path);
-      fm.put(path, currFile);
-    }
-  }
-
-  /**
    * Returns the contents of the directory given
    * 
    * @param fileSystem The file system containing all the files and directories
    * @param dir The directory that we want to return its contents
    * @return String The contents of the directory
-   * @throws CommandException
    */
-  private static String listContents(FileSystem fileSystem, Directory dir)
-      throws CommandException {
+  private static String listContents(FileSystem fileSystem, Directory dir) {
 
     String output = "";
 
