@@ -1,0 +1,12 @@
+What did I do last time?
+	-Completed file redirection with all commands
+	-Updated cat command to continue printing files even with 
+	 invalid filepath 
+	
+What do I plan to do now?
+	-Update unit tests
+	-Work on sprint 5 backlog with team to see what tasks we have to
+	 do next
+
+Am I blocked on anything
+	-No
