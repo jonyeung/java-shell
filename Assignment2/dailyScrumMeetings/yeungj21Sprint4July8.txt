@@ -1,0 +1,11 @@
+what did I do last time?
+	-fully implemented Move class methods with JShell
+	-fixed bugs with move and copy
+
+
+What do I plan to do next?
+	-plan with group for next sprint
+	-work on tasks for next sprint
+
+Am I blocked on anything?
+	-None
