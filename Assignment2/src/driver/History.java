@@ -8,6 +8,7 @@ import driver.CommandException;
  */
 public class History {
 
+  private static int count = 0;
   private static ArrayList<String> historyFile = new ArrayList<String>();
   private static int numLines = 0;
 
@@ -122,8 +123,9 @@ public class History {
       // Cannot re-execute command starting with "!"
       if (commandToRun.startsWith("!")) {
         try {
-          Integer.parseInt(commandToRun.substring(1));
-          infLoop = true;
+          if (Integer.parseInt(commandToRun.substring(1)) == commandPosition) {
+            infLoop = true;
+          }
         } catch (Exception e) {
           // Go through appropriate error messages if arguments are valid
           checkExactExecute(commandToRun.substring(1));
