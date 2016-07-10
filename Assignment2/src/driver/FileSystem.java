@@ -279,6 +279,8 @@ public class FileSystem {
       // If the curr is a directory, add all sub-directories to the hash table
       if (currFile instanceof Directory) {
         this.recurseDirectories((Directory) currFile, path, fm);
+      } else {
+        fm.put(path, currFile);
       }
     }
   }
