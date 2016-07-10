@@ -124,6 +124,8 @@ public class FileSystem {
         // Check that the file found is a directory and that we can look into it
         if (file instanceof Directory) {
           returnDirectory = this.getDirectory((Directory) file, newPathway);
+        } else {
+          throw new CommandException(searchDir + " is not a directory.");
         }
       }
     }
@@ -135,8 +137,8 @@ public class FileSystem {
    * 
    * @param path The file path in the format given by the user
    * @return Directory The Directory that we are looking for
-   * @throws CommandException If search file does not exist, If trying to search
-   *         the parent of the root, Bad format of filepath
+   * @throws CommandException If given a non-existing file path, If trying to
+   *         search the parent of the root
    */
   public Directory traversePath(String path) throws CommandException {
 
@@ -171,8 +173,8 @@ public class FileSystem {
    * 
    * @param path The file path in the format given by the user
    * @return Directory The parent directory
-   * @throws CommandException If search file does not exist, If trying to search
-   *         the parent of the root, Bad format of filepath
+   * @throws CommandException If given a non-existing file path, If trying to
+   *         search the parent of the root
    */
   public Directory getParentDirectory(String path) throws CommandException {
 
@@ -197,8 +199,8 @@ public class FileSystem {
    * 
    * @param path The file path in the format given by the user
    * @return File The file wanted
-   * @throws CommandException If search file does not exist, If trying to search
-   *         the parent of the root, Bad format of file path
+   * @throws CommandException If given a non-existing file path, If trying to
+   *         search the parent of the root
    */
   public File getFile(String path) throws CommandException {
 

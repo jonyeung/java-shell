@@ -126,9 +126,6 @@ public class List {
       output += file.getName() + "\n";
     }
 
-    if (!output.equals("")) {
-      output = output.substring(0, output.length() - 1);
-    }
-    return output;
+    return output.trim();
   }
 }

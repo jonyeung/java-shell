@@ -1,11 +1,9 @@
 package driver;
 
-import java.util.Arrays;
-
 /**
  * This class implements the echo command as per assignment requirements by
- * utilizing the filesystem and path names to correctly append or overwrite text
- * in a textfile
+ * utilizing the file system and path names to correctly append or overwrite
+ * text in a text file
  */
 public class Echo {
 
@@ -15,7 +13,8 @@ public class Echo {
    * @param fileSys The file system being utilized
    * @param commandArgs The arguments given by the user
    * @return String Returns the string given if no out file is given
-   * @throws CommandException
+   * @throws CommandException If given a non-existing file path, if chevrons are
+   *         used improperly, if number of arguments is incorrect
    */
   public static String executeEcho(FileSystem fileSys, String[] commandArgs)
       throws CommandException {
@@ -58,7 +57,7 @@ public class Echo {
    * @param fileContents The contents of the text file
    * @param path The location of the text file
    * @param chevrons Boolean that is true if there are 2 chevrons, false o/w
-   * @throws CommandException
+   * @throws CommandException If given a non-existing file path
    */
   public static void echoNew(FileSystem fileSys, String fileContents,
       String path, Boolean chevrons) throws CommandException {

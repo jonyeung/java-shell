@@ -8,7 +8,6 @@ import driver.CommandException;
  */
 public class History {
 
-  private static int count = 0;
   private static ArrayList<String> historyFile = new ArrayList<String>();
   private static int numLines = 0;
 
@@ -111,6 +110,7 @@ public class History {
    */
   public static String recallExactCommand(String commandArg)
       throws CommandException {
+
     String commandToRun = "";
     int commandPosition = 0;
     Boolean infLoop = false;
@@ -153,7 +153,7 @@ public class History {
    */
   private static Boolean checkExactExecute(String commandArg)
       throws CommandException {
-    String commandToRun = "";
+
     int commandPosition = 0;
 
     try {
@@ -169,7 +169,7 @@ public class History {
     // Invalid number input exception
     try {
       // Get the command to run and split the extra bit at the start
-      commandToRun = historyFile.get(commandPosition - 1).substring(3);
+      historyFile.get(commandPosition - 1).substring(3);
     } catch (Exception e) {
       throw new CommandException("Please input a valid number.");
     }

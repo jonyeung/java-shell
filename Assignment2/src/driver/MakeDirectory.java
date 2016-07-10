@@ -10,7 +10,8 @@ public class MakeDirectory {
    * 
    * @param fileSystem The file system with all the files and directories
    * @param path The file path of the new directory
-   * @throws CommandException
+   * @throws CommandException If the new directory name uses special characters
+   *         or the name is already used in another file in the same directory
    */
   public static void makeADirectory(FileSystem fileSystem, String path)
       throws CommandException {
