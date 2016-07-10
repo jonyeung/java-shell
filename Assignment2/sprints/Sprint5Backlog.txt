@@ -1,0 +1,36 @@
+// Sprint 5 Backlog
+July 09 to July 15
+
+User Stories from Product Backlog that we will address in this sprint:
+a) As a user, I can list all files in a directory and its subdirectories. (ls)
+b) As a user, I can move files from one directory to another. (mv)
+c) As a user, I can copy files from one directory to another. (cp)
+d) As a user, I can get the contents from a URL (curl)
+e) As a user, I can recall specific commands based on their history 
+	number. (history !number)
+f) As a user, I can see which lines in a file match a regex. (grep)
+g) As a user, I can view the contents of files (cat)
+
+Specific tasks to be accomplished:
+a-1 (TestList) Update unit tests for list
+b-1 (TestMove) Create unit tests for Move
+c-1 (TestCopy) Create unit tests for Copy
+d-1 (Curl) Get contents from URL
+d-2 (TestCurl) Create unit tests for Curl
+e-1 (TestHistory) Add unit tests for History
+f-1 (Grep) Match regex with lines
+f-2 (TestGrep) Create unit tests for MatchRegex
+g-1 (TestCat) Update unit tests for cat
+
+These tasks are assigned as follows:
+User: Jonathan Yeung
+Tasks: b-1, c-1, d-1, d-2
+
+User: Gurpreet Gill
+Tasks: e-1
+
+User: Boni Zhang
+Tasks: d-1, d-2
+
+User: Jason Chan
+Tasks: a-1, f-1, f-2, g-1
