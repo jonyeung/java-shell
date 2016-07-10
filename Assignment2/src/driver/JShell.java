@@ -44,6 +44,7 @@ import driver.FileSystem;
 public class JShell {
 
   private static Boolean exitStatus;
+  private static int infLoop = 0;
 
   public static FileSystem fileSystem;
 
@@ -80,7 +81,7 @@ public class JShell {
       System.out.print(startOfLine);
 
       // Retrieve input from user
-      userInput = br.readLine();
+      userInput = (br.readLine()).toLowerCase();
       History.addToHistory(userInput);
 
       // Interpret the input
@@ -137,6 +138,7 @@ public class JShell {
 
     boolean outputToFile = false;
     String[] redirectArgs = null;
+    String infLoopMessage = "Infinite loop. Please input a valid number.";
     int argLen = commandArgs.length;
 
     if (argLen >= 2 && (commandArgs[argLen - 2].equals(">")
@@ -207,7 +209,13 @@ public class JShell {
         break;
 
       case "!":
-        interpretInput(History.recallExactCommand(commandArgs[0]));
+        try {
+          interpretInput(History.recallExactCommand(commandArgs[0]));
+        } catch (StackOverflowError e) {
+          if (!output.equals(infLoopMessage)) {
+            output += infLoopMessage;
+          }
+        }
         break;
 
       case "mv":
