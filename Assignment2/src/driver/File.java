@@ -6,7 +6,7 @@ package driver;
  * and a parentFile <type Directory> as parameters. This class also consists of
  * accessor methods to get parent, set parent and get name.
  */
-public class File {
+public class File implements Comparable<File> {
 
   private String fileName;
   private Directory parent;
@@ -62,5 +62,16 @@ public class File {
   public String getName() {
 
     return fileName;
+  }
+
+  /**
+   * Compares other files by their file names
+   * 
+   * @return int The comparison value
+   */
+  @Override
+  public int compareTo(File otherFile) {
+
+    return fileName.compareTo(otherFile.getName());
   }
 }

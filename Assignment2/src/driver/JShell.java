@@ -81,7 +81,7 @@ public class JShell {
       System.out.print(startOfLine);
 
       // Retrieve input from user
-      userInput = (br.readLine()).toLowerCase();
+      userInput = (br.readLine());
       History.addToHistory(userInput);
 
       // Interpret the input
@@ -115,8 +115,8 @@ public class JShell {
           commandArgs = Arrays.copyOfRange(inputArray, 1, inputArray.length);
         }
 
-        // Execute the command, convert command name to lowercase
-        executeCommand(commandName.toLowerCase(), commandArgs);
+        // Execute the command
+        executeCommand(commandName, commandArgs);
       }
     } catch (CommandException e) {
       System.out.println(e.getMessage());
@@ -231,7 +231,7 @@ public class JShell {
         break;
 
       case "grep":
-        MatchRegex.grep(fileSystem, commandArgs);
+        output = MatchRegex.executeGrep(fileSystem, commandArgs);
         break;
     }
 

@@ -14,9 +14,9 @@ public class List {
    * Returns the contents of each file in file paths.
    * 
    * @param fileSystem The file system containing all the files and directories
-   * @param filepaths The file paths that we have to we want to list contents of
+   * @param args All arguments given
    * @return String The contents of each file path given
-   * @throws CommandException If file at filepath does not exist or Bad format
+   * @throws CommandException If file at file path does not exist or Bad format
    *         of file path
    */
   public static String list(FileSystem fileSystem, String[] args)

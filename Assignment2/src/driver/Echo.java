@@ -24,7 +24,8 @@ public class Echo {
     // If the string that we want to echo is not surrounded by double quotes,
     // then raise an exception
     if (commandArgs[0].charAt(0) != '\"') {
-      throw new CommandException("Please read the manual for Echo.");
+      throw new CommandException(
+          "The string must be enclosed in double quotes.");
     } else {
       // Remove double quotes from string
       commandArgs[0] = commandArgs[0].substring(1, commandArgs[0].length() - 1);
