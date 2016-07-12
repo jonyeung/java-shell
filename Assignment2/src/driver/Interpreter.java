@@ -27,7 +27,7 @@ public class Interpreter {
     commands.put("history", new Integer[] {0, 1});
     commands.put("cat", new Integer[] {1, -1});
     commands.put("echo", new Integer[] {1, 3});
-    commands.put("man", new Integer[] {1, 1});
+    commands.put("man", new Integer[] {1, -1});
     commands.put("!", new Integer[] {1, 1});
     commands.put("mv", new Integer[] {2, 2});
     commands.put("cp", new Integer[] {2, 2});
