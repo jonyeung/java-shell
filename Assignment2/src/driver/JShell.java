@@ -124,7 +124,6 @@ public class JShell {
               // Get the command to be executed
               commandArgs[i] =
                   History.recallExactCommand(commandArgs[i].substring(1));
-              System.out.println(commandArgs[i]);
             }
           }
           // Add the command return to the fullCommand string.
