@@ -82,7 +82,9 @@ public class JShell {
 
       // Retrieve input from user
       userInput = (br.readLine());
-      History.addToHistory(userInput);
+      if (!userInput.startsWith("!")) {
+        History.addToHistory(userInput);
+      }
 
       // Interpret the input
       interpretInput(userInput);
@@ -211,6 +213,7 @@ public class JShell {
       case "!":
         try {
           interpretInput(History.recallExactCommand(commandArgs[0]));
+          History.addToHistory(History.recallExactCommand(commandArgs[0]));
         } catch (StackOverflowError e) {
           if (!output.equals(infLoopMessage)) {
             output += infLoopMessage;
