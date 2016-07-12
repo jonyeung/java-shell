@@ -16,7 +16,6 @@ public class MatchRegexTest {
   FileSystem fileSystem;
   String expected;
   String result;
-  String[] args;
 
   @Before
   public void setUp() {
@@ -49,7 +48,8 @@ public class MatchRegexTest {
   /**
    * Test grep works on one file
    * 
-   * @throws CommandException
+   * @throws CommandException If file path does not exist, a directory file path
+   *         is given and not recursive
    */
   @Test
   public void testGrep() throws CommandException {
@@ -63,7 +63,8 @@ public class MatchRegexTest {
   /**
    * Test grep works with multiple files
    * 
-   * @throws CommandException
+   * @throws CommandException If file path does not exist, a directory file path
+   *         is given and not recursive
    */
   @Test
   public void testGrepMultipleFiles() throws CommandException {
@@ -82,12 +83,13 @@ public class MatchRegexTest {
   /**
    * Test grep works with multiple files
    * 
-   * @throws CommandException
+   * @throws CommandException If file path does not exist, a directory file path
+   *         is given and not recursive
    */
   @Test
   public void testGrepRecursive() throws CommandException {
 
-    String[] args = { "-r", "\".*the.*\"", "."};
+    String[] args = {"-r", "\".*the.*\"", "."};
     result = MatchRegex.executeGrep(fileSystem, args);
     expected = "./doc: The thing with the carrot\n"
         + "./movie: This is the day we saw that thing\n"
@@ -98,4 +100,18 @@ public class MatchRegexTest {
     assertEquals(result, expected);
   }
 
+  /**
+   * Test that an exception is thrown if double quotes is not used to surround
+   * the regular expression
+   */
+  @Test
+  public void testGrepRegexNoDoubeQuote() {
+
+    try {
+      String[] args = {"-r", ".*the.*", "."};
+      result = MatchRegex.executeGrep(fileSystem, args);
+      fail("Regex is not surrounded by double quote characters");
+    } catch (CommandException e) {
+    }
+  }
 }

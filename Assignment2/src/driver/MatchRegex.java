@@ -16,8 +16,8 @@ public class MatchRegex {
    * @param fileSystem The file system containing all the files and directories
    * @param commandArgs All arguments given
    * @return String All lines in all text files that matched the regex
-   * @throws CommandException If file at file path does not exist, Bad format of
-   *         file path, a directory file path is given and not recursive
+   * @throws CommandException If file path does not exist, a directory file path
+   *         is given and not recursive
    */
   public static String executeGrep(FileSystem fileSystem, String[] args)
       throws CommandException {
