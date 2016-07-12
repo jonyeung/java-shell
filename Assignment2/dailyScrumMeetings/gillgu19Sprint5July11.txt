@@ -1,0 +1,11 @@
+What did I do last time?
+	- Fixed bugs with "!" command in History.java
+	- Changed how history works in JShell
+	- Fixed bugs with man command
+
+What do I plan to do now?
+	- Write unit tests for everything I've done
+	- Help with grep if needed
+
+Am I stuck on anything?
+	- No
