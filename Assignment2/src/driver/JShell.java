@@ -207,6 +207,10 @@ public class JShell {
 
       case "man":
         // Add the manual for the command to output
+        if (commandArgs[0].startsWith("!")) {
+          commandArgs[0] = commandArgs[0].substring(1);
+          commandArgs[0] = History.recallExactCommand(commandArgs[0]);
+        }
         output = Manual.printMan(commandArgs[0]);
         break;
 
