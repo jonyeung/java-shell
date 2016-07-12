@@ -85,6 +85,8 @@ public class JShell {
       // Retrieve input from user
       userInput = (br.readLine());
 
+      History.addToHistory(userInput);
+
       // Interpret the input
       interpretInput(userInput);
 
@@ -106,8 +108,7 @@ public class JShell {
       String commandName = inputArray[0];
       // # of arguments in the input
       String[] commandArgs = {};
-      // The full command string
-      String fullCommand = commandName;
+
 
       // Copy the arguments from inputArray to inputArguments, if
       // there are any
@@ -115,33 +116,12 @@ public class JShell {
         commandArgs = Arrays.copyOfRange(inputArray, 1, inputArray.length);
       }
 
-      // Check for "!" arguments. If they exist, replace the argument
-      // with the command to be return by the argument
-      for (int i = 0; i < commandArgs.length; i++) {
-        if (commandArgs[i].startsWith("!")) {
-          if (commandName.equals("man")) {
-            if (commandArgs[i].length() > 1) {
-              // Get the command to be executed
-              commandArgs[i] =
-                  History.recallExactCommand(commandArgs[i].substring(1));
-            }
-          }
-          // Add the command return to the fullCommand string.
-
-        }
-        fullCommand += " " + commandArgs[i];
-      }
-      // Add the full command to history
-      History.addToHistory(fullCommand);
-
       // Execute the command accordingly if it is valid
       if (Interpreter.validInput(userInput) == true) {
         // Execute the command
         executeCommand(commandName, commandArgs);
       }
-    } catch (
-
-    CommandException e) {
+    } catch (CommandException e) {
       System.out.println(e.getMessage());
     }
   }
@@ -227,7 +207,6 @@ public class JShell {
         break;
 
       case "man":
-        System.out.println(commandArgs[0]);
         // Add the manual for the command to output
         String[] commands = commandArgs[0].split(" ");
         output = Manual.printMan(commands[0]);
@@ -236,7 +215,6 @@ public class JShell {
       case "!":
         try {
           interpretInput(History.recallExactCommand(commandArgs[0]));
-          History.addToHistory(History.recallExactCommand(commandArgs[0]));
         } catch (StackOverflowError e) {
           if (!output.equals(infLoopMessage)) {
             output += infLoopMessage;
