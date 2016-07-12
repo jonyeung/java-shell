@@ -211,14 +211,15 @@ public class JShell {
       case "man":
         // Add the manual for the command to output
         String manToPrint = commandArgs[0];
-        String historyToAdd = commandName;
+        String historyToAdd = commandName + " ";
+        System.out.println(manToPrint);
         if (commandArgs[0].startsWith("!") && commandArgs[0].length() > 1) {
           commandArgs[0] =
               History.recallExactCommand(commandArgs[0].substring(1));
           manToPrint = commandArgs[0].split(" ")[0];
         }
         for (int i = 0; i < commandArgs.length; i++) {
-          historyToAdd += " " + commandArgs[i];
+          historyToAdd += commandArgs[i];
         }
         History.addToHistory(historyToAdd);
         output = Manual.printMan(manToPrint);
