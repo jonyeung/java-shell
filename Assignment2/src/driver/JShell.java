@@ -31,6 +31,7 @@ package driver;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.io.IOException;
 
@@ -118,13 +119,18 @@ public class JShell {
       // with the command to be return by the argument
       for (int i = 0; i < commandArgs.length; i++) {
         if (commandArgs[i].startsWith("!")) {
-          // Cut off the "!"
-          commandArgs[i] = commandArgs[i].substring(1);
-          // Get the command to be executed
-          commandArgs[i] = History.recallExactCommand(commandArgs[i]);
+          if (commandName.equals("man")) {
+            if (commandArgs[i].length() > 1) {
+              // Get the command to be executed
+              commandArgs[i] =
+                  History.recallExactCommand(commandArgs[i].substring(1));
+              System.out.println(commandArgs[i]);
+            }
+          }
           // Add the command return to the fullCommand string.
-          fullCommand += " " + commandArgs[i];
+
         }
+        fullCommand += " " + commandArgs[i];
       }
       // Add the full command to history
       History.addToHistory(fullCommand);
@@ -134,7 +140,9 @@ public class JShell {
         // Execute the command
         executeCommand(commandName, commandArgs);
       }
-    } catch (CommandException e) {
+    } catch (
+
+    CommandException e) {
       System.out.println(e.getMessage());
     }
   }
@@ -220,12 +228,10 @@ public class JShell {
         break;
 
       case "man":
+        System.out.println(commandArgs[0]);
         // Add the manual for the command to output
-        if (commandArgs[0].startsWith("!")) {
-          commandArgs[0] = commandArgs[0].substring(1);
-          commandArgs[0] = History.recallExactCommand(commandArgs[0]);
-        }
-        output = Manual.printMan(commandArgs[0]);
+        String[] commands = commandArgs[0].split(" ");
+        output = Manual.printMan(commands[0]);
         break;
 
       case "!":
