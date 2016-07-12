@@ -1,0 +1,10 @@
+What did I do last time?
+	-Completed grep command in MatchRegex class
+	-Created unit tests for grep
+	
+What do I plan to do now?
+	-Update unit tests for classes that I worked on
+	-Create a build xml file
+
+Am I blocked on anything
+	-No
