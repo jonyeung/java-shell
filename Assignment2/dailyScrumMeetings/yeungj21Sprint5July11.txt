@@ -1,0 +1,11 @@
+What did I work on last time?
+	-Fixed major bug with copy command in Move class
+	-Added two methods in Move to accompish this bug fix
+	-Started working on Curl as well as unit tests for Move class
+
+What do I plan to do now?
+	-Finish Curl
+	-Finish unit tests for Copy, Move, Curl commands
+
+Am I blocked on anything?
+	-None
