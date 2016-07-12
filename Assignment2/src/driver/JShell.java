@@ -53,8 +53,9 @@ public class JShell {
    * terminates upon user request.
    * 
    * @param args The arguments inputed by the user in the program
-   * @throws IOException
-   * @throws CommandException
+   * @throws IOException The exception thrown for the bufferedreader for input
+   *         and output queries
+   * @throws CommandException The exception if command cannot run
    */
   public static void main(String[] args) throws IOException, CommandException {
 
@@ -82,9 +83,6 @@ public class JShell {
 
       // Retrieve input from user
       userInput = (br.readLine());
-      if (!userInput.startsWith("!")) {
-        History.addToHistory(userInput);
-      }
 
       // Interpret the input
       interpretInput(userInput);
@@ -96,27 +94,43 @@ public class JShell {
    * Interprets the user input and runs the command if it is valid
    * 
    * @param userInput The line of input entered by the user to be interpreted
-   * @throws CommandException
+   * @throws CommandException The error returned if the command is invalid
    */
   private static void interpretInput(String userInput) throws CommandException {
 
     try {
+      // Break up the user input
+      String[] inputArray = Interpreter.commandToArray(userInput);
+      // inputArray[0] is the command name
+      String commandName = inputArray[0];
+      // # of arguments in the input
+      String[] commandArgs = {};
+      // The full command string
+      String fullCommand = commandName;
+
+      // Copy the arguments from inputArray to inputArguments, if
+      // there are any
+      if (inputArray.length > 1) {
+        commandArgs = Arrays.copyOfRange(inputArray, 1, inputArray.length);
+      }
+
+      // Check for "!" arguments. If they exist, replace the argument
+      // with the command to be return by the argument
+      for (int i = 0; i < commandArgs.length; i++) {
+        if (commandArgs[i].startsWith("!")) {
+          // Cut off the "!"
+          commandArgs[i] = commandArgs[i].substring(1);
+          // Get the command to be executed
+          commandArgs[i] = History.recallExactCommand(commandArgs[i]);
+          // Add the command return to the fullCommand string.
+          fullCommand += " " + commandArgs[i];
+        }
+      }
+      // Add the full command to history
+      History.addToHistory(fullCommand);
+
       // Execute the command accordingly if it is valid
       if (Interpreter.validInput(userInput) == true) {
-
-        // Break up the user input
-        String[] inputArray = Interpreter.commandToArray(userInput);
-        // inputArray[0] is the command name
-        String commandName = inputArray[0];
-        // # of arguments in the input
-        String[] commandArgs = {};
-
-        // Copy the arguments from inputArray to inputArguments, if
-        // there are any
-        if (inputArray.length > 1) {
-          commandArgs = Arrays.copyOfRange(inputArray, 1, inputArray.length);
-        }
-
         // Execute the command
         executeCommand(commandName, commandArgs);
       }
@@ -131,7 +145,7 @@ public class JShell {
    * 
    * @param commandName The command name of the command to be executed
    * @param commandArgs The argument(s) for the command to be executed
-   * @throws CommandException
+   * @throws CommandException The error thrown if command cannot be executed
    */
   private static void executeCommand(String commandName, String[] commandArgs)
       throws CommandException {
