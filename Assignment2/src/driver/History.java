@@ -118,7 +118,11 @@ public class History {
     // Check if arguments are valid for "!" command
     if (checkExactExecute(commandArg) == true) {
       commandPosition = Integer.parseInt(commandArg);
-      commandToRun = historyFile.get(commandPosition - 1).substring(4);
+      // Integer to know exactly what part of the command from history is
+      // required (to account for 10, 100, 1000, 10000 (etc) history entries)
+      int subStringVal = commandArg.length() + 2;
+      commandToRun =
+          historyFile.get(commandPosition - 1).substring(subStringVal);
 
       // Cannot re-execute command starting with "!"
       if (commandToRun.startsWith("!")) {
