@@ -85,7 +85,9 @@ public class JShell {
       // Retrieve input from user
       userInput = (br.readLine());
 
-      History.addToHistory(userInput);
+      if (!userInput.startsWith("!") && !userInput.startsWith("man")) {
+        History.addToHistory(userInput);
+      }
 
       // Interpret the input
       interpretInput(userInput);
@@ -109,7 +111,6 @@ public class JShell {
       // # of arguments in the input
       String[] commandArgs = {};
 
-
       // Copy the arguments from inputArray to inputArguments, if
       // there are any
       if (inputArray.length > 1) {
@@ -123,6 +124,7 @@ public class JShell {
       }
     } catch (CommandException e) {
       System.out.println(e.getMessage());
+    } catch (Exception e) {
     }
   }
 
@@ -208,12 +210,22 @@ public class JShell {
 
       case "man":
         // Add the manual for the command to output
-        String[] commands = commandArgs[0].split(" ");
-        output = Manual.printMan(commands[0]);
+        String manToPrint = commandArgs[0];
+        String historyToAdd = commandName;
+        if (commandArgs[0].startsWith("!")) { 
+          commandArgs[0] = History.recallExactCommand(commandArgs[0].substring(1));
+          manToPrint = commandArgs[0].split(" ")[0];
+        }
+        for (int i = 0; i < commandArgs.length; i++) {
+          historyToAdd += " " + commandArgs[i];
+        }
+        History.addToHistory(historyToAdd);
+        output = Manual.printMan(manToPrint);
         break;
 
       case "!":
         try {
+          History.addToHistory(History.recallExactCommand(commandArgs[0]));
           interpretInput(History.recallExactCommand(commandArgs[0]));
         } catch (StackOverflowError e) {
           if (!output.equals(infLoopMessage)) {
