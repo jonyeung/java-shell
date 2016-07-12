@@ -212,7 +212,6 @@ public class JShell {
         // Add the manual for the command to output
         String manToPrint = commandArgs[0];
         String historyToAdd = commandName + " ";
-        System.out.println(manToPrint);
         if (commandArgs[0].startsWith("!") && commandArgs[0].length() > 1) {
           commandArgs[0] =
               History.recallExactCommand(commandArgs[0].substring(1));
