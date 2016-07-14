@@ -8,7 +8,7 @@ import java.util.Hashtable;
 public class Manual {
 
   // Constant strings for each command message
-  private final static String CATMESSAGE = "cat FILE1 [FILE2 ...]\n"
+  private final static String CATMESSAGE = "cat FILE1 ... [> OUTFILE]\n"
       + "\tDisplays the contents of FILE1 and other files"
       + " (i.e. File2 ...) in the shell.";
 
@@ -24,13 +24,15 @@ public class Manual {
       + "\n\tIf OUTFILE does not exist, "
       + "then a new file called OUTFILE is created with contents STRING";
 
-  private final static String MANMESSAGE =
-      "man CMD\n" + "\tPrints the documentation for the command CMD."
-          + "\n\tSpecial notes:\n"
-          + "\t- [someargument] indicates an optional argument.\n"
-          + "\t- '...' indicates a list of arguments.";
+  private final static String MANMESSAGE = "man CMD [> OUTFILE]\n"
+      + "\tPrints the documentation for the command CMD."
+      + "\n\tSpecial notes:\n"
+      + "\t- [someargument] indicates an optional argument.\n"
+      + "\t- '...' indicates a list of arguments.\n"
+      + "\t- [> OUTFILE] indicates the file OUTFILE where output from commands"
+      + " is redirected.";
 
-  private final static String HISTORYMESSAGE = "history [number]\n"
+  private final static String HISTORYMESSAGE = "history [number] [> OUTFILE]\n"
       + "\tPrints out recent commands (both valid and invalid) with one command"
       + " on each line.\n"
       + "\tThe first column is numbered such that the highest number is the "
@@ -45,12 +47,13 @@ public class Manual {
       + "\tSaves the current working directory by pushing it onto a directory "
       + "stack and then changes the new current working diretory to DIR.";
 
-  private final static String PWDMESSAGE = "pwd\n"
+  private final static String PWDMESSAGE = "pwd [> OUTFILE]\n"
       + "\tPrints the current working directory (including the whole path).";
 
-  private final static String LSMESSAGE = "ls [PATH ...]\n"
+  private final static String LSMESSAGE = "ls [-R] [PATH ...] [> OUTFILE]\n"
       + "\tIf PATH is not given, print the contents (file or directory) of"
       + " the current directory, with a new line following each of the content."
+      + "\n\tIf R is given, ls recursively lists all subdirectories. "
       + "\n\tOtherwise, for each path PATH:\n"
       + "\t- If PATH specifies a file, ls prints the file name.\n"
       + "\t- If PATH specifies a directory, ls prints PATH, followed by a"
@@ -70,6 +73,27 @@ public class Manual {
   private final static String EXCLAMATIONMESSAGE =
       "!number\n\tRecalls any previously entered command by its history number"
           + " and executes the requested command.";
+  private final static String MOVEMESSAGE = "mv OLDPATH NEWPATH\n"
+      + "\tMove item at OLDPATH To NEWPATH. Both OLDPATH and NEWPATH may be"
+      + "relative to current directory or full paths. If NEWPATH is a "
+      + "directory," + "move the item into the directory.";
+  private final static String COPYMESSAGE = "cp OLDPATH NEWPATH\n"
+      + "\tCopies items at OLDPATH to NEWPATH. If OLDPATH is a directory, cp "
+      + "recursively copies the contents to NEWPATH.\n"
+      + "\tBoth OLDPATH and NEWPATH may be relative to current directory or "
+      + "full" + "paths.";
+  private final static String CURLMESSAGE = "curl URL\n"
+      + "\tRetrieves the file at URL and adds it to the current working "
+      + "directory in a new file.";
+  private final static String GREPMESSAGE =
+      "grep [-R] REGEX PATH ... [> OUTFILE] \n\tIf –R is not supplied, grep"
+          + "prints any lines containing REGEX in PATH, which must be "
+          + "a file. \n\tIf –R is supplied, and PATH is a directory, grep "
+          + "recursively traverse the directory "
+          + "and, for all lines in all files that contain REGEX, prints the "
+          + "path to the file "
+          + "(including the filename), then a colon, then the line that "
+          + "contained REGEX";
 
   // Hasthtable to map commands to each message
   private static Hashtable<String, String> commandMessages;
@@ -96,6 +120,10 @@ public class Manual {
     commandMessages.put("man", MANMESSAGE);
     commandMessages.put("exit", EXITMESSAGE);
     commandMessages.put("!", EXCLAMATIONMESSAGE);
+    commandMessages.put("mv", MOVEMESSAGE);
+    commandMessages.put("cp", COPYMESSAGE);
+    commandMessages.put("curl", CURLMESSAGE);
+    commandMessages.put("grep", GREPMESSAGE);
 
     // Get the command message from the hashtable
     String commandMessage = commandMessages.get(commandName);
