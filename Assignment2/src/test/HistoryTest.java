@@ -62,7 +62,7 @@ public class HistoryTest {
    *         history
    */
   @Test
-  public void testHistory3() throws CommandException {
+  public void testHistoryThree() throws CommandException {
 
     History.addToHistory("history 3");
     expectedOutput = "3. echo \"Hello World\"\n4. fsdfasd\n5. history 3";
@@ -103,6 +103,97 @@ public class HistoryTest {
       args = new String[] {"asf"};
       result = History.executeHistory(args);
       fail("Wrong type of argument");
+    } catch (CommandException e) {
+    }
+  }
+
+  /**
+   * Test recalling an exact command via !number
+   * 
+   * @throws CommandException If invalid number of history elements requested
+   */
+  @Test
+  public void testHistoryRecallExactCommand() throws CommandException {
+    expectedOutput = "mkdir textFolder";
+    result = History.recallExactCommand("2");
+    assertEquals(result, expectedOutput);
+  }
+
+  /**
+   * Test printing entire history after calling !number command, which should
+   * not be added to the history
+   * 
+   * @throws CommandException If invalid number of history elements requested
+   */
+  @Test
+  public void testPrintHistoryAfterRecallExactCommand()
+      throws CommandException {
+    History.recallExactCommand("1");
+    args = new String[] {"4"};
+    result = History.executeHistory(args);
+    expectedOutput = "1. cd ..\n2. mkdir textFolder\n3. echo \"Hello World\"\n"
+        + "4. fsdfasd";
+    assertEquals(result, expectedOutput);
+  }
+
+  /**
+   * Test recalling a command after 10th digit.
+   * 
+   * @throws CommandException For invalid arguments in executeHistory
+   */
+  public void testRecallDoubleDigitCommand() throws CommandException {
+    History.addToHistory("history 5");
+    History.addToHistory("history 6");
+    History.addToHistory("history 7");
+    History.addToHistory("history 8");
+    History.addToHistory("history 9");
+    History.addToHistory("history 10");
+    History.addToHistory("history 11");
+    args = new String[] {"11"};
+    result = History.executeHistory(args);
+    expectedOutput = "history 11";
+    assertEquals(result, expectedOutput);
+  }
+
+  /**
+   * Testing recalling exact command with invalid number.
+   * 
+   * @throws CommandException For invalid arguments in recallExactComand
+   */
+  @Test
+  public void testRecallExactCommandInvalidNumber() throws CommandException {
+    try {
+      result = History.recallExactCommand("5");
+      fail("There is no 5th command in history.");
+    } catch (CommandException e) {
+    }
+  }
+
+  /**
+   * Testing recalling exact command with non-numeric input
+   * 
+   * @throws CommandException For invalid arguments in recallExactComand
+   */
+  @Test
+  public void testRecallExactCommandInvalidInput() throws CommandException {
+    try {
+      result = History.recallExactCommand("abcd");
+      fail("Cannot recall commands using non-numeric input.");
+    } catch (CommandException e) {
+    }
+  }
+
+  /**
+   * Testing recalling exact command with number less than 1
+   * 
+   * @throws CommandException For invalid arguments in recallExactComand
+   */
+  @Test
+  public void testRecallExactCommandNumberLessThanOne()
+      throws CommandException {
+    try {
+      result = History.recallExactCommand("-1");
+      fail("Cannot recall commands before first command in history.");
     } catch (CommandException e) {
     }
   }
