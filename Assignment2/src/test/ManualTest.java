@@ -38,7 +38,7 @@ public class ManualTest {
   /**
    * Tests if the correct output is returned from calling man on the cat command
    * 
-   * @throws CommandException
+   * @throws CommandException If cat is not in manual
    */
   @Test
   public void testCorrectManualCommand() throws CommandException {
@@ -54,7 +54,7 @@ public class ManualTest {
    * Tests if the exception message is printed when user inputs the wrong
    * command name
    * 
-   * @throws CommandException
+   * @throws CommandException If invalid argument passed in man
    */
   @Test
   public void testManualException() throws CommandException {
