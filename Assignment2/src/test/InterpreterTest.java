@@ -68,7 +68,7 @@ public class InterpreterTest {
     expected = new String[] {"echo", "\"hello this is it\"", ">", "outfile"};
     assertArrayEquals(result, expected);
   }
-  
+
   /**
    * Test that a command with ! will separate the command from the arugment
    * 
@@ -82,7 +82,7 @@ public class InterpreterTest {
     expected = new String[] {"!", "103"};
     assertArrayEquals(result, expected);
   }
-  
+
   /**
    * Test that the input fails if a single " is used
    */
@@ -95,7 +95,7 @@ public class InterpreterTest {
       fail("Only a single quote is used");
     } catch (CommandException e) {
     }
-    
+
     try {
       String userInput = "echo hi\" > out";
       Interpreter.validInput(userInput);
@@ -146,7 +146,7 @@ public class InterpreterTest {
     String userInput = "       mkdir    user1 user2      user3   ";
     assertTrue(Interpreter.validInput(userInput));
   }
-  
+
   /**
    * Test that the input fails if nothing is given as input
    */
@@ -201,7 +201,7 @@ public class InterpreterTest {
       fail("Invalid chevron use");
     } catch (CommandException e) {
     }
-    
+
     try {
       String userInput = "ls >> >";
       Interpreter.validInput(userInput);
@@ -209,7 +209,7 @@ public class InterpreterTest {
     } catch (CommandException e) {
     }
   }
-  
+
   /**
    * Test that the new file name given is valid
    * 
