@@ -106,7 +106,8 @@ public class History {
    * 
    * @param commandPosition The command
    * @return String The command to be returned from historyFile
-   * @throws CommandException
+   * @throws CommandException If user somehow manages to get into an infinite
+   *         loop through invalid output
    */
   public static String recallExactCommand(String commandArg)
       throws CommandException {
@@ -153,7 +154,7 @@ public class History {
    * 
    * @param commandArg The number of the command in history to check
    * @return Boolean True if the command has valid arguments
-   * @throws CommandException
+   * @throws CommandException For every invalid input user inputs
    */
   private static Boolean checkExactExecute(String commandArg)
       throws CommandException {
