@@ -76,7 +76,7 @@ public class Manual {
   private final static String MOVEMESSAGE = "mv OLDPATH NEWPATH\n"
       + "\tMove item at OLDPATH To NEWPATH. Both OLDPATH and NEWPATH may be"
       + "relative to current directory or full paths. If NEWPATH is a "
-      + "directory," + "move the item into the directory.";
+      + "directory, move the item into the directory.";
   private final static String COPYMESSAGE = "cp OLDPATH NEWPATH\n"
       + "\tCopies items at OLDPATH to NEWPATH. If OLDPATH is a directory, cp "
       + "recursively copies the contents to NEWPATH.\n"
@@ -86,14 +86,14 @@ public class Manual {
       + "\tRetrieves the file at URL and adds it to the current working "
       + "directory in a new file.";
   private final static String GREPMESSAGE =
-      "grep [-R] REGEX PATH ... [> OUTFILE] \n\tIf –R is not supplied, grep"
+      "grep [-R] REGEX PATH ... [> OUTFILE] \n\tIf –R is not supplied, grep "
           + "prints any lines containing REGEX in PATH, which must be "
           + "a file. \n\tIf –R is supplied, and PATH is a directory, grep "
           + "recursively traverse the directory "
           + "and, for all lines in all files that contain REGEX, prints the "
           + "path to the file "
           + "(including the filename), then a colon, then the line that "
-          + "contained REGEX";
+          + "contained REGEX.";
 
   // Hasthtable to map commands to each message
   private static Hashtable<String, String> commandMessages;
