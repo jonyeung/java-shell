@@ -42,7 +42,8 @@ public class HistoryTest {
   /**
    * Test we get proper output when getting history of all past commands
    * 
-   * @throws CommandException
+   * @throws CommandException If user tries to access invalid elements in
+   *         history
    */
   @Test
   public void testAllHistory() throws CommandException {
@@ -57,7 +58,8 @@ public class HistoryTest {
   /**
    * Test we get proper output when getting history of all past commands
    * 
-   * @throws CommandException
+   * @throws CommandException If user tries to access invalid elements in
+   *         history
    */
   @Test
   public void testHistory3() throws CommandException {
@@ -73,7 +75,8 @@ public class HistoryTest {
    * Test an exception is thrown when trying to get more commands than in the
    * history
    * 
-   * @throws CommandException
+   * @throws CommandException If user tries to access invalid elements in
+   *         history
    */
   @Test
   public void testHistoryWithMoreCommandsThatExist() throws CommandException {
@@ -90,7 +93,7 @@ public class HistoryTest {
   /**
    * Test an exception is thrown when given an invalid argument
    * 
-   * @throws CommandException
+   * @throws CommandException If user inputs invalid arguments
    */
   @Test
   public void testHistoryInvalidParameter() throws CommandException {
