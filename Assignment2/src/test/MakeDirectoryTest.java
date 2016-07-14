@@ -39,7 +39,8 @@ public class MakeDirectoryTest {
   /**
    * Test that makeADirectory creates a directory in the root
    * 
-   * @throws CommandException
+   * @throws CommandException If the new directory name uses special characters
+   *         or the name is already used in another file in the same directory
    */
   @Test
   public void testMakeADirectoryRoot() throws CommandException {
@@ -53,7 +54,8 @@ public class MakeDirectoryTest {
    * Test that makeADirectory creates a directory in the file specified at the
    * given absolute pathway
    * 
-   * @throws CommandException
+   * @throws CommandException If the new directory name uses special characters
+   *         or the name is already used in another file in the same directory
    */
   @Test
   public void testMakeADirectoryAbsolute() throws CommandException {
@@ -70,11 +72,9 @@ public class MakeDirectoryTest {
   /**
    * Test that makeADirectory throws an exception when creating a directory with
    * special characters
-   * 
-   * @throws CommandException
    */
   @Test
-  public void testMakeADirectoryWithSpecialChars() throws CommandException {
+  public void testMakeADirectoryWithSpecialChars() {
 
     try {
       MakeDirectory.makeADirectory(fileSystem, "&*#");
@@ -86,11 +86,9 @@ public class MakeDirectoryTest {
   /**
    * Test that makeADirectory throws an exception when creating a directory with
    * '.' characters only
-   * 
-   * @throws CommandException
    */
   @Test
-  public void testMakeADirectoryWithDotChars() throws CommandException {
+  public void testMakeADirectoryWithDotChars() {
 
     try {
       MakeDirectory.makeADirectory(fileSystem, "..");

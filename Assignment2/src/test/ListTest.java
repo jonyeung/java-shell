@@ -42,7 +42,7 @@ public class ListTest {
    * Test that nothing is returned when list is called on a directory holding no
    * files
    * 
-   * @throws CommandException
+   * @throws CommandException If filepath given to list does not exist
    */
   @Test
   public void testListWithNoDirectories() throws CommandException {
@@ -55,7 +55,7 @@ public class ListTest {
   /**
    * Test that all the file's contents are returned
    * 
-   * @throws CommandException
+   * @throws CommandException If filepath given to list does not exist
    */
   @Test
   public void testListWithMultipleDirectories() throws CommandException {
@@ -73,7 +73,7 @@ public class ListTest {
    * Test that all the file's contents are returned at the file found at the
    * given file path
    * 
-   * @throws CommandException
+   * @throws CommandException If filepath given to list does not exist
    */
   @Test
   public void testListWithAbsolutePath() throws CommandException {
@@ -98,7 +98,7 @@ public class ListTest {
   /**
    * Test that all file contents are shown for every path that is provided
    * 
-   * @throws CommandException
+   * @throws CommandException If filepath given to list does not exist
    */
   @Test
   public void testListWithMultipleAbsolutePaths() throws CommandException {
@@ -125,7 +125,7 @@ public class ListTest {
    * Test that all file contents are shown for every path that is provided and
    * that file names are formatted properly
    * 
-   * @throws CommandException
+   * @throws CommandException If filepath given to list does not exist
    */
   @Test
   public void testListWithMultipleDirectoriesAndFiles()
@@ -148,10 +148,10 @@ public class ListTest {
   }
 
   /**
-   * Test that all file contents are shown when using list recursively with
-   * one file paths
+   * Test that all file contents are shown when using list recursively with one
+   * file paths
    * 
-   * @throws CommandException
+   * @throws CommandException If filepath given to list does not exist
    */
   @Test
   public void testRecursiveListWithOneDirectory() throws CommandException {
@@ -175,7 +175,7 @@ public class ListTest {
    * Test that all file contents are shown when using list recursively with
    * multiple file paths
    * 
-   * @throws CommandException
+   * @throws CommandException If filepath given to list does not exist
    */
   @Test
   public void testRecursiveListWithMultipleDirectories()
@@ -200,11 +200,9 @@ public class ListTest {
 
   /**
    * Test that a CommandException is thrown if a directory does not exist
-   * 
-   * @throws CommandException
    */
   @Test
-  public void testListException() throws CommandException {
+  public void testListException() {
 
     try {
       String[] path = {"/dir1"};

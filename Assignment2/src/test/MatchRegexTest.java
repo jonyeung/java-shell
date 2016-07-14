@@ -81,7 +81,7 @@ public class MatchRegexTest {
   }
 
   /**
-   * Test grep works with multiple files
+   * Test grep works recursively on a directory 
    * 
    * @throws CommandException If file path does not exist, a directory file path
    *         is given and not recursive
@@ -89,14 +89,15 @@ public class MatchRegexTest {
   @Test
   public void testGrepRecursive() throws CommandException {
 
-    String[] args = {"-r", "\".*the.*\"", "."};
+    String[] args = {"-r", "\".*the.*\"", ".", "doc"};
     result = MatchRegex.executeGrep(fileSystem, args);
     expected = "./doc: The thing with the carrot\n"
         + "./movie: This is the day we saw that thing\n"
         + "./movie: That thing was at the movie\n"
         + "./movie: You know about the popcorn and that guy\n"
         + "./dir1/secret: I'm always angry said the Hulk\n"
-        + "./dir1/secret: after walking in to the sunset";
+        + "./dir1/secret: after walking in to the sunset\n"
+        + "doc: The thing with the carrot";
     assertEquals(result, expected);
   }
 
@@ -111,6 +112,21 @@ public class MatchRegexTest {
       String[] args = {"-r", ".*the.*", "."};
       result = MatchRegex.executeGrep(fileSystem, args);
       fail("Regex is not surrounded by double quote characters");
+    } catch (CommandException e) {
+    }
+  }
+
+  /**
+   * Test that an exception is thrown if a directory filepath is given and grep
+   * is not called with -r
+   */
+  @Test
+  public void testGrepRegexNotRecursiveWithDirectoryFilePath() {
+
+    try {
+      String[] args = {"\".*the.*\"", "."};
+      result = MatchRegex.executeGrep(fileSystem, args);
+      fail("Cannot grep a directory with -r");
     } catch (CommandException e) {
     }
   }

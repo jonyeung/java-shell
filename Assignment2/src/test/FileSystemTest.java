@@ -36,12 +36,12 @@ public class FileSystemTest {
 
     fileSystem = new FileSystem();
     Directory root = fileSystem.getRootDirectory();
-    Directory dir1 = new Directory("dir1");
-    Directory dir2 = new Directory("dir2");
-    Directory file1 = new Directory("file1");
-    Directory file2 = new Directory("file2");
-    Directory fileA = new Directory("fileA");
-    Directory fileB = new Directory("fileB");
+    Directory dir1 = new Directory("dir1", root);
+    Directory dir2 = new Directory("dir2", root);
+    Directory file1 = new Directory("file1", dir1);
+    Directory file2 = new Directory("file2", dir1);
+    Directory fileA = new Directory("fileA", dir2);
+    Directory fileB = new Directory("fileB", dir2);
     root.storeFile(dir1);
     root.storeFile(dir2);
     dir1.storeFile(file1);

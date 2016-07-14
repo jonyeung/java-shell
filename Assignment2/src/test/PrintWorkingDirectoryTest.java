@@ -5,9 +5,7 @@ import static org.junit.Assert.*;
 
 import driver.PrintWorkingDirectory;
 import driver.FileSystem;
-import driver.ChangeDirectory;
-import driver.CommandException;
-import driver.MakeDirectory;
+import driver.Directory;
 
 /**
  * Class for testing the methods in PrintWorkingDirectory
@@ -54,15 +52,15 @@ public class PrintWorkingDirectoryTest {
   /**
    * Test the result of calling PWD on a newly made directory that user cd's
    * into
-   * 
-   * @throws CommandException
    */
   @Test
-  public void testPrintNewlyMadeDirectory() throws CommandException {
+  public void testPrintNewlyMadeDirectory() {
 
-    MakeDirectory.makeADirectory(fileSystem, "dir");
-    ChangeDirectory.changeCurrentDirectory(fileSystem, "dir");
-    expectedOutput = "/dir/";
+    Directory root = fileSystem.getRootDirectory();
+    Directory dir1 = new Directory("dir1", root);
+    root.storeFile(dir1);
+    fileSystem.setCurrentDirectory(dir1);
+    expectedOutput = "/dir1/";
     result = PrintWorkingDirectory.printWD(fileSystem);
 
     assertEquals(result, expectedOutput);

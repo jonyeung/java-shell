@@ -16,8 +16,7 @@ public class List {
    * @param fileSystem The file system containing all the files and directories
    * @param args All arguments given
    * @return String The contents of each file path given
-   * @throws CommandException If file at file path does not exist or Bad format
-   *         of file path
+   * @throws CommandException If file at file path does not exist
    */
   public static String list(FileSystem fileSystem, String[] args)
       throws CommandException {
