@@ -173,8 +173,9 @@ public class History {
 
     // Invalid number input exception
     try {
+      int subStringVal = commandArg.length() + 2;
       // Get the command to run and split the extra bit at the start
-      historyFile.get(commandPosition - 1).substring(3);
+      historyFile.get(commandPosition - 1).substring(subStringVal);
     } catch (Exception e) {
       throw new CommandException("Please input a valid number.");
     }
