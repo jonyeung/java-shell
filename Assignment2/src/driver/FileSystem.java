@@ -90,8 +90,7 @@ public class FileSystem {
    * @param curr The starting directory to look for file in pathway
    * @param pathway The array of file/directory names to find a file
    * @return Directory The Directory that we are looking for
-   * @throws CommandException If search file does not exist, If trying to search
-   *         the parent of the root
+   * @throws CommandException If search file does not exist
    */
   private Directory getDirectory(Directory curr, String[] pathway)
       throws CommandException {
@@ -137,8 +136,7 @@ public class FileSystem {
    * 
    * @param path The file path in the format given by the user
    * @return Directory The Directory that we are looking for
-   * @throws CommandException If given a non-existing file path, If trying to
-   *         search the parent of the root
+   * @throws CommandException If given a non-existing file path
    */
   public Directory traversePath(String path) throws CommandException {
 
@@ -173,8 +171,7 @@ public class FileSystem {
    * 
    * @param path The file path in the format given by the user
    * @return Directory The parent directory
-   * @throws CommandException If given a non-existing file path, If trying to
-   *         search the parent of the root
+   * @throws CommandException If given a non-existing file path
    */
   public Directory getParentDirectory(String path) throws CommandException {
 
@@ -199,8 +196,7 @@ public class FileSystem {
    * 
    * @param path The file path in the format given by the user
    * @return File The file wanted
-   * @throws CommandException If given a non-existing file path, If trying to
-   *         search the parent of the root
+   * @throws CommandException If given a non-existing file path
    */
   public File getFile(String path) throws CommandException {
 
@@ -266,8 +262,7 @@ public class FileSystem {
    * @param fileSystem The file system containing all the files and directories
    * @param filepaths The file paths that we want to list recursively
    * @param fm A hash table containing file path that map to corresponding files
-   * @throws CommandException If file at filepath does not exist or Bad format
-   *         of file path
+   * @throws CommandException If file at filepath does not exist
    */
   public void recursiveDirectoryList(String[] filepaths,
       Hashtable<String, File> fm) throws CommandException {
@@ -293,8 +288,7 @@ public class FileSystem {
    * @param fileSystem The file system containing all the files and directories
    * @param filepaths The file paths that we want to list
    * @param fm A hash table containing file path that map to corresponding files
-   * @throws CommandException If file at filepath does not exist or Bad format
-   *         of file path
+   * @throws CommandException If file at filepath does not exist
    */
   public void DirectoryList(String[] filepaths, Hashtable<String, File> fm)
       throws CommandException {

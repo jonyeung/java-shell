@@ -59,7 +59,7 @@ public class Echo {
    * @param chevrons Boolean that is true if there are 2 chevrons, false o/w
    * @throws CommandException If given a non-existing file path
    */
-  public static void echoNew(FileSystem fileSys, String fileContents,
+  private static void echoNew(FileSystem fileSys, String fileContents,
       String path, Boolean chevrons) throws CommandException {
 
     // Get the name of the text file

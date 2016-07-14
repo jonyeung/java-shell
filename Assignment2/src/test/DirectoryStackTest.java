@@ -47,7 +47,8 @@ public class DirectoryStackTest {
   /**
    * Test that pushd adds the directory to the stack
    * 
-   * @throws CommandException
+   * @throws CommandException If trying to change directory to a file that does
+   *         not exist
    */
   @Test
   public void testPushd() throws CommandException {
@@ -64,7 +65,8 @@ public class DirectoryStackTest {
   /**
    * Test that popd returns to the most recently pushed directory
    * 
-   * @throws CommandException
+   * @throws CommandException If trying to change directory to a file that does
+   *         not exist, Trying to pop from empty directory stack
    */
   @Test
   public void testPopd() throws CommandException {
@@ -81,11 +83,9 @@ public class DirectoryStackTest {
 
   /**
    * Test that popd raises an exception of popping from empty stack
-   * 
-   * @throws CommandException
    */
   @Test
-  public void testPopdFromEmptyStack() throws CommandException {
+  public void testPopdFromEmptyStack() {
 
     try {
       DirectoryStack.popd(fileSystem);

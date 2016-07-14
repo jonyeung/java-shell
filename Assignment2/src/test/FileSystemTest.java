@@ -2,6 +2,10 @@ package test;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Hashtable;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -59,7 +63,7 @@ public class FileSystemTest {
   /**
    * Test if getting a text file works
    * 
-   * @throws CommandException
+   * @throws CommandException If given a non-existing file path
    */
   @Test
   public void testGetTextFile() throws CommandException {
@@ -73,7 +77,7 @@ public class FileSystemTest {
   /**
    * Test if getting a directory works if you use '.' characters
    * 
-   * @throws CommandException
+   * @throws CommandException If given a non-existing file path
    */
   @Test
   public void testGetFileWithCurrentCharacter() throws CommandException {
@@ -87,7 +91,7 @@ public class FileSystemTest {
   /**
    * Test if getting a directory works if you use '..' characters
    * 
-   * @throws CommandException
+   * @throws CommandException If given a non-existing file path
    */
   @Test
   public void testGetFileWithParentCharacter() throws CommandException {
@@ -100,11 +104,9 @@ public class FileSystemTest {
 
   /**
    * Test if it throws an exception if a fake file path is given
-   * 
-   * @throws CommandException
    */
   @Test
-  public void testGetFileWithInvalidPath() throws CommandException {
+  public void testGetFileWithInvalidPath() {
 
     try {
       testFile = fileSystem.getFile("dir1/sdf");
@@ -116,7 +118,7 @@ public class FileSystemTest {
   /**
    * Test if getting a file's parent works
    * 
-   * @throws CommandException
+   * @throws CommandException If given a non-existing file path
    */
   @Test
   public void testGetParent() throws CommandException {
@@ -130,7 +132,7 @@ public class FileSystemTest {
   /**
    * Test if getting a file's parent works when using the '.' character
    * 
-   * @throws CommandException
+   * @throws CommandException If given a non-existing file path
    */
   @Test
   public void testGetParentWithCurrentCharacter() throws CommandException {
@@ -144,7 +146,7 @@ public class FileSystemTest {
   /**
    * Test if getting a file's parent works when using the '..' character
    * 
-   * @throws CommandException
+   * @throws CommandException If given a non-existing file path
    */
   @Test
   public void testGetParentWithParentCharacter() throws CommandException {
@@ -157,11 +159,9 @@ public class FileSystemTest {
 
   /**
    * Test if getting the parent of the root directory will raise an exception
-   * 
-   * @throws CommandException
    */
   @Test
-  public void testGetFileParentOfRoot() throws CommandException {
+  public void testGetFileParentOfRoot() {
 
     try {
       testFile = fileSystem.getFile("..");
@@ -173,7 +173,7 @@ public class FileSystemTest {
   /**
    * Test if traversing an absolute file path works
    * 
-   * @throws CommandException
+   * @throws CommandException If given a non-existing file path
    */
   @Test
   public void testTraverseAbsoluteFilePath() throws CommandException {
@@ -187,7 +187,7 @@ public class FileSystemTest {
   /**
    * Test if traversing a relative file path works
    * 
-   * @throws CommandException
+   * @throws CommandException If given a non-existing file path
    */
   @Test
   public void testTraverseRelativeFilePath() throws CommandException {
@@ -198,5 +198,57 @@ public class FileSystemTest {
     assertEquals(result, expected);
   }
 
+  /**
+   * Test if method recursiveDirectoryList will get the directories and
+   * sub-directories given a list of file paths
+   * 
+   * @throws CommandException If filepaths does not exist
+   */
+  @Test
+  public void testRecursiveDirectoryList() throws CommandException {
+
+    Hashtable<String, File> fm = new Hashtable<String, File>();
+    String[] args = {".", "/dir1", "dir2/fileA"};
+    fileSystem.recursiveDirectoryList(args, fm);
+    ArrayList<String> paths = Collections.list(fm.keys());
+    Collections.sort(paths);
+
+    ArrayList<String> expected = new ArrayList<String>();
+    expected.add(".");
+    expected.add("./dir1");
+    expected.add("./dir1/file1");
+    expected.add("./dir1/file2");
+    expected.add("./dir2");
+    expected.add("./dir2/fileA");
+    expected.add("./dir2/fileB");
+
+    expected.add("/dir1");
+    expected.add("/dir1/file1");
+    expected.add("/dir1/file2");
+
+    expected.add("dir2/fileA");
+    assertEquals(paths, expected);
+  }
+
+  /**
+   * Test if method directoryList will get the files given a list of file paths
+   * 
+   * @throws CommandException If filepaths does not exist
+   */
+  @Test
+  public void testDirectoryList() throws CommandException {
+
+    Hashtable<String, File> fm = new Hashtable<String, File>();
+    String[] args = {".", "/dir1", "dir2/fileA"};
+    fileSystem.DirectoryList(args, fm);
+    ArrayList<String> paths = Collections.list(fm.keys());
+    Collections.sort(paths);
+
+    ArrayList<String> expected = new ArrayList<String>();
+    expected.add(".");
+    expected.add("/dir1");
+    expected.add("dir2/fileA");
+    assertEquals(paths, expected);
+  }
 
 }

@@ -43,7 +43,8 @@ public class EchoTest {
   /**
    * Test echo with one argument. It should return the string given
    * 
-   * @throws CommandException
+   * @throws CommandException If given a non-existing file path, if chevrons are
+   *         used improperly, if number of arguments is incorrect
    */
   @Test
   public void testEchoString() throws CommandException {
@@ -57,7 +58,8 @@ public class EchoTest {
   /**
    * Test that echo writes the string to a text file
    * 
-   * @throws CommandException
+   * @throws CommandException If given a non-existing file path, if chevrons are
+   *         used improperly, if number of arguments is incorrect
    */
   @Test
   public void testEchoWriteToFile() throws CommandException {
@@ -77,7 +79,8 @@ public class EchoTest {
   /**
    * Test that echo appends the string to an existing text file
    * 
-   * @throws CommandException
+   * @throws CommandException If given a non-existing file path, if chevrons are
+   *         used improperly, if number of arguments is incorrect
    */
   @Test
   public void testEchoAppendToFile() throws CommandException {
@@ -96,11 +99,9 @@ public class EchoTest {
 
   /**
    * Test that echo raises an exception if appending to a non-existing file
-   * 
-   * @throws CommandException
    */
   @Test
-  public void testAppendToFakeFile() throws CommandException {
+  public void testAppendToFakeFile() {
 
     try {
       args = new String[] {"Hi World", ">>", "out.txt"};
@@ -112,11 +113,9 @@ public class EchoTest {
 
   /**
    * Test that echo raises an exception if two arguments are given
-   * 
-   * @throws CommandException
    */
   @Test
-  public void testWrongNumberParameters() throws CommandException {
+  public void testWrongNumberParameters() {
 
     try {
       args = new String[] {"Hi World", "out.txt"};
@@ -129,11 +128,9 @@ public class EchoTest {
   /**
    * Test that echo raises an exception if three arguments are given, but second
    * isn't a chevron
-   * 
-   * @throws CommandException
    */
   @Test
-  public void testWrongFormatChevron() throws CommandException {
+  public void testWrongFormatChevron() {
 
     try {
       args = new String[] {"Hi World", "->", "out.txt"};

@@ -22,8 +22,6 @@ public class ChangeDirectoryTest {
 
   /**
    * Sets up the fileSystem and expected/actual result strings
-   * 
-   * @throws Exception
    */
   @Before
   public void setUp() {
@@ -46,11 +44,9 @@ public class ChangeDirectoryTest {
 
   /**
    * Testing changing into directory before the root
-   * 
-   * @throws CommandException
    */
   @Test
-  public void testChangingToInvalidRoot() throws CommandException {
+  public void testChangingToInvalidRoot() {
 
     try {
       ChangeDirectory.changeCurrentDirectory(fileSystem, "..");
@@ -61,11 +57,9 @@ public class ChangeDirectoryTest {
 
   /**
    * Testing changing into invalid directory
-   * 
-   * @throws CommandException
    */
   @Test
-  public void testChangingToInvalidDirectory() throws CommandException {
+  public void testChangingToInvalidDirectory() {
 
     try {
       ChangeDirectory.changeCurrentDirectory(fileSystem, "invalidName");
@@ -77,7 +71,8 @@ public class ChangeDirectoryTest {
   /**
    * Testing changing into valid directory
    * 
-   * @throws CommandException
+   * @throws CommandException If trying to change directory to a file that does
+   *         not exist
    */
   @Test
   public void testChangingToValidDirectory() throws CommandException {

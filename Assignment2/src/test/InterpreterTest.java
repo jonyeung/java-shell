@@ -20,8 +20,6 @@ public class InterpreterTest {
 
   /**
    * Sets up the fileSystem and expected/actual result strings
-   * 
-   * @throws Exception
    */
   @Before
   public void setUp() {
@@ -32,7 +30,7 @@ public class InterpreterTest {
   /**
    * Test that a valid input will work
    * 
-   * @throws CommandException
+   * @throws CommandException When an odd number of " characters are given
    */
   @Test
   public void testCommandToArray() throws CommandException {
@@ -46,7 +44,7 @@ public class InterpreterTest {
   /**
    * Test that input with multiple file paths is valid
    * 
-   * @throws CommandException
+   * @throws CommandException When an odd number of " characters are given
    */
   @Test
   public void testCommandWithFilepathsToArray() throws CommandException {
@@ -60,7 +58,7 @@ public class InterpreterTest {
   /**
    * Test that a command with echo will keep anything in double quotes together
    * 
-   * @throws CommandException
+   * @throws CommandException When an odd number of " characters are given
    */
   @Test
   public void testCommandWithEchoToArray() throws CommandException {
@@ -70,11 +68,46 @@ public class InterpreterTest {
     expected = new String[] {"echo", "\"hello this is it\"", ">", "outfile"};
     assertArrayEquals(result, expected);
   }
+  
+  /**
+   * Test that a command with ! will separate the command from the arugment
+   * 
+   * @throws CommandException When an odd number of " characters are given
+   */
+  @Test
+  public void testCommandWithExclamationMark() throws CommandException {
+
+    String userInput = "!103";
+    result = Interpreter.commandToArray(userInput);
+    expected = new String[] {"!", "103"};
+    assertArrayEquals(result, expected);
+  }
+  
+  /**
+   * Test that the input fails if a single " is used
+   */
+  @Test
+  public void testCommandSingleDoubleQuote() {
+
+    try {
+      String userInput = "echo \"hi > out";
+      Interpreter.validInput(userInput);
+      fail("Only a single quote is used");
+    } catch (CommandException e) {
+    }
+    
+    try {
+      String userInput = "echo hi\" > out";
+      Interpreter.validInput(userInput);
+      fail("Only a single quote is used");
+    } catch (CommandException e) {
+    }
+  }
 
   /**
    * Test that converting a relative file path to an array of strings works
    * 
-   * @throws CommandException
+   * @throws CommandException When an odd number of " characters are given
    * 
    */
   @Test
@@ -89,7 +122,7 @@ public class InterpreterTest {
   /**
    * Test that converting an absolute file path to an array of strings works
    * 
-   * @throws CommandException
+   * @throws CommandException When an odd number of " characters are given
    * 
    */
   @Test
@@ -104,7 +137,8 @@ public class InterpreterTest {
   /**
    * Test that the input is valid even if it has bad space formatting
    * 
-   * @throws CommandException
+   * @throws CommandException When no input is given, Command name is not valid,
+   *         The wrong number of arguments are given, Improper use of chevrons
    */
   @Test
   public void testValidInputWithSpacesInInput() throws CommandException {
@@ -112,14 +146,26 @@ public class InterpreterTest {
     String userInput = "       mkdir    user1 user2      user3   ";
     assertTrue(Interpreter.validInput(userInput));
   }
+  
+  /**
+   * Test that the input fails if nothing is given as input
+   */
+  @Test
+  public void testFailNoCommand() {
+
+    try {
+      String userInput = "";
+      Interpreter.validInput(userInput);
+      fail("No command given");
+    } catch (CommandException e) {
+    }
+  }
 
   /**
    * Test that the input fails if not enough arguments are given
-   * 
-   * @throws CommandException
    */
   @Test
-  public void testFailNotEnoughArgs() throws CommandException {
+  public void testFailNotEnoughArgs() {
 
     try {
       String userInput = "pushd";
@@ -131,11 +177,9 @@ public class InterpreterTest {
 
   /**
    * Test that the input fails if the command is not real
-   * 
-   * @throws CommandException
    */
   @Test
-  public void testFakeCommand() throws CommandException {
+  public void testFakeCommand() {
 
     try {
       String userInput = " hi !";
@@ -146,9 +190,30 @@ public class InterpreterTest {
   }
 
   /**
+   * Test improper chevron use raises exceptions
+   */
+  @Test
+  public void testImproperChevrons() {
+
+    try {
+      String userInput = "echo > > out";
+      Interpreter.validInput(userInput);
+      fail("Invalid chevron use");
+    } catch (CommandException e) {
+    }
+    
+    try {
+      String userInput = "ls >> >";
+      Interpreter.validInput(userInput);
+      fail("Invalid chevron use");
+    } catch (CommandException e) {
+    }
+  }
+  
+  /**
    * Test that the new file name given is valid
    * 
-   * @throws CommandException
+   * @throws CommandException When an odd number of " characters are in fileName
    */
   @Test
   public void testCheckValidFileName() throws CommandException {
@@ -162,7 +227,7 @@ public class InterpreterTest {
   /**
    * Test that the new file name given is valid
    * 
-   * @throws CommandException
+   * @throws CommandException When an odd number of " characters are in fileName
    */
   @Test
   public void testCheckInvalidFileName() throws CommandException {
