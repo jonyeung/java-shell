@@ -78,7 +78,7 @@ public class Manual {
    * Returns the message to be printed by the JShell
    * 
    * @param commandName The name of the command to display the manual for
-   * @throws CommandException
+   * @throws CommandException If user inputs an invalid commandname
    */
   public static String printMan(String commandName) throws CommandException {
 
