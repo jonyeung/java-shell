@@ -45,8 +45,6 @@ import driver.FileSystem;
 public class JShell {
 
   private static Boolean exitStatus;
-  private static int infLoop = 0;
-
   public static FileSystem fileSystem;
 
   /**
