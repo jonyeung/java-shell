@@ -247,24 +247,21 @@ public class Interpreter {
    */
   private static boolean usesChevrons(String[] input) throws CommandException {
 
-    int i = 0;
-    boolean check = false;
     boolean result = false;
 
     // Loop through each string in input and check if any are single or double
     // chevrons
-    while (i < input.length && !check) {
+    for (int i = 0; i < input.length; i++){
       if (input[i].equals(">") || input[i].equals(">>")) {
         // If the index is not at the second last position, then the chevrons
         // are in the wrong location
         if (i != input.length - 2) {
           throw new CommandException(
               "The placement of " + input[i] + " is not correct.");
-        } else if (i == input.length) {
+        } else {
           result = true;
         }
       }
-      i++;
     }
 
     return result;
