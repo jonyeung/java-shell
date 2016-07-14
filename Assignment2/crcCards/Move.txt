@@ -1,0 +1,12 @@
+Class name: Move
+Parent class: N/A
+Subclasses: N/A
+
+Responsibilities:
+Moves and copy a file or a directory's files to another location
+
+Collaborators: 
+CommandException
+Directory
+File
+FileSystem

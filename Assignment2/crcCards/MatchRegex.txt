@@ -1,0 +1,12 @@
+Class name: MatchRegex
+Parent class: N/A
+Subclasses: N/A
+
+Responsibilities:
+Match a regex to textfiles and all textfiles in a directory
+
+Collaborators: 
+CommandException
+Directory
+TextFile
+FileSystem

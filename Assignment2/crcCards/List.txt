@@ -4,7 +4,7 @@ Subclasses: N/A
 
 Responsibilities:
 Prints the names of all files and directories in the directory given
-Reads files contents
+Print contents of directories recursively
 
 Collaborators: 
 CommandException

@@ -1,0 +1,12 @@
+Class name: Curl
+Parent class: N/A
+Subclasses: N/A
+
+Responsibilities:
+Retrieves a file at a URL and adds it to the current directory
+
+Collaborators: 
+CommandException
+Directory
+FileSystem
+TextFile
