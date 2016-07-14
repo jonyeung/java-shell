@@ -56,7 +56,7 @@ public class MatchRegexTest {
 
     String[] args = {"\"[A-Z]\"", "out"};
     result = MatchRegex.executeGrep(fileSystem, args);
-    expected = "out: A";
+    expected = "A";
     assertEquals(result, expected);
   }
 

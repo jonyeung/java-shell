@@ -86,7 +86,7 @@ public class MatchRegex {
       File currFile = fM.get(currFilepath);
 
       if (currFile instanceof TextFile) {
-        output += regexMatch(currFile, currFilepath, regex);
+        output += regexMatch(currFile, currFilepath, regex, true);
       } else if (currFile instanceof Directory) {
 
         // Get all the files in the currFile directory
@@ -98,7 +98,7 @@ public class MatchRegex {
 
           if (curr instanceof TextFile) {
             String newPath = currFilepath + "/" + curr.getName();
-            output += regexMatch(curr, newPath, regex);
+            output += regexMatch(curr, newPath, regex, true);
           }
         }
       }
@@ -124,12 +124,17 @@ public class MatchRegex {
     ArrayList<String> paths = Collections.list(fM.keys());
     Collections.sort(paths);
 
-    // Go through each file and call regexMatch on it
-    for (int i = 0; i < paths.size(); i++) {
-      String currFilepath = paths.get(i);
-      output += regexMatch(fM.get(currFilepath), currFilepath, regex);
+    // If there is only one file, then do not print it's file path
+    if (paths.size() == 1) {
+      String currFilepath = paths.get(0);
+      output += regexMatch(fM.get(currFilepath), currFilepath, regex, false);
+    } else {
+      // Go through each file and call regexMatch on it
+      for (int i = 0; i < paths.size(); i++) {
+        String currFilepath = paths.get(i);
+        output += regexMatch(fM.get(currFilepath), currFilepath, regex, true);
+      }
     }
-
     return output;
   }
 
@@ -140,11 +145,12 @@ public class MatchRegex {
    * @param currFile The current text file we are looking at
    * @param filepath The file path given of the current file
    * @param regex The regular expression we want to match
+   * @param printFilepath If the output should start each line with the filepath
    * @return String All lines in the text file that matched the regex
    * @throws CommandException If the current file is not a text file
    */
-  private static String regexMatch(File currFile, String filepath, String regex)
-      throws CommandException {
+  private static String regexMatch(File currFile, String filepath, String regex,
+      boolean printFilepath) throws CommandException {
 
     // If the currFile is not a text file then raise an exception
     if (!(currFile instanceof TextFile)) {
@@ -160,8 +166,12 @@ public class MatchRegex {
 
       // If the line matches the regex then append it to the output
       if (line.matches(regex)) {
-        output += filepath + ": " + line;
-
+        if (printFilepath){
+          output += filepath + ": " + line;
+        } else {
+          output += line;
+        }
+        
         // Add a new line character if the matching line doesn't end with one.
         if (!(output.endsWith("\n"))) {
           output += "\n";
