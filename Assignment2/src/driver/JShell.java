@@ -135,9 +135,10 @@ public class JShell {
    * @param commandName The command name of the command to be executed
    * @param commandArgs The argument(s) for the command to be executed
    * @throws CommandException The error thrown if command cannot be executed
+   * @throws IOException The error thrown if an invalid URL is given
    */
   private static void executeCommand(String commandName, String[] commandArgs)
-      throws CommandException {
+      throws CommandException, IOException {
 
     String output = "";
 
@@ -237,6 +238,10 @@ public class JShell {
         // Execute grep on command args
         output = MatchRegex.executeGrep(fileSystem, commandArgs);
         break;
+        
+      case "curl":
+        // Get the contents from URL and add to current directory
+        Curl.curl(fileSystem, commandArgs[0]);
     }
 
     if (!output.equals("")) {

@@ -6,8 +6,12 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import driver.CommandException;
 import driver.Directory;
 import driver.FileSystem;
+import driver.Interpreter;
+import driver.List;
+import driver.Move;
 
 public class MoveTest {
 
@@ -32,9 +36,19 @@ public class MoveTest {
     fileSys = null;
   }
   
+  /**
+   * Testing moveItem when moving one directory into another
+   * @throws CommandException 
+   */
   @Test
-  public void testMoveItemMovingOneFile() {
-    fail("Not yet implemented");
+  public void testMoveItemForDirectory() throws CommandException {
+    Move.moveItem(fileSys, "/fileB", "/fileA", true);
+    String[] path = Interpreter.filepathToArray("/fileA");
+    assertEquals(List.list(fileSys, path), "fileA:\nfileB");
+    
+    path = Interpreter.filepathToArray("/");
+    assertEquals(List.list(fileSys, path), "fileA");
+    
   }
 
 }
