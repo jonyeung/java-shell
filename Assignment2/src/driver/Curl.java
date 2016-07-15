@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLConnection;
 
 public class Curl {
   
@@ -14,23 +15,34 @@ public class Curl {
    * 
    * @param fileSys The fileSystem that is being worked with
    * @param website The given URL that is providing the text file contents
-   * @throws IOException The error thrown if the URL is not valid
+   * @throws IOException The error thrown if a file cannot be read
+   * @throws CommandException The error thrown if a invalid URL is provided
    */
   public static void curl(FileSystem fileSys, String website) 
-      throws IOException {
+      throws IOException, CommandException {
     
-    // read the contents from the URL
-    URL url = new URL(website);
+    // connect to the URL
+    try {
+      URL url = new URL("http://" + website);
+      URLConnection urlConnection = url.openConnection();
+      urlConnection.connect();
+    } catch (MalformedURLException e){
+      throw new CommandException(website + " is not a valid URL");
+    } catch (IOException e) {
+      throw new CommandException("Connection to URL failed");
+    }
+    
+    // read from the URL
+    URL url = new URL("http://" + website);
+    URLConnection urlConnection = url.openConnection();
     BufferedReader reader = new BufferedReader(
-        new InputStreamReader(url.openStream()));
+        new InputStreamReader(urlConnection.getInputStream()));
     
-    // store the contents from the URL
     String line;
     String contents = "";
     while ((line = reader.readLine()) != null) {
       contents += line + "\n";
     }
-    reader.close();
     
     
     
@@ -44,8 +56,7 @@ public class Curl {
     
   }
   
-  public static void main(String[] args) throws IOException {
-    FileSystem fileSys = new FileSystem();
-    curl(fileSys, "www.textfiles.com/100/easymoney.ana");
+  public static void main(String[] args) throws IOException, CommandException {
+    curl(new FileSystem(), "www.textfiles.com/100/easymoney.ana");
   }
 }
