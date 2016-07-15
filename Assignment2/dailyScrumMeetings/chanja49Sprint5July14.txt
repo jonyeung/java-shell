@@ -1,0 +1,10 @@
+What did I do last time?
+	-Added more test cases for the fileSystem, List and other classes
+	 that were updated in assignment 2B
+	-Worked on making the build file 
+	
+What do I plan to do now?
+	-Continue working on the build xml file
+
+Am I blocked on anything
+	-I can't get apache ant to install properly
