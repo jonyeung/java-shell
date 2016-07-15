@@ -23,7 +23,7 @@ public class Curl {
     
     // connect to the URL
     try {
-      URL url = new URL("http://" + website);
+      URL url = new URL(website);
       URLConnection urlConnection = url.openConnection();
       urlConnection.connect();
     } catch (MalformedURLException e){
@@ -33,11 +33,12 @@ public class Curl {
     }
     
     // read from the URL
-    URL url = new URL("http://" + website);
+    URL url = new URL(website);
     URLConnection urlConnection = url.openConnection();
     BufferedReader reader = new BufferedReader(
         new InputStreamReader(urlConnection.getInputStream()));
     
+    // get the contents from the file
     String line;
     String contents = "";
     while ((line = reader.readLine()) != null) {
@@ -56,7 +57,4 @@ public class Curl {
     
   }
   
-  public static void main(String[] args) throws IOException, CommandException {
-    curl(new FileSystem(), "www.textfiles.com/100/easymoney.ana");
-  }
 }
