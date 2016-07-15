@@ -70,7 +70,8 @@ public class MoveTest {
   }
 
   /**
-   * Testing moveItem when moving a file into one of its subdirectories
+   * Testing moveItem when moving a file into one of its subdirectories throws
+   * an exception
    * 
    * @throws CommandException The error thrown when a file cannot be found
    */
@@ -82,6 +83,27 @@ public class MoveTest {
       Move.moveItem(fileSys, "/fileC", "/fileC/ChildOfC", true);
     } catch (CommandException e) {
 
+    }
+  }
+  
+  /**
+   * Testing moveItem when moving or copying a file into an invalid location 
+   * 
+   * @throws CommandException The error thrown when a file is being moved or
+   * copied into an invalid filepath
+   */
+  @Test
+  public void testMoveItemIntoInvalidPath() throws CommandException {
+    try {
+      Move.moveItem(fileSys, "/fileA", "/NonExistentFile", true);
+    } catch (CommandException e) {
+      
+    }
+    
+    try {
+      Move.moveItem(fileSys, "/fileA", "/NonExistentFile", false);
+    } catch (CommandException e) {
+      
     }
   }
 
