@@ -88,9 +88,10 @@ public class CatTest {
 
     args = new String[] {"asf", "work", "123", "doc", "wok"};
     result = Cat.cat(fileSystem, args);
-    expected = "asf is not a file.\n\n" + "work:\nabc123\n\n"
-        + "123 is not a file.\n\n" + "doc:\nHi world\n\n"
-        + "wok is not a file.";
+    expected =
+        "asf is not a file.\n\n" + "work:\nabc123\n\n"
+            + "123 is not a file.\n\n" + "doc:\nHi world\n\n"
+            + "wok is not a file.";
     assertEquals(result, expected);
   }
 }

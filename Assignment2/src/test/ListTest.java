@@ -128,8 +128,7 @@ public class ListTest {
    * @throws CommandException If filepath given to list does not exist
    */
   @Test
-  public void testListWithMultipleDirectoriesAndFiles()
-      throws CommandException {
+  public void testListWithMultipleDirectoriesAndFiles() throws CommandException {
 
     Directory root = fileSys.getRootDirectory();
     Directory dir1 = new Directory("dir1");
@@ -192,9 +191,10 @@ public class ListTest {
     root.storeFile(file2);
     String[] path = {"-r", ".", "dir1", "./dir1/.."};
     String output = List.list(fileSys, path);
-    String expected = ".:\ndir1\ndir2\nfile2\n\n./dir1:\nfile1\n\n"
-        + "./dir1/..:\ndir1\ndir2\nfile2\n\n./dir1/../dir1:\nfile1\n\n"
-        + "./dir1/../dir2:\n\n./dir2:\n\ndir1:\nfile1";
+    String expected =
+        ".:\ndir1\ndir2\nfile2\n\n./dir1:\nfile1\n\n"
+            + "./dir1/..:\ndir1\ndir2\nfile2\n\n./dir1/../dir1:\nfile1\n\n"
+            + "./dir1/../dir2:\n\n./dir2:\n\ndir1:\nfile1";
     assertEquals(output, expected);
   }
 

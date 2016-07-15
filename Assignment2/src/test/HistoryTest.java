@@ -49,8 +49,9 @@ public class HistoryTest {
   public void testAllHistory() throws CommandException {
 
     History.addToHistory("history");
-    expectedOutput = "1. cd ..\n2. mkdir textFolder\n3. echo \"Hello World\"\n"
-        + "4. fsdfasd\n5. history";
+    expectedOutput =
+        "1. cd ..\n2. mkdir textFolder\n3. echo \"Hello World\"\n"
+            + "4. fsdfasd\n5. history";
     result = History.executeHistory(args);
     assertEquals(result, expectedOutput);
   }
@@ -126,13 +127,13 @@ public class HistoryTest {
    * @throws CommandException If invalid number of history elements requested
    */
   @Test
-  public void testPrintHistoryAfterRecallExactCommand()
-      throws CommandException {
+  public void testPrintHistoryAfterRecallExactCommand() throws CommandException {
     History.recallExactCommand("1");
     args = new String[] {"4"};
     result = History.executeHistory(args);
-    expectedOutput = "1. cd ..\n2. mkdir textFolder\n3. echo \"Hello World\"\n"
-        + "4. fsdfasd";
+    expectedOutput =
+        "1. cd ..\n2. mkdir textFolder\n3. echo \"Hello World\"\n"
+            + "4. fsdfasd";
     assertEquals(result, expectedOutput);
   }
 
@@ -189,8 +190,7 @@ public class HistoryTest {
    * @throws CommandException For invalid arguments in recallExactComand
    */
   @Test
-  public void testRecallExactCommandNumberLessThanOne()
-      throws CommandException {
+  public void testRecallExactCommandNumberLessThanOne() throws CommandException {
     try {
       result = History.recallExactCommand("-1");
       fail("Cannot recall commands before first command in history.");

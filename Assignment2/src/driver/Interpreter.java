@@ -126,13 +126,13 @@ public class Interpreter {
    * @return String[] An array of strings that are the commands words
    * @throws CommandException When an odd number of " characters are given
    */
-  public static String[] commandToArray(String command)
-      throws CommandException {
+  public static String[] commandToArray(String command) throws CommandException {
 
     // Special exception for "!" command, since it has no spaces
     if (command.startsWith("!")) {
-      command = command.substring(0, 1) + " "
-          + command.substring(1, command.length());
+      command =
+          command.substring(0, 1) + " "
+              + command.substring(1, command.length());
     }
     return inputToArray(command, ' ');
   }
@@ -195,8 +195,7 @@ public class Interpreter {
    *         command given
    * @throws CommandException Command name is not valid
    */
-  private static Integer[] validCommand(String command)
-      throws CommandException {
+  private static Integer[] validCommand(String command) throws CommandException {
 
     // Check if the 1st word inputed is a valid command by getting it from the
     // hash table
@@ -251,13 +250,13 @@ public class Interpreter {
 
     // Loop through each string in input and check if any are single or double
     // chevrons
-    for (int i = 0; i < input.length; i++){
+    for (int i = 0; i < input.length; i++) {
       if (input[i].equals(">") || input[i].equals(">>")) {
         // If the index is not at the second last position, then the chevrons
         // are in the wrong location
         if (i != input.length - 2) {
-          throw new CommandException(
-              "The placement of " + input[i] + " is not correct.");
+          throw new CommandException("The placement of " + input[i]
+              + " is not correct.");
         } else {
           result = true;
         }

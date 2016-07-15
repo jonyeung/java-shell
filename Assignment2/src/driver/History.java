@@ -85,8 +85,8 @@ public class History {
     } else {
 
       // Throw the command exception if user enters invalid history number
-      throw new CommandException(
-          "History for the past " + lastLines + " command(s) does not exist.");
+      throw new CommandException("History for the past " + lastLines
+          + " command(s) does not exist.");
     }
     return output.substring(0, output.length() - 1);
   }

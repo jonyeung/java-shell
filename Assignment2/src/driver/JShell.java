@@ -147,8 +147,9 @@ public class JShell {
     int argLen = commandArgs.length;
 
     // Redirection handling
-    if (argLen >= 2 && (commandArgs[argLen - 2].equals(">")
-        || commandArgs[argLen - 2].equals(">>"))) {
+    if (argLen >= 2
+        && (commandArgs[argLen - 2].equals(">") || commandArgs[argLen - 2]
+            .equals(">>"))) {
       redirectArgs = Arrays.copyOfRange(commandArgs, argLen - 2, argLen);
       commandArgs = Arrays.copyOfRange(commandArgs, 0, argLen - 2);
       outputToFile = true;
@@ -157,7 +158,7 @@ public class JShell {
     // Execute the appropriate command
     switch (commandName) {
 
-      // Assertion error for extra safety
+    // Assertion error for extra safety
       default:
         throw new AssertionError(commandName);
 
@@ -238,7 +239,7 @@ public class JShell {
         // Execute grep on command args
         output = MatchRegex.executeGrep(fileSystem, commandArgs);
         break;
-        
+
       case "curl":
         // Get the contents from URL and add to current directory
         Curl.curl(fileSystem, commandArgs[0]);

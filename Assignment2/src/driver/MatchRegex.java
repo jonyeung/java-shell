@@ -39,8 +39,7 @@ public class MatchRegex {
 
     // If the regex is not surrounded by double quotes, then raise an exception
     if (regex.charAt(0) != '\"') {
-      throw new CommandException(
-          "All regex must be enclosed in double quotes.");
+      throw new CommandException("All regex must be enclosed in double quotes.");
     } else {
       // Remove double quotes from regex
       regex = regex.substring(1, regex.length() - 1);
@@ -149,8 +148,8 @@ public class MatchRegex {
    * @return String All lines in the text file that matched the regex
    * @throws CommandException If the current file is not a text file
    */
-  private static String regexMatch(File currFile, String filepath, String regex,
-      boolean printFilepath) throws CommandException {
+  private static String regexMatch(File currFile, String filepath,
+      String regex, boolean printFilepath) throws CommandException {
 
     // If the currFile is not a text file then raise an exception
     if (!(currFile instanceof TextFile)) {
@@ -166,12 +165,12 @@ public class MatchRegex {
 
       // If the line matches the regex then append it to the output
       if (line.matches(regex)) {
-        if (printFilepath){
+        if (printFilepath) {
           output += filepath + ": " + line;
         } else {
           output += line;
         }
-        
+
         // Add a new line character if the matching line doesn't end with one.
         if (!(output.endsWith("\n"))) {
           output += "\n";
