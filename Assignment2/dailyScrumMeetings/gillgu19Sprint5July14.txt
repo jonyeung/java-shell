@@ -1,0 +1,11 @@
+What did I do last time?
+	- Wrote man pages for !number, grep, curl, mv, and cp
+	- Wrote unit tests for new methods in history relating to !number
+	- Changed how !number works with history and man
+	- Fixed bugs with !number and man
+
+What do I plan to do now?
+	- Test for more bugs, and fix them before the deadline
+
+Am I stuck on anything?
+	- No.
