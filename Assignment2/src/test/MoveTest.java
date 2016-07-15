@@ -24,8 +24,10 @@ public class MoveTest {
   public void setUp() {
     fileSys = new FileSystem();
     Directory root = fileSys.getRootDirectory();
-    root.storeFile(new Directory("fileA"));
-    root.storeFile(new Directory("fileB"));
+    Directory A = new Directory("fileA");
+    Directory B = new Directory("fileB");
+    root.storeFile(A);
+    root.storeFile(B);
   }
   
   /**
@@ -37,11 +39,11 @@ public class MoveTest {
   }
   
   /**
-   * Testing moveItem when moving one directory into another
-   * @throws CommandException 
+   * Testing moveItem when moving one file into another
+   * @throws CommandException The error thrown when an invalid path is given
    */
   @Test
-  public void testMoveItemForDirectory() throws CommandException {
+  public void testMoveItemMovingAFile() throws CommandException {
     Move.moveItem(fileSys, "/fileB", "/fileA", true);
     String[] path = Interpreter.filepathToArray("/fileA");
     assertEquals(List.list(fileSys, path), "fileA:\nfileB");
@@ -51,4 +53,33 @@ public class MoveTest {
     
   }
 
+  /**
+   * Testing moveItem when copying a file
+   * @throws CommandException The error thrown when an invalid path is given
+   */
+  @Test
+  public void testMoveItemCopyingAFile() throws CommandException {
+    Move.moveItem(fileSys, "/fileB", "/fileA", false);
+    String[] path = Interpreter.filepathToArray("/fileA");
+    assertEquals(List.list(fileSys, path), "fileA:\nfileB");
+    
+    path = Interpreter.filepathToArray("/");
+    assertEquals(List.list(fileSys, path), "fileA\nfileB");
+  }
+  
+  /**
+   * Testing moveItem when moving a file into one of its subdirectories
+   * @throws CommandException The error thrown when a file cannot be found
+   */
+  @Test
+  public void testMoveItemMovingIntoSubDirectory() throws CommandException {
+    Directory C = new Directory("fileC");
+    C.storeFile(new Directory("ChildOfC"));
+    try {
+      Move.moveItem(fileSys, "/fileC", "/fileC/ChildOfC", true);
+    } catch (CommandException e) {
+      
+    }
+  }
+  
 }
