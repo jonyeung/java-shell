@@ -46,6 +46,7 @@ public class JShell {
 
   private static Boolean exitStatus;
   public static FileSystem fileSystem;
+  public static boolean addedToHistory;
 
   /**
    * Main method of the program. Continues to prompt users for input and
@@ -82,10 +83,7 @@ public class JShell {
 
       // Retrieve input from user
       userInput = (br.readLine());
-
-      if (!userInput.startsWith("!") && !userInput.startsWith("man")) {
-        History.addToHistory(userInput);
-      }
+      addedToHistory = false;
 
       // Interpret the input
       interpretInput(userInput);
@@ -102,6 +100,10 @@ public class JShell {
   private static void interpretInput(String userInput) throws CommandException {
 
     try {
+      if (!userInput.startsWith("!") & !userInput.startsWith("man")) {
+        History.addToHistory(userInput);
+        addedToHistory = true;
+      }
       // Break up the user input
       String[] inputArray = Interpreter.commandToArray(userInput);
       // inputArray[0] is the command name
@@ -141,9 +143,9 @@ public class JShell {
 
     boolean outputToFile = false;
     String[] redirectArgs = null;
-    String infLoopMessage = "Infinite loop. Please input a valid number.";
     int argLen = commandArgs.length;
 
+    // Redirection handling
     if (argLen >= 2 && (commandArgs[argLen - 2].equals(">")
         || commandArgs[argLen - 2].equals(">>"))) {
       redirectArgs = Arrays.copyOfRange(commandArgs, argLen - 2, argLen);
@@ -208,44 +210,31 @@ public class JShell {
 
       case "man":
         // Add the manual for the command to output
-        String manToPrint = commandArgs[0];
-        String historyToAdd = commandName + " ";
-        if (commandArgs[0].startsWith("!") && commandArgs[0].length() > 1) {
-          commandArgs[0] =
-              History.recallExactCommand(commandArgs[0].substring(1));
-          manToPrint = commandArgs[0].split(" ")[0];
-        }
-        for (int i = 0; i < commandArgs.length; i++) {
-          historyToAdd += commandArgs[i];
-        }
-        History.addToHistory(historyToAdd);
-        output = Manual.printMan(manToPrint);
+        output = Manual.printMan(executeMan(commandName, commandArgs));
         break;
 
       case "!":
-        try {
-          History.addToHistory(History.recallExactCommand(commandArgs[0]));
-          interpretInput(History.recallExactCommand(commandArgs[0]));
-        } catch (StackOverflowError e) {
-          if (!output.equals(infLoopMessage)) {
-            output += infLoopMessage;
-          }
-        }
+        // Recall the last command at position commandArgs[0]
+        interpretInput(History.recallExactCommand(commandArgs[0]));
         break;
 
       case "mv":
+        // Move the item from oldpath to new path
         Move.moveItem(fileSystem, commandArgs[0], commandArgs[1], true);
         break;
 
       case "cp":
+        // Copy the item from oldpath to new path
         Move.moveItem(fileSystem, commandArgs[0], commandArgs[1], false);
         break;
 
       case "exit":
+        // Break out of main while loop
         exitStatus = true;
         break;
 
       case "grep":
+        // Execute grep on command args
         output = MatchRegex.executeGrep(fileSystem, commandArgs);
         break;
     }
@@ -261,4 +250,35 @@ public class JShell {
       }
     }
   }
+
+  /**
+   * Helper function to execute Man, taking into account !number in command
+   * arguments
+   * 
+   * @param commandName Name of the command
+   * @param commandArgs Arguments for the command
+   * @return String The correct manual page to print
+   * @throws CommandException If invalid arguments given.
+   */
+  private static String executeMan(String commandName, String[] commandArgs)
+      throws CommandException {
+    // Name of command
+    String manToPrint = commandArgs[0];
+    String historyToAdd = commandName + " ";
+    // Take into account calling man on arguments with "!number" in them
+    if (commandArgs[0].startsWith("!") && commandArgs[0].length() > 1) {
+      commandArgs[0] = History.recallExactCommand(commandArgs[0].substring(1));
+      manToPrint = commandArgs[0].split(" ")[0];
+    }
+    // Add all retrieved commands to the new history to add
+    for (int i = 0; i < commandArgs.length; i++) {
+      historyToAdd += commandArgs[i];
+    }
+    // Add the history
+    if (addedToHistory == false) {
+      History.addToHistory(historyToAdd);
+    }
+    return manToPrint;
+  }
+
 }
