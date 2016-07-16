@@ -1,5 +1,8 @@
 package driver;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Move {
 
 
@@ -18,8 +21,12 @@ public class Move {
     File item = fileSys.getFile(oldPath);
 
     // get the item specified at newPath
-    Directory newLocation = (Directory) fileSys.getFile(newPath);
-
+    try {
+      Directory newLocation = (Directory) fileSys.getFile(newPath);
+    } catch (CommandException e) {
+      Directory newLocation = Move.createFileAtPath(fileSys, newPath);
+    }
+    
     if (deleteOriginal) {
       // remove this item from its parent directory
       item.getParent().getStoredFiles().remove(item);
@@ -32,13 +39,91 @@ public class Move {
       }
     }
 
-
     // store the item in this directory
-    newLocation.storeFile(item);
+    try {
+      Directory newLocation = (Directory) fileSys.getFile(newPath);
+      newLocation.storeFile(item);
+    } catch (CommandException e) {
+      Directory newLocation = Move.createFileAtPath(fileSys, newPath);
+      newLocation.storeFile(item);
+    }
+    
 
 
   }
 
+  /**
+   * Create a directory that is specified at path
+   * 
+   * @param fileSys The filesystem being worked with
+   * @param path The path of the directory
+   */
+  private static Directory createFileAtPath(FileSystem fileSys, String path) {
+
+    // get the first existing parent file on the path
+    try {
+      Directory parent = fileSys.traversePath(path);
+      return parent;
+    } catch (CommandException e) {
+      // cut the last file specified in path
+      String parentPath = path.substring(0, path.lastIndexOf("/"));
+      String cutPath = path.substring(path.lastIndexOf("/")).trim()
+          .substring(1);
+      ArrayList<String> unstoredFiles = new ArrayList<String>(
+          Arrays.asList(cutPath.split("/")));
+      Directory parent = Move.createFileAtPath(fileSys, parentPath, 
+          unstoredFiles);
+      return parent;
+    }
+  }
+  
+  /**
+   * Create a directory that is specified at path
+   * 
+   * @param fileSys The filesystem being worked with
+   * @param path The path of the directory
+   * @param filesToBeStored The list of files that are yet to be created
+   */
+  private static Directory createFileAtPath(FileSystem fileSys, String path, 
+      ArrayList<String> filesToBeStored) {
+    
+    if (path.isEmpty()) {
+      Directory parent = new Directory(filesToBeStored.get(0));
+      fileSys.getRootDirectory().storeFile(parent);
+      filesToBeStored.remove(0);
+      // store all the files starting under this parent
+      Directory curr = parent;
+      for (String file : filesToBeStored) {
+        Directory next = new Directory(file);
+        curr.storeFile(next);
+        curr = next;
+      }
+      return parent;
+    }
+    
+    // get the first existing parent file on the path
+    try {
+      Directory parent = fileSys.traversePath(path);
+      // store all the files starting under this parent
+      Directory curr = parent;
+      for (String file : filesToBeStored) {
+        Directory next = new Directory(file);
+        curr.storeFile(next);
+        curr = next;
+      }
+      return parent;
+    } catch (CommandException e) {
+      // cut the last file specified in path
+      String parentPath = path.substring(0, path.lastIndexOf("/") - 1);
+      String cutPath = path.substring(path.lastIndexOf("/")).trim();
+      ArrayList<String> unstoredFiles = new ArrayList<String>(
+          Arrays.asList(cutPath.split("/")));
+      Directory parent = Move.createFileAtPath(fileSys, parentPath, 
+          unstoredFiles);
+      return parent;
+    }
+  }
+  
   /**
    * Makes a copy of the given directory
    * 
@@ -71,5 +156,11 @@ public class Move {
         new TextFile(file.getName(), ((TextFile) file).getFileContents(),
             file.getParent());
     return copy;
+  }
+  
+  public static void main(String[] args) throws CommandException {
+    FileSystem fs = new FileSystem();
+    fs.getCurrentDirectory().storeFile(new Directory("a"));
+    Move.moveItem(fs, "/a", "/b", false);
   }
 }
