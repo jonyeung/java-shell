@@ -1,0 +1,12 @@
+What did I do last time?
+	-made contributions to the product backlog
+	-delegated responsibilities within the team on
+	testing the functionality of new features
+	-worked on the tasks delegated and assigned to me for Sprint 5
+	-tested if curl worked
+
+What do I plan to do now?
+	-debugging curl and taking a look at Ant xml file
+
+Am I blocked on anything?
+	-None
