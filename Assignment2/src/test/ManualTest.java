@@ -43,13 +43,14 @@ public class ManualTest {
   @Test
   public void testCorrectManualCommand() throws CommandException {
 
-    expectedOutput = "cat FILE1 ... [> OUTFILE]\n"
-        + "\tDisplays the contents of FILE1 and other files"
-        + " (i.e. File2 ...) in the shell.";
+    expectedOutput =
+        "cat FILE1 ... [> OUTFILE]\n"
+            + "\tDisplays the contents of FILE1 and other files"
+            + " (i.e. File2 ...) in the shell.";
     result = Manual.printMan("cat");
     assertEquals(result, expectedOutput);
   }
-  
+
   /**
    * Tests if the exception message is printed when user inputs the wrong
    * command name

@@ -26,7 +26,7 @@ public class PrintWorkingDirectory {
 
     return pathway;
   }
-  
+
   /**
    * Finds and returns the current working directory
    * 
@@ -34,7 +34,7 @@ public class PrintWorkingDirectory {
    * @return String The pathway of the current working directory
    */
   public static String printWD(FileSystem fileSystem) {
-    
+
     return getAbsoluteFilepath(fileSystem, fileSystem.getCurrentDirectory());
   }
 }

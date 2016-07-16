@@ -38,8 +38,9 @@ public class Curl {
     // read from the URL
     URL url = new URL(website);
     URLConnection urlConnection = url.openConnection();
-    BufferedReader reader = new BufferedReader(
-        new InputStreamReader(urlConnection.getInputStream()));
+    BufferedReader reader =
+        new BufferedReader(
+            new InputStreamReader(urlConnection.getInputStream()));
 
     // get the contents from the file
     String line;

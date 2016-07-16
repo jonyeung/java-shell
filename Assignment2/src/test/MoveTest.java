@@ -88,25 +88,25 @@ public class MoveTest {
 
     }
   }
-  
+
   /**
-   * Testing moveItem when moving or copying a file into an invalid location 
+   * Testing moveItem when moving or copying a file into an invalid location
    * 
    * @throws CommandException The error thrown when a file is being moved or
-   * copied into an invalid filepath
+   *         copied into an invalid filepath
    */
   @Test
   public void testMoveItemIntoInvalidPath() throws CommandException {
     try {
       Move.moveItem(fileSys, "/fileA", "/NonExistentFile", true);
     } catch (CommandException e) {
-      
+
     }
-    
+
     try {
       Move.moveItem(fileSys, "/fileA", "/NonExistentFile", false);
     } catch (CommandException e) {
-      
+
     }
   }
 

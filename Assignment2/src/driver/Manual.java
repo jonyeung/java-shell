@@ -32,16 +32,17 @@ public class Manual {
       + "\t- [> OUTFILE] indicates the file OUTFILE where output from commands"
       + " is redirected.";
 
-  private final static String HISTORYMESSAGE = "history [number] [> OUTFILE]\n"
-      + "\tPrints out recent commands (both valid and invalid) with one command"
-      + " on each line.\n"
-      + "\tThe first column is numbered such that the highest number is the "
-      + "most recent command.\n"
-      + "\tThe second column contains the actual command that was entered.";
+  private final static String HISTORYMESSAGE =
+      "history [number] [> OUTFILE]\n"
+          + "\tPrints out recent commands (both valid and invalid) with one command"
+          + " on each line.\n"
+          + "\tThe first column is numbered such that the highest number is the "
+          + "most recent command.\n"
+          + "\tThe second column contains the actual command that was entered.";
 
-  private final static String POPDMESSAGE =
-      "popd\n" + "\tRemove the top entry from the directory"
-          + "stack, and makes it the current working directory.";
+  private final static String POPDMESSAGE = "popd\n"
+      + "\tRemove the top entry from the directory"
+      + "stack, and makes it the current working directory.";
 
   private final static String PUSHDMESSAGE = "pushd DIR\n"
       + "\tSaves the current working directory by pushing it onto a directory "
@@ -50,14 +51,15 @@ public class Manual {
   private final static String PWDMESSAGE = "pwd [> OUTFILE]\n"
       + "\tPrints the current working directory (including the whole path).";
 
-  private final static String LSMESSAGE = "ls [-R] [PATH ...] [> OUTFILE]\n"
-      + "\tIf PATH is not given, print the contents (file or directory) of"
-      + " the current directory, with a new line following each of the content."
-      + "\n\tIf R is given, ls recursively lists all subdirectories. "
-      + "\n\tOtherwise, for each path PATH:\n"
-      + "\t- If PATH specifies a file, ls prints the file name.\n"
-      + "\t- If PATH specifies a directory, ls prints PATH, followed by a"
-      + " colon, then the contents of the directory.";
+  private final static String LSMESSAGE =
+      "ls [-R] [PATH ...] [> OUTFILE]\n"
+          + "\tIf PATH is not given, print the contents (file or directory) of"
+          + " the current directory, with a new line following each of the content."
+          + "\n\tIf R is given, ls recursively lists all subdirectories. "
+          + "\n\tOtherwise, for each path PATH:\n"
+          + "\t- If PATH specifies a file, ls prints the file name.\n"
+          + "\t- If PATH specifies a directory, ls prints PATH, followed by a"
+          + " colon, then the contents of the directory.";
 
   private final static String CDMESSAGE = "cd DIR\n"
       + "\tChange directory to DIR, which may be relative to the current"
@@ -133,8 +135,8 @@ public class Manual {
       return commandMessage;
     } else {
       // Throw exception for invalid command manuals.
-      throw new CommandException(
-          commandName + " does not have a command manual.");
+      throw new CommandException(commandName
+          + " does not have a command manual.");
     }
   }
 }

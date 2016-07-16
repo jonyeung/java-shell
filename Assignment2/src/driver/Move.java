@@ -25,6 +25,10 @@ public class Move {
 
     // get the item specified at newPath
     boolean check;
+
+    if (newPath.charAt(0) != '/') {
+      newPath = "/" + newPath;
+    }
     try {
       Directory newLocation = (Directory) fileSys.getFile(newPath);
       check = checkNewLocation(fileSys, item, newLocation);
@@ -161,15 +165,16 @@ public class Move {
   private static TextFile copyTextFile(TextFile file) {
 
     // recreate the text file with the same name, contents, and parent
-    TextFile copy = new TextFile(file.getName(),
-        ((TextFile) file).getFileContents(), file.getParent());
+    TextFile copy =
+        new TextFile(file.getName(), ((TextFile) file).getFileContents(),
+            file.getParent());
     return copy;
   }
 
   public static void main(String[] args) throws CommandException {
     FileSystem fs = new FileSystem();
     fs.getCurrentDirectory().storeFile(new Directory("a"));
-    Move.moveItem(fs, "/a", "/b", false);
+    Move.moveItem(fs, "/a", "/b", true);
     System.out.println(List.list(fs, Interpreter.filepathToArray("")));
   }
 
