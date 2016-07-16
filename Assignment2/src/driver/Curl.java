@@ -7,6 +7,9 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 
+/**
+ * This class reads text from a url and writes it to a text file
+ */
 public class Curl {
 
   /**

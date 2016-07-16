@@ -31,7 +31,6 @@ package driver;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.io.IOException;
 
@@ -147,9 +146,8 @@ public class JShell {
     int argLen = commandArgs.length;
 
     // Redirection handling
-    if (argLen >= 2
-        && (commandArgs[argLen - 2].equals(">") || commandArgs[argLen - 2]
-            .equals(">>"))) {
+    if (argLen >= 2 && (commandArgs[argLen - 2].equals(">")
+        || commandArgs[argLen - 2].equals(">>"))) {
       redirectArgs = Arrays.copyOfRange(commandArgs, argLen - 2, argLen);
       commandArgs = Arrays.copyOfRange(commandArgs, 0, argLen - 2);
       outputToFile = true;
@@ -158,7 +156,7 @@ public class JShell {
     // Execute the appropriate command
     switch (commandName) {
 
-    // Assertion error for extra safety
+      // Assertion error for extra safety
       default:
         throw new AssertionError(commandName);
 
@@ -268,6 +266,7 @@ public class JShell {
    */
   private static String executeMan(String commandName, String[] commandArgs)
       throws CommandException {
+
     // Name of command
     String manToPrint = commandArgs[0];
     String historyToAdd = commandName + " ";
@@ -286,5 +285,4 @@ public class JShell {
     }
     return manToPrint;
   }
-
 }
