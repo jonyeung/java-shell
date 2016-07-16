@@ -162,5 +162,6 @@ public class Move {
     FileSystem fs = new FileSystem();
     fs.getCurrentDirectory().storeFile(new Directory("a"));
     Move.moveItem(fs, "/a", "/b", false);
+    System.out.println(List.list(fs, Interpreter.filepathToArray("")));
   }
 }
