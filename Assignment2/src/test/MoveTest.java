@@ -13,6 +13,9 @@ import driver.Interpreter;
 import driver.List;
 import driver.Move;
 
+/**
+ * Class to test the methods in Move class
+ */
 public class MoveTest {
 
   FileSystem fileSys;

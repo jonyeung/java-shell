@@ -11,6 +11,9 @@ import driver.FileSystem;
 import driver.MatchRegex;
 import driver.TextFile;
 
+/**
+ * Class to test the methods in MatchRegex class
+ */
 public class MatchRegexTest {
 
   FileSystem fileSystem;
