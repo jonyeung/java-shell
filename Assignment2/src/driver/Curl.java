@@ -35,9 +35,8 @@ public class Curl {
     // read from the URL
     URL url = new URL(website);
     URLConnection urlConnection = url.openConnection();
-    BufferedReader reader =
-        new BufferedReader(
-            new InputStreamReader(urlConnection.getInputStream()));
+    BufferedReader reader = new BufferedReader(
+        new InputStreamReader(urlConnection.getInputStream()));
 
     // get the contents from the file
     String line;
@@ -46,16 +45,12 @@ public class Curl {
       contents += line + "\n";
     }
 
-
-
-    // create a new textfile that stores the URL contents
+    // Create a new textfile that stores the URL contents
     TextFile file =
         new TextFile(website.substring(website.lastIndexOf("/") + 1), contents);
 
-    // store this file in the current directory
+    // Store this file in the current directory
     Directory currentDir = fileSys.getCurrentDirectory();
     currentDir.storeFile(file);
-
   }
-
 }
