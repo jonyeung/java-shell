@@ -3,8 +3,10 @@ package driver;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * This class move and copies directories to another location
+ */
 public class Move {
-
 
   /**
    * Moves the item found at oldPath to the directory found at newPath
@@ -17,16 +19,24 @@ public class Move {
    */
   public static void moveItem(FileSystem fileSys, String oldPath,
       String newPath, boolean deleteOriginal) throws CommandException {
+
     // get the item specified at oldPath
     File item = fileSys.getFile(oldPath);
 
     // get the item specified at newPath
+    boolean check;
     try {
       Directory newLocation = (Directory) fileSys.getFile(newPath);
+      check = checkNewLocation(fileSys, item, newLocation);
     } catch (CommandException e) {
       Directory newLocation = Move.createFileAtPath(fileSys, newPath);
+      check = checkNewLocation(fileSys, item, newLocation);
     }
-    
+
+    if (check) {
+      throw new CommandException("Cannot move parent into child.");
+    }
+
     if (deleteOriginal) {
       // remove this item from its parent directory
       item.getParent().getStoredFiles().remove(item);
@@ -47,9 +57,6 @@ public class Move {
       Directory newLocation = Move.createFileAtPath(fileSys, newPath);
       newLocation.storeFile(item);
     }
-    
-
-
   }
 
   /**
@@ -67,16 +74,16 @@ public class Move {
     } catch (CommandException e) {
       // cut the last file specified in path
       String parentPath = path.substring(0, path.lastIndexOf("/"));
-      String cutPath = path.substring(path.lastIndexOf("/")).trim()
-          .substring(1);
-      ArrayList<String> unstoredFiles = new ArrayList<String>(
-          Arrays.asList(cutPath.split("/")));
-      Directory parent = Move.createFileAtPath(fileSys, parentPath, 
-          unstoredFiles);
+      String cutPath =
+          path.substring(path.lastIndexOf("/")).trim().substring(1);
+      ArrayList<String> unstoredFiles =
+          new ArrayList<String>(Arrays.asList(cutPath.split("/")));
+      Directory parent =
+          Move.createFileAtPath(fileSys, parentPath, unstoredFiles);
       return parent;
     }
   }
-  
+
   /**
    * Create a directory that is specified at path
    * 
@@ -84,9 +91,9 @@ public class Move {
    * @param path The path of the directory
    * @param filesToBeStored The list of files that are yet to be created
    */
-  private static Directory createFileAtPath(FileSystem fileSys, String path, 
+  private static Directory createFileAtPath(FileSystem fileSys, String path,
       ArrayList<String> filesToBeStored) {
-    
+
     if (path.isEmpty()) {
       Directory parent = new Directory(filesToBeStored.get(0));
       fileSys.getRootDirectory().storeFile(parent);
@@ -100,7 +107,7 @@ public class Move {
       }
       return parent;
     }
-    
+
     // get the first existing parent file on the path
     try {
       Directory parent = fileSys.traversePath(path);
@@ -116,14 +123,14 @@ public class Move {
       // cut the last file specified in path
       String parentPath = path.substring(0, path.lastIndexOf("/") - 1);
       String cutPath = path.substring(path.lastIndexOf("/")).trim();
-      ArrayList<String> unstoredFiles = new ArrayList<String>(
-          Arrays.asList(cutPath.split("/")));
-      Directory parent = Move.createFileAtPath(fileSys, parentPath, 
-          unstoredFiles);
+      ArrayList<String> unstoredFiles =
+          new ArrayList<String>(Arrays.asList(cutPath.split("/")));
+      Directory parent =
+          Move.createFileAtPath(fileSys, parentPath, unstoredFiles);
       return parent;
     }
   }
-  
+
   /**
    * Makes a copy of the given directory
    * 
@@ -131,6 +138,7 @@ public class Move {
    * @return Directory A copy of the directory
    */
   private static Directory copyDirectory(Directory file) {
+
     // recreate the directory with the same name and parent file
     Directory copy = new Directory(file.getName(), file.getParent());
     // recreate all stored files
@@ -151,17 +159,42 @@ public class Move {
    * @return TextFile A copy of the text file
    */
   private static TextFile copyTextFile(TextFile file) {
+
     // recreate the text file with the same name, contents, and parent
-    TextFile copy =
-        new TextFile(file.getName(), ((TextFile) file).getFileContents(),
-            file.getParent());
+    TextFile copy = new TextFile(file.getName(),
+        ((TextFile) file).getFileContents(), file.getParent());
     return copy;
   }
-  
+
   public static void main(String[] args) throws CommandException {
     FileSystem fs = new FileSystem();
     fs.getCurrentDirectory().storeFile(new Directory("a"));
     Move.moveItem(fs, "/a", "/b", false);
     System.out.println(List.list(fs, Interpreter.filepathToArray("")));
+  }
+
+  /**
+   * Checks that we are not moving the parent directory into the child directory
+   * 
+   * @param fileSys The file system being worked with
+   * @param item The old file location
+   * @param newLocation The new file location
+   * @return Boolean Whether file paths are valid
+   * @throws CommandException If newLocation is child of item
+   */
+  private static boolean checkNewLocation(FileSystem fileSys, File item,
+      File newLocation) throws CommandException {
+
+    // Checks that we are not moving the parent directory into the child
+    // directory
+    boolean result = false;
+    String absOldPath =
+        PrintWorkingDirectory.getAbsoluteFilepath(fileSys, item);
+    String absNewPath =
+        PrintWorkingDirectory.getAbsoluteFilepath(fileSys, newLocation);
+    if (absNewPath.contains(absOldPath)) {
+      result = true;
+    }
+    return result;
   }
 }
