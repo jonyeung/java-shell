@@ -1,0 +1,12 @@
+What did I do last time?
+	-made contributions to the product backlog
+	-delegated responsibilities within the team on the specific parts
+	of new features we added
+	-worked on the tasks delegated and assigned to me for Sprint 4
+	-retrieve file at web URL
+
+What do I plan to do now?
+	-add the file from the web URL to working directory
+
+Am I blocked on anything?
+	-None
