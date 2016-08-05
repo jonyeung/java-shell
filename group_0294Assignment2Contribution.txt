@@ -1,0 +1,2031 @@
++++ASSIGNMENT2 TEAM MEMBER CONTRIBUTION+++
+
+
+
+PART 1) +++SVN CHECKOUT ON YOUR ASSIGNMENT1+++
+A    Assignment2/sprints
+A    Assignment2/sprints/readMeSprints.txt
+A    Assignment2/sprints/Sprint1Backlog.txt
+A    Assignment2/sprints/Sprint2Backlog.txt
+A    Assignment2/sprints/Sprint3Backlog.txt
+A    Assignment2/sprints/Sprint4Backlog.txt
+A    Assignment2/sprints/Sprint5Backlog.txt
+A    Assignment2/group_0294Assignment2Contribution.txt
+A    Assignment2/productBacklog
+A    Assignment2/productBacklog/readMeProductBacklog.txt
+A    Assignment2/productBacklog/productBacklogFor2A.txt
+A    Assignment2/productBacklog/productBacklogFor2B.txt
+A    Assignment2/Assignment2AMark.txt
+A    Assignment2/crcCards
+A    Assignment2/crcCards/Move.txt
+A    Assignment2/crcCards/Cat.txt
+A    Assignment2/crcCards/readMeForCrcCards.txt
+A    Assignment2/crcCards/ChangeDirectory.txt
+A    Assignment2/crcCards/List.txt
+A    Assignment2/crcCards/Manual.txt
+A    Assignment2/crcCards/Echo.txt
+A    Assignment2/crcCards/File.txt
+A    Assignment2/crcCards/JShell.txt
+A    Assignment2/crcCards/PrintWorkingDirectory.txt
+A    Assignment2/crcCards/TextFile.txt
+A    Assignment2/crcCards/FileSystem.txt
+A    Assignment2/crcCards/MatchRegex.txt
+A    Assignment2/crcCards/DirectoryStack.txt
+A    Assignment2/crcCards/CommandException.txt
+A    Assignment2/crcCards/History.txt
+A    Assignment2/crcCards/MakeDirectory.txt
+A    Assignment2/crcCards/Interpreter.txt
+A    Assignment2/crcCards/Directory.txt
+A    Assignment2/crcCards/Curl.txt
+A    Assignment2/readMeAssignment2A.txt
+A    Assignment2/src
+A    Assignment2/src/driver
+A    Assignment2/src/driver/CommandException.java
+A    Assignment2/src/driver/History.java
+A    Assignment2/src/driver/MakeDirectory.java
+A    Assignment2/src/driver/Interpreter.java
+A    Assignment2/src/driver/Directory.java
+A    Assignment2/src/driver/Curl.java
+A    Assignment2/src/driver/Move.java
+A    Assignment2/src/driver/Cat.java
+A    Assignment2/src/driver/ChangeDirectory.java
+A    Assignment2/src/driver/List.java
+A    Assignment2/src/driver/Manual.java
+A    Assignment2/src/driver/Echo.java
+A    Assignment2/src/driver/File.java
+A    Assignment2/src/driver/JShell.java
+A    Assignment2/src/driver/PrintWorkingDirectory.java
+A    Assignment2/src/driver/TextFile.java
+A    Assignment2/src/driver/FileSystem.java
+A    Assignment2/src/driver/MatchRegex.java
+A    Assignment2/src/driver/DirectoryStack.java
+A    Assignment2/src/test
+A    Assignment2/src/test/MatchRegexTest.java
+A    Assignment2/src/test/DirectoryStackTest.java
+A    Assignment2/src/test/HistoryTest.java
+A    Assignment2/src/test/MakeDirectoryTest.java
+A    Assignment2/src/test/InterpreterTest.java
+A    Assignment2/src/test/DirectoryTest.java
+A    Assignment2/src/test/CurlTest.java
+A    Assignment2/src/test/MoveTest.java
+A    Assignment2/src/test/CatTest.java
+A    Assignment2/src/test/ChangeDirectoryTest.java
+A    Assignment2/src/test/ListTest.java
+A    Assignment2/src/test/ManualTest.java
+A    Assignment2/src/test/EchoTest.java
+A    Assignment2/src/test/FileTest.java
+A    Assignment2/src/test/PrintWorkingDirectoryTest.java
+A    Assignment2/src/test/TextFileTest.java
+A    Assignment2/src/test/FileSystemTest.java
+A    Assignment2/dailyScrumMeetings
+A    Assignment2/dailyScrumMeetings/chanja49Sprint2June19.txt
+A    Assignment2/dailyScrumMeetings/yeungj21Sprint3June24.txt
+A    Assignment2/dailyScrumMeetings/chanja49Sprint4July8.txt
+A    Assignment2/dailyScrumMeetings/yeungj21Sprint4July5.txt
+A    Assignment2/dailyScrumMeetings/yeungj21Sprint3June27.txt
+A    Assignment2/dailyScrumMeetings/yeungj21Sprint4July8.txt
+A    Assignment2/dailyScrumMeetings/xiezhangSprint3June21.txt
+A    Assignment2/dailyScrumMeetings/readMeDailyScrumMeetings.txt
+A    Assignment2/dailyScrumMeetings/gillgu19Sprint5July11.txt
+A    Assignment2/dailyScrumMeetings/gillgu19Sprint1June9.txt
+A    Assignment2/dailyScrumMeetings/xiezhangSprint3June25.txt
+A    Assignment2/dailyScrumMeetings/gillgu19Sprint5July14.txt
+A    Assignment2/dailyScrumMeetings/chanja49Sprint5July11.txt
+A    Assignment2/dailyScrumMeetings/chanja49Sprint5July14.txt
+A    Assignment2/dailyScrumMeetings/yeungj21Sprint1June9.txt
+A    Assignment2/dailyScrumMeetings/gillgu19Sprint3June22.txt
+A    Assignment2/dailyScrumMeetings/gillgu19Sprint3June25.txt
+A    Assignment2/dailyScrumMeetings/yeungj21Sprint1June12.txt
+A    Assignment2/dailyScrumMeetings/chanja49Sprint3June23.txt
+A    Assignment2/dailyScrumMeetings/yeungj21Sprint2June15.txt
+A    Assignment2/dailyScrumMeetings/chanja49Sprint3June26.txt
+A    Assignment2/dailyScrumMeetings/yeungj21Sprint2June18.txt
+A    Assignment2/dailyScrumMeetings/xiezhangSprint1June11.txt
+A    Assignment2/dailyScrumMeetings/xiezhangSprint1June13.txt
+A    Assignment2/dailyScrumMeetings/xiezhangSprint2June16.txt
+A    Assignment2/dailyScrumMeetings/xiezhangSprint4July5.txt
+A    Assignment2/dailyScrumMeetings/xiezhangSprint2June19.txt
+A    Assignment2/dailyScrumMeetings/xiezhangSprint4July8.txt
+A    Assignment2/dailyScrumMeetings/yeungj21Sprint5July11.txt
+A    Assignment2/dailyScrumMeetings/yeungj21Sprint5July14.txt
+A    Assignment2/dailyScrumMeetings/gillgu19Sprint1June13.txt
+A    Assignment2/dailyScrumMeetings/chanja49Sprint1June10.txt
+A    Assignment2/dailyScrumMeetings/xiezhangSprint5July11.txt
+A    Assignment2/dailyScrumMeetings/chanja49Sprint1June13.txt
+A    Assignment2/dailyScrumMeetings/gillgu19Sprint2June16.txt
+A    Assignment2/dailyScrumMeetings/gillgu19Sprint4July5.txt
+A    Assignment2/dailyScrumMeetings/xiezhangSprint5July14.txt
+A    Assignment2/dailyScrumMeetings/gillgu19Sprint2June19.txt
+A    Assignment2/dailyScrumMeetings/chanja49Sprint2June16.txt
+A    Assignment2/dailyScrumMeetings/yeungj21Sprint3June21.txt
+A    Assignment2/dailyScrumMeetings/gillgu19Sprint4July8.txt
+A    Assignment2/dailyScrumMeetings/chanja49Sprint4July5.txt
+Checked out revision 453.
+
+
+
+PART 2) +++SVN COMMIT LOGS ARE+++
+Marks Deductions here (-.5 max): 
+------------------------------------------------------------------------
+r453 | yeungj21@UTORONTO.CA | 2016-07-15 23:57:32 -0400 (Fri, 15 Jul 2016) | 1 line
+
+Fixed Move.java to work with all move and copy commands
+------------------------------------------------------------------------
+r452 | chanja49@UTORONTO.CA | 2016-07-15 23:52:13 -0400 (Fri, 15 Jul 2016) | 1 line
+
+fixed bug in move
+------------------------------------------------------------------------
+r451 | yeungj21@UTORONTO.CA | 2016-07-15 23:33:46 -0400 (Fri, 15 Jul 2016) | 1 line
+
+Added main method to test for Move
+------------------------------------------------------------------------
+r450 | yeungj21@UTORONTO.CA | 2016-07-15 23:28:15 -0400 (Fri, 15 Jul 2016) | 1 line
+
+Made change to Move/Copy such that if a newpath is provided that does not exist, the command will create a file at that path
+------------------------------------------------------------------------
+r449 | chanja49@UTORONTO.CA | 2016-07-15 22:52:05 -0400 (Fri, 15 Jul 2016) | 1 line
+
+split up pwd method into two
+------------------------------------------------------------------------
+r448 | chanja49@UTORONTO.CA | 2016-07-15 22:33:45 -0400 (Fri, 15 Jul 2016) | 1 line
+
+added curl test cases
+------------------------------------------------------------------------
+r447 | chanja49@UTORONTO.CA | 2016-07-15 21:47:03 -0400 (Fri, 15 Jul 2016) | 1 line
+
+add javadoc header
+------------------------------------------------------------------------
+r446 | chanja49@UTORONTO.CA | 2016-07-15 21:31:11 -0400 (Fri, 15 Jul 2016) | 2 lines
+
+added javadoc to heading of curl
+format changes to JShell
+------------------------------------------------------------------------
+r445 | chanja49@UTORONTO.CA | 2016-07-15 21:26:30 -0400 (Fri, 15 Jul 2016) | 1 line
+
+removed not working build file
+------------------------------------------------------------------------
+r444 | xiezhang@UTORONTO.CA | 2016-07-15 20:33:43 -0400 (Fri, 15 Jul 2016) | 1 line
+
+updated curl
+------------------------------------------------------------------------
+r443 | xiezhang@UTORONTO.CA | 2016-07-15 20:26:59 -0400 (Fri, 15 Jul 2016) | 1 line
+
+added sprint 5 july 14th scrum meeting.
+------------------------------------------------------------------------
+r442 | xiezhang@UTORONTO.CA | 2016-07-15 20:25:27 -0400 (Fri, 15 Jul 2016) | 1 line
+
+added sprint 5 july 11th scrum meeting.
+------------------------------------------------------------------------
+r441 | xiezhang@UTORONTO.CA | 2016-07-15 20:21:46 -0400 (Fri, 15 Jul 2016) | 1 line
+
+added sprint 4 july 8th scrum meeting.
+------------------------------------------------------------------------
+r440 | xiezhang@UTORONTO.CA | 2016-07-15 20:19:48 -0400 (Fri, 15 Jul 2016) | 1 line
+
+added sprint 4 july 5 scrum meeting.
+------------------------------------------------------------------------
+r439 | chanja49@UTORONTO.CA | 2016-07-15 17:05:48 -0400 (Fri, 15 Jul 2016) | 1 line
+
+fixed a bug in manual test
+------------------------------------------------------------------------
+r438 | yeungj21@UTORONTO.CA | 2016-07-15 16:47:42 -0400 (Fri, 15 Jul 2016) | 1 line
+
+Added a test case for MoveTest
+------------------------------------------------------------------------
+r437 | yeungj21@UTORONTO.CA | 2016-07-15 16:36:54 -0400 (Fri, 15 Jul 2016) | 1 line
+
+Formatted a bunch of files according to Google java code format
+------------------------------------------------------------------------
+r436 | yeungj21@UTORONTO.CA | 2016-07-15 15:24:56 -0400 (Fri, 15 Jul 2016) | 1 line
+
+Added more test cases to MoveTest.java
+------------------------------------------------------------------------
+r435 | yeungj21@UTORONTO.CA | 2016-07-15 15:01:13 -0400 (Fri, 15 Jul 2016) | 1 line
+
+Removed main method in Curl, added some comments
+------------------------------------------------------------------------
+r434 | chanja49@UTORONTO.CA | 2016-07-15 11:42:30 -0400 (Fri, 15 Jul 2016) | 1 line
+
+added build file. but not working yet
+------------------------------------------------------------------------
+r433 | yeungj21@UTORONTO.CA | 2016-07-15 02:21:16 -0400 (Fri, 15 Jul 2016) | 1 line
+
+Updated Curl (still not working)
+------------------------------------------------------------------------
+r432 | yeungj21@UTORONTO.CA | 2016-07-15 02:19:59 -0400 (Fri, 15 Jul 2016) | 1 line
+
+Added last daily scrum meeting
+------------------------------------------------------------------------
+r431 | yeungj21@UTORONTO.CA | 2016-07-15 01:45:26 -0400 (Fri, 15 Jul 2016) | 1 line
+
+Added a test case to MoveTest. Wrote rough code for Curl and implemented it to JShell (Note: Does not work)
+------------------------------------------------------------------------
+r430 | chanja49@UTORONTO.CA | 2016-07-14 23:19:32 -0400 (Thu, 14 Jul 2016) | 1 line
+
+Added my daily scrum meeting file
+------------------------------------------------------------------------
+r429 | gillgu19@UTORONTO.CA | 2016-07-14 21:34:56 -0400 (Thu, 14 Jul 2016) | 1 line
+
+Added daily scrum meeting
+------------------------------------------------------------------------
+r428 | gillgu19@UTORONTO.CA | 2016-07-14 20:07:44 -0400 (Thu, 14 Jul 2016) | 1 line
+
+Updated JShell and fixed minor bug in history.
+------------------------------------------------------------------------
+r427 | gillgu19@UTORONTO.CA | 2016-07-14 19:57:57 -0400 (Thu, 14 Jul 2016) | 1 line
+
+Final touches to man.java.
+------------------------------------------------------------------------
+r426 | gillgu19@UTORONTO.CA | 2016-07-14 19:43:27 -0400 (Thu, 14 Jul 2016) | 1 line
+
+Added man pages for all new commands, and modified previous ones to match specifications.
+------------------------------------------------------------------------
+r425 | gillgu19@UTORONTO.CA | 2016-07-14 19:27:21 -0400 (Thu, 14 Jul 2016) | 1 line
+
+Added more unit tests to history.java to account for !number
+------------------------------------------------------------------------
+r424 | gillgu19@UTORONTO.CA | 2016-07-14 19:22:01 -0400 (Thu, 14 Jul 2016) | 1 line
+
+Updated try block in History.java for recalling exact command
+------------------------------------------------------------------------
+r423 | gillgu19@UTORONTO.CA | 2016-07-14 19:13:04 -0400 (Thu, 14 Jul 2016) | 1 line
+
+Removed unnecessary global variable in jshell
+------------------------------------------------------------------------
+r422 | chanja49@UTORONTO.CA | 2016-07-14 19:12:44 -0400 (Thu, 14 Jul 2016) | 1 line
+
+Fixed a format bug in MatchRegex
+------------------------------------------------------------------------
+r421 | gillgu19@UTORONTO.CA | 2016-07-14 18:52:54 -0400 (Thu, 14 Jul 2016) | 1 line
+
+Formatted InterpreterTest.java
+------------------------------------------------------------------------
+r420 | gillgu19@UTORONTO.CA | 2016-07-14 18:52:43 -0400 (Thu, 14 Jul 2016) | 1 line
+
+Added @throws docstring in ManualTest.java
+------------------------------------------------------------------------
+r419 | gillgu19@UTORONTO.CA | 2016-07-14 18:51:08 -0400 (Thu, 14 Jul 2016) | 1 line
+
+Added @throws docstring in HistoryTest.java
+------------------------------------------------------------------------
+r418 | chanja49@UTORONTO.CA | 2016-07-14 18:49:43 -0400 (Thu, 14 Jul 2016) | 1 line
+
+fixed a bug in interpreter
+------------------------------------------------------------------------
+r417 | gillgu19@UTORONTO.CA | 2016-07-14 18:48:05 -0400 (Thu, 14 Jul 2016) | 1 line
+
+Added docstring for @throws in Manual.java
+------------------------------------------------------------------------
+r416 | gillgu19@UTORONTO.CA | 2016-07-14 18:46:54 -0400 (Thu, 14 Jul 2016) | 1 line
+
+Added docstrings for @throws in history.java
+------------------------------------------------------------------------
+r415 | chanja49@UTORONTO.CA | 2016-07-14 18:34:18 -0400 (Thu, 14 Jul 2016) | 1 line
+
+Added and edited crc cards
+------------------------------------------------------------------------
+r414 | yeungj21@UTORONTO.CA | 2016-07-14 16:16:39 -0400 (Thu, 14 Jul 2016) | 1 line
+
+Fixed a bug with move causing an invalid directory to delete a directory
+------------------------------------------------------------------------
+r413 | chanja49@UTORONTO.CA | 2016-07-13 22:05:24 -0400 (Wed, 13 Jul 2016) | 1 line
+
+updated javadoc and fixed a unit test in pwdTest
+------------------------------------------------------------------------
+r412 | chanja49@UTORONTO.CA | 2016-07-13 21:50:02 -0400 (Wed, 13 Jul 2016) | 1 line
+
+update javadoc and added unit tests to CatTest, InterpreterTest, FileSystemTest
+------------------------------------------------------------------------
+r411 | gillgu19@UTORONTO.CA | 2016-07-12 14:07:42 -0400 (Tue, 12 Jul 2016) | 1 line
+
+Everything relating to "!number" and man should finally (pls) work, without any errors.
+------------------------------------------------------------------------
+r410 | gillgu19@UTORONTO.CA | 2016-07-12 14:07:02 -0400 (Tue, 12 Jul 2016) | 1 line
+
+Changed splicing of history entries to appropriately retrieve commands for "!number" for different lengths of number (1. , 10. , 100. , 1000. , etc)
+------------------------------------------------------------------------
+r409 | gillgu19@UTORONTO.CA | 2016-07-12 13:53:49 -0400 (Tue, 12 Jul 2016) | 1 line
+
+Fixed bug with calling "man !number" on numbers > 10
+------------------------------------------------------------------------
+r408 | gillgu19@UTORONTO.CA | 2016-07-12 13:53:25 -0400 (Tue, 12 Jul 2016) | 1 line
+
+Fixed mistake with substring in recallExactCommand in history.java
+------------------------------------------------------------------------
+r407 | gillgu19@UTORONTO.CA | 2016-07-12 13:35:34 -0400 (Tue, 12 Jul 2016) | 1 line
+
+Fixed small error that didn't allow user to do "man !"
+------------------------------------------------------------------------
+r406 | gillgu19@UTORONTO.CA | 2016-07-12 00:08:35 -0400 (Tue, 12 Jul 2016) | 1 line
+
+Fixed all bugs relating to history, man, and "!".
+------------------------------------------------------------------------
+r405 | gillgu19@UTORONTO.CA | 2016-07-11 23:59:00 -0400 (Mon, 11 Jul 2016) | 1 line
+
+Added my daily scrum meeting
+------------------------------------------------------------------------
+r404 | gillgu19@UTORONTO.CA | 2016-07-11 23:49:40 -0400 (Mon, 11 Jul 2016) | 1 line
+
+Removed tons of stuff, will look at this again tomorrow.
+------------------------------------------------------------------------
+r403 | chanja49@UTORONTO.CA | 2016-07-11 23:14:03 -0400 (Mon, 11 Jul 2016) | 1 line
+
+Added daily scrum meeting
+------------------------------------------------------------------------
+r402 | gillgu19@UTORONTO.CA | 2016-07-11 23:08:08 -0400 (Mon, 11 Jul 2016) | 1 line
+
+Removed print message in JShell.
+------------------------------------------------------------------------
+r401 | gillgu19@UTORONTO.CA | 2016-07-11 23:07:25 -0400 (Mon, 11 Jul 2016) | 1 line
+
+Fixed errors with man command.
+------------------------------------------------------------------------
+r400 | yeungj21@UTORONTO.CA | 2016-07-11 22:51:58 -0400 (Mon, 11 Jul 2016) | 1 line
+
+Added daily scrum meeting
+------------------------------------------------------------------------
+r399 | yeungj21@UTORONTO.CA | 2016-07-11 22:48:18 -0400 (Mon, 11 Jul 2016) | 1 line
+
+Created Curl.java and MoveTest.java
+------------------------------------------------------------------------
+r398 | gillgu19@UTORONTO.CA | 2016-07-11 22:43:16 -0400 (Mon, 11 Jul 2016) | 1 line
+
+Changed how interpretInput works. Took into consideration the "!number" command and how Jshell handles adding to history.
+------------------------------------------------------------------------
+r397 | gillgu19@UTORONTO.CA | 2016-07-11 22:26:31 -0400 (Mon, 11 Jul 2016) | 1 line
+
+Changed the maximum arguments to the man command to infinite.
+------------------------------------------------------------------------
+r396 | gillgu19@UTORONTO.CA | 2016-07-11 22:26:01 -0400 (Mon, 11 Jul 2016) | 1 line
+
+Changed how "!" works with the man command. Can now do man !number to get the manual of commands previously executed.
+------------------------------------------------------------------------
+r395 | gillgu19@UTORONTO.CA | 2016-07-11 22:19:30 -0400 (Mon, 11 Jul 2016) | 1 line
+
+Changed how "!" works, any command starting with "!" does not get added to the history.
+------------------------------------------------------------------------
+r394 | chanja49@UTORONTO.CA | 2016-07-11 22:05:07 -0400 (Mon, 11 Jul 2016) | 1 line
+
+updated grep unit tests
+------------------------------------------------------------------------
+r393 | yeungj21@UTORONTO.CA | 2016-07-11 21:42:18 -0400 (Mon, 11 Jul 2016) | 1 line
+
+Fixed Move.java so that a copy command fully copies a file
+------------------------------------------------------------------------
+r392 | chanja49@UTORONTO.CA | 2016-07-10 17:23:32 -0400 (Sun, 10 Jul 2016) | 1 line
+
+format changes and added java doc to @throws
+------------------------------------------------------------------------
+r391 | chanja49@UTORONTO.CA | 2016-07-10 13:31:44 -0400 (Sun, 10 Jul 2016) | 2 lines
+
+Add grep unit tests. 
+Added comparison option for files
+------------------------------------------------------------------------
+r390 | chanja49@UTORONTO.CA | 2016-07-09 22:33:56 -0400 (Sat, 09 Jul 2016) | 1 line
+
+Added sprint 5 backlog
+------------------------------------------------------------------------
+r389 | yeungj21@UTORONTO.CA | 2016-07-09 22:26:59 -0400 (Sat, 09 Jul 2016) | 1 line
+
+Added daily scrum meeting
+------------------------------------------------------------------------
+r388 | gillgu19@UTORONTO.CA | 2016-07-09 21:54:13 -0400 (Sat, 09 Jul 2016) | 1 line
+
+Updated errors.
+------------------------------------------------------------------------
+r387 | gillgu19@UTORONTO.CA | 2016-07-09 21:53:55 -0400 (Sat, 09 Jul 2016) | 1 line
+
+Caught infinite loop error. Need to fix output message.
+------------------------------------------------------------------------
+r386 | chanja49@UTORONTO.CA | 2016-07-09 21:06:05 -0400 (Sat, 09 Jul 2016) | 1 line
+
+added grep class
+------------------------------------------------------------------------
+r385 | chanja49@UTORONTO.CA | 2016-07-09 18:47:17 -0400 (Sat, 09 Jul 2016) | 1 line
+
+moved a method in list to filesystem
+------------------------------------------------------------------------
+r384 | chanja49@UTORONTO.CA | 2016-07-09 15:06:57 -0400 (Sat, 09 Jul 2016) | 1 line
+
+Fixed a bug in fileSystem and list
+------------------------------------------------------------------------
+r383 | gillgu19@UTORONTO.CA | 2016-07-08 23:44:17 -0400 (Fri, 08 Jul 2016) | 1 line
+
+Added daily scrum meeting
+------------------------------------------------------------------------
+r382 | gillgu19@UTORONTO.CA | 2016-07-08 23:39:08 -0400 (Fri, 08 Jul 2016) | 1 line
+
+Fixed bug in "!" command that went into an infinite loop
+------------------------------------------------------------------------
+r381 | yeungj21@UTORONTO.CA | 2016-07-08 23:16:45 -0400 (Fri, 08 Jul 2016) | 1 line
+
+Added copy command to JShell
+------------------------------------------------------------------------
+r380 | chanja49@UTORONTO.CA | 2016-07-08 22:34:04 -0400 (Fri, 08 Jul 2016) | 1 line
+
+Added daily scrum meeting July 8
+------------------------------------------------------------------------
+r379 | chanja49@UTORONTO.CA | 2016-07-08 19:21:33 -0400 (Fri, 08 Jul 2016) | 1 line
+
+fixed a bug with echo that allowed using echo without a double quoted string
+------------------------------------------------------------------------
+r378 | chanja49@UTORONTO.CA | 2016-07-08 19:00:42 -0400 (Fri, 08 Jul 2016) | 2 lines
+
+made changes to javadoc 
+edited interpreter to use a hash table to hold command names
+------------------------------------------------------------------------
+r377 | chanja49@UTORONTO.CA | 2016-07-08 18:43:50 -0400 (Fri, 08 Jul 2016) | 1 line
+
+Changed cat to continue displaying the contents of the file even if there is an invalid path
+------------------------------------------------------------------------
+r376 | gillgu19@UTORONTO.CA | 2016-07-08 13:59:19 -0400 (Fri, 08 Jul 2016) | 1 line
+
+Fixed bug in exit command, can now exit with whitespace
+------------------------------------------------------------------------
+r375 | gillgu19@UTORONTO.CA | 2016-07-08 13:55:22 -0400 (Fri, 08 Jul 2016) | 1 line
+
+Added exit to interpreter.java
+------------------------------------------------------------------------
+r374 | chanja49@UTORONTO.CA | 2016-07-08 12:44:24 -0400 (Fri, 08 Jul 2016) | 1 line
+
+Made changes to list and interpreter to work with file redirection
+------------------------------------------------------------------------
+r373 | chanja49@UTORONTO.CA | 2016-07-08 12:43:43 -0400 (Fri, 08 Jul 2016) | 1 line
+
+changed JShell to work with redirection
+------------------------------------------------------------------------
+r372 | chanja49@UTORONTO.CA | 2016-07-08 11:39:45 -0400 (Fri, 08 Jul 2016) | 1 line
+
+fixed a bug in directory class
+------------------------------------------------------------------------
+r371 | gillgu19@UTORONTO.CA | 2016-07-07 23:53:08 -0400 (Thu, 07 Jul 2016) | 1 line
+
+Tried implementing Move, but a lot of code is broken from directory.
+------------------------------------------------------------------------
+r370 | lambria7@UTORONTO.CA | 2016-07-07 21:50:52 -0400 (Thu, 07 Jul 2016) | 1 line
+
+Assignment2A marked by Brian Lam.
+------------------------------------------------------------------------
+r369 | gillgu19@UTORONTO.CA | 2016-07-06 00:24:33 -0400 (Wed, 06 Jul 2016) | 1 line
+
+Added docstrings to the new methods in History.java
+------------------------------------------------------------------------
+r368 | gillgu19@UTORONTO.CA | 2016-07-06 00:22:10 -0400 (Wed, 06 Jul 2016) | 1 line
+
+Grammatical error in History.java
+------------------------------------------------------------------------
+r367 | gillgu19@UTORONTO.CA | 2016-07-06 00:21:17 -0400 (Wed, 06 Jul 2016) | 1 line
+
+Fixed small bug for the "!" command. It should work without any bugs now.
+------------------------------------------------------------------------
+r366 | gillgu19@UTORONTO.CA | 2016-07-05 23:44:26 -0400 (Tue, 05 Jul 2016) | 1 line
+
+Added my daily scrum meeting
+------------------------------------------------------------------------
+r365 | gillgu19@UTORONTO.CA | 2016-07-05 23:36:28 -0400 (Tue, 05 Jul 2016) | 1 line
+
+Added "!" command to Manual.java
+------------------------------------------------------------------------
+r364 | gillgu19@UTORONTO.CA | 2016-07-05 23:29:13 -0400 (Tue, 05 Jul 2016) | 1 line
+
+Implemented the "!" command, with all exceptions in it handled.
+------------------------------------------------------------------------
+r363 | gillgu19@UTORONTO.CA | 2016-07-05 23:27:04 -0400 (Tue, 05 Jul 2016) | 1 line
+
+Added two methods that assist with the "!" command in History.java, with all exceptions for the "!" command included.
+------------------------------------------------------------------------
+r362 | gillgu19@UTORONTO.CA | 2016-07-05 23:26:31 -0400 (Tue, 05 Jul 2016) | 1 line
+
+Made changes to Interpreter.java to allow for the "!" command.
+------------------------------------------------------------------------
+r361 | chanja49@UTORONTO.CA | 2016-07-05 16:45:14 -0400 (Tue, 05 Jul 2016) | 1 line
+
+added my daily scrum meeting for sprint 4
+------------------------------------------------------------------------
+r360 | yeungj21@UTORONTO.CA | 2016-07-05 00:02:43 -0400 (Tue, 05 Jul 2016) | 1 line
+
+Added 8th scrum meeting. (First for Assignment2B)
+------------------------------------------------------------------------
+r359 | yeungj21@UTORONTO.CA | 2016-07-05 00:00:04 -0400 (Tue, 05 Jul 2016) | 1 line
+
+Changed Move.java so that it can copy items as well
+------------------------------------------------------------------------
+r358 | yeungj21@UTORONTO.CA | 2016-07-04 23:40:25 -0400 (Mon, 04 Jul 2016) | 1 line
+
+Added Move.java allowing the a user to move a file
+------------------------------------------------------------------------
+r357 | chanja49@UTORONTO.CA | 2016-07-04 14:30:38 -0400 (Mon, 04 Jul 2016) | 1 line
+
+List now works if user inputs -r option
+------------------------------------------------------------------------
+r356 | chanja49@UTORONTO.CA | 2016-07-03 20:13:17 -0400 (Sun, 03 Jul 2016) | 1 line
+
+Edited sprint 4 backlog so that Jason is doing task a-1
+------------------------------------------------------------------------
+r355 | chanja49@UTORONTO.CA | 2016-07-03 20:06:35 -0400 (Sun, 03 Jul 2016) | 1 line
+
+fixed output format bug in list
+------------------------------------------------------------------------
+r354 | chanja49@UTORONTO.CA | 2016-07-03 19:56:40 -0400 (Sun, 03 Jul 2016) | 3 lines
+
+Fixed ls so that it now prints files and directory in proper alphabetical format.
+Completed ls -r. Still needs testing
+Fixed appropriate unit tests
+------------------------------------------------------------------------
+r353 | chanja49@UTORONTO.CA | 2016-07-02 16:23:07 -0400 (Sat, 02 Jul 2016) | 2 lines
+
+small format changes
+
+------------------------------------------------------------------------
+r352 | chanja49@UTORONTO.CA | 2016-07-02 15:16:11 -0400 (Sat, 02 Jul 2016) | 2 lines
+
+Added method in fileSystem to return all subdirectories
+Fixed formating in list 
+------------------------------------------------------------------------
+r351 | gillgu19@UTORONTO.CA | 2016-07-01 20:56:49 -0400 (Fri, 01 Jul 2016) | 1 line
+
+Updated sprint 4 backlog, one of the roles was missing
+------------------------------------------------------------------------
+r350 | chanja49@UTORONTO.CA | 2016-07-01 17:52:03 -0400 (Fri, 01 Jul 2016) | 1 line
+
+changed inputToArray so that any time there is a " ", it will put the strings inside it together
+------------------------------------------------------------------------
+r349 | gillgu19@UTORONTO.CA | 2016-07-01 16:35:35 -0400 (Fri, 01 Jul 2016) | 1 line
+
+Added Sprint 4 backlog
+------------------------------------------------------------------------
+r348 | gillgu19@UTORONTO.CA | 2016-07-01 15:52:52 -0400 (Fri, 01 Jul 2016) | 1 line
+
+Added the product backlog that the group worked on for 2B
+------------------------------------------------------------------------
+r347 | chanja49@UTORONTO.CA | 2016-06-27 21:30:01 -0400 (Mon, 27 Jun 2016) | 1 line
+
+fixed a bug in interpreter
+------------------------------------------------------------------------
+r346 | gillgu19@UTORONTO.CA | 2016-06-27 21:29:39 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Added javadoc to @after for ManualTest.java
+------------------------------------------------------------------------
+r345 | gillgu19@UTORONTO.CA | 2016-06-27 21:28:19 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Added header javadoc to DirectoryTest.java
+------------------------------------------------------------------------
+r344 | xiezhang@UTORONTO.CA | 2016-06-27 21:06:46 -0400 (Mon, 27 Jun 2016) | 1 line
+
+updated Text File Class
+------------------------------------------------------------------------
+r343 | xiezhang@UTORONTO.CA | 2016-06-27 21:05:51 -0400 (Mon, 27 Jun 2016) | 1 line
+
+updated Manual class
+------------------------------------------------------------------------
+r342 | xiezhang@UTORONTO.CA | 2016-06-27 21:04:44 -0400 (Mon, 27 Jun 2016) | 1 line
+
+update JShell class
+------------------------------------------------------------------------
+r341 | xiezhang@UTORONTO.CA | 2016-06-27 21:03:39 -0400 (Mon, 27 Jun 2016) | 1 line
+
+updated FileSystem class
+------------------------------------------------------------------------
+r340 | xiezhang@UTORONTO.CA | 2016-06-27 21:01:32 -0400 (Mon, 27 Jun 2016) | 1 line
+
+updated DirectoryStack
+------------------------------------------------------------------------
+r339 | xiezhang@UTORONTO.CA | 2016-06-27 21:00:23 -0400 (Mon, 27 Jun 2016) | 1 line
+
+updated History class
+------------------------------------------------------------------------
+r338 | xiezhang@UTORONTO.CA | 2016-06-27 20:52:59 -0400 (Mon, 27 Jun 2016) | 1 line
+
+updated directory class
+------------------------------------------------------------------------
+r337 | xiezhang@UTORONTO.CA | 2016-06-27 20:51:10 -0400 (Mon, 27 Jun 2016) | 1 line
+
+updated TextFile Test
+------------------------------------------------------------------------
+r336 | xiezhang@UTORONTO.CA | 2016-06-27 20:50:33 -0400 (Mon, 27 Jun 2016) | 1 line
+
+updated Print Working Directory Test
+------------------------------------------------------------------------
+r335 | xiezhang@UTORONTO.CA | 2016-06-27 20:49:53 -0400 (Mon, 27 Jun 2016) | 1 line
+
+updated Manual Test
+------------------------------------------------------------------------
+r334 | xiezhang@UTORONTO.CA | 2016-06-27 20:49:21 -0400 (Mon, 27 Jun 2016) | 1 line
+
+updated MakeDir Test
+------------------------------------------------------------------------
+r333 | xiezhang@UTORONTO.CA | 2016-06-27 20:47:37 -0400 (Mon, 27 Jun 2016) | 1 line
+
+updated ListTest
+------------------------------------------------------------------------
+r332 | xiezhang@UTORONTO.CA | 2016-06-27 20:45:59 -0400 (Mon, 27 Jun 2016) | 1 line
+
+updated Interpreter Test
+------------------------------------------------------------------------
+r331 | xiezhang@UTORONTO.CA | 2016-06-27 20:38:33 -0400 (Mon, 27 Jun 2016) | 1 line
+
+updated HistoryTest
+------------------------------------------------------------------------
+r330 | xiezhang@UTORONTO.CA | 2016-06-27 20:37:59 -0400 (Mon, 27 Jun 2016) | 1 line
+
+updated FileTest
+------------------------------------------------------------------------
+r329 | gillgu19@UTORONTO.CA | 2016-06-27 20:36:36 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Changed the name of Man.txt to Manual.txt for the crcCard
+------------------------------------------------------------------------
+r328 | chanja49@UTORONTO.CA | 2016-06-27 20:35:42 -0400 (Mon, 27 Jun 2016) | 1 line
+
+moved a method to interpreter class and added unit tests for it
+------------------------------------------------------------------------
+r327 | xiezhang@UTORONTO.CA | 2016-06-27 20:35:15 -0400 (Mon, 27 Jun 2016) | 1 line
+
+updated Echo test
+------------------------------------------------------------------------
+r326 | xiezhang@UTORONTO.CA | 2016-06-27 20:34:27 -0400 (Mon, 27 Jun 2016) | 1 line
+
+updated File System Test
+------------------------------------------------------------------------
+r325 | xiezhang@UTORONTO.CA | 2016-06-27 20:31:50 -0400 (Mon, 27 Jun 2016) | 1 line
+
+updated DirectoryTest
+------------------------------------------------------------------------
+r324 | xiezhang@UTORONTO.CA | 2016-06-27 20:30:20 -0400 (Mon, 27 Jun 2016) | 1 line
+
+updated DirectoryTest
+------------------------------------------------------------------------
+r323 | xiezhang@UTORONTO.CA | 2016-06-27 20:28:23 -0400 (Mon, 27 Jun 2016) | 1 line
+
+updated directory stack test
+------------------------------------------------------------------------
+r322 | xiezhang@UTORONTO.CA | 2016-06-27 20:27:42 -0400 (Mon, 27 Jun 2016) | 1 line
+
+updated change directory test
+------------------------------------------------------------------------
+r321 | gillgu19@UTORONTO.CA | 2016-06-27 20:22:04 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Added header docstring for TextFileTest
+------------------------------------------------------------------------
+r320 | chanja49@UTORONTO.CA | 2016-06-27 20:21:57 -0400 (Mon, 27 Jun 2016) | 1 line
+
+format changes to unit tests
+------------------------------------------------------------------------
+r319 | gillgu19@UTORONTO.CA | 2016-06-27 20:21:18 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Added header docstring for ListTest
+------------------------------------------------------------------------
+r318 | gillgu19@UTORONTO.CA | 2016-06-27 20:20:33 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Added class docstring at the top.
+------------------------------------------------------------------------
+r317 | yeungj21@UTORONTO.CA | 2016-06-27 20:20:32 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Removed unnecessary imports in MakeDirectoryTest
+------------------------------------------------------------------------
+r316 | yeungj21@UTORONTO.CA | 2016-06-27 20:19:57 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Removed old tests and created two new tests for MakeDirectoryTest
+------------------------------------------------------------------------
+r315 | chanja49@UTORONTO.CA | 2016-06-27 20:15:54 -0400 (Mon, 27 Jun 2016) | 1 line
+
+fixed formatting with my unit tests
+------------------------------------------------------------------------
+r314 | chanja49@UTORONTO.CA | 2016-06-27 20:15:32 -0400 (Mon, 27 Jun 2016) | 1 line
+
+fixed formatting with directory stack test
+------------------------------------------------------------------------
+r313 | chanja49@UTORONTO.CA | 2016-06-27 20:07:07 -0400 (Mon, 27 Jun 2016) | 1 line
+
+added filesystem unit test
+------------------------------------------------------------------------
+r312 | yeungj21@UTORONTO.CA | 2016-06-27 20:04:23 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Added javadocs to TextFileTest
+------------------------------------------------------------------------
+r311 | xiezhang@UTORONTO.CA | 2016-06-27 20:03:21 -0400 (Mon, 27 Jun 2016) | 1 line
+
+updated scrum meetings
+------------------------------------------------------------------------
+r310 | yeungj21@UTORONTO.CA | 2016-06-27 20:02:07 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Added javadocs to FileTest
+------------------------------------------------------------------------
+r309 | gillgu19@UTORONTO.CA | 2016-06-27 20:02:04 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Removed empty spaces
+------------------------------------------------------------------------
+r308 | yeungj21@UTORONTO.CA | 2016-06-27 19:59:56 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Added javadocs to ListTest
+------------------------------------------------------------------------
+r307 | gillgu19@UTORONTO.CA | 2016-06-27 19:57:23 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Added comments to JShell
+------------------------------------------------------------------------
+r306 | yeungj21@UTORONTO.CA | 2016-06-27 19:57:17 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Added javadocs for setUp and cleanUp in DirectoryStackTest
+------------------------------------------------------------------------
+r305 | gillgu19@UTORONTO.CA | 2016-06-27 19:51:31 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Updated error message for not having quotes when using echo
+------------------------------------------------------------------------
+r304 | gillgu19@UTORONTO.CA | 2016-06-27 19:49:28 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Fixed grammatical error.
+------------------------------------------------------------------------
+r303 | gillgu19@UTORONTO.CA | 2016-06-27 19:49:02 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Formatted echo.java
+------------------------------------------------------------------------
+r302 | gillgu19@UTORONTO.CA | 2016-06-27 19:48:05 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Added check to echo that raises error when user tries to create a file with an invalid name.
+------------------------------------------------------------------------
+r301 | gillgu19@UTORONTO.CA | 2016-06-27 19:34:07 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Formatted ManualTest.java
+------------------------------------------------------------------------
+r300 | gillgu19@UTORONTO.CA | 2016-06-27 19:33:17 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Formatted JShell
+------------------------------------------------------------------------
+r299 | chanja49@UTORONTO.CA | 2016-06-27 19:31:43 -0400 (Mon, 27 Jun 2016) | 2 lines
+
+added java doc to unit tests
+
+------------------------------------------------------------------------
+r298 | gillgu19@UTORONTO.CA | 2016-06-27 19:30:50 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Added javadoc to MakeDirectoryTest, needs to be modified.
+------------------------------------------------------------------------
+r297 | gillgu19@UTORONTO.CA | 2016-06-27 19:26:22 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Added full javadoc to ChangeDirectoryTest.java
+------------------------------------------------------------------------
+r296 | gillgu19@UTORONTO.CA | 2016-06-27 19:24:22 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Added full javadoc for PrintWorkingDirectory.java
+------------------------------------------------------------------------
+r295 | gillgu19@UTORONTO.CA | 2016-06-27 19:21:34 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Modified javadoc of ManualTest.java
+------------------------------------------------------------------------
+r294 | gillgu19@UTORONTO.CA | 2016-06-27 19:14:01 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Added unit tests for ChangeDirectory.java
+------------------------------------------------------------------------
+r293 | yeungj21@UTORONTO.CA | 2016-06-27 19:10:20 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Added setUp and cleanUp methods to MakeDirectoryTest
+------------------------------------------------------------------------
+r292 | yeungj21@UTORONTO.CA | 2016-06-27 19:03:10 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Added a cleanUp method in ManualTest
+------------------------------------------------------------------------
+r291 | yeungj21@UTORONTO.CA | 2016-06-27 19:01:20 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Fixed a typo in ListTest; Added a cleanUp method in PrintWorkingDirectoryTest
+------------------------------------------------------------------------
+r290 | gillgu19@UTORONTO.CA | 2016-06-27 18:56:53 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Added assertion error to executeCommand for extra safety
+------------------------------------------------------------------------
+r289 | gillgu19@UTORONTO.CA | 2016-06-27 18:56:06 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Removed unnecessary test file.
+------------------------------------------------------------------------
+r288 | yeungj21@UTORONTO.CA | 2016-06-27 18:54:48 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Added my last daily scrum meeting
+------------------------------------------------------------------------
+r287 | yeungj21@UTORONTO.CA | 2016-06-27 18:52:09 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Added TextFileTest.java with 5 test cases; Discovered a bug in TextFile.java and fixed it
+------------------------------------------------------------------------
+r286 | yeungj21@UTORONTO.CA | 2016-06-27 18:41:56 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Aded DirectoryTest with 4 test cases
+------------------------------------------------------------------------
+r285 | gillgu19@UTORONTO.CA | 2016-06-27 18:34:30 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Fixed bug in List.java ("ls .." would crash program)
+------------------------------------------------------------------------
+r284 | chanja49@UTORONTO.CA | 2016-06-27 18:30:33 -0400 (Mon, 27 Jun 2016) | 1 line
+
+added cat tests
+------------------------------------------------------------------------
+r283 | chanja49@UTORONTO.CA | 2016-06-27 18:18:27 -0400 (Mon, 27 Jun 2016) | 1 line
+
+cat gives an error if you cat a directory
+------------------------------------------------------------------------
+r282 | yeungj21@UTORONTO.CA | 2016-06-27 15:57:09 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Added FileTest.java
+------------------------------------------------------------------------
+r281 | chanja49@UTORONTO.CA | 2016-06-27 14:32:42 -0400 (Mon, 27 Jun 2016) | 1 line
+
+created unit tests for echo
+------------------------------------------------------------------------
+r280 | yeungj21@UTORONTO.CA | 2016-06-27 14:32:01 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Added a test case to ListTest
+------------------------------------------------------------------------
+r279 | chanja49@UTORONTO.CA | 2016-06-27 14:07:32 -0400 (Mon, 27 Jun 2016) | 1 line
+
+combined Jonathan's code to use file traversals in echo
+------------------------------------------------------------------------
+r278 | yeungj21@UTORONTO.CA | 2016-06-27 13:42:49 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Fixed a bug in File.java; Debugged problems in Echo to make it working 
+------------------------------------------------------------------------
+r277 | chanja49@UTORONTO.CA | 2016-06-27 13:09:20 -0400 (Mon, 27 Jun 2016) | 1 line
+
+Edited crc cards
+------------------------------------------------------------------------
+r276 | gillgu19@UTORONTO.CA | 2016-06-26 23:39:26 -0400 (Sun, 26 Jun 2016) | 1 line
+
+Implemented echo to JShell.
+------------------------------------------------------------------------
+r275 | gillgu19@UTORONTO.CA | 2016-06-26 23:23:44 -0400 (Sun, 26 Jun 2016) | 1 line
+
+Fixed JavaDoc, renamed variables to be meaningful.
+------------------------------------------------------------------------
+r274 | gillgu19@UTORONTO.CA | 2016-06-26 23:23:23 -0400 (Sun, 26 Jun 2016) | 1 line
+
+Edited some comments in JShell
+------------------------------------------------------------------------
+r273 | chanja49@UTORONTO.CA | 2016-06-26 21:08:29 -0400 (Sun, 26 Jun 2016) | 1 line
+
+changed directory stack unit test so that it doesn't use mkdir or pwd in the test
+------------------------------------------------------------------------
+r272 | xiezhang@UTORONTO.CA | 2016-06-26 21:02:35 -0400 (Sun, 26 Jun 2016) | 1 line
+
+updated MakeDirTest
+------------------------------------------------------------------------
+r271 | xiezhang@UTORONTO.CA | 2016-06-26 20:55:57 -0400 (Sun, 26 Jun 2016) | 1 line
+
+
+------------------------------------------------------------------------
+r270 | xiezhang@UTORONTO.CA | 2016-06-26 20:47:36 -0400 (Sun, 26 Jun 2016) | 1 line
+
+
+------------------------------------------------------------------------
+r269 | xiezhang@UTORONTO.CA | 2016-06-26 20:45:21 -0400 (Sun, 26 Jun 2016) | 1 line
+
+updated MakeDirTest
+------------------------------------------------------------------------
+r268 | xiezhang@UTORONTO.CA | 2016-06-26 20:30:47 -0400 (Sun, 26 Jun 2016) | 1 line
+
+updated Directory and MakeDirectoryTest
+------------------------------------------------------------------------
+r267 | xiezhang@UTORONTO.CA | 2016-06-26 20:13:31 -0400 (Sun, 26 Jun 2016) | 1 line
+
+
+------------------------------------------------------------------------
+r266 | chanja49@UTORONTO.CA | 2016-06-26 20:07:46 -0400 (Sun, 26 Jun 2016) | 1 line
+
+Added my dailyscrum meeting
+------------------------------------------------------------------------
+r265 | chanja49@UTORONTO.CA | 2016-06-26 18:23:55 -0400 (Sun, 26 Jun 2016) | 1 line
+
+made changes to history and how you call it
+------------------------------------------------------------------------
+r264 | xiezhang@UTORONTO.CA | 2016-06-26 18:00:35 -0400 (Sun, 26 Jun 2016) | 1 line
+
+added test case to MakeDirectoryTest
+------------------------------------------------------------------------
+r263 | xiezhang@UTORONTO.CA | 2016-06-26 17:51:44 -0400 (Sun, 26 Jun 2016) | 1 line
+
+updated directory
+------------------------------------------------------------------------
+r262 | gillgu19@UTORONTO.CA | 2016-06-26 17:31:46 -0400 (Sun, 26 Jun 2016) | 1 line
+
+Added JShellTest.java, still need to work on it (will do when I get back to my apartment)
+------------------------------------------------------------------------
+r261 | chanja49@UTORONTO.CA | 2016-06-26 17:27:33 -0400 (Sun, 26 Jun 2016) | 1 line
+
+added a fix in ls
+------------------------------------------------------------------------
+r260 | yeungj21@UTORONTO.CA | 2016-06-26 17:26:44 -0400 (Sun, 26 Jun 2016) | 1 line
+
+Formatted ListTest.java and added comments
+------------------------------------------------------------------------
+r259 | yeungj21@UTORONTO.CA | 2016-06-26 17:20:49 -0400 (Sun, 26 Jun 2016) | 1 line
+
+Finished all test cases for ListTest
+------------------------------------------------------------------------
+r258 | xiezhang@UTORONTO.CA | 2016-06-26 17:08:11 -0400 (Sun, 26 Jun 2016) | 1 line
+
+update Directory
+------------------------------------------------------------------------
+r257 | xiezhang@UTORONTO.CA | 2016-06-26 17:04:58 -0400 (Sun, 26 Jun 2016) | 1 line
+
+updated Jshell
+------------------------------------------------------------------------
+r256 | yeungj21@UTORONTO.CA | 2016-06-26 17:03:23 -0400 (Sun, 26 Jun 2016) | 1 line
+
+Made a change to the last test case of ListTest.java 
+------------------------------------------------------------------------
+r255 | chanja49@UTORONTO.CA | 2016-06-26 17:00:17 -0400 (Sun, 26 Jun 2016) | 1 line
+
+fixed a bug in filesystem
+------------------------------------------------------------------------
+r254 | yeungj21@UTORONTO.CA | 2016-06-26 16:59:22 -0400 (Sun, 26 Jun 2016) | 1 line
+
+Added 3 Test Cases to ListTest
+------------------------------------------------------------------------
+r253 | xiezhang@UTORONTO.CA | 2016-06-26 16:56:52 -0400 (Sun, 26 Jun 2016) | 1 line
+
+updated TextFile
+------------------------------------------------------------------------
+r252 | xiezhang@UTORONTO.CA | 2016-06-26 16:55:19 -0400 (Sun, 26 Jun 2016) | 1 line
+
+updated print working directory
+------------------------------------------------------------------------
+r251 | xiezhang@UTORONTO.CA | 2016-06-26 16:53:35 -0400 (Sun, 26 Jun 2016) | 1 line
+
+updated list
+------------------------------------------------------------------------
+r250 | gillgu19@UTORONTO.CA | 2016-06-26 16:53:07 -0400 (Sun, 26 Jun 2016) | 1 line
+
+Fixed grammatical error in JShell
+------------------------------------------------------------------------
+r249 | xiezhang@UTORONTO.CA | 2016-06-26 16:51:02 -0400 (Sun, 26 Jun 2016) | 1 line
+
+updated interpreter
+------------------------------------------------------------------------
+r248 | gillgu19@UTORONTO.CA | 2016-06-26 16:50:45 -0400 (Sun, 26 Jun 2016) | 1 line
+
+Added ManualTest.java (correctly formatted too)
+------------------------------------------------------------------------
+r247 | xiezhang@UTORONTO.CA | 2016-06-26 16:46:39 -0400 (Sun, 26 Jun 2016) | 1 line
+
+updated history
+------------------------------------------------------------------------
+r246 | xiezhang@UTORONTO.CA | 2016-06-26 16:44:52 -0400 (Sun, 26 Jun 2016) | 1 line
+
+updated FileSystem
+------------------------------------------------------------------------
+r245 | gillgu19@UTORONTO.CA | 2016-06-26 16:44:05 -0400 (Sun, 26 Jun 2016) | 1 line
+
+Added stuff to @before in PWDTest.java
+------------------------------------------------------------------------
+r244 | xiezhang@UTORONTO.CA | 2016-06-26 16:43:59 -0400 (Sun, 26 Jun 2016) | 1 line
+
+updated echo
+------------------------------------------------------------------------
+r243 | xiezhang@UTORONTO.CA | 2016-06-26 16:41:22 -0400 (Sun, 26 Jun 2016) | 1 line
+
+updated Directory Stack
+------------------------------------------------------------------------
+r242 | gillgu19@UTORONTO.CA | 2016-06-26 16:40:33 -0400 (Sun, 26 Jun 2016) | 1 line
+
+Added comments to my PWDTest.java unit test.
+------------------------------------------------------------------------
+r241 | xiezhang@UTORONTO.CA | 2016-06-26 16:39:28 -0400 (Sun, 26 Jun 2016) | 1 line
+
+updated Directory
+------------------------------------------------------------------------
+r240 | xiezhang@UTORONTO.CA | 2016-06-26 16:38:12 -0400 (Sun, 26 Jun 2016) | 1 line
+
+updated changedirectory
+------------------------------------------------------------------------
+r239 | xiezhang@UTORONTO.CA | 2016-06-26 16:37:38 -0400 (Sun, 26 Jun 2016) | 1 line
+
+updated Cat
+------------------------------------------------------------------------
+r238 | xiezhang@UTORONTO.CA | 2016-06-26 16:35:07 -0400 (Sun, 26 Jun 2016) | 1 line
+
+added sprints scrum meetings
+------------------------------------------------------------------------
+r237 | xiezhang@UTORONTO.CA | 2016-06-26 16:32:37 -0400 (Sun, 26 Jun 2016) | 1 line
+
+updated FileSystem
+------------------------------------------------------------------------
+r236 | xiezhang@UTORONTO.CA | 2016-06-26 16:29:16 -0400 (Sun, 26 Jun 2016) | 1 line
+
+updated MakeDirectory
+------------------------------------------------------------------------
+r235 | chanja49@UTORONTO.CA | 2016-06-26 16:27:49 -0400 (Sun, 26 Jun 2016) | 1 line
+
+edited cat javadoc
+------------------------------------------------------------------------
+r234 | gillgu19@UTORONTO.CA | 2016-06-26 16:24:36 -0400 (Sun, 26 Jun 2016) | 1 line
+
+Updated javadoc and formatted file.java
+------------------------------------------------------------------------
+r233 | chanja49@UTORONTO.CA | 2016-06-26 16:24:01 -0400 (Sun, 26 Jun 2016) | 1 line
+
+changed ls to return a string rather than print to screen
+------------------------------------------------------------------------
+r232 | xiezhang@UTORONTO.CA | 2016-06-26 16:23:59 -0400 (Sun, 26 Jun 2016) | 1 line
+
+updated format
+------------------------------------------------------------------------
+r231 | gillgu19@UTORONTO.CA | 2016-06-26 16:22:26 -0400 (Sun, 26 Jun 2016) | 1 line
+
+Updated Javadoc on Echo.java
+------------------------------------------------------------------------
+r230 | xiezhang@UTORONTO.CA | 2016-06-26 16:21:18 -0400 (Sun, 26 Jun 2016) | 1 line
+
+added style
+------------------------------------------------------------------------
+r229 | xiezhang@UTORONTO.CA | 2016-06-26 16:20:49 -0400 (Sun, 26 Jun 2016) | 1 line
+
+added style
+------------------------------------------------------------------------
+r228 | gillgu19@UTORONTO.CA | 2016-06-26 16:18:37 -0400 (Sun, 26 Jun 2016) | 1 line
+
+Added Javadoc to CommandException.
+------------------------------------------------------------------------
+r227 | gillgu19@UTORONTO.CA | 2016-06-26 16:14:08 -0400 (Sun, 26 Jun 2016) | 1 line
+
+Removed comment on CommandException.java
+------------------------------------------------------------------------
+r226 | gillgu19@UTORONTO.CA | 2016-06-26 16:12:46 -0400 (Sun, 26 Jun 2016) | 1 line
+
+Changed the statement that executes Manual.
+------------------------------------------------------------------------
+r225 | gillgu19@UTORONTO.CA | 2016-06-26 16:12:02 -0400 (Sun, 26 Jun 2016) | 1 line
+
+Changed return value of printMan in Manual.java so it returns a string instead of printing the message.
+------------------------------------------------------------------------
+r224 | gillgu19@UTORONTO.CA | 2016-06-26 16:10:54 -0400 (Sun, 26 Jun 2016) | 1 line
+
+Modified Javadoc on Jshell
+------------------------------------------------------------------------
+r223 | gillgu19@UTORONTO.CA | 2016-06-26 16:10:02 -0400 (Sun, 26 Jun 2016) | 1 line
+
+Added and modified Javadoc for Textfile.java
+------------------------------------------------------------------------
+r222 | chanja49@UTORONTO.CA | 2016-06-26 16:07:32 -0400 (Sun, 26 Jun 2016) | 1 line
+
+added class javadoc
+------------------------------------------------------------------------
+r221 | gillgu19@UTORONTO.CA | 2016-06-26 16:07:15 -0400 (Sun, 26 Jun 2016) | 1 line
+
+Added Javadoc to PrintWorkingDirectory.java
+------------------------------------------------------------------------
+r220 | gillgu19@UTORONTO.CA | 2016-06-26 16:03:23 -0400 (Sun, 26 Jun 2016) | 1 line
+
+Added Javadoc to Manual.java
+------------------------------------------------------------------------
+r219 | gillgu19@UTORONTO.CA | 2016-06-26 15:52:11 -0400 (Sun, 26 Jun 2016) | 1 line
+
+Added Javadocs for JShell
+------------------------------------------------------------------------
+r218 | chanja49@UTORONTO.CA | 2016-06-26 15:47:28 -0400 (Sun, 26 Jun 2016) | 1 line
+
+added directory stack unit test
+------------------------------------------------------------------------
+r217 | gillgu19@UTORONTO.CA | 2016-06-26 15:37:54 -0400 (Sun, 26 Jun 2016) | 1 line
+
+Changed if-elseif to switch and cases in JShell
+------------------------------------------------------------------------
+r216 | gillgu19@UTORONTO.CA | 2016-06-26 14:46:23 -0400 (Sun, 26 Jun 2016) | 1 line
+
+Reformatted Manual.java, used a hashtable for each manual message
+------------------------------------------------------------------------
+r215 | chanja49@UTORONTO.CA | 2016-06-26 14:28:35 -0400 (Sun, 26 Jun 2016) | 1 line
+
+added history tests
+------------------------------------------------------------------------
+r214 | chanja49@UTORONTO.CA | 2016-06-26 14:28:04 -0400 (Sun, 26 Jun 2016) | 1 line
+
+revert JShell to original
+------------------------------------------------------------------------
+r213 | gillgu19@UTORONTO.CA | 2016-06-26 14:25:26 -0400 (Sun, 26 Jun 2016) | 1 line
+
+Unnecessary
+------------------------------------------------------------------------
+r212 | gillgu19@UTORONTO.CA | 2016-06-26 14:25:10 -0400 (Sun, 26 Jun 2016) | 1 line
+
+Removed import to command
+------------------------------------------------------------------------
+r211 | gillgu19@UTORONTO.CA | 2016-06-26 14:24:45 -0400 (Sun, 26 Jun 2016) | 1 line
+
+Removed stuff from JShell
+------------------------------------------------------------------------
+r210 | gillgu19@UTORONTO.CA | 2016-06-26 14:23:40 -0400 (Sun, 26 Jun 2016) | 1 line
+
+Removed stuff from MakeDirectory
+------------------------------------------------------------------------
+r209 | gillgu19@UTORONTO.CA | 2016-06-26 14:10:21 -0400 (Sun, 26 Jun 2016) | 1 line
+
+Updated MakeDirectory.java
+------------------------------------------------------------------------
+r208 | gillgu19@UTORONTO.CA | 2016-06-26 14:08:55 -0400 (Sun, 26 Jun 2016) | 1 line
+
+Updated Command.java
+------------------------------------------------------------------------
+r207 | gillgu19@UTORONTO.CA | 2016-06-26 14:01:21 -0400 (Sun, 26 Jun 2016) | 1 line
+
+Added Command.java
+------------------------------------------------------------------------
+r206 | gillgu19@UTORONTO.CA | 2016-06-26 14:01:09 -0400 (Sun, 26 Jun 2016) | 1 line
+
+Testing Hashtables
+------------------------------------------------------------------------
+r205 | gillgu19@UTORONTO.CA | 2016-06-26 12:52:09 -0400 (Sun, 26 Jun 2016) | 1 line
+
+Fixed error in echo (line 41) to "file.getName().equals(fileName)"
+------------------------------------------------------------------------
+r204 | gillgu19@UTORONTO.CA | 2016-06-26 12:38:03 -0400 (Sun, 26 Jun 2016) | 1 line
+
+Removed unnecessary method in PrintWorkingDirectory.java
+------------------------------------------------------------------------
+r203 | gillgu19@UTORONTO.CA | 2016-06-26 12:37:42 -0400 (Sun, 26 Jun 2016) | 1 line
+
+Changed method call from getFilPath to printWD in DirectoryStack.java
+------------------------------------------------------------------------
+r202 | gillgu19@UTORONTO.CA | 2016-06-25 23:54:31 -0400 (Sat, 25 Jun 2016) | 1 line
+
+Added my daily scrum meeting
+------------------------------------------------------------------------
+r201 | gillgu19@UTORONTO.CA | 2016-06-25 23:49:32 -0400 (Sat, 25 Jun 2016) | 1 line
+
+Started on testing PWD.
+------------------------------------------------------------------------
+r200 | gillgu19@UTORONTO.CA | 2016-06-25 23:39:41 -0400 (Sat, 25 Jun 2016) | 1 line
+
+Changed printWD method, returns a string.
+------------------------------------------------------------------------
+r199 | gillgu19@UTORONTO.CA | 2016-06-25 23:38:46 -0400 (Sat, 25 Jun 2016) | 1 line
+
+Made changes to printing the working directory in JShell.
+------------------------------------------------------------------------
+r198 | chanja49@UTORONTO.CA | 2016-06-25 22:53:24 -0400 (Sat, 25 Jun 2016) | 1 line
+
+added java doc
+------------------------------------------------------------------------
+r197 | chanja49@UTORONTO.CA | 2016-06-25 22:50:28 -0400 (Sat, 25 Jun 2016) | 1 line
+
+added cat class
+------------------------------------------------------------------------
+r196 | chanja49@UTORONTO.CA | 2016-06-25 22:49:13 -0400 (Sat, 25 Jun 2016) | 2 lines
+
+edited list and had changed collaborators to work with changes
+
+------------------------------------------------------------------------
+r195 | chanja49@UTORONTO.CA | 2016-06-25 22:18:55 -0400 (Sat, 25 Jun 2016) | 1 line
+
+Changed ls formatting
+------------------------------------------------------------------------
+r194 | chanja49@UTORONTO.CA | 2016-06-25 21:45:09 -0400 (Sat, 25 Jun 2016) | 1 line
+
+added a method to return the parent directory given a filepath
+------------------------------------------------------------------------
+r193 | xiezhang@UTORONTO.CA | 2016-06-25 21:07:49 -0400 (Sat, 25 Jun 2016) | 1 line
+
+added sprint2 scrum meeting
+------------------------------------------------------------------------
+r192 | yeungj21@UTORONTO.CA | 2016-06-25 17:44:55 -0400 (Sat, 25 Jun 2016) | 1 line
+
+Added ListTest.java; Renamed a method in List.java and renamed the corresponding method call in JShell
+------------------------------------------------------------------------
+r191 | chanja49@UTORONTO.CA | 2016-06-25 15:57:56 -0400 (Sat, 25 Jun 2016) | 1 line
+
+fixed a bug in unit test for interpreter
+------------------------------------------------------------------------
+r190 | yeungj21@UTORONTO.CA | 2016-06-25 02:38:36 -0400 (Sat, 25 Jun 2016) | 1 line
+
+Added Echo.java and wrote first revision of its code
+------------------------------------------------------------------------
+r189 | yeungj21@UTORONTO.CA | 2016-06-24 23:57:38 -0400 (Fri, 24 Jun 2016) | 1 line
+
+Added 6th scrum meeting
+------------------------------------------------------------------------
+r188 | gillgu19@UTORONTO.CA | 2016-06-24 20:41:55 -0400 (Fri, 24 Jun 2016) | 1 line
+
+Formatted list.java
+------------------------------------------------------------------------
+r187 | gillgu19@UTORONTO.CA | 2016-06-24 20:41:36 -0400 (Fri, 24 Jun 2016) | 1 line
+
+Suppressed warnings on commandexception
+------------------------------------------------------------------------
+r186 | gillgu19@UTORONTO.CA | 2016-06-24 20:39:44 -0400 (Fri, 24 Jun 2016) | 1 line
+
+Formatted FileSystem.java
+------------------------------------------------------------------------
+r185 | gillgu19@UTORONTO.CA | 2016-06-24 20:39:20 -0400 (Fri, 24 Jun 2016) | 1 line
+
+Formatted CommandException.java
+------------------------------------------------------------------------
+r184 | gillgu19@UTORONTO.CA | 2016-06-24 20:38:44 -0400 (Fri, 24 Jun 2016) | 1 line
+
+Formatted DirectoryStack.java
+------------------------------------------------------------------------
+r183 | gillgu19@UTORONTO.CA | 2016-06-24 20:37:50 -0400 (Fri, 24 Jun 2016) | 1 line
+
+Formatted ChangeDirectory.java
+------------------------------------------------------------------------
+r182 | gillgu19@UTORONTO.CA | 2016-06-24 20:35:24 -0400 (Fri, 24 Jun 2016) | 1 line
+
+Fixed formatting of Jshell
+------------------------------------------------------------------------
+r181 | gillgu19@UTORONTO.CA | 2016-06-24 20:33:56 -0400 (Fri, 24 Jun 2016) | 1 line
+
+Moved try catch from executeCommand to interpretInput
+------------------------------------------------------------------------
+r180 | chanja49@UTORONTO.CA | 2016-06-24 20:17:15 -0400 (Fri, 24 Jun 2016) | 1 line
+
+fixed bug in traverse path
+------------------------------------------------------------------------
+r179 | gillgu19@UTORONTO.CA | 2016-06-24 20:01:04 -0400 (Fri, 24 Jun 2016) | 1 line
+
+Edited exception message in MakeDirectory.java
+------------------------------------------------------------------------
+r178 | gillgu19@UTORONTO.CA | 2016-06-24 19:56:35 -0400 (Fri, 24 Jun 2016) | 1 line
+
+Edited exception message in ChangeDirectory.java
+------------------------------------------------------------------------
+r177 | chanja49@UTORONTO.CA | 2016-06-24 19:53:03 -0400 (Fri, 24 Jun 2016) | 1 line
+
+edited traversePath so now you can enter '.' as a filepath
+------------------------------------------------------------------------
+r176 | gillgu19@UTORONTO.CA | 2016-06-24 19:52:16 -0400 (Fri, 24 Jun 2016) | 1 line
+
+Added an exception to ChangeDirectory.java, user should no longer be able to change to invalid directories.
+------------------------------------------------------------------------
+r175 | gillgu19@UTORONTO.CA | 2016-06-24 19:47:50 -0400 (Fri, 24 Jun 2016) | 2 lines
+
+Modified exception message in MakeDirectory.java
+
+------------------------------------------------------------------------
+r174 | gillgu19@UTORONTO.CA | 2016-06-24 19:46:03 -0400 (Fri, 24 Jun 2016) | 1 line
+
+Removed unnecessary try-catch statements from Interpreter.java
+------------------------------------------------------------------------
+r173 | gillgu19@UTORONTO.CA | 2016-06-24 19:40:54 -0400 (Fri, 24 Jun 2016) | 1 line
+
+Fixed grammar mistake in history.java
+------------------------------------------------------------------------
+r172 | gillgu19@UTORONTO.CA | 2016-06-24 19:40:14 -0400 (Fri, 24 Jun 2016) | 1 line
+
+Changed the try-catch statement to an if-else statement. lastLines > 0 means user can only input numbers > 0.
+------------------------------------------------------------------------
+r171 | gillgu19@UTORONTO.CA | 2016-06-24 19:33:40 -0400 (Fri, 24 Jun 2016) | 1 line
+
+Removed unnecessary try-catch statement
+------------------------------------------------------------------------
+r170 | gillgu19@UTORONTO.CA | 2016-06-24 19:32:42 -0400 (Fri, 24 Jun 2016) | 1 line
+
+Added @throws declaration
+------------------------------------------------------------------------
+r169 | gillgu19@UTORONTO.CA | 2016-06-24 19:32:31 -0400 (Fri, 24 Jun 2016) | 1 line
+
+Added @throws declaration
+------------------------------------------------------------------------
+r168 | gillgu19@UTORONTO.CA | 2016-06-24 19:31:35 -0400 (Fri, 24 Jun 2016) | 1 line
+
+Removed unnecessary try-catch statements
+------------------------------------------------------------------------
+r167 | gillgu19@UTORONTO.CA | 2016-06-24 19:28:15 -0400 (Fri, 24 Jun 2016) | 1 line
+
+Fixed cd'ing to previous directory while at root
+------------------------------------------------------------------------
+r166 | gillgu19@UTORONTO.CA | 2016-06-24 19:00:24 -0400 (Fri, 24 Jun 2016) | 1 line
+
+Not required anymore.
+------------------------------------------------------------------------
+r165 | chanja49@UTORONTO.CA | 2016-06-24 18:13:53 -0400 (Fri, 24 Jun 2016) | 1 line
+
+Changed directory class so it stores files in alphabetical order
+------------------------------------------------------------------------
+r164 | chanja49@UTORONTO.CA | 2016-06-24 17:39:23 -0400 (Fri, 24 Jun 2016) | 1 line
+
+format changes and added java doc
+------------------------------------------------------------------------
+r163 | chanja49@UTORONTO.CA | 2016-06-24 17:23:04 -0400 (Fri, 24 Jun 2016) | 3 lines
+
+Changed traversePath to return a directory and made a separate method that returns a file
+edited other commands so they work with this new traversePath return value
+fixed mkdir and its bugs
+------------------------------------------------------------------------
+r162 | chanja49@UTORONTO.CA | 2016-06-23 13:04:14 -0400 (Thu, 23 Jun 2016) | 1 line
+
+Added my daily scrum meeting
+------------------------------------------------------------------------
+r161 | chanja49@UTORONTO.CA | 2016-06-23 12:58:21 -0400 (Thu, 23 Jun 2016) | 2 lines
+
+changed some variables to final
+added unit test for interpreter class
+------------------------------------------------------------------------
+r160 | gillgu19@UTORONTO.CA | 2016-06-22 23:23:24 -0400 (Wed, 22 Jun 2016) | 1 line
+
+Removed unnecessary imports
+------------------------------------------------------------------------
+r159 | gillgu19@UTORONTO.CA | 2016-06-22 23:22:08 -0400 (Wed, 22 Jun 2016) | 1 line
+
+Updated Man reference to Manual
+------------------------------------------------------------------------
+r158 | gillgu19@UTORONTO.CA | 2016-06-22 23:21:52 -0400 (Wed, 22 Jun 2016) | 1 line
+
+Changed to Manual.java
+------------------------------------------------------------------------
+r157 | gillgu19@UTORONTO.CA | 2016-06-22 23:19:05 -0400 (Wed, 22 Jun 2016) | 1 line
+
+
+------------------------------------------------------------------------
+r156 | gillgu19@UTORONTO.CA | 2016-06-22 21:48:23 -0400 (Wed, 22 Jun 2016) | 1 line
+
+Added my daily scrum meeting
+------------------------------------------------------------------------
+r155 | gillgu19@UTORONTO.CA | 2016-06-22 21:42:25 -0400 (Wed, 22 Jun 2016) | 1 line
+
+Took out a block of unncessary (annoying) comments
+------------------------------------------------------------------------
+r154 | gillgu19@UTORONTO.CA | 2016-06-22 21:41:09 -0400 (Wed, 22 Jun 2016) | 1 line
+
+Incorporated/modified a bunch of exceptions for some commands (mkdir, history, man)
+------------------------------------------------------------------------
+r153 | gillgu19@UTORONTO.CA | 2016-06-22 21:36:55 -0400 (Wed, 22 Jun 2016) | 1 line
+
+Added checks to MakeDirectory.java to determine when to throw an exception for duplicate directory names.
+------------------------------------------------------------------------
+r152 | gillgu19@UTORONTO.CA | 2016-06-22 21:35:22 -0400 (Wed, 22 Jun 2016) | 1 line
+
+Added a method to Directory.java that checks whether a directory name already exists in the directory.
+------------------------------------------------------------------------
+r151 | gillgu19@UTORONTO.CA | 2016-06-22 20:52:10 -0400 (Wed, 22 Jun 2016) | 1 line
+
+Updated exception message and removed TODO by Jason for Interpreter.java
+------------------------------------------------------------------------
+r150 | gillgu19@UTORONTO.CA | 2016-06-22 20:27:02 -0400 (Wed, 22 Jun 2016) | 1 line
+
+Made changes to how JShell handles exceptions.
+------------------------------------------------------------------------
+r149 | gillgu19@UTORONTO.CA | 2016-06-22 20:22:28 -0400 (Wed, 22 Jun 2016) | 2 lines
+
+Updated History.java, reformatted the exception
+
+------------------------------------------------------------------------
+r148 | gillgu19@UTORONTO.CA | 2016-06-22 20:09:25 -0400 (Wed, 22 Jun 2016) | 1 line
+
+Updated Man.java upon reviewing feedback from Brian, re-formatted the exception and changed all message variables to final (and capitalized them).
+------------------------------------------------------------------------
+r147 | yeungj21@UTORONTO.CA | 2016-06-21 22:12:54 -0400 (Tue, 21 Jun 2016) | 1 line
+
+Added fifth daily scrum meeting
+------------------------------------------------------------------------
+r146 | chanja49@UTORONTO.CA | 2016-06-21 17:58:11 -0400 (Tue, 21 Jun 2016) | 2 lines
+
+fixed a bug in traverse filepath, directory stack, pwd
+uncommented code so now we can use popd and pushd
+------------------------------------------------------------------------
+r145 | gillgu19@UTORONTO.CA | 2016-06-19 20:16:03 -0400 (Sun, 19 Jun 2016) | 1 line
+
+Added Sprint3Backlog.txt
+------------------------------------------------------------------------
+r144 | chanja49@UTORONTO.CA | 2016-06-19 18:26:25 -0400 (Sun, 19 Jun 2016) | 1 line
+
+Added my daily scrum meeting
+------------------------------------------------------------------------
+r143 | gillgu19@UTORONTO.CA | 2016-06-19 17:55:36 -0400 (Sun, 19 Jun 2016) | 1 line
+
+Added my daily scrum meeting
+------------------------------------------------------------------------
+r142 | gillgu19@UTORONTO.CA | 2016-06-19 17:33:27 -0400 (Sun, 19 Jun 2016) | 2 lines
+
+Added an exception, not completely done with testing CD/Mkdir
+
+------------------------------------------------------------------------
+r141 | gillgu19@UTORONTO.CA | 2016-06-19 17:06:44 -0400 (Sun, 19 Jun 2016) | 2 lines
+
+Incorporated PWD to Jshell
+
+------------------------------------------------------------------------
+r140 | gillgu19@UTORONTO.CA | 2016-06-19 17:02:30 -0400 (Sun, 19 Jun 2016) | 1 line
+
+Incorporated fileSystem to Jshell
+------------------------------------------------------------------------
+r139 | xiezhang@UTORONTO.CA | 2016-06-19 17:02:15 -0400 (Sun, 19 Jun 2016) | 1 line
+
+updated FileSystem.java
+------------------------------------------------------------------------
+r138 | gillgu19@UTORONTO.CA | 2016-06-19 16:53:25 -0400 (Sun, 19 Jun 2016) | 1 line
+
+Fixed an error in MakeDirectory.java.
+------------------------------------------------------------------------
+r137 | xiezhang@UTORONTO.CA | 2016-06-19 16:48:11 -0400 (Sun, 19 Jun 2016) | 1 line
+
+updated File.java
+------------------------------------------------------------------------
+r136 | xiezhang@UTORONTO.CA | 2016-06-19 16:45:49 -0400 (Sun, 19 Jun 2016) | 1 line
+
+updated CommandException.java
+------------------------------------------------------------------------
+r135 | chanja49@UTORONTO.CA | 2016-06-19 16:44:58 -0400 (Sun, 19 Jun 2016) | 2 lines
+
+added exceptions to interpreter
+edited directoryStack to work with filesystem
+------------------------------------------------------------------------
+r134 | yeungj21@UTORONTO.CA | 2016-06-19 16:44:02 -0400 (Sun, 19 Jun 2016) | 1 line
+
+Fixed typo in my section of honor code
+------------------------------------------------------------------------
+r133 | xiezhang@UTORONTO.CA | 2016-06-19 16:43:42 -0400 (Sun, 19 Jun 2016) | 1 line
+
+update Directory.java
+------------------------------------------------------------------------
+r132 | xiezhang@UTORONTO.CA | 2016-06-19 16:32:48 -0400 (Sun, 19 Jun 2016) | 1 line
+
+updated command exception
+------------------------------------------------------------------------
+r131 | xiezhang@UTORONTO.CA | 2016-06-19 16:29:36 -0400 (Sun, 19 Jun 2016) | 1 line
+
+updated Directory class with its java doc
+------------------------------------------------------------------------
+r130 | xiezhang@UTORONTO.CA | 2016-06-19 16:22:48 -0400 (Sun, 19 Jun 2016) | 1 line
+
+updated ChangeDirectory with class java doc
+------------------------------------------------------------------------
+r129 | xiezhang@UTORONTO.CA | 2016-06-19 16:21:49 -0400 (Sun, 19 Jun 2016) | 1 line
+
+updated MakeDir with docstring
+------------------------------------------------------------------------
+r128 | yeungj21@UTORONTO.CA | 2016-06-19 16:20:13 -0400 (Sun, 19 Jun 2016) | 1 line
+
+Reformatted PrintWorkingDirectory.java to work with FileSystem
+------------------------------------------------------------------------
+r127 | xiezhang@UTORONTO.CA | 2016-06-19 16:17:52 -0400 (Sun, 19 Jun 2016) | 1 line
+
+updated MakeDirectory.java
+------------------------------------------------------------------------
+r126 | yeungj21@UTORONTO.CA | 2016-06-19 16:15:45 -0400 (Sun, 19 Jun 2016) | 1 line
+
+Reformatted MakeDirectory.java to work with FileSystem
+------------------------------------------------------------------------
+r125 | xiezhang@UTORONTO.CA | 2016-06-19 16:12:13 -0400 (Sun, 19 Jun 2016) | 1 line
+
+updated List.java
+------------------------------------------------------------------------
+r124 | yeungj21@UTORONTO.CA | 2016-06-19 16:11:03 -0400 (Sun, 19 Jun 2016) | 1 line
+
+Reformatted List.java to work by taking in a FileSystem
+------------------------------------------------------------------------
+r123 | xiezhang@UTORONTO.CA | 2016-06-19 16:04:17 -0400 (Sun, 19 Jun 2016) | 1 line
+
+updated change directory and made sure it doesnt exceed 80 character limit
+------------------------------------------------------------------------
+r122 | yeungj21@UTORONTO.CA | 2016-06-19 16:02:24 -0400 (Sun, 19 Jun 2016) | 1 line
+
+Changed ChangeDirectory.java's method to be simplified
+------------------------------------------------------------------------
+r121 | xiezhang@UTORONTO.CA | 2016-06-19 15:55:52 -0400 (Sun, 19 Jun 2016) | 1 line
+
+updated FileSystem.java
+------------------------------------------------------------------------
+r120 | gillgu19@UTORONTO.CA | 2016-06-19 15:53:06 -0400 (Sun, 19 Jun 2016) | 2 lines
+
+Removed unnecessary comments
+
+------------------------------------------------------------------------
+r119 | gillgu19@UTORONTO.CA | 2016-06-19 15:48:21 -0400 (Sun, 19 Jun 2016) | 1 line
+
+Updated comments in JShell
+------------------------------------------------------------------------
+r118 | chanja49@UTORONTO.CA | 2016-06-19 15:45:10 -0400 (Sun, 19 Jun 2016) | 1 line
+
+added exception
+------------------------------------------------------------------------
+r117 | yeungj21@UTORONTO.CA | 2016-06-19 15:32:47 -0400 (Sun, 19 Jun 2016) | 1 line
+
+Changed ChangeDirectory.java's method to be static
+------------------------------------------------------------------------
+r116 | yeungj21@UTORONTO.CA | 2016-06-19 15:28:53 -0400 (Sun, 19 Jun 2016) | 1 line
+
+Renamed a method name for ChangeDirectory
+------------------------------------------------------------------------
+r115 | xiezhang@UTORONTO.CA | 2016-06-19 15:25:05 -0400 (Sun, 19 Jun 2016) | 1 line
+
+updated list so that it uses fileSystem object. fixed compile error and made non-static call.
+------------------------------------------------------------------------
+r114 | xiezhang@UTORONTO.CA | 2016-06-19 15:21:43 -0400 (Sun, 19 Jun 2016) | 2 lines
+
+fixed the compilation error to ChangeDirectory and made change directory non-static.
+Created a fileSystem Object and made used the object instead of making static calls.
+------------------------------------------------------------------------
+r113 | chanja49@UTORONTO.CA | 2016-06-19 15:16:11 -0400 (Sun, 19 Jun 2016) | 2 lines
+
+finished pushd and popd
+edited printWorkingDirectory to add a method to return absolute file path
+------------------------------------------------------------------------
+r112 | yeungj21@UTORONTO.CA | 2016-06-19 15:11:41 -0400 (Sun, 19 Jun 2016) | 1 line
+
+Changed Tree calls in List.java and MakeDirectory.java to FileSystem calls
+------------------------------------------------------------------------
+r111 | gillgu19@UTORONTO.CA | 2016-06-19 15:07:34 -0400 (Sun, 19 Jun 2016) | 1 line
+
+Removed unnecessary files
+------------------------------------------------------------------------
+r110 | yeungj21@UTORONTO.CA | 2016-06-19 15:05:08 -0400 (Sun, 19 Jun 2016) | 1 line
+
+Changed ChangeDirectory.java calls to Tree class to FileSystem
+------------------------------------------------------------------------
+r109 | gillgu19@UTORONTO.CA | 2016-06-19 15:02:28 -0400 (Sun, 19 Jun 2016) | 1 line
+
+Modified JShell, edited comments.
+------------------------------------------------------------------------
+r108 | xiezhang@UTORONTO.CA | 2016-06-19 15:02:08 -0400 (Sun, 19 Jun 2016) | 1 line
+
+fixed compilation errors. made correction to all methods of Tree and made methods non-static to support our original design.
+------------------------------------------------------------------------
+r107 | gillgu19@UTORONTO.CA | 2016-06-19 15:02:05 -0400 (Sun, 19 Jun 2016) | 2 lines
+
+Added comment in Man.java to discuss with team
+
+------------------------------------------------------------------------
+r106 | gillgu19@UTORONTO.CA | 2016-06-19 12:35:36 -0400 (Sun, 19 Jun 2016) | 1 line
+
+Added an exception to the Man class that is thrown when user tries to retrieve the manual for an invalid command name.
+------------------------------------------------------------------------
+r105 | gillgu19@UTORONTO.CA | 2016-06-19 12:33:00 -0400 (Sun, 19 Jun 2016) | 1 line
+
+Added exception to handle invalid history number.
+------------------------------------------------------------------------
+r104 | gillgu19@UTORONTO.CA | 2016-06-19 01:07:13 -0400 (Sun, 19 Jun 2016) | 1 line
+
+Added comment to Man.java, reminder to throw an exception when user inputs a valid command name.
+------------------------------------------------------------------------
+r103 | gillgu19@UTORONTO.CA | 2016-06-19 01:04:46 -0400 (Sun, 19 Jun 2016) | 2 lines
+
+Added the CommandException class, still needs to be discussed with group
+
+------------------------------------------------------------------------
+r102 | gillgu19@UTORONTO.CA | 2016-06-19 01:03:40 -0400 (Sun, 19 Jun 2016) | 1 line
+
+Wrote the structure for the commands that can be implemented as soon as fileSystem is completed.
+------------------------------------------------------------------------
+r101 | gillgu19@UTORONTO.CA | 2016-06-19 00:52:57 -0400 (Sun, 19 Jun 2016) | 2 lines
+
+Edited some comments, thinking about where to raise exceptions
+
+------------------------------------------------------------------------
+r100 | gillgu19@UTORONTO.CA | 2016-06-19 00:20:59 -0400 (Sun, 19 Jun 2016) | 1 line
+
+Removed minor errors in the Man class (newlines at the end of some command messages)
+------------------------------------------------------------------------
+r99 | gillgu19@UTORONTO.CA | 2016-06-19 00:17:33 -0400 (Sun, 19 Jun 2016) | 1 line
+
+Modified the validCommand method in Interpreter.java by converting user inputted command names to lowercase, allowing more flexibility for the user when typing commands.
+------------------------------------------------------------------------
+r98 | gillgu19@UTORONTO.CA | 2016-06-18 23:56:48 -0400 (Sat, 18 Jun 2016) | 2 lines
+
+Worked on executeCommand for JShell, added comments to finish implementation as soon as fileSystem is completed.
+
+------------------------------------------------------------------------
+r97 | yeungj21@UTORONTO.CA | 2016-06-18 20:35:07 -0400 (Sat, 18 Jun 2016) | 1 line
+
+Finished List.java; Removed unnecessary line in ChangeDirectory.java
+------------------------------------------------------------------------
+r96 | yeungj21@UTORONTO.CA | 2016-06-18 18:07:03 -0400 (Sat, 18 Jun 2016) | 1 line
+
+Added my fourth daily scrum meeting
+------------------------------------------------------------------------
+r95 | yeungj21@UTORONTO.CA | 2016-06-18 18:03:32 -0400 (Sat, 18 Jun 2016) | 1 line
+
+Removed 3 unwanted xml files from respository
+------------------------------------------------------------------------
+r94 | yeungj21@UTORONTO.CA | 2016-06-18 18:01:45 -0400 (Sat, 18 Jun 2016) | 1 line
+
+Completed ChangeDirectory.java
+------------------------------------------------------------------------
+r93 | yeungj21@UTORONTO.CA | 2016-06-18 17:15:02 -0400 (Sat, 18 Jun 2016) | 1 line
+
+Completed basic code structure for MakeDirectory.java, Overloaded storeFile method in Directory to also accept directory type as a parameter
+------------------------------------------------------------------------
+r92 | chanja49@UTORONTO.CA | 2016-06-18 15:04:10 -0400 (Sat, 18 Jun 2016) | 1 line
+
+Added docstring to new methods
+------------------------------------------------------------------------
+r91 | yeungj21@UTORONTO.CA | 2016-06-18 14:40:12 -0400 (Sat, 18 Jun 2016) | 1 line
+
+Fixed a typo in Tree.java
+------------------------------------------------------------------------
+r90 | chanja49@UTORONTO.CA | 2016-06-18 13:21:54 -0400 (Sat, 18 Jun 2016) | 2 lines
+
+changed textfile class to have directory parent
+changed traversing the tree to return a file
+------------------------------------------------------------------------
+r89 | chanja49@UTORONTO.CA | 2016-06-18 13:19:41 -0400 (Sat, 18 Jun 2016) | 1 line
+
+changed directory and file classes to have directory parents
+------------------------------------------------------------------------
+r88 | yeungj21@UTORONTO.CA | 2016-06-18 13:11:25 -0400 (Sat, 18 Jun 2016) | 1 line
+
+Changed File.java's parent variable to be a directory
+------------------------------------------------------------------------
+r87 | chanja49@UTORONTO.CA | 2016-06-18 13:09:19 -0400 (Sat, 18 Jun 2016) | 1 line
+
+edited tree traversals
+------------------------------------------------------------------------
+r86 | chanja49@UTORONTO.CA | 2016-06-18 12:23:30 -0400 (Sat, 18 Jun 2016) | 1 line
+
+edited tree class with traverse method
+------------------------------------------------------------------------
+r85 | gillgu19@UTORONTO.CA | 2016-06-16 23:11:06 -0400 (Thu, 16 Jun 2016) | 1 line
+
+Added my daily scrum meeting
+------------------------------------------------------------------------
+r84 | chanja49@UTORONTO.CA | 2016-06-16 22:23:01 -0400 (Thu, 16 Jun 2016) | 1 line
+
+Added sprint2 daily scrum
+------------------------------------------------------------------------
+r83 | yeungj21@UTORONTO.CA | 2016-06-15 23:49:27 -0400 (Wed, 15 Jun 2016) | 1 line
+
+Added my third daily scrum meeting
+------------------------------------------------------------------------
+r82 | chanja49@UTORONTO.CA | 2016-06-15 22:16:33 -0400 (Wed, 15 Jun 2016) | 1 line
+
+fixed small bug
+------------------------------------------------------------------------
+r81 | chanja49@UTORONTO.CA | 2016-06-15 21:28:36 -0400 (Wed, 15 Jun 2016) | 1 line
+
+Fixed a bug where interpreter would separate strings in double quotes
+------------------------------------------------------------------------
+r80 | gillgu19@UTORONTO.CA | 2016-06-15 20:57:47 -0400 (Wed, 15 Jun 2016) | 1 line
+
+Removed unnecessary files in the Assignment folder, once again -.-
+------------------------------------------------------------------------
+r79 | xiezhang@UTORONTO.CA | 2016-06-15 18:25:05 -0400 (Wed, 15 Jun 2016) | 1 line
+
+updated all recent styling and java docs.
+------------------------------------------------------------------------
+r78 | yeungj21@UTORONTO.CA | 2016-06-15 17:46:13 -0400 (Wed, 15 Jun 2016) | 1 line
+
+Formatted Tree.java; Prepped traversePath for later completion
+------------------------------------------------------------------------
+r77 | gillgu19@UTORONTO.CA | 2016-06-15 17:32:55 -0400 (Wed, 15 Jun 2016) | 1 line
+
+Removed unnecessary . files
+------------------------------------------------------------------------
+r76 | gillgu19@UTORONTO.CA | 2016-06-15 17:25:45 -0400 (Wed, 15 Jun 2016) | 1 line
+
+Made some changes to JShell, formatted it too.
+------------------------------------------------------------------------
+r75 | chanja49@UTORONTO.CA | 2016-06-15 17:13:26 -0400 (Wed, 15 Jun 2016) | 1 line
+
+fixed a bug in history and interpreter
+------------------------------------------------------------------------
+r74 | gillgu19@UTORONTO.CA | 2016-06-15 16:59:14 -0400 (Wed, 15 Jun 2016) | 1 line
+
+Formatted man.java according to the Google Java Style.
+------------------------------------------------------------------------
+r73 | gillgu19@UTORONTO.CA | 2016-06-15 16:55:47 -0400 (Wed, 15 Jun 2016) | 1 line
+
+Completed all of the manual pages for each command.
+------------------------------------------------------------------------
+r72 | xiezhang@UTORONTO.CA | 2016-06-15 16:31:24 -0400 (Wed, 15 Jun 2016) | 1 line
+
+fixed getNumberOfChildren and getChildren for Node .java file
+------------------------------------------------------------------------
+r71 | gillgu19@UTORONTO.CA | 2016-06-15 16:27:50 -0400 (Wed, 15 Jun 2016) | 1 line
+
+Finished 7 commands for Man
+------------------------------------------------------------------------
+r70 | yeungj21@UTORONTO.CA | 2016-06-15 15:59:42 -0400 (Wed, 15 Jun 2016) | 1 line
+
+Changed storeFile in Directory to set parameter's parent to current directory
+------------------------------------------------------------------------
+r69 | yeungj21@UTORONTO.CA | 2016-06-15 14:55:10 -0400 (Wed, 15 Jun 2016) | 1 line
+
+Fixed error in printWD method of PrintWorkingDirectory.java; wrote java doc for second part of List.java
+------------------------------------------------------------------------
+r68 | xiezhang@UTORONTO.CA | 2016-06-15 14:47:34 -0400 (Wed, 15 Jun 2016) | 1 line
+
+formatted file, directory, directory stack, history, and j shell.
+------------------------------------------------------------------------
+r67 | yeungj21@UTORONTO.CA | 2016-06-15 14:44:38 -0400 (Wed, 15 Jun 2016) | 1 line
+
+Added and completed List.java; updated java docs for Directory.java, TextFile.java, File.java; added a getter method in Directory.java
+------------------------------------------------------------------------
+r66 | gillgu19@UTORONTO.CA | 2016-06-15 14:32:19 -0400 (Wed, 15 Jun 2016) | 1 line
+
+Updated JShell.java
+------------------------------------------------------------------------
+r65 | chanja49@UTORONTO.CA | 2016-06-15 14:21:10 -0400 (Wed, 15 Jun 2016) | 1 line
+
+Edited several crc cards
+------------------------------------------------------------------------
+r64 | yeungj21@UTORONTO.CA | 2016-06-15 14:16:28 -0400 (Wed, 15 Jun 2016) | 1 line
+
+Formatted PrintWorkingDirectory.java according to Google java style.
+------------------------------------------------------------------------
+r63 | yeungj21@UTORONTO.CA | 2016-06-15 14:15:02 -0400 (Wed, 15 Jun 2016) | 1 line
+
+"Changed constructor in File.java; Finished printWD method in PrintWorkingDirectory.java"
+------------------------------------------------------------------------
+r62 | chanja49@UTORONTO.CA | 2016-06-15 14:02:52 -0400 (Wed, 15 Jun 2016) | 1 line
+
+added DirectoryStack with pushd and popd methods. It still needs cd and pwd to work
+------------------------------------------------------------------------
+r61 | yeungj21@UTORONTO.CA | 2016-06-15 13:57:23 -0400 (Wed, 15 Jun 2016) | 1 line
+
+Added PrintWorkingDirectory.java
+------------------------------------------------------------------------
+r60 | gillgu19@UTORONTO.CA | 2016-06-15 13:30:05 -0400 (Wed, 15 Jun 2016) | 1 line
+
+Added the Man.txt crc card
+------------------------------------------------------------------------
+r59 | chanja49@UTORONTO.CA | 2016-06-15 13:29:00 -0400 (Wed, 15 Jun 2016) | 1 line
+
+added history and DirectoryStack crc cards
+------------------------------------------------------------------------
+r58 | chanja49@UTORONTO.CA | 2016-06-15 13:08:07 -0400 (Wed, 15 Jun 2016) | 1 line
+
+changed history class to use an ArrayList instead of using the TextFile class
+------------------------------------------------------------------------
+r57 | chanja49@UTORONTO.CA | 2016-06-15 12:56:56 -0400 (Wed, 15 Jun 2016) | 1 line
+
+edited interpreter class bug
+------------------------------------------------------------------------
+r56 | gillgu19@UTORONTO.CA | 2016-06-15 00:26:40 -0400 (Wed, 15 Jun 2016) | 1 line
+
+Removed an unnecessary import statement (might've forgotten to do it later, so I did it as soon as I noticed it)
+------------------------------------------------------------------------
+r55 | gillgu19@UTORONTO.CA | 2016-06-15 00:23:54 -0400 (Wed, 15 Jun 2016) | 1 line
+
+Fixed a bug for the validInput method that overlooked the verification of the command name.
+------------------------------------------------------------------------
+r54 | gillgu19@UTORONTO.CA | 2016-06-15 00:22:27 -0400 (Wed, 15 Jun 2016) | 1 line
+
+Worked on JShell and fixed a bug in the Interpreter class. JShell now has a cleaner design and its structure's been completely revamped.
+------------------------------------------------------------------------
+r53 | gillgu19@UTORONTO.CA | 2016-06-14 22:58:20 -0400 (Tue, 14 Jun 2016) | 1 line
+
+Removed my daily scrum meeting file, forgot the 3 day interval requirement
+------------------------------------------------------------------------
+r52 | gillgu19@UTORONTO.CA | 2016-06-14 22:45:12 -0400 (Tue, 14 Jun 2016) | 1 line
+
+Added my first daily scrum meeting file for Sprint 2
+------------------------------------------------------------------------
+r51 | gillgu19@UTORONTO.CA | 2016-06-13 23:13:04 -0400 (Mon, 13 Jun 2016) | 1 line
+
+Updated Sprint2Backlog, added letters beside each task.
+------------------------------------------------------------------------
+r50 | gillgu19@UTORONTO.CA | 2016-06-13 23:11:13 -0400 (Mon, 13 Jun 2016) | 1 line
+
+Added Sprint2Backlog, as discussed by all group team members over Skype
+------------------------------------------------------------------------
+r49 | chanja49@UTORONTO.CA | 2016-06-13 21:42:26 -0400 (Mon, 13 Jun 2016) | 1 line
+
+removed accidently uploaded .__ files
+------------------------------------------------------------------------
+r48 | xiezhang@UTORONTO.CA | 2016-06-13 21:21:07 -0400 (Mon, 13 Jun 2016) | 1 line
+
+added updated txt file for 2nd scrum meeting
+------------------------------------------------------------------------
+r47 | xiezhang@UTORONTO.CA | 2016-06-13 21:19:24 -0400 (Mon, 13 Jun 2016) | 1 line
+
+deleted incorrectly named daily scrum meeting txt file
+------------------------------------------------------------------------
+r46 | chanja49@UTORONTO.CA | 2016-06-13 21:13:39 -0400 (Mon, 13 Jun 2016) | 1 line
+
+Added my second daily scrum meeting
+------------------------------------------------------------------------
+r45 | chanja49@UTORONTO.CA | 2016-06-13 21:08:48 -0400 (Mon, 13 Jun 2016) | 1 line
+
+fixed up history methods so that it works with textfile class
+------------------------------------------------------------------------
+r44 | yeungj21@UTORONTO.CA | 2016-06-13 20:54:19 -0400 (Mon, 13 Jun 2016) | 1 line
+
+Added getter for FileContents in TextFile
+------------------------------------------------------------------------
+r43 | xiezhang@UTORONTO.CA | 2016-06-13 20:46:14 -0400 (Mon, 13 Jun 2016) | 1 line
+
+applied style to all the driver .java files.
+------------------------------------------------------------------------
+r42 | yeungj21@UTORONTO.CA | 2016-06-13 18:07:27 -0400 (Mon, 13 Jun 2016) | 1 line
+
+Added java docs for Directory and TextFile. Fixed minor documentation errors
+------------------------------------------------------------------------
+r41 | yeungj21@UTORONTO.CA | 2016-06-13 17:53:27 -0400 (Mon, 13 Jun 2016) | 1 line
+
+Made File.java to be in package driver
+------------------------------------------------------------------------
+r40 | yeungj21@UTORONTO.CA | 2016-06-13 17:42:47 -0400 (Mon, 13 Jun 2016) | 1 line
+
+Updated my second daily scrum meeting
+------------------------------------------------------------------------
+r39 | yeungj21@UTORONTO.CA | 2016-06-13 17:39:42 -0400 (Mon, 13 Jun 2016) | 1 line
+
+Changed Directory, File, TextFile, variables to be private; Added append method to TextFile; Added getterse and setters to File
+------------------------------------------------------------------------
+r38 | xiezhang@UTORONTO.CA | 2016-06-13 12:46:27 -0400 (Mon, 13 Jun 2016) | 1 line
+
+added 2nd daily scrum meeting txt file.
+------------------------------------------------------------------------
+r37 | xiezhang@UTORONTO.CA | 2016-06-13 12:39:55 -0400 (Mon, 13 Jun 2016) | 1 line
+
+added much needed driver.Node import to JShell
+------------------------------------------------------------------------
+r36 | xiezhang@UTORONTO.CA | 2016-06-13 12:29:47 -0400 (Mon, 13 Jun 2016) | 1 line
+
+major refactor: updated Tree.java and Node.java files to work as intended, added TODO statements to all classes for team members to see. fixed all runtime and compile errors.
+------------------------------------------------------------------------
+r35 | chanja49@UTORONTO.CA | 2016-06-13 12:24:50 -0400 (Mon, 13 Jun 2016) | 1 line
+
+"changed methods in interpreter to static"
+------------------------------------------------------------------------
+r34 | gillgu19@UTORONTO.CA | 2016-06-13 01:44:47 -0400 (Mon, 13 Jun 2016) | 1 line
+
+Added my second daily scrum meeting (Basically June 12th, but was working late and lost track of time >.>)
+------------------------------------------------------------------------
+r33 | gillgu19@UTORONTO.CA | 2016-06-13 01:22:04 -0400 (Mon, 13 Jun 2016) | 1 line
+
+Set up JShell to prompt user for input and terminate on exit command
+------------------------------------------------------------------------
+r32 | yeungj21@UTORONTO.CA | 2016-06-12 23:23:14 -0400 (Sun, 12 Jun 2016) | 1 line
+
+Added my second daily scrum meeting
+------------------------------------------------------------------------
+r31 | yeungj21@UTORONTO.CA | 2016-06-12 23:18:26 -0400 (Sun, 12 Jun 2016) | 1 line
+
+Updated File class and its subclasses with the parent variable
+------------------------------------------------------------------------
+r30 | chanja49@UTORONTO.CA | 2016-06-12 22:07:57 -0400 (Sun, 12 Jun 2016) | 1 line
+
+edited interpreter and added history class
+------------------------------------------------------------------------
+r29 | xiezhang@UTORONTO.CA | 2016-06-12 17:32:27 -0400 (Sun, 12 Jun 2016) | 1 line
+
+fixed typo
+------------------------------------------------------------------------
+r28 | xiezhang@UTORONTO.CA | 2016-06-12 17:06:17 -0400 (Sun, 12 Jun 2016) | 1 line
+
+added import statements to JShell to use other .java files
+------------------------------------------------------------------------
+r27 | xiezhang@UTORONTO.CA | 2016-06-12 16:55:14 -0400 (Sun, 12 Jun 2016) | 1 line
+
+fixed typo
+------------------------------------------------------------------------
+r26 | xiezhang@UTORONTO.CA | 2016-06-12 16:43:41 -0400 (Sun, 12 Jun 2016) | 1 line
+
+refactored and updated code in Tree Class so that is works properly.
+------------------------------------------------------------------------
+r25 | chanja49@UTORONTO.CA | 2016-06-12 16:26:53 -0400 (Sun, 12 Jun 2016) | 1 line
+
+Added interpreter.java
+------------------------------------------------------------------------
+r24 | xiezhang@UTORONTO.CA | 2016-06-12 16:19:45 -0400 (Sun, 12 Jun 2016) | 1 line
+
+removed the incorrect inheritance typo of tree extends node.
+------------------------------------------------------------------------
+r23 | xiezhang@UTORONTO.CA | 2016-06-12 16:17:59 -0400 (Sun, 12 Jun 2016) | 1 line
+
+completed the rest of the methods for Tree Class and added all updated Node code. should have a fully functioning tree for filesystem.
+------------------------------------------------------------------------
+r22 | xiezhang@UTORONTO.CA | 2016-06-12 15:12:28 -0400 (Sun, 12 Jun 2016) | 1 line
+
+created basic construct for filesystem's tree structure.
+------------------------------------------------------------------------
+r21 | chanja49@UTORONTO.CA | 2016-06-12 14:51:28 -0400 (Sun, 12 Jun 2016) | 1 line
+
+Updated honor code
+------------------------------------------------------------------------
+r20 | xiezhang@UTORONTO.CA | 2016-06-12 13:27:28 -0400 (Sun, 12 Jun 2016) | 1 line
+
+added info for Honor Code.
+------------------------------------------------------------------------
+r19 | xiezhang@UTORONTO.CA | 2016-06-11 22:52:02 -0400 (Sat, 11 Jun 2016) | 1 line
+
+added scrum meeting sprint 1 txt file
+------------------------------------------------------------------------
+r18 | yeungj21@UTORONTO.CA | 2016-06-11 18:17:45 -0400 (Sat, 11 Jun 2016) | 1 line
+
+Filled in honor code, Added Directory.java, File.java, and TextFile.java
+------------------------------------------------------------------------
+r17 | chanja49@UTORONTO.CA | 2016-06-10 14:55:54 -0400 (Fri, 10 Jun 2016) | 1 line
+
+Added my daily scrum meeting 1
+------------------------------------------------------------------------
+r16 | yeungj21@UTORONTO.CA | 2016-06-09 23:46:31 -0400 (Thu, 09 Jun 2016) | 1 line
+
+Updated my daily scrum meeting for June 9
+------------------------------------------------------------------------
+r15 | yeungj21@UTORONTO.CA | 2016-06-09 23:44:31 -0400 (Thu, 09 Jun 2016) | 1 line
+
+Updated my daily scrum meeting for June 9
+------------------------------------------------------------------------
+r14 | gillgu19@UTORONTO.CA | 2016-06-09 23:43:46 -0400 (Thu, 09 Jun 2016) | 1 line
+
+Added my daily scrum meeting file for June 9
+------------------------------------------------------------------------
+r13 | yeungj21@UTORONTO.CA | 2016-06-09 23:42:28 -0400 (Thu, 09 Jun 2016) | 1 line
+
+Fixed grammar mistake in my daily scrum meeting for June 9
+------------------------------------------------------------------------
+r12 | yeungj21@UTORONTO.CA | 2016-06-09 23:40:29 -0400 (Thu, 09 Jun 2016) | 1 line
+
+Added my daily scrum meeting for June 9
+------------------------------------------------------------------------
+r11 | chanja49@UTORONTO.CA | 2016-06-09 23:04:29 -0400 (Thu, 09 Jun 2016) | 1 line
+
+added sprint backlog 1
+------------------------------------------------------------------------
+r10 | chanja49@UTORONTO.CA | 2016-06-09 21:50:23 -0400 (Thu, 09 Jun 2016) | 1 line
+
+Removed unneeded crc cards
+------------------------------------------------------------------------
+r9 | chanja49@UTORONTO.CA | 2016-06-09 21:34:53 -0400 (Thu, 09 Jun 2016) | 1 line
+
+Added crc cards
+------------------------------------------------------------------------
+r8 | gillgu19@UTORONTO.CA | 2016-06-07 21:16:55 -0400 (Tue, 07 Jun 2016) | 1 line
+
+Gurpreet: Added the product backlog that was created via discussion with the group.
+------------------------------------------------------------------------
+r7 | attarwal@UTORONTO.CA | 2016-06-05 18:56:14 -0400 (Sun, 05 Jun 2016) | 1 line
+
+Starter code by instructor
+------------------------------------------------------------------------
+r6 | attarwal@UTORONTO.CA | 2016-06-05 18:56:13 -0400 (Sun, 05 Jun 2016) | 1 line
+
+Starter code by instructor
+------------------------------------------------------------------------
+r5 | attarwal@UTORONTO.CA | 2016-06-05 18:56:12 -0400 (Sun, 05 Jun 2016) | 1 line
+
+Starter code by instructor
+------------------------------------------------------------------------
+r4 | attarwal@UTORONTO.CA | 2016-06-05 18:56:12 -0400 (Sun, 05 Jun 2016) | 1 line
+
+Starter code by instructor
+------------------------------------------------------------------------
+r3 | attarwal@UTORONTO.CA | 2016-06-05 18:56:11 -0400 (Sun, 05 Jun 2016) | 1 line
+
+Starter code by instructor
+------------------------------------------------------------------------
+r2 | attarwal@UTORONTO.CA | 2016-06-05 18:56:10 -0400 (Sun, 05 Jun 2016) | 1 line
+
+Starter code by instructor
+------------------------------------------------------------------------
+r1 | markus | 2016-06-05 18:21:13 -0400 (Sun, 05 Jun 2016) | 1 line
+
+
+------------------------------------------------------------------------
+
+
+
+Part 3) +++Work Distribution of Team Members+++
++++ON ALL SOURCE FILES+++
+  22 attarwal@U
+2486 chanja49@U
+ 765 gillgu19@U
+ 261 xiezhang@U
+ 952 yeungj21@U
++++ON CRC CARDS+++
+   8 attarwal@U
+ 216 chanja49@U
+   9 gillgu19@U
+   1 xiezhang@U
++++ON DAILYSCRUMMEETINGS+++
+  33 attarwal@U
+ 120 chanja49@U
+ 117 gillgu19@U
+ 133 xiezhang@U
+ 127 yeungj21@U
++++ON PRODUCT BACKLOG +++
+  11 attarwal@U
+  21 gillgu19@U
++++ON SPRINTS+++
+  68 attarwal@U
+  73 chanja49@U
+ 117 gillgu19@U
+28906
+Part 4) SVN Commits
+
+
+On Sprints
+   1  attarwal@UTORONTO.CA 
+   3  chanja49@UTORONTO.CA 
+   5  gillgu19@UTORONTO.CA 
+
+
+On CRC Cards
+   1  attarwal@UTORONTO.CA 
+   6  chanja49@UTORONTO.CA 
+   2  gillgu19@UTORONTO.CA 
+   1  xiezhang@UTORONTO.CA 
+
+
+On DailyScrumMeetings
+   1  attarwal@UTORONTO.CA 
+  10  chanja49@UTORONTO.CA 
+  12  gillgu19@UTORONTO.CA 
+  11  xiezhang@UTORONTO.CA 
+  15  yeungj21@UTORONTO.CA 
+
+
+On ProductBacklog
+   1  attarwal@UTORONTO.CA 
+   2  gillgu19@UTORONTO.CA 
+
+
+On source
+   1  attarwal@UTORONTO.CA 
+  81  chanja49@UTORONTO.CA 
+ 152  gillgu19@UTORONTO.CA 
+  77  xiezhang@UTORONTO.CA 
+  62  yeungj21@UTORONTO.CA 

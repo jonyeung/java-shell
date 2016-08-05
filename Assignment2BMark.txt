@@ -1,0 +1,157 @@
+==== A2 phase I marking ====
+
+  Group number: group_0294
+  UTORID usernames of members: chanja49, gillgu19, xiezhang (C+ for not contributing enough), yeungj21
+  Total deductions: -3.26 [The instructor has decided not to include deductions in Java style, design and Javadoc]
+  Marked by: Brian Lam (brianandrew.lam@mail.utoronto.ca)
+  Grade: B+
+
+  Your team's Phase II grade is based on this scale:
+
+      http://www.artsandscience.utoronto.ca/ofr/calendar/rules.htm#grading
+
+  The way we graded is as follows: your team starts with an A+. When errors and
+  problems are found, you will lose 0, 1, 2, or 3 letter steps, depending on the
+  severity. As an example, if you lost two steps, your team would earn an A-:
+
+       A+ -> A
+       A -> A-
+
+  You were asked to follow the Scrum process. A big part of that is to maintain
+  a product backlog and a sprint backlog. 
+
+  ==== Product and Sprint backlogs ==== [up to -6]
+
+  Several steps can be lost for these kinds of issues:
+
+    No evidence of Product or Sprint backlog -6
+    No evidence of team assigning tasks to team members -3
+    SB items not taken directly from PB -1
+    SB items not broken down into smaller steps -1
+    PB, SB uses noticeably bad grammar and/or spelling -2
+
+  [TA Comments]
+  Nice and clear assignment of tasks.
+
+  ==== Java Style ==== [up to -6]
+
+  Steps can be lost for these kinds of issues:
+
+      Java naming conventions not followed (camelCase, no_underscores) -1
+      Instance variable names not meaningful (e.g., "Label1" is not a good name) -1
+      Bad indentation -1
+      Lack of consistency in style across files -1
+      Bad use of whitespace: too much or too little -1
+      Class names are frequently not noun phrases -1
+      Method names are frequently not verb phrases -1
+      Not following the 80character column width limit. -1
+
+  [TA Comments]
+  Good style.
+
+  ==== Design ==== [up to -6]
+
+  Several steps can be lost for these kinds of issues:
+
+      public instance variables instead of setters and getters -1 to -2
+      not a good breakdown of classes and methods (everything static; no ability
+          to, for example, make two shells that coexist; not extensible) -1
+      long methods exist (more than roughly 30 lines from brace to brace) -1
+      hard to add new commands -1
+      no unified path handling mechanism -2
+      redirection doesn't easily incorporate new commands -2
+
+  [TA Comments]
+  Good design. The design is flexible enough to easily add commands.
+
+  ==== Javadoc ==== [up to -3]
+
+  Several steps can be lost for these kinds of issues:
+
+      Missing Javadoc on methods -1 for infrequent problems, up to -3 for frequent
+      Missing Javadoc on class -1
+      No Javadoc on instance vars -1
+      Missing use @param and @return tags -1
+      Unclear English: bad grammar, bad spelling up to -2
+
+  [TA Comments]
+  Good documentation.
+
+  ==== Testing ==== [up to -6] 
+  Several steps can be lost for these kinds of issues:
+
+      No test cases exist for public methods -6
+      Some testing done for all classes and methods, but not thoroughly up to -3
+      Test quality is inadequate or tests uninformative -1 to -2
+          e.g., testing using lots of print statements instead of assert calls
+      Code not written to be testable -2
+
+  [TA Comments]
+  A little bit more boundary testing such as paths with ../.. would help. (-1)
+
+  ==== Correctness ==== [up to -6]
+
+      Code doesn't compile without modification (if the fix is simple) -1
+      Code that is complete (from the SB) doesn't work completely: up to -2
+      Code crashes: -3
+      Each missing/incomplete feature -1
+
+  [TA Comments]
+  The weighting of test cases are done in the following way:
+  70% for Assignment2B test cases
+  30% for Assignment2A test cases
+  There are 27 Assignment2B test cases, and 13 Assignment2A test cases. Every 0.08 deduction in failed test cases amounts to a one letter grade deduction.
+
+  Failed test cases ( (1 - (13/13*0.3) + (20/27*0.7))/ 0.08 = -2.26:
+  1) Echoing and appending a file (Assignment2B test case):
+     echo “Bye” >> file2.txt
+     cat file2.txt >> file2.txt
+     cat file2.txt
+     Expected: ByeBye
+     Actual: Cannot append to non-existing file.
+             Cannot append to non-existing file.
+             file2.txt is not a file.
+
+  2) Listing multiple files (Assignment2B test case): 
+     ls file.txt /new3/ . new -R
+     Expected: Print file.txt, an error for invalid directory, the current directory contents and the contents of new. Then -R should give an error (as stated in the handout)
+     Actual: File new3 does not exist.
+
+  3) Copying a file to another relative directory (Assignment2B test case):
+     cp github.txt ../..
+     echo “Replaced file” > github.txt
+     cat github.txt ../../github.txt
+     Expected: Replaced file
+               Hi
+     Actual: Replaced file
+             ../../github.txt is not a file.
+
+  4) Copying a file where there exists one already (Assignment2B test case):
+     cp github.txt ../..
+     Expected: Overwrites github.txt ../.. or asks if the user if it should be overwritten.
+     Actual: 
+
+  5) Moving a file to another relative directory (Assignment2B test case):
+     mv github.txt ..
+     ls .. .
+     Expected: Removes github.txt from the current directory, creates it in new.
+     Actual: 1 
+             file.txt
+
+  6) Renaming a file (Assignment2B test case)
+     mv ../github.txt ../git.txt
+     cat ../git.txt
+     Expected: contents of ../git.xt
+     Actual: ../git.txt is not a file.
+
+  7) Moving a directory recursively (Assignment2B test case)
+     mv 2 /
+     ls . /
+     Expected: Move the folder 2 into root directory.
+     Actual: Cannot get file at /
+
+  Comments:
+  Good work! It is evident that you have taken the feedback from the previous phase
+  to improve your work. A little bit more attention could be put into boundary cases
+  such as paths like ../..
+
